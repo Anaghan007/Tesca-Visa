@@ -159,9 +159,10 @@
             align-items: center;
             justify-content: center;
             padding: 2rem;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-attachment: fixed !important;
         }
         
         .banner-slide.active {
@@ -179,8 +180,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 120px 20px 100px;
+            padding: 140px 20px 60px; /* Increased top padding */
             min-height: 80vh;
+            margin-top: 60px; /* Added margin top for laptop view */
         }
 
         /* Banner overlay with transparency */
@@ -298,6 +300,7 @@
             width: 180px;
             height: auto;
             object-fit: contain;
+            filter: brightness(0) invert(1); /* Makes logo white */
         }
 
         /* Faculty card */
@@ -590,7 +593,7 @@
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
 
-        /* Country flags styling */
+        /* Country flags styling - FIXED */
         .country-flag {
             width: 60px;
             height: 40px;
@@ -663,14 +666,14 @@
             justify-content: center;
             text-align: center;
             height: 100%;
-            padding-top: 140px;
+            padding-top: 160px; /* Increased for laptop */
         }
 
         /* Laptop view adjustments */
         @media (min-width: 1024px) {
             .banner-content {
-                margin-top: 60px;
-                padding-top: 180px;
+                margin-top: 80px; /* Increased margin for laptop */
+                padding-top: 180px; /* Increased padding for laptop */
             }
         }
 
@@ -708,7 +711,7 @@
             border: 4px solid #050507;
         }
 
-        /* Trust badges */
+        /* Trust badges - CENTERED */
         .trust-badge {
             width: 110px;
             height: 110px;
@@ -719,6 +722,7 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            margin: 0 auto;
         }
         
         .trust-badge:hover {
@@ -886,6 +890,31 @@
             color: #3b82f6;
         }
 
+        /* Better flag display - FIXED */
+        .flag-img {
+            width: 24px !important;
+            height: 16px !important;
+            border-radius: 3px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Fix for flag display in container */
+        .visa-card .flag-img {
+            width: 32px !important;
+            height: 20px !important;
+            object-fit: cover;
+        }
+
+        /* Trust badges grid - CENTERED */
+        .trust-badges-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            justify-items: center;
+            align-items: center;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             /* MOBILE BODY STYLES */
@@ -949,73 +978,75 @@
                 margin: 0.3rem 0;
             }
             
-            /* MOBILE BANNER - FIXED OVERLAP & BETTER CENTERING */
+            /* MOBILE BANNER - 50% HEIGHT & BETTER CENTERING */
             .mobile-view .hero-section {
-                height: 90vh !important;
-                min-height: 90vh;
+                height: 50vh !important;
+                min-height: 50vh;
             }
             
             .mobile-view .banner-container {
-                min-height: 90vh;
+                min-height: 50vh;
             }
             
             .mobile-view .banner-slide {
-                min-height: 90vh;
+                min-height: 50vh;
+                background-attachment: scroll !important;
             }
             
             .mobile-view .banner-content {
-                padding: 80px 15px 40px !important;
+                padding: 60px 15px 30px !important;
                 justify-content: center !important;
                 margin-top: 0 !important;
-                min-height: 90vh;
+                min-height: 50vh;
                 width: 95%;
             }
             
             .mobile-view .banner-title {
-                font-size: 2rem !important;
+                font-size: 1.5rem !important;
                 line-height: 1.2;
-                margin-bottom: 1rem !important;
+                margin-bottom: 0.8rem !important;
                 margin-top: 0 !important;
                 padding: 0 5px;
                 font-weight: 800;
             }
             
             .mobile-view .banner-subtitle {
-                font-size: 1.1rem !important;
-                line-height: 1.5;
-                margin-bottom: 1.5rem !important;
+                font-size: 0.9rem !important;
+                line-height: 1.4;
+                margin-bottom: 1rem !important;
                 padding: 0 10px;
                 opacity: 0.9;
             }
             
             .mobile-view .banner-cta {
-                font-size: 0.9rem !important;
-                padding: 0.9rem 2rem !important;
+                font-size: 0.8rem !important;
+                padding: 0.7rem 1.5rem !important;
                 margin-top: 0.5rem;
                 border-radius: 3rem !important;
             }
             
-            /* MOBILE BANNER ARROWS */
+            /* MOBILE BANNER ARROWS - SMALLER */
             .mobile-view .banner-nav-arrow {
                 display: flex !important;
-                width: 45px !important;
-                height: 45px !important;
-                font-size: 1.2rem !important;
+                width: 35px !important;
+                height: 35px !important;
+                font-size: 1rem !important;
                 border-radius: 50% !important;
+                backdrop-filter: blur(10px);
             }
             
             .mobile-view .banner-nav-arrow.prev {
-                left: 15px !important;
+                left: 10px !important;
             }
             
             .mobile-view .banner-nav-arrow.next {
-                right: 15px !important;
+                right: 10px !important;
             }
             
             /* MOBILE FOOTER - 2x2 GRID */
             .mobile-view .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
+                gap: 1.5rem;
                 margin-bottom: 2rem;
             }
             
@@ -1049,9 +1080,9 @@
             }
             
             .mobile-view .filter-btn {
-                padding: 0.5rem 1rem !important;
-                font-size: 0.8rem !important;
-                margin: 0.2rem;
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.7rem !important;
+                margin: 0.1rem;
                 border-radius: 3rem !important;
             }
             
@@ -1098,7 +1129,7 @@
                 font-size: 1rem;
             }
             
-            /* MOBILE TRUST SECTION */
+            /* MOBILE TRUST SECTION - CENTERED BADGES */
             .mobile-view #trust {
                 padding: 3rem 1rem !important;
             }
@@ -1110,9 +1141,10 @@
             }
             
             .mobile-view .trust-badge {
-                width: 90px;
-                height: 90px;
-                border-radius: 1.5rem;
+                width: 80px;
+                height: 80px;
+                border-radius: 1.2rem;
+                margin: 0 auto;
             }
             
             /* MOBILE GUIDES SECTION */
@@ -1154,26 +1186,32 @@
             .mobile-view .cost-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* Trust badges grid for mobile */
+            .mobile-view .trust-badges-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
         }
         
         @media (max-width: 480px) {
             /* Extra small devices */
             .mobile-view .hero-section {
-                min-height: 85vh;
-                height: 85vh !important;
+                min-height: 50vh;
+                height: 50vh !important;
             }
             
             .mobile-view .banner-content {
-                padding-top: 70px !important;
-                padding-bottom: 30px !important;
+                padding-top: 50px !important;
+                padding-bottom: 20px !important;
             }
             
             .mobile-view .banner-title {
-                font-size: 1.8rem !important;
+                font-size: 1.3rem !important;
             }
             
             .mobile-view .banner-subtitle {
-                font-size: 1rem !important;
+                font-size: 0.85rem !important;
             }
             
             .mobile-view .footer-grid {
@@ -1182,14 +1220,25 @@
             }
             
             .mobile-view .banner-nav-arrow {
-                width: 40px !important;
-                height: 40px !important;
-                font-size: 1rem !important;
+                width: 30px !important;
+                height: 30px !important;
+                font-size: 0.9rem !important;
             }
             
             .mobile-view .filter-btn {
-                padding: 0.4rem 0.8rem !important;
-                font-size: 0.75rem !important;
+                padding: 0.3rem 0.6rem !important;
+                font-size: 0.65rem !important;
+            }
+            
+            /* Trust badges for very small screens */
+            .mobile-view .trust-badges-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mobile-view .trust-badge {
+                width: 70px;
+                height: 70px;
+                border-radius: 1rem;
             }
         }
 
@@ -1212,16 +1261,24 @@
             
             /* Banner content centered between header and bottom */
             .banner-content {
-                padding-top: 160px;
+                padding-top: 180px; /* Increased for better spacing */
                 padding-bottom: 80px;
                 justify-content: center;
-                margin-top: 40px;
+                margin-top: 60px; /* Added margin for header spacing */
             }
             
             /* DESKTOP FOOTER - 4 COLUMN GRID */
             .footer-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 2.5rem;
+            }
+            
+            /* Trust badges grid for desktop */
+            .trust-badges-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                justify-items: center;
+                align-items: center;
             }
         }
 
@@ -1240,12 +1297,20 @@
             .banner-nav-arrow.next {
                 right: 25px;
             }
+            
+            .trust-badges-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         /* Tablet view */
         @media (min-width: 769px) and (max-width: 1024px) {
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .trust-badges-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
         
@@ -1273,18 +1338,12 @@
             margin-bottom: 0.8rem !important;
         }
         
-        /* Better flag display */
-        .flag-img {
-            width: 24px !important;
-            height: 16px !important;
-            border-radius: 3px;
-            object-fit: cover;
-        }
-        
-        /* Fix for flag display in container */
-        .visa-card .flag-img {
-            width: 32px !important;
-            height: 20px !important;
+        /* Loader logo */
+        .loader-logo {
+            width: 180px;
+            height: auto;
+            filter: brightness(0) invert(1);
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -1294,12 +1353,13 @@
     <div class="glow-orb bg-brand-primary w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
     <div class="glow-orb bg-brand-accent w-[600px] h-[600px] bottom-[-100px] right-[-100px]"></div>
 
-    <!-- Loader - REDUCED SPACE -->
+    <!-- Loader - WITH LOGO -->
     <div id="loader" class="fixed inset-0 bg-black z-[9999] flex flex-col items-center justify-center transition-opacity duration-700">
-        <div class="mb-4 loader-pulse"> <!-- Reduced margin from mb-8 to mb-4 -->
+        <div class="mb-4 loader-pulse">
             <div class="w-48 h-48 flex items-center justify-center">
                 <div class="w-full h-full flex items-center justify-center">
-                    <div class="text-5xl font-bold gradient-text">TESCA</div>
+                    <!-- Logo in loader -->
+                    <img src="https://via.placeholder.com/180x60/3b82f6/ffffff?text=TESCA+LOGO" alt="TESCA Global Logo" class="loader-logo">
                 </div>
             </div>
         </div>
@@ -1307,10 +1367,10 @@
         <div class="w-48 h-[2px] bg-gray-800 rounded-full overflow-hidden">
             <div id="loader-bar" class="h-full bg-gradient-to-r from-brand-primary to-brand-accent w-0 transition-all duration-300"></div>
         </div>
-        <div class="mt-3 text-xs text-gray-500 font-mono tracking-widest">GLOBAL VISA CONSULTANCY</div> <!-- Reduced margin from mt-4 to mt-3 -->
+        <div class="mt-3 text-xs text-gray-500 font-mono tracking-widest">GLOBAL VISA CONSULTANCY</div>
     </div>
 
-    <!-- Header - FULLY TRANSPARENT -->
+    <!-- Header - WITH LOGO -->
     <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300">
         <div class="header-inner">
             <div class="container mx-auto px-4 py-1 flex justify-between items-center">
@@ -1391,10 +1451,9 @@
                 <p class="text-gray-400 text-lg mb-8">Select a country to explore visa options, requirements, processing fees, and success rates for 2025-2026.</p>
             </div>
             
-            <!-- Country Filter Buttons - ALL 13 COUNTRIES -->
+            <!-- Country Filter Buttons - UK ONLY (Removed All Countries) -->
             <div class="flex flex-wrap gap-3 justify-center mb-10 animate-fade-in" style="animation-delay: 0.2s">
-                <button onclick="filterVisas('all')" class="filter-btn active px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition">All Countries</button>
-                <button onclick="filterVisas('uk')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                <button onclick="filterVisas('uk')" class="filter-btn active px-5 py-2.5 rounded-full border border-white/10 bg-gradient-to-r from-brand-primary to-brand-secondary text-sm font-bold transition flex items-center gap-2">
                     <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-4 rounded flag-img" alt="UK Flag">
                     UK
                 </button>
@@ -1863,8 +1922,8 @@
                 </div>
             </div>
 
-            <!-- Trust Badges -->
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
+            <!-- Trust Badges - CENTERED GRID -->
+            <div class="trust-badges-grid">
                 <div class="trust-badge">
                     <div class="text-center">
                         <div class="text-xl font-bold text-blue-500">UKVI</div>
@@ -1905,7 +1964,7 @@
         </div>
     </section>
 
-    <!-- Professional Footer -->
+    <!-- Professional Footer - WITH LOGO -->
     <footer id="contact" class="bg-brand-surface border-t border-white/5 py-10">
         <div class="container mx-auto px-4">
             <div class="footer-grid mb-10">
@@ -1913,6 +1972,7 @@
                 <div class="footer-logo-section">
                     <a href="#home" class="flex items-center mb-3">
                         <div class="w-48 h-16 flex items-center justify-center">
+                            <!-- Logo in footer -->
                             <img src="https://via.placeholder.com/180x60/3b82f6/ffffff?text=TESCA+LOGO" alt="TESCA Global Logo" class="logo-img">
                         </div>
                     </a>
@@ -2017,7 +2077,7 @@
     </footer>
 
     <script>
-        // --- 1. BANNERS ARRAY WITH 13 COUNTRIES ---
+        // --- 1. BANNERS ARRAY WITH IMPROVED BACKGROUND IMAGES ---
         const banners = [
             {
                 country: 'uk',
@@ -2029,7 +2089,7 @@
                 color: 'from-brand-uk to-blue-700',
                 flag: 'https://flagcdn.com/w320/gb.png',
                 deadline: 'Apply Before Jan 2026',
-                bgImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // London Eye
             },
             {
                 country: 'usa',
@@ -2041,7 +2101,7 @@
                 color: 'from-brand-usa to-red-600',
                 flag: 'https://flagcdn.com/w320/us.png',
                 deadline: 'File Before Sep 2025',
-                bgImage: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // New York City
             },
             {
                 country: 'germany',
@@ -2053,7 +2113,7 @@
                 color: 'from-brand-germany to-yellow-600',
                 flag: 'https://flagcdn.com/w320/de.png',
                 deadline: 'Applications Open Now',
-                bgImage: 'https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1580654843061-8c90a86b9468?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Berlin
             },
             {
                 country: 'ireland',
@@ -2065,7 +2125,7 @@
                 color: 'from-brand-ireland to-green-500',
                 flag: 'https://flagcdn.com/w320/ie.png',
                 deadline: 'Limited 2025 Slots',
-                bgImage: 'https://images.unsplash.com/photo-1549902529-a515e31daf41?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1545398861-7c5b720d3ff0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Dublin
             },
             {
                 country: 'france',
@@ -2077,7 +2137,7 @@
                 color: 'from-brand-france to-blue-800',
                 flag: 'https://flagcdn.com/w320/fr.png',
                 deadline: '2026 Intake Open',
-                bgImage: 'https://images.unsplash.com/photo-1502602898555-4a0be1c0675b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1502602898555-4a0be1c0675b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Paris
             },
             {
                 country: 'italy',
@@ -2089,7 +2149,7 @@
                 color: 'from-brand-italy to-green-600',
                 flag: 'https://flagcdn.com/w320/it.png',
                 deadline: 'Apply Before Dec 2025',
-                bgImage: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Rome
             },
             {
                 country: 'netherlands',
@@ -2101,7 +2161,7 @@
                 color: 'from-brand-netherlands to-red-700',
                 flag: 'https://flagcdn.com/w320/nl.png',
                 deadline: 'Limited 2025 Positions',
-                bgImage: 'https://images.unsplash.com/photo-1512476446317-8e8c7e3d0e8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Amsterdam
             },
             {
                 country: 'sweden',
@@ -2113,7 +2173,7 @@
                 color: 'from-brand-sweden to-yellow-500',
                 flag: 'https://flagcdn.com/w320/se.png',
                 deadline: 'Tech Jobs Available',
-                bgImage: 'https://images.unsplash.com/photo-1528255671579-01b9e182ed1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1592587151229-2a5c3d1c7b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Stockholm
             },
             {
                 country: 'spain',
@@ -2125,7 +2185,7 @@
                 color: 'from-brand-spain to-red-800',
                 flag: 'https://flagcdn.com/w320/es.png',
                 deadline: '2026 Quotas Filling Fast',
-                bgImage: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Barcelona
             },
             {
                 country: 'finland',
@@ -2137,7 +2197,7 @@
                 color: 'from-brand-finland to-blue-900',
                 flag: 'https://flagcdn.com/w320/fi.png',
                 deadline: '2026 Cohort Applications',
-                bgImage: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Helsinki
             },
             {
                 country: 'canada',
@@ -2149,7 +2209,7 @@
                 color: 'from-brand-canada to-red-500',
                 flag: 'https://flagcdn.com/w320/ca.png',
                 deadline: 'Limited 2025 Quotas',
-                bgImage: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Toronto
             },
             {
                 country: 'australia',
@@ -2161,7 +2221,7 @@
                 color: 'from-brand-australia to-red-400',
                 flag: 'https://flagcdn.com/w320/au.png',
                 deadline: '2026 Intake Open',
-                bgImage: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Sydney
             },
             {
                 country: 'newzealand',
@@ -2173,7 +2233,7 @@
                 color: 'from-brand-nz to-red-300',
                 flag: 'https://flagcdn.com/w320/nz.png',
                 deadline: 'Apply Before Jan 2026',
-                bgImage: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                bgImage: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // New Zealand
             }
         ];
 
@@ -2616,7 +2676,7 @@
                 desc: 'For temporary foreign workers with job offer from Canadian employer.',
                 requirements: ['Job offer from Canadian employer', 'LMIA (if required)', 'Qualifications', 'Medical exam', 'Clean record'],
                 documents: ['Job offer letter', 'LMIA (if applicable)', 'Qualifications proof', 'Medical exam', 'Police certificate', 'Passport'],
-                livingCost: '$1,200 - $2,500/month depending on city',
+                livingCost: '$1,200 - $2,500/month depending on location',
                 totalCost: '$2,500 - $7,000 (including LMIA and processing)',
                 changes: 'Simplified LMIA process for certain occupations, higher wages required, digital application'
             },
@@ -2760,7 +2820,7 @@
         function initWebsite() {
             renderBanners();
             startBannerRotation();
-            filterVisas('all');
+            filterVisas('uk'); // Set UK as default instead of 'all'
             setupEventListeners();
             
             // Add scroll listener for header
@@ -2784,7 +2844,10 @@
                 const slide = document.createElement('div');
                 slide.className = `banner-slide ${index === 0 ? 'active' : ''}`;
                 slide.id = `banner-${index}`;
-                slide.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${banner.bgImage}')`;
+                slide.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${banner.bgImage}')`;
+                slide.style.backgroundSize = 'cover';
+                slide.style.backgroundPosition = 'center';
+                slide.style.backgroundRepeat = 'no-repeat';
                 
                 // Mobile vs Desktop styling
                 const titleSize = isMobile ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl lg:text-5xl';
@@ -2897,20 +2960,27 @@
             // Update filter buttons
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
-                if (country === 'all' && btn.textContent.includes('All Countries')) btn.classList.add('active');
-                if (country === 'uk' && btn.textContent.includes('UK')) btn.classList.add('active');
-                if (country === 'usa' && btn.textContent.includes('USA')) btn.classList.add('active');
-                if (country === 'germany' && btn.textContent.includes('Germany')) btn.classList.add('active');
-                if (country === 'ireland' && btn.textContent.includes('Ireland')) btn.classList.add('active');
-                if (country === 'france' && btn.textContent.includes('France')) btn.classList.add('active');
-                if (country === 'italy' && btn.textContent.includes('Italy')) btn.classList.add('active');
-                if (country === 'netherlands' && btn.textContent.includes('Netherlands')) btn.classList.add('active');
-                if (country === 'sweden' && btn.textContent.includes('Sweden')) btn.classList.add('active');
-                if (country === 'spain' && btn.textContent.includes('Spain')) btn.classList.add('active');
-                if (country === 'finland' && btn.textContent.includes('Finland')) btn.classList.add('active');
-                if (country === 'canada' && btn.textContent.includes('Canada')) btn.classList.add('active');
-                if (country === 'australia' && btn.textContent.includes('Australia')) btn.classList.add('active');
-                if (country === 'newzealand' && btn.textContent.includes('New Zealand')) btn.classList.add('active');
+                btn.style.background = '';
+                btn.style.borderColor = '';
+                
+                if (btn.textContent.includes(country.toUpperCase()) || 
+                    (country === 'uk' && btn.textContent.includes('UK')) ||
+                    (country === 'usa' && btn.textContent.includes('USA')) ||
+                    (country === 'germany' && btn.textContent.includes('Germany')) ||
+                    (country === 'ireland' && btn.textContent.includes('Ireland')) ||
+                    (country === 'france' && btn.textContent.includes('France')) ||
+                    (country === 'italy' && btn.textContent.includes('Italy')) ||
+                    (country === 'netherlands' && btn.textContent.includes('Netherlands')) ||
+                    (country === 'sweden' && btn.textContent.includes('Sweden')) ||
+                    (country === 'spain' && btn.textContent.includes('Spain')) ||
+                    (country === 'finland' && btn.textContent.includes('Finland')) ||
+                    (country === 'canada' && btn.textContent.includes('Canada')) ||
+                    (country === 'australia' && btn.textContent.includes('Australia')) ||
+                    (country === 'newzealand' && (btn.textContent.includes('New Zealand') || btn.textContent.includes('NZ')))) {
+                    btn.classList.add('active');
+                    btn.style.background = 'linear-gradient(90deg, #3b82f6, #8b5cf6)';
+                    btn.style.borderColor = 'transparent';
+                }
             });
 
             const filtered = country === 'all' ? visas : visas.filter(v => v.country === country);
@@ -2938,7 +3008,7 @@
                     <div class="visa-content">
                         <div class="flex justify-between items-start mb-4">
                             <div class="flex items-center gap-3">
-                                <img src="${countryFlag}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img">
+                                <img src="${countryFlag}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img" style="object-fit: cover;">
                                 <div>
                                     <span class="font-bold text-sm">${countryName}</span>
                                     <div class="text-xs text-gray-400 mt-1">${v.type.charAt(0).toUpperCase() + v.type.slice(1)} Visa</div>
@@ -3008,7 +3078,7 @@
             
             contentDiv.innerHTML = `
                 <div class="detail-header">
-                    <img src="${countryFlag}" alt="${countryName} Flag" class="detail-flag">
+                    <img src="${countryFlag}" alt="${countryName} Flag" class="detail-flag" style="object-fit: cover;">
                     <h2 class="text-2xl md:text-3xl font-bold mb-2">${visa.title}</h2>
                     <div class="flex items-center justify-center gap-4">
                         <span class="bg-green-500/20 text-green-400 text-sm font-bold px-3 py-1 rounded-full">${visa.successRate} Success Rate</span>
@@ -3220,7 +3290,7 @@
                 const activeFilter = document.querySelector('.filter-btn.active');
                 if (activeFilter) {
                     const filterText = activeFilter.textContent.toLowerCase();
-                    let filterType = 'all';
+                    let filterType = 'uk'; // Default to UK
                     if (filterText.includes('uk')) filterType = 'uk';
                     if (filterText.includes('usa') || filterText.includes('us')) filterType = 'usa';
                     if (filterText.includes('germany')) filterType = 'germany';
