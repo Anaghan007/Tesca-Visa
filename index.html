@@ -36,7 +36,14 @@
                             eu: '#003399',         /* EU Blue */
                             canada: '#FF0000',     /* Canada Red */
                             australia: '#00008B',  /* Australia Blue */
-                            nz: '#00247D'          /* New Zealand Blue */
+                            nz: '#00247D',         /* New Zealand Blue */
+                            ireland: '#169B62',    /* Ireland Green */
+                            france: '#002395',     /* France Blue */
+                            italy: '#009246',      /* Italy Green */
+                            netherlands: '#21468B', /* Netherlands Blue */
+                            sweden: '#006AA7',     /* Sweden Blue */
+                            spain: '#AA151B',      /* Spain Red */
+                            finland: '#002F6C'     /* Finland Blue */
                         }
                     },
                     animation: {
@@ -152,6 +159,9 @@
             align-items: center;
             justify-content: center;
             padding: 2rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
         .banner-slide.active {
@@ -173,7 +183,7 @@
             min-height: 80vh;
         }
 
-        /* Banner overlay with country-specific gradients */
+        /* Banner overlay with transparency */
         .banner-overlay {
             position: absolute;
             top: 0;
@@ -215,15 +225,15 @@
             opacity: 0.15;
         }
 
-        /* Header styling - FULLY ROUNDED */
+        /* Header styling - FULLY TRANSPARENT */
         #main-header {
             transition: all 0.3s ease;
-            background: rgba(5, 5, 7, 0.9) !important;
-            backdrop-filter: blur(20px) !important;
+            background: transparent !important;
+            backdrop-filter: none !important;
             height: 90px;
         }
         
-        #main-header .glass {
+        #main-header .header-inner {
             border-radius: 3rem !important;
             margin: 1.5rem auto;
             max-width: 90%;
@@ -235,8 +245,8 @@
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
         
-        #main-header.scrolled .glass {
-            background: rgba(5, 5, 7, 0.95) !important;
+        #main-header.scrolled .header-inner {
+            background: rgba(5, 5, 7, 0.9) !important;
             backdrop-filter: blur(30px) !important;
             border-color: rgba(59, 130, 246, 0.3) !important;
             margin: 0.5rem auto;
@@ -285,20 +295,97 @@
 
         /* Logo styling */
         .logo-img {
-            width: auto;
+            width: 180px;
             height: auto;
-            max-width: 100%;
-            max-height: 100%;
             object-fit: contain;
         }
 
-        /* Loader spacing fix */
-        #loader .text-5xl {
-            margin-bottom: 10px !important;
+        /* Faculty card */
+        .faculty-card {
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 2rem;
+            overflow: hidden;
         }
         
-        #loader .text-xs {
-            margin-top: 5px !important;
+        .faculty-card .faculty-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem;
+        }
+        
+        /* Improved spacing for faculty photo */
+        .faculty-photo-container {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        .faculty-initial-circle {
+            width: 120px !important;
+            height: 120px !important;
+            margin: 0 auto 1.5rem auto !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        }
+        
+        .faculty-name {
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .faculty-designation {
+            margin-bottom: 1.5rem !important;
+            font-size: 1.2rem !important;
+            font-weight: 600 !important;
+        }
+        
+        .faculty-card .faculty-description {
+            flex: 1;
+            font-size: 1.05rem !important;
+            line-height: 1.8 !important;
+            margin-bottom: 2rem;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        /* Call button in header */
+        .call-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 3rem !important;
+            padding: 12px 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2);
+        }
+        
+        .call-btn:hover {
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .call-btn i {
+            font-size: 20px;
+            color: #10b981 !important;
         }
 
         /* Smooth scroll behavior */
@@ -350,25 +437,24 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 2rem;
             margin: 1rem;
-            background: rgba(5, 5, 7, 0.98) !important;
-            backdrop-filter: blur(30px) !important;
+            font-size: 1.2rem;
+            font-weight: 500;
         }
-        
+
         .mobile-menu-link {
-            font-size: 1.2rem !important;
-            font-weight: 500 !important;
-            padding: 0.8rem 2rem !important;
-            text-align: center;
-            transition: all 0.3s ease;
+            padding: 1rem 2rem;
             border-radius: 1.5rem;
-            margin: 0.3rem 0;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 0.5rem 0;
             width: 80%;
             max-width: 300px;
+            text-align: center;
         }
         
         .mobile-menu-link:hover {
-            background: rgba(59, 130, 246, 0.1);
-            transform: translateY(-2px);
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-3px);
         }
 
         /* Banner title styles */
@@ -408,7 +494,6 @@
             color: white;
             border: none;
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-            text-decoration: none;
         }
 
         .banner-cta:hover {
@@ -464,18 +549,15 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
         
-        /* Visa buttons container - FIXED POSITIONING */
+        /* Visa buttons container */
         .visa-buttons {
             margin-top: auto;
-            padding-top: 1rem;
-            display: flex;
-            align-items: flex-end;
-            min-height: 70px;
         }
         
-        /* UNIFIED BUTTON STYLES */
-        .btn-primary, .consult-btn, .view-requirements-btn, .call-btn, .filter-btn.active, .banner-cta {
-            display: inline-flex;
+        .view-requirements-btn {
+            width: 100%;
+            min-height: 48px;
+            display: flex;
             align-items: center;
             justify-content: center;
             white-space: nowrap;
@@ -486,54 +568,19 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
             text-decoration: none;
             text-align: center;
-            min-height: 48px;
-            padding: 0.8rem 1.8rem;
-            font-size: 0.95rem;
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
         }
         
-        .btn-primary:hover, .consult-btn:hover, .view-requirements-btn:hover, .call-btn:hover, .banner-cta:hover {
+        .view-requirements-btn:hover {
             background: linear-gradient(90deg, #2563eb, #7c3aed);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-        }
-        
-        /* Filter buttons */
-        .filter-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-            border-radius: 3rem !important;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.05);
-            color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            min-height: 44px;
-            padding: 0.6rem 1.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .filter-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        .filter-btn.active {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            border-color: transparent;
-            color: white;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
         }
 
-        /* Loader */
+        /* Loader - REDUCED SPACE */
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
@@ -582,6 +629,32 @@
             flex-shrink: 0;
         }
         
+        .visa-promo-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 0.5rem;
+        }
+        
+        .visa-promo-tag {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            font-weight: 600;
+        }
+        
+        /* Filter Button Active State */
+        .filter-btn.active {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            transform: scale(1.05);
+        }
+
         /* Banner content centering fix */
         .banner-content {
             display: flex;
@@ -591,6 +664,14 @@
             text-align: center;
             height: 100%;
             padding-top: 140px;
+        }
+
+        /* Laptop view adjustments */
+        @media (min-width: 1024px) {
+            .banner-content {
+                margin-top: 60px;
+                padding-top: 180px;
+            }
         }
 
         /* Roadmap Section Styles */
@@ -695,60 +776,28 @@
             gap: 1rem;
         }
 
-        /* Better spacing for text elements */
-        h1, h2, h3, h4, h5, h6 {
-            line-height: 1.2 !important;
-            margin-bottom: 1rem !important;
+        /* Animated border */
+        .animated-border {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
         }
         
-        p {
-            line-height: 1.6 !important;
-            margin-bottom: 1rem !important;
-        }
-        
-        .section-title {
-            margin-bottom: 3rem !important;
-        }
-        
-        /* Improve visa card spacing */
-        .visa-card .p-8 {
-            padding: 1.5rem !important;
-        }
-        
-        .visa-card h3 {
-            margin-bottom: 0.8rem !important;
-        }
-        
-        /* Better flag display */
-        .flag-img {
-            width: 24px !important;
-            height: 16px !important;
-            border-radius: 3px;
-            object-fit: cover;
-        }
-        
-        /* Banner background image */
-        .banner-bg-image {
+        .animated-border::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.5;
-            z-index: 0;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4, #3b82f6);
+            background-size: 400% 400%;
+            border-radius: 2rem;
+            z-index: -1;
+            animation: gradientFlow 3s ease infinite;
         }
-        
-        /* Laptop view banner centering */
-        @media (min-width: 1024px) {
-            .banner-content {
-                padding-top: 180px !important;
-                padding-bottom: 120px !important;
-            }
-        }
-        
-        /* Visa detail page styling */
+
+        /* Visa Detail Page Styles */
         .visa-detail-page {
             display: none;
             position: fixed;
@@ -756,50 +805,85 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #050507;
+            background: rgba(5, 5, 7, 0.98);
             z-index: 1000;
             overflow-y: auto;
-            padding: 20px;
+            backdrop-filter: blur(20px);
         }
         
-        .visa-detail-page.active {
-            display: block;
+        .visa-detail-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: linear-gradient(145deg, rgba(15, 16, 22, 0.95) 0%, rgba(24, 25, 38, 0.95) 100%);
+            border-radius: 2rem;
+            padding: 2rem;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .close-detail-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
+        .close-detail {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
             background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 50px;
-            height: 50px;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
         
-        .close-detail-btn:hover {
+        .close-detail:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: rotate(90deg);
         }
         
-        /* Action buttons in detail page */
-        .detail-action-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+        .detail-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .detail-action-buttons .btn-primary {
-            flex: 1;
-            min-width: 180px;
+        .detail-flag {
+            width: 80px;
+            height: 50px;
+            border-radius: 10px;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .cost-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cost-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+        }
+        
+        .cost-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #3b82f6;
         }
 
         /* Responsive Design */
@@ -816,8 +900,8 @@
                 padding-bottom: 3rem !important;
             }
             
-            /* MOBILE HEADER - FULLY ROUNDED */
-            #main-header .glass {
+            /* MOBILE HEADER - FULLY TRANSPARENT */
+            #main-header .header-inner {
                 margin: 0.8rem auto;
                 padding: 0.8rem 1.5rem;
                 max-width: 95%;
@@ -825,8 +909,8 @@
             }
             
             #main-header .logo-img {
-                max-width: 120px;
-                max-height: 40px;
+                width: 140px;
+                height: auto;
             }
             
             .call-btn {
@@ -849,26 +933,41 @@
                 display: block;
             }
             
-            /* MOBILE BANNER - FIXED OVERLAP AND IMPROVED */
+            /* MOBILE MENU IMPROVEMENTS - BETTER TEXT SIZE */
+            #mobile-menu {
+                font-size: 1.1rem;
+                background: rgba(5, 5, 7, 0.98);
+                backdrop-filter: blur(25px);
+                border-radius: 2rem;
+                margin: 1rem;
+                font-weight: 500;
+            }
+            
+            .mobile-menu-link {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                margin: 0.3rem 0;
+            }
+            
+            /* MOBILE BANNER - FIXED OVERLAP & BETTER CENTERING */
             .mobile-view .hero-section {
-                height: 85vh !important;
-                min-height: 85vh;
-                padding-bottom: 0 !important;
+                height: 90vh !important;
+                min-height: 90vh;
             }
             
             .mobile-view .banner-container {
-                min-height: 85vh;
+                min-height: 90vh;
             }
             
             .mobile-view .banner-slide {
-                min-height: 85vh;
+                min-height: 90vh;
             }
             
             .mobile-view .banner-content {
-                padding: 80px 20px 40px !important;
+                padding: 80px 15px 40px !important;
                 justify-content: center !important;
                 margin-top: 0 !important;
-                min-height: 85vh;
+                min-height: 90vh;
                 width: 95%;
             }
             
@@ -877,7 +976,7 @@
                 line-height: 1.2;
                 margin-bottom: 1rem !important;
                 margin-top: 0 !important;
-                padding: 0 10px;
+                padding: 0 5px;
                 font-weight: 800;
             }
             
@@ -885,12 +984,12 @@
                 font-size: 1.1rem !important;
                 line-height: 1.5;
                 margin-bottom: 1.5rem !important;
-                padding: 0 15px;
+                padding: 0 10px;
                 opacity: 0.9;
             }
             
             .mobile-view .banner-cta {
-                font-size: 0.95rem !important;
+                font-size: 0.9rem !important;
                 padding: 0.9rem 2rem !important;
                 margin-top: 0.5rem;
                 border-radius: 3rem !important;
@@ -926,8 +1025,8 @@
             }
             
             .mobile-view .footer-logo-section .logo-img {
-                width: 120px;
-                height: 40px;
+                width: 150px;
+                height: auto;
             }
             
             /* MOBILE VISA SECTION */
@@ -954,7 +1053,6 @@
                 font-size: 0.8rem !important;
                 margin: 0.2rem;
                 border-radius: 3rem !important;
-                min-height: 36px;
             }
             
             .mobile-view .visa-card {
@@ -974,7 +1072,6 @@
                 padding: 0.8rem !important;
                 border-radius: 3rem !important;
                 font-size: 0.9rem;
-                min-height: 44px;
             }
             
             /* MOBILE ROADMAP SECTION */
@@ -1048,21 +1145,22 @@
                 font-size: 2rem !important;
             }
             
-            /* Mobile detail buttons */
-            .mobile-view .detail-action-buttons {
-                flex-direction: column;
+            /* Visa Detail Page Mobile */
+            .mobile-view .visa-detail-content {
+                margin: 1rem;
+                padding: 1.5rem;
             }
             
-            .mobile-view .detail-action-buttons .btn-primary {
-                width: 100%;
+            .mobile-view .cost-grid {
+                grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 480px) {
             /* Extra small devices */
             .mobile-view .hero-section {
-                min-height: 80vh;
-                height: 80vh !important;
+                min-height: 85vh;
+                height: 85vh !important;
             }
             
             .mobile-view .banner-content {
@@ -1092,13 +1190,12 @@
             .mobile-view .filter-btn {
                 padding: 0.4rem 0.8rem !important;
                 font-size: 0.75rem !important;
-                min-height: 34px;
             }
         }
 
         /* DESKTOP/PC/LAPTOP VIEW */
         @media (min-width: 769px) {
-            /* DESKTOP HEADER - FULLY ROUNDED */
+            /* DESKTOP HEADER - FULLY TRANSPARENT */
             #main-header nav {
                 display: flex;
             }
@@ -1116,8 +1213,9 @@
             /* Banner content centered between header and bottom */
             .banner-content {
                 padding-top: 160px;
-                padding-bottom: 100px;
+                padding-bottom: 80px;
                 justify-content: center;
+                margin-top: 40px;
             }
             
             /* DESKTOP FOOTER - 4 COLUMN GRID */
@@ -1150,6 +1248,44 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        
+        /* Better spacing for text elements */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2 !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        p {
+            line-height: 1.6 !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .section-title {
+            margin-bottom: 3rem !important;
+        }
+        
+        /* Improve visa card spacing */
+        .visa-card .p-8 {
+            padding: 1.5rem !important;
+        }
+        
+        .visa-card h3 {
+            margin-bottom: 0.8rem !important;
+        }
+        
+        /* Better flag display */
+        .flag-img {
+            width: 24px !important;
+            height: 16px !important;
+            border-radius: 3px;
+            object-fit: cover;
+        }
+        
+        /* Fix for flag display in container */
+        .visa-card .flag-img {
+            width: 32px !important;
+            height: 20px !important;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -1158,13 +1294,12 @@
     <div class="glow-orb bg-brand-primary w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
     <div class="glow-orb bg-brand-accent w-[600px] h-[600px] bottom-[-100px] right-[-100px]"></div>
 
-    <!-- Loader -->
+    <!-- Loader - REDUCED SPACE -->
     <div id="loader" class="fixed inset-0 bg-black z-[9999] flex flex-col items-center justify-center transition-opacity duration-700">
-        <div class="mb-4 loader-pulse">
+        <div class="mb-4 loader-pulse"> <!-- Reduced margin from mb-8 to mb-4 -->
             <div class="w-48 h-48 flex items-center justify-center">
                 <div class="w-full h-full flex items-center justify-center">
-                    <!-- Logo placeholder - Replace with actual logo.png -->
-                    <div class="text-4xl font-bold gradient-text">TESCA</div>
+                    <div class="text-5xl font-bold gradient-text">TESCA</div>
                 </div>
             </div>
         </div>
@@ -1172,16 +1307,18 @@
         <div class="w-48 h-[2px] bg-gray-800 rounded-full overflow-hidden">
             <div id="loader-bar" class="h-full bg-gradient-to-r from-brand-primary to-brand-accent w-0 transition-all duration-300"></div>
         </div>
-        <div class="mt-2 text-xs text-gray-500 font-mono tracking-widest">GLOBAL VISA CONSULTANCY</div>
+        <div class="mt-3 text-xs text-gray-500 font-mono tracking-widest">GLOBAL VISA CONSULTANCY</div> <!-- Reduced margin from mt-4 to mt-3 -->
     </div>
 
-    <!-- Header -->
+    <!-- Header - FULLY TRANSPARENT -->
     <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300">
-        <div class="glass">
+        <div class="header-inner">
             <div class="container mx-auto px-4 py-1 flex justify-between items-center">
                 <a href="#home" class="flex items-center group">
-                    <!-- Company Logo - Replace src with actual logo.png -->
-                    <img src="https://via.placeholder.com/120x40/3b82f6/ffffff?text=TESCA+GLOBAL" alt="TESCA Global Logo" class="logo-img w-32 h-auto">
+                    <!-- Logo image -->
+                    <div class="w-48 h-16 flex items-center justify-center">
+                        <img src="https://via.placeholder.com/180x60/3b82f6/ffffff?text=TESCA+LOGO" alt="TESCA Global Logo" class="logo-img">
+                    </div>
                 </a>
 
                 <nav class="hidden md:flex gap-6 text-sm font-medium">
@@ -1194,8 +1331,8 @@
                 </nav>
 
                 <div class="flex items-center gap-4">
-                    <a href="tel:+918866722633" class="btn-primary call-btn">
-                        <i class="fas fa-phone mr-2"></i> 
+                    <a href="tel:+919925081515" class="call-btn">
+                        <i class="fas fa-phone"></i> 
                         <span class="hidden sm:inline">Free Consultation</span>
                     </a>
                     
@@ -1207,15 +1344,15 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-3 text-xl transition-all duration-400">
+    <!-- Mobile Menu - IMPROVED TEXT SIZE -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-brand-bg/98 backdrop-blur-xl hidden flex-col items-center justify-center gap-4 text-lg font-medium transition-all duration-400">
         <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-gray-400 p-2 hover:text-white transition-colors duration-300"><i class="fas fa-times text-2xl"></i></button>
-        <a href="#home" class="mobile-menu-link hover:text-brand-primary transition-colors duration-300" onclick="toggleMobileMenu()">Home</a>
-        <a href="#visa" class="mobile-menu-link hover:text-brand-primary transition-colors duration-300" onclick="toggleMobileMenu()">Visa Programs</a>
-        <a href="#roadmap" class="mobile-menu-link hover:text-brand-primary transition-colors duration-300" onclick="toggleMobileMenu()">Roadmap</a>
-        <a href="#guides" class="mobile-menu-link hover:text-brand-primary transition-colors duration-300" onclick="toggleMobileMenu()">Resources</a>
-        <a href="#trust" class="mobile-menu-link hover:text-brand-primary transition-colors duration-300" onclick="toggleMobileMenu()">Why Trust Us</a>
-        <a href="#contact" class="mobile-menu-link hover:text-brand-primary transition-colors duration-300" onclick="toggleMobileMenu()">Contact Us</a>
+        <a href="#home" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Home</a>
+        <a href="#visa" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Visa Programs</a>
+        <a href="#roadmap" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Roadmap</a>
+        <a href="#guides" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Resources</a>
+        <a href="#trust" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Why Trust Us</a>
+        <a href="#contact" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Contact Us</a>
     </div>
 
     <!-- Hero Banner Section -->
@@ -1235,6 +1372,16 @@
         </div>
     </section>
 
+    <!-- Visa Detail Page (Hidden by default) -->
+    <div id="visa-detail-page" class="visa-detail-page">
+        <div class="visa-detail-content">
+            <button class="close-detail" onclick="closeVisaDetail()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="visa-detail-content"></div>
+        </div>
+    </div>
+
     <!-- Visa Programs Section -->
     <section id="visa" class="section-padding bg-brand-bg">
         <div class="container mx-auto px-4">
@@ -1244,35 +1391,59 @@
                 <p class="text-gray-400 text-lg mb-8">Select a country to explore visa options, requirements, processing fees, and success rates for 2025-2026.</p>
             </div>
             
-            <!-- Country Filter Buttons -->
+            <!-- Country Filter Buttons - ALL 13 COUNTRIES -->
             <div class="flex flex-wrap gap-3 justify-center mb-10 animate-fade-in" style="animation-delay: 0.2s">
-                <button onclick="filterVisas('all')" class="filter-btn active px-5 py-2.5">All Countries</button>
-                <button onclick="filterVisas('uk')" class="filter-btn px-5 py-2.5 flex items-center gap-2">
+                <button onclick="filterVisas('all')" class="filter-btn active px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition">All Countries</button>
+                <button onclick="filterVisas('uk')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
                     <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-4 rounded flag-img" alt="UK Flag">
                     UK
                 </button>
-                <button onclick="filterVisas('usa')" class="filter-btn px-5 py-2.5 flex items-center gap-2">
+                <button onclick="filterVisas('usa')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
                     <img src="https://flagcdn.com/w40/us.png" class="w-6 h-4 rounded flag-img" alt="USA Flag">
                     USA
                 </button>
-                <button onclick="filterVisas('germany')" class="filter-btn px-5 py-2.5 flex items-center gap-2">
+                <button onclick="filterVisas('germany')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
                     <img src="https://flagcdn.com/w40/de.png" class="w-6 h-4 rounded flag-img" alt="Germany Flag">
                     Germany
                 </button>
-                <button onclick="filterVisas('europe')" class="filter-btn px-5 py-2.5 flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/eu.png" class="w-6 h-4 rounded flag-img" alt="EU Flag">
-                    Europe
+                <button onclick="filterVisas('ireland')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                    <img src="https://flagcdn.com/w40/ie.png" class="w-6 h-4 rounded flag-img" alt="Ireland Flag">
+                    Ireland
                 </button>
-                <button onclick="filterVisas('canada')" class="filter-btn px-5 py-2.5 flex items-center gap-2">
+                <button onclick="filterVisas('france')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                    <img src="https://flagcdn.com/w40/fr.png" class="w-6 h-4 rounded flag-img" alt="France Flag">
+                    France
+                </button>
+                <button onclick="filterVisas('italy')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                    <img src="https://flagcdn.com/w40/it.png" class="w-6 h-4 rounded flag-img" alt="Italy Flag">
+                    Italy
+                </button>
+                <button onclick="filterVisas('netherlands')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                    <img src="https://flagcdn.com/w40/nl.png" class="w-6 h-4 rounded flag-img" alt="Netherlands Flag">
+                    Netherlands
+                </button>
+                <button onclick="filterVisas('sweden')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                    <img src="https://flagcdn.com/w40/se.png" class="w-6 h-4 rounded flag-img" alt="Sweden Flag">
+                    Sweden
+                </button>
+                <button onclick="filterVisas('spain')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                    <img src="https://flagcdn.com/w40/es.png" class="w-6 h-4 rounded flag-img" alt="Spain Flag">
+                    Spain
+                </button>
+                <button onclick="filterVisas('finland')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                    <img src="https://flagcdn.com/w40/fi.png" class="w-6 h-4 rounded flag-img" alt="Finland Flag">
+                    Finland
+                </button>
+                <button onclick="filterVisas('canada')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
                     <img src="https://flagcdn.com/w40/ca.png" class="w-6 h-4 rounded flag-img" alt="Canada Flag">
                     Canada
                 </button>
-                <button onclick="filterVisas('australia')" class="filter-btn px-5 py-2.5 flex items-center gap-2">
+                <button onclick="filterVisas('australia')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
                     <img src="https://flagcdn.com/w40/au.png" class="w-6 h-4 rounded flag-img" alt="Australia Flag">
                     Australia
                 </button>
-                <button onclick="filterVisas('newzealand')" class="filter-btn px-5 py-2.5 flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/nz.png" class="w-6 h-4 rounded flag-img" alt="NZ Flag">
+                <button onclick="filterVisas('newzealand')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                    <img src="https://flagcdn.com/w40/nz.png" class="w-6 h-4 rounded flag-img" alt="New Zealand Flag">
                     New Zealand
                 </button>
             </div>
@@ -1480,9 +1651,7 @@
                     <p class="text-gray-300 mb-5 text-sm">Complete checklist of all documents required for visa applications in 2026, including recent changes in documentation requirements.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Jan 2026</span>
-                        <button class="text-brand-primary hover:text-blue-400 font-medium text-sm flex items-center gap-1">
-                            Download PDF <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download PDF →</a>
                     </div>
                 </div>
 
@@ -1500,9 +1669,7 @@
                     <p class="text-gray-300 mb-5 text-sm">Detailed analysis of visa approval rates by country, program type, and applicant profile based on 2025 data.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Dec 2025</span>
-                        <button class="text-brand-primary hover:text-blue-400 font-medium text-sm flex items-center gap-1">
-                            View Report <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">View Report →</a>
                     </div>
                 </div>
 
@@ -1520,9 +1687,7 @@
                     <p class="text-gray-300 mb-5 text-sm">Complete financial planning guide including tuition fees, living costs, proof of funds requirements for 2026.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Jan 2026</span>
-                        <button class="text-brand-primary hover:text-blue-400 font-medium text-sm flex items-center gap-1">
-                            Download Guide <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download Guide →</a>
                     </div>
                 </div>
 
@@ -1540,9 +1705,7 @@
                     <p class="text-gray-300 mb-5 text-sm">Comprehensive guide to selecting universities based on your profile, including scholarship opportunities.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Feb 2026</span>
-                        <button class="text-brand-primary hover:text-blue-400 font-medium text-sm flex items-center gap-1">
-                            Access Tool <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Access Tool →</a>
                     </div>
                 </div>
 
@@ -1560,9 +1723,7 @@
                     <p class="text-gray-300 mb-5 text-sm">Complete preparation kit with sample questions, mock interview sessions, and success strategies.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Jan 2026</span>
-                        <button class="text-brand-primary hover:text-blue-400 font-medium text-sm flex items-center gap-1">
-                            Get Access <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Get Access →</a>
                     </div>
                 </div>
 
@@ -1580,9 +1741,7 @@
                     <p class="text-gray-300 mb-5 text-sm">Everything you need to know about settling in your new country - accommodation, banking, healthcare, etc.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Dec 2025</span>
-                        <button class="text-brand-primary hover:text-blue-400 font-medium text-sm flex items-center gap-1">
-                            Download <i class="fas fa-arrow-right text-xs"></i>
-                        </button>
+                        <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download →</a>
                     </div>
                 </div>
             </div>
@@ -1753,27 +1912,25 @@
                 <!-- Column 1: Logo and Description -->
                 <div class="footer-logo-section">
                     <a href="#home" class="flex items-center mb-3">
-                        <!-- Company Logo in Footer -->
-                        <img src="https://via.placeholder.com/120x40/3b82f6/ffffff?text=TESCA+GLOBAL" alt="TESCA Global Logo" class="logo-img w-32 h-auto">
+                        <div class="w-48 h-16 flex items-center justify-center">
+                            <img src="https://via.placeholder.com/180x60/3b82f6/ffffff?text=TESCA+LOGO" alt="TESCA Global Logo" class="logo-img">
+                        </div>
                     </a>
                     <p class="text-gray-400 text-sm leading-relaxed mb-3">
                         World-class visa and immigration consultancy with 98.7% success rate. Accredited by British Council and recognized by global embassies.
                     </p>
                     <div class="flex gap-3 mt-3">
-                        <a href="https://linkedin.com/company/tescaglobal" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-500 hover:text-white transition duration-300">
+                        <a href="https://linkedin.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-500 hover:text-white transition duration-300">
                             <i class="fab fa-linkedin-in text-sm"></i>
                         </a>
-                        <a href="https://instagram.com/tescaglobal" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-pink-600 hover:text-white transition duration-300">
+                        <a href="https://instagram.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-pink-600 hover:text-white transition duration-300">
                             <i class="fab fa-instagram text-sm"></i>
                         </a>
-                        <a href="https://facebook.com/tescaglobal" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-600 hover:text-white transition duration-300">
+                        <a href="https://facebook.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-600 hover:text-white transition duration-300">
                             <i class="fab fa-facebook-f text-sm"></i>
                         </a>
-                        <a href="https://youtube.com/c/tescaglobal" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-red-600 hover:text-white transition duration-300">
+                        <a href="https://youtube.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-red-600 hover:text-white transition duration-300">
                             <i class="fab fa-youtube text-sm"></i>
-                        </a>
-                        <a href="https://twitter.com/tescaglobal" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-400 hover:text-white transition duration-300">
-                            <i class="fab fa-twitter text-sm"></i>
                         </a>
                     </div>
                 </div>
@@ -1808,15 +1965,15 @@
                     <ul class="space-y-3 text-sm text-gray-400">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-map-marker-alt mt-1 text-brand-primary text-xs"></i>
-                            <span>107, ambika pinacle, Lajamni Chowk, Dwarkesh Nagari, Mota Varachha, Surat, Gujarat 394101, India.</span>
+                            <span>107, Ambika Pinnacle, Lajamni Chowk, Dwarkesh Nagari, Mota Varachha, Surat, Gujarat 394101, India</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone text-brand-primary text-xs"></i>
-                            <a href="tel:+918866722633" class="direct-link hover:text-brand-primary transition-colors duration-300">+91 88667 22633</a>
+                            <a href="tel:+919925081515" class="direct-link hover:text-brand-primary transition-colors duration-300">+91 99250 81515</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-envelope text-brand-primary text-xs"></i>
-                            <a href="mailto:info@tescaglobal.com" class="direct-link hover:text-brand-primary transition-colors duration-300">info@tescaglobal.com</a>
+                            <a href="mailto:visa@tesca.co" class="direct-link hover:text-brand-primary transition-colors duration-300">visa@tesca.co</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-clock text-brand-primary text-xs"></i>
@@ -1825,7 +1982,7 @@
                     </ul>
                     
                     <div class="mt-5">
-                        <a href="tel:+918866722633" class="btn-primary py-2.5 px-5 inline-block text-center text-sm w-full">
+                        <a href="tel:+919925081515" class="view-requirements-btn py-2.5 px-5 inline-block text-center text-sm">
                             <i class="fas fa-calendar-check mr-2"></i>Book Free Consultation
                         </a>
                     </div>
@@ -1859,20 +2016,8 @@
         </div>
     </footer>
 
-    <!-- Visa Detail Page (Hidden by default) -->
-    <div id="visa-detail-page" class="visa-detail-page">
-        <div class="close-detail-btn" onclick="closeVisaDetail()">
-            <i class="fas fa-times"></i>
-        </div>
-        <div class="container mx-auto px-4 py-8">
-            <div id="visa-detail-content">
-                <!-- Visa details will be loaded here -->
-            </div>
-        </div>
-    </div>
-
     <script>
-        // --- 1. BANNERS ARRAY WITH COUNTRY-SPECIFIC DATA AND FAMOUS PLACE IMAGES ---
+        // --- 1. BANNERS ARRAY WITH 13 COUNTRIES ---
         const banners = [
             {
                 country: 'uk',
@@ -1884,7 +2029,7 @@
                 color: 'from-brand-uk to-blue-700',
                 flag: 'https://flagcdn.com/w320/gb.png',
                 deadline: 'Apply Before Jan 2026',
-                bgImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // London
+                bgImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
             },
             {
                 country: 'usa',
@@ -1896,7 +2041,7 @@
                 color: 'from-brand-usa to-red-600',
                 flag: 'https://flagcdn.com/w320/us.png',
                 deadline: 'File Before Sep 2025',
-                bgImage: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // New York
+                bgImage: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
             },
             {
                 country: 'germany',
@@ -1908,7 +2053,91 @@
                 color: 'from-brand-germany to-yellow-600',
                 flag: 'https://flagcdn.com/w320/de.png',
                 deadline: 'Applications Open Now',
-                bgImage: 'https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Berlin
+                bgImage: 'https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+            },
+            {
+                country: 'ireland',
+                title: 'IRELAND VISA: CRITICAL SKILLS OPPORTUNITY!',
+                subtitle: 'Fast-track visa for IT, healthcare, and engineering professionals',
+                offer: 'PRIORITY: 2-week processing for Critical Skills Employment Permit',
+                stats: '97.8% Success | €60,000+ Salary Packages',
+                cta: 'Apply for Critical Skills Visa',
+                color: 'from-brand-ireland to-green-500',
+                flag: 'https://flagcdn.com/w320/ie.png',
+                deadline: 'Limited 2025 Slots',
+                bgImage: 'https://images.unsplash.com/photo-1549902529-a515e31daf41?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+            },
+            {
+                country: 'france',
+                title: 'FRANCE VISA: NEW TALENT PASSPORT PROGRAM!',
+                subtitle: 'Simplified process for highly skilled workers and investors',
+                offer: 'INCLUDES: Family reunification + 4-year renewable permit',
+                stats: '96.5% Success | 3-Week Processing',
+                cta: 'Explore Talent Passport',
+                color: 'from-brand-france to-blue-800',
+                flag: 'https://flagcdn.com/w320/fr.png',
+                deadline: '2026 Intake Open',
+                bgImage: 'https://images.unsplash.com/photo-1502602898555-4a0be1c0675b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+            },
+            {
+                country: 'italy',
+                title: 'ITALY VISA: ELECTRONIC PERMIT SYSTEM LAUNCHED!',
+                subtitle: 'New digital nomad visa and simplified work permit process',
+                offer: 'DIGITAL NOMAD: Remote work visa with tax benefits',
+                stats: '95.8% Success | Family Included',
+                cta: 'Get Italy Work Permit',
+                color: 'from-brand-italy to-green-600',
+                flag: 'https://flagcdn.com/w320/it.png',
+                deadline: 'Apply Before Dec 2025',
+                bgImage: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+            },
+            {
+                country: 'netherlands',
+                title: 'NETHERLANDS VISA: 30% RULING BENEFITS!',
+                subtitle: 'Tax advantage for skilled migrants - 30% of salary tax-free',
+                offer: 'HIGH SALARY: €4,840+ monthly for Highly Skilled Migrants',
+                stats: '98.2% Success | Fast-track Available',
+                cta: 'Claim 30% Ruling',
+                color: 'from-brand-netherlands to-red-700',
+                flag: 'https://flagcdn.com/w320/nl.png',
+                deadline: 'Limited 2025 Positions',
+                bgImage: 'https://images.unsplash.com/photo-1512476446317-8e8c7e3d0e8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+            },
+            {
+                country: 'sweden',
+                title: 'SWEDEN VISA: WORK-LIFE BALANCE EXCELLENCE!',
+                subtitle: 'Fast-track for tech professionals with family benefits',
+                offer: 'FAMILY FOCUSED: Spouse work rights + child benefits',
+                stats: '97.5% Success | 4-Week Processing',
+                cta: 'Move to Sweden',
+                color: 'from-brand-sweden to-yellow-500',
+                flag: 'https://flagcdn.com/w320/se.png',
+                deadline: 'Tech Jobs Available',
+                bgImage: 'https://images.unsplash.com/photo-1528255671579-01b9e182ed1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+            },
+            {
+                country: 'spain',
+                title: 'SPAIN VISA: NON-LUCRATIVE RESIDENCY!',
+                subtitle: 'Live in Spain without working - Passive income visa',
+                offer: 'INCLUDES: Healthcare access + Schengen travel rights',
+                stats: '96.8% Success | 3-Month Processing',
+                cta: 'Apply for Non-Lucrative Visa',
+                color: 'from-brand-spain to-red-800',
+                flag: 'https://flagcdn.com/w320/es.png',
+                deadline: '2026 Quotas Filling Fast',
+                bgImage: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+            },
+            {
+                country: 'finland',
+                title: 'FINLAND VISA: STARTUP ENTREPRENEUR PROGRAM!',
+                subtitle: 'Residence permit for startup founders and innovative businesses',
+                offer: 'STARTUP PACKAGE: Business mentoring + funding guidance',
+                stats: '94.5% Success | Nordic Quality Life',
+                cta: 'Launch Your Startup in Finland',
+                color: 'from-brand-finland to-blue-900',
+                flag: 'https://flagcdn.com/w320/fi.png',
+                deadline: '2026 Cohort Applications',
+                bgImage: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
             },
             {
                 country: 'canada',
@@ -1920,7 +2149,7 @@
                 color: 'from-brand-canada to-red-500',
                 flag: 'https://flagcdn.com/w320/ca.png',
                 deadline: 'Limited 2025 Quotas',
-                bgImage: 'https://images.unsplash.com/photo-1519677100203-7c61d0b01354?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Toronto
+                bgImage: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
             },
             {
                 country: 'australia',
@@ -1932,7 +2161,7 @@
                 color: 'from-brand-australia to-red-400',
                 flag: 'https://flagcdn.com/w320/au.png',
                 deadline: '2026 Intake Open',
-                bgImage: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80' // Sydney
+                bgImage: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
             },
             {
                 country: 'newzealand',
@@ -1944,489 +2173,556 @@
                 color: 'from-brand-nz to-red-300',
                 flag: 'https://flagcdn.com/w320/nz.png',
                 deadline: 'Apply Before Jan 2026',
-                bgImage: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80' // New Zealand
+                bgImage: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
             }
         ];
 
-        // --- 2. VISA PROGRAMS DATA - COMPLETE DETAILED DATA ---
+        // --- 2. VISA PROGRAMS DATA - 13 COUNTRIES × 4 TYPES = 52 VISAS ---
         const visas = [
-            // UK Visas - Complete Data
+            // UK Visas (4 types)
             { 
                 id: 1, country: 'uk', type: 'student', title: 'UK Student Visa (Tier 4)', 
                 processingTime: '3-6 weeks', fee: '£348 - £475', successRate: '98.5%',
-                desc: 'For international students pursuing undergraduate or postgraduate education in UK universities. Valid for the duration of the course plus additional time for job search.',
-                requirements: [
-                    'Confirmation of Acceptance for Studies (CAS) from licensed institution',
-                    'English proficiency proof (IELTS 6.0 or equivalent)',
-                    'Financial evidence covering tuition + £1,334/month (London) or £1,023/month (outside London) for 9 months',
-                    'Valid Tuberculosis (TB) certificate from approved clinic',
-                    'Academic qualifications meeting course requirements',
-                    'Proof of parental consent if under 18'
-                ],
-                documents: [
-                    'Valid passport with at least 6 months validity',
-                    'CAS letter from university',
-                    'Academic transcripts and certificates',
-                    'IELTS/PTE/TOEFL test results',
-                    'Bank statements showing required funds for 28 consecutive days',
-                    'TB test certificate',
-                    'Two passport-sized photographs',
-                    'Academic Technology Approval Scheme (ATAS) certificate if required'
-                ],
-                changes: 'From Jan 2026: Financial requirements increase by 15%, English test scores increase by 0.5 band, Post-study work visa reduced from 2 to 1.5 years for non-STEM courses',
-                costOfLiving: '£12,000 - £18,000 per year (London: £15,000-£20,000)',
-                totalCost: '£2,500 - £4,500 including visa fee (£475), IHS surcharge (£776/year), flight tickets (£500-£1,200), and initial accommodation deposit',
-                benefits: [
-                    'Work up to 20 hours/week during term time',
-                    'Full-time work during holidays',
-                    'Bring dependents if studying postgraduate',
-                    'Access to National Health Service (NHS)',
-                    'Post-study work visa option'
-                ],
-                eligibility: 'Age 16+, unconditional university offer, sufficient funds, English proficiency, genuine student intent'
+                desc: 'For international students pursuing education in UK institutions. Valid for course duration + extra time.',
+                requirements: ['CAS from licensed institution', 'English proficiency (IELTS 6.0+)', 'Financial evidence (£1,334/month in London)', 'TB certificate', 'Academic qualifications'],
+                documents: ['CAS letter', 'Academic transcripts', 'Bank statements (28 days)', 'Passport', 'TB test certificate', 'English test results'],
+                livingCost: '£1,334/month (London), £1,023/month (outside London)',
+                totalCost: '£2,000 - £5,000 (including tuition deposit)',
+                changes: 'Jan 2026: Higher financial requirements, stricter English tests, no dependents for most courses'
             },
             { 
                 id: 2, country: 'uk', type: 'work', title: 'UK Skilled Worker Visa', 
                 processingTime: '3-8 weeks', fee: '£1,423 - £1,872', successRate: '99.2%',
-                desc: 'For qualified professionals with a job offer from UK licensed sponsor. Replaces Tier 2 visa with points-based system requiring 70 points.',
-                requirements: [
-                    'Job offer from Home Office licensed sponsor (50 points)',
-                    'Job at appropriate skill level - RQF Level 3 or above (20 points)',
-                    'English language ability at B1 level (10 points)',
-                    'Salary threshold: £26,200 per year or going rate for occupation',
-                    'Certificate of Sponsorship from employer',
-                    'Maintenance funds: £1,270 in bank account for 28 days'
-                ],
-                documents: [
-                    'Certificate of Sponsorship reference number',
-                    'Proof of English proficiency (IELTS, degree certificate, or national of English-speaking country)',
-                    'Valid passport',
-                    'Job offer letter and contract',
-                    'Proof of maintenance funds',
-                    'Tuberculosis test results if from listed country',
-                    'Criminal record certificate if working with vulnerable people'
-                ],
-                changes: 'Jan 2026: Minimum salary increases to £28,000, RQF Level 6 required for most occupations, English requirement increases to B2 level, Indefinite Leave to Remain (ILR) period extended from 5 to 6 years',
-                costOfLiving: '£18,000 - £25,000 per year depending on location',
-                totalCost: '£3,000 - £6,000 including visa fee, Immigration Health Surcharge (£1,035/year), skills charge (£1,000/year for companies), and legal fees',
-                benefits: [
-                    'Bring dependents (partner and children under 18)',
-                    'Access to public funds after ILR',
-                    'Path to settlement after 5 years',
-                    'Change jobs without leaving UK',
-                    'Study in UK',
-                    'Eligible for public healthcare'
-                ],
-                eligibility: 'Job offer from licensed sponsor, appropriate salary, English proficiency, maintenance funds, valid Certificate of Sponsorship'
+                desc: 'For professionals with job offer from UK licensed sponsor. Skill threshold increases in 2026.',
+                requirements: ['Job offer from licensed sponsor', 'RQF Level 3+ (until Dec 2025)', 'English B1 level', 'Salary ≥ £26,200', 'Sponsorship certificate'],
+                documents: ['Certificate of Sponsorship', 'Proof of English proficiency', 'TB test certificate', 'Financial evidence', 'Job offer letter', 'Qualifications proof'],
+                livingCost: '£1,500 - £2,500/month depending on location',
+                totalCost: '£3,000 - £8,000 (including IHS surcharge)',
+                changes: 'Jan 2026: RQF Level 6 required, English B2 required, salary threshold increases'
             },
             { 
-                id: 3, country: 'uk', type: 'dependent', title: 'UK Dependent Visa', 
-                processingTime: '8-12 weeks', fee: '£1,048 per person', successRate: '97.8%',
-                desc: 'For spouses, civil partners, unmarried partners, and children under 18 joining main visa holder in UK. Allows work and study.',
-                requirements: [
-                    'Relationship proof (marriage certificate, civil partnership, 2+ years cohabitation)',
-                    'Main applicant must have valid UK visa with 6+ months remaining',
-                    'Financial requirement: £285 for first dependent + £315 each additional (if main applicant salary below £18,600)',
-                    'Adequate accommodation without public funds',
-                    'English A1 level for partner (unless exempt)'
-                ],
-                documents: [
-                    'Valid passports of all applicants',
-                    'Marriage/civil partnership certificate',
-                    'Birth certificates for children',
-                    'Proof of relationship (photos, correspondence, joint accounts)',
-                    'Main applicant\'s visa copy',
-                    'Financial evidence',
-                    'Accommodation proof (rental agreement, mortgage statement)',
-                    'English test certificate for partner'
-                ],
-                changes: '2026: Financial requirement increases by 20%, stricter relationship evidence required, English requirement increases to A2 for extension',
-                costOfLiving: 'Additional £7,000 - £12,000 per dependent per year',
-                totalCost: '£1,800 - £3,000 per dependent including visa fee, IHS surcharge, and document preparation',
-                benefits: [
-                    'Full work rights',
-                    'Study in UK',
-                    'Access to NHS',
-                    'Path to settlement with main applicant',
-                    'Can switch to other visa categories from within UK'
-                ],
-                eligibility: 'Genuine relationship, main applicant meets financial requirement, adequate accommodation, English proficiency for partners'
+                id: 3, country: 'uk', type: 'tourist', title: 'UK Tourist Visa', 
+                processingTime: '3-4 weeks', fee: '£95 - £822', successRate: '96.5%',
+                desc: 'Short-term visit visa for tourism, family visits, or business trips up to 6 months.',
+                requirements: ['Proof of return/onward travel', 'Financial means (£100/day)', 'Accommodation details', 'Travel itinerary', 'Home country ties'],
+                documents: ['Bank statements (6 months)', 'Hotel bookings', 'Flight tickets', 'Employment proof', 'Invitation letter (if visiting family)'],
+                livingCost: '£100 - £200/day depending on travel style',
+                totalCost: '£500 - £2,000 for 2-week trip',
+                changes: 'Electronic Travel Authorization (ETA) required from 2025, digital application only'
+            },
+            { 
+                id: 4, country: 'uk', type: 'dependent', title: 'UK Dependent Visa', 
+                processingTime: '8-12 weeks', fee: '£1,048', successRate: '97.8%',
+                desc: 'For spouses, partners and children joining main visa holder in UK.',
+                requirements: ['Relationship proof (marriage/civil partnership)', 'Financial requirements met', 'Accommodation proof', 'Main visa valid', 'English A1 (for partners)'],
+                documents: ['Marriage/birth certificates', 'Financial proof', 'Accommodation proof', 'Passports', 'TB certificates', 'English test (if applicable)'],
+                livingCost: 'Additional £680/month per dependent',
+                totalCost: '£2,500 - £4,000 per dependent',
+                changes: '2026: Increased financial requirement for dependents, stricter relationship evidence'
             },
 
-            // USA Visas - Complete Data
+            // USA Visas (4 types)
             { 
-                id: 4, country: 'usa', type: 'student', title: 'USA F-1 Student Visa', 
+                id: 5, country: 'usa', type: 'student', title: 'USA F-1 Student Visa', 
                 processingTime: '2-4 months', fee: '$185 - $510', successRate: '95.8%',
-                desc: 'For full-time academic students at SEVP-certified schools. Most common student visa for degree programs, language training, or vocational studies.',
-                requirements: [
-                    'Form I-20 from SEVIS-approved school',
-                    'Proof of sufficient financial support for entire study period',
-                    'Non-immigrant intent (strong ties to home country)',
-                    'English proficiency (TOEFL/IELTS)',
-                    'Academic qualifications meeting program requirements',
-                    'Valid passport with 6+ months validity'
-                ],
-                documents: [
-                    'Form I-20 (Certificate of Eligibility)',
-                    'DS-160 confirmation page',
-                    'Valid passport',
-                    'One photograph (2x2 inches)',
-                    'SEVIS I-901 fee receipt',
-                    'Financial documents (bank statements, scholarship letters)',
-                    'Academic transcripts and diplomas',
-                    'Standardized test scores (SAT, GRE, GMAT if applicable)'
-                ],
-                changes: '2025: Stricter STEM OPT extensions, reduced duration for some language programs, increased scrutiny on funding sources, mandatory health insurance requirement',
-                costOfLiving: '$15,000 - $25,000 per year depending on location',
-                totalCost: '$3,500 - $7,000 including visa fee ($185), SEVIS fee ($350), flight tickets ($800-$1,500), health insurance ($500-$1,200/year), and initial expenses',
-                benefits: [
-                    'On-campus work up to 20 hours/week during term',
-                    'Optional Practical Training (OPT) for 12 months post-graduation',
-                    'STEM OPT extension for 24 additional months',
-                    'On-the-job training in related field',
-                    'Can apply for driver\'s license',
-                    'Dependents can accompany on F-2 visa'
-                ],
-                eligibility: 'Full-time student at SEVP-certified institution, sufficient funds, non-immigrant intent, English proficiency, maintaining full course of study'
+                desc: 'For full-time students at SEVIS-approved US institutions. Allows limited on-campus work.',
+                requirements: ['I-20 form from SEVIS school', 'Proof of funds (cover 1st year)', 'Non-immigrant intent', 'English proficiency', 'Academic qualifications'],
+                documents: ['I-20 form', 'Financial documents', 'Academic records', 'DS-160 confirmation', 'SEVIS fee receipt', 'Passport'],
+                livingCost: '$1,500 - $3,000/month depending on city',
+                totalCost: '$3,000 - $10,000 (including SEVIS and tuition deposit)',
+                changes: 'Stricter STEM OPT extensions, reduced duration for some programs, digital interviews'
             },
             { 
-                id: 5, country: 'usa', type: 'work', title: 'USA H-1B Specialty Occupation Visa', 
+                id: 6, country: 'usa', type: 'work', title: 'USA H-1B Visa', 
                 processingTime: '3-6 months', fee: '$4,500 - $105,500', successRate: '96.5%',
-                desc: 'For professionals in specialty occupations requiring theoretical or technical expertise. Subject to annual cap of 85,000 (65,000 regular + 20,000 advanced degree).',
-                requirements: [
-                    'Bachelor\'s degree or equivalent in specific field',
-                    'Job offer for specialty occupation from US employer',
-                    'Labor Condition Application (LCA) approved by Department of Labor',
-                    'Prevailing wage requirement met',
-                    'Position requires specialized knowledge',
-                    'Employer-employee relationship established'
-                ],
-                documents: [
-                    'Form I-129 (Petition for Nonimmigrant Worker)',
-                    'Approved Labor Condition Application (LCA)',
-                    'Educational credentials evaluation (if foreign degree)',
-                    'Detailed job description and requirements',
-                    'Employer support letter',
-                    'Evidence of employer\'s ability to pay wage',
-                    'Company financial statements',
-                    'Passport and photographs'
-                ],
-                changes: 'Sep 2025: Filing fee increases to $100,000 for petitions, new social media vetting process, lottery system replaced with wage-based selection, higher prevailing wage requirements',
-                costOfLiving: '$25,000 - $40,000 per year depending on location',
-                totalCost: '$6,000 - $110,000 including filing fees (base fee $460, ACWIA fee $750/$1,500, fraud fee $500, public law fee $4,000), premium processing ($2,805 optional), attorney fees ($3,000-$10,000)',
-                benefits: [
-                    'Work for sponsoring employer for up to 3 years (extendable to 6)',
-                    'Bring spouse and children under 21 on H-4 visa',
-                    'H-4 spouses may apply for work authorization',
-                    'Can pursue part-time education',
-                    'Path to Green Card through employer sponsorship',
-                    'Can work for multiple H-1B employers concurrently'
-                ],
-                eligibility: 'Specialty occupation position, bachelor\'s degree or equivalent, employer sponsorship, LCA approval, selected in H-1B lottery (if cap-subject)'
+                desc: 'For specialty occupations requiring theoretical/practical application. New fee structure from Sep 2025.',
+                requirements: ['Bachelor\'s degree or equivalent', 'Specialty occupation', 'Employer petition', 'Prevailing wage', 'Labor Condition Application'],
+                documents: ['Labor Condition Application', 'Form I-129', 'Degree evaluation', 'Job offer letter', 'Resume', 'Employer documents'],
+                livingCost: '$2,000 - $5,000/month depending on location',
+                totalCost: '$8,000 - $120,000 (including premium processing)',
+                changes: 'Sep 2025: $100,000 fee increase, Social media vetting required, lottery system revised'
+            },
+            { 
+                id: 7, country: 'usa', type: 'tourist', title: 'USA B-1/B-2 Tourist Visa', 
+                processingTime: '3-8 weeks', fee: '$185', successRate: '94.5%',
+                desc: 'For temporary visitors for business (B-1) or tourism/medical treatment (B-2).',
+                requirements: ['Non-immigrant intent', 'Financial capability', 'Return ties to home country', 'Valid travel purpose'],
+                documents: ['DS-160 confirmation', 'Bank statements (6 months)', 'Employment proof', 'Travel itinerary', 'Invitation letter (if applicable)'],
+                livingCost: '$150 - $300/day depending on travel style',
+                totalCost: '$1,000 - $5,000 for 2-week trip',
+                changes: 'Increased scrutiny on social media, longer processing times, digital-only applications'
+            },
+            { 
+                id: 8, country: 'usa', type: 'dependent', title: 'USA H-4 Dependent Visa', 
+                processingTime: '2-4 months', fee: '$370 - $1,440', successRate: '98.2%',
+                desc: 'For spouses and children of H-1B, L-1, and other work visa holders.',
+                requirements: ['Primary visa holder status', 'Relationship proof', 'Financial support', 'Valid marriage/child relationship'],
+                documents: ['Primary visa copies', 'Marriage/birth certificates', 'Financial documents', 'Form I-539', 'Passports', 'Photos'],
+                livingCost: 'Additional $1,500 - $2,500/month per dependent',
+                totalCost: '$2,000 - $5,000 per dependent',
+                changes: 'Work authorization for H-4 spouses under review, may be restricted, longer processing'
             },
 
-            // Germany Visas - Complete Data
+            // Germany Visas (4 types)
             { 
-                id: 6, country: 'germany', type: 'student', title: 'Germany Student Visa', 
+                id: 9, country: 'germany', type: 'student', title: 'Germany Student Visa', 
                 processingTime: '4-12 weeks', fee: '€75', successRate: '97.5%',
-                desc: 'For international students admitted to German universities, colleges, or language schools. Public universities have no tuition fees, only semester contribution.',
-                requirements: [
-                    'University admission letter (Zulassungsbescheid)',
-                    'Proof of financial resources: €11,208 per year in blocked account',
-                    'Valid health insurance coverage',
-                    'German language proficiency (TestDaF, DSH) or English (IELTS/TOEFL)',
-                    'Academic qualifications recognized in Germany',
-                    'Clean criminal record'
-                ],
-                documents: [
-                    'Completed visa application form',
-                    'Valid passport',
-                    'Two biometric photographs',
-                    'University admission letter',
-                    'Proof of blocked account (Sperrkonto) with required amount',
-                    'Health insurance confirmation',
-                    'Academic certificates and transcripts',
-                    'Curriculum Vitae (CV)',
-                    'Motivation letter',
-                    'Proof of German/English language skills'
-                ],
-                changes: '2025: Blocked account amount increases to €12,000, stricter language requirements for certain programs, new digital application process, extended post-study job search period to 18 months',
-                costOfLiving: '€10,000 - €12,000 per year (€853/month)',
-                totalCost: '€2,000 - €3,500 including visa fee (€75), blocked account (€11,208), flight tickets (€400-€1,000), semester fee (€150-€350), and initial accommodation',
-                benefits: [
-                    'Work 120 full days or 240 half days per year',
-                    'Full-time work during semester breaks',
-                    '18-month job seeker visa after graduation',
-                    'Family reunification possible after securing job',
-                    'EU Blue Card eligibility after graduation',
-                    'Access to public healthcare system'
-                ],
-                eligibility: 'University admission, sufficient funds, health insurance, language proficiency, no criminal record, genuine study intent'
+                desc: 'For international students admitted to German universities. Allows 120 full/240 half days work annually.',
+                requirements: ['University admission letter', 'Proof of funds €11,208/year', 'Health insurance', 'German/English proficiency', 'Academic qualifications'],
+                documents: ['Admission letter', 'Blocked account proof', 'Health insurance', 'Language certificates', 'Academic records', 'Passport'],
+                livingCost: '€850 - €1,200/month depending on city',
+                totalCost: '€2,000 - €5,000 (including blocked account)',
+                changes: 'Increased blocked account amount (€11,208), stricter language requirements, digital application'
             },
             { 
-                id: 7, country: 'germany', type: 'work', title: 'Germany EU Blue Card', 
-                processingTime: '1-3 months', fee: '€140', successRate: '96.8%',
-                desc: 'For highly skilled non-EU professionals with university degree and job offer meeting salary threshold. Fast track to permanent residence.',
-                requirements: [
-                    'Recognized university degree (minimum 3 years)',
-                    'Job offer with gross annual salary ≥ €58,400 (2025: €60,000)',
-                    'For shortage occupations (STEM): ≥ €45,552 (2025: €47,600)',
-                    'Qualifications recognition from German authorities',
-                    'Health insurance coverage',
-                    'Work contract meeting German standards'
-                ],
-                documents: [
-                    'Valid passport',
-                    'Biometric photographs',
-                    'Recognized university degree certificate',
-                    'Job contract with salary details',
-                    'CV in Europass format',
-                    'Proof of qualifications recognition (if required)',
-                    'Health insurance proof',
-                    'Accommodation proof in Germany',
-                    'Clean criminal record certificate'
-                ],
-                changes: '2024: New Opportunity Card for job seekers without immediate offer, IT specialists can apply without degree if they have 3+ years experience, digital nomad visa introduced, family reunification simplified',
-                costOfLiving: '€12,000 - €18,000 per year depending on city',
-                totalCost: '€1,800 - €3,500 including visa fee, recognition fees (€200-€600), relocation costs, and initial setup',
-                benefits: [
-                    'Permanent residence after 33 months (21 months with B1 German)',
-                    'Family members can join immediately',
-                    'Spouses get unrestricted work permit',
-                    'Unemployment benefits after 12 months',
-                    'Freedom to travel within Schengen area',
-                    'Change employers after 2 years without new authorization'
-                ],
-                eligibility: 'University degree, job offer meeting salary threshold, qualifications recognized, health insurance, clean criminal record'
+                id: 10, country: 'germany', type: 'work', title: 'Germany Work Visa', 
+                processingTime: '1-3 months', fee: '€75 - €140', successRate: '96.8%',
+                desc: 'For employment in Germany. Blue Card for graduates with job offer ≥ €45,300 (2026: €50,000).',
+                requirements: ['Job offer/contract', 'Qualifications recognition', 'Salary threshold met', 'Health insurance', 'Academic degree'],
+                documents: ['Employment contract', 'Qualifications certificates', 'Passport', 'Health insurance', 'Resume', 'Degree certificates'],
+                livingCost: '€1,200 - €2,500/month depending on city',
+                totalCost: '€1,500 - €4,000 (including recognition fees)',
+                changes: 'New Opportunity Card 2024, IT specialists can apply without degree if 3+ years experience'
+            },
+            { 
+                id: 11, country: 'germany', type: 'tourist', title: 'Germany Schengen Tourist Visa', 
+                processingTime: '15-30 days', fee: '€80', successRate: '98.2%',
+                desc: 'Short-stay visa for tourism, visiting family/friends, business up to 90 days in 180 days.',
+                requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€45/day)', 'Travel insurance (€30,000 coverage)', 'Return ticket'],
+                documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Invitation letter'],
+                livingCost: '€80 - €150/day depending on travel style',
+                totalCost: '€1,000 - €3,000 for 2-week trip',
+                changes: 'ETIAS authorization required from late 2026, digital application system'
+            },
+            { 
+                id: 12, country: 'germany', type: 'dependent', title: 'Germany Family Reunion Visa', 
+                processingTime: '3-6 months', fee: '€75', successRate: '95.5%',
+                desc: 'For spouses and minor children joining family members in Germany.',
+                requirements: ['Family member residence permit', 'Adequate housing (12m²/person)', 'Financial support', 'German A1 for spouse', 'Marriage/child proof'],
+                documents: ['Marriage/birth certificates', 'Housing proof', 'Financial proof', 'German language certificate', 'Passports', 'Photos'],
+                livingCost: 'Additional €800 - €1,200/month per dependent',
+                totalCost: '€2,000 - €4,000 per dependent',
+                changes: 'Stricter integration requirements, longer processing, higher language requirement (A1 to A2)'
             },
 
-            // Canada Visas - Complete Data
+            // Ireland Visas (4 types)
             { 
-                id: 8, country: 'canada', type: 'student', title: 'Canada Study Permit', 
+                id: 13, country: 'ireland', type: 'student', title: 'Ireland Student Visa', 
+                processingTime: '4-8 weeks', fee: '€60', successRate: '96.8%',
+                desc: 'For non-EEA students attending Irish institutions. Allows 20 hours work during term.',
+                requirements: ['Letter of Acceptance', 'Proof of funds €7,000', 'Medical insurance', 'English proficiency', 'Academic qualifications'],
+                documents: ['Acceptance letter', 'Financial proof', 'Medical insurance', 'English test results', 'Academic records', 'Passport'],
+                livingCost: '€800 - €1,500/month depending on location',
+                totalCost: '€2,500 - €6,000 (including tuition deposit)',
+                changes: 'Increased financial requirement, stricter attendance monitoring, digital system'
+            },
+            { 
+                id: 14, country: 'ireland', type: 'work', title: 'Ireland Critical Skills Employment Permit', 
+                processingTime: '2-4 weeks', fee: '€1,000', successRate: '98.5%',
+                desc: 'For highly skilled professionals in occupations with shortages. Fast-track to permanent residence.',
+                requirements: ['Job offer €32,000+ (€64,000 for non-shortage)', 'Qualifications', 'Occupation on critical skills list', 'Labor market needs test'],
+                documents: ['Job offer letter', 'Qualifications proof', 'Employer details', 'Business plan', 'Passport', 'Resume'],
+                livingCost: '€1,200 - €2,000/month depending on location',
+                totalCost: '€2,500 - €5,000 (including permit and relocation)',
+                changes: 'New occupations added to critical skills list, faster processing for tech roles'
+            },
+            { 
+                id: 15, country: 'ireland', type: 'tourist', title: 'Ireland Tourist Visa', 
+                processingTime: '4-8 weeks', fee: '€60', successRate: '97.2%',
+                desc: 'Short-stay visa for tourism, visiting family/friends up to 90 days.',
+                requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€100/day)', 'Travel insurance', 'Return ticket'],
+                documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Invitation letter'],
+                livingCost: '€80 - €150/day depending on travel style',
+                totalCost: '€1,200 - €3,000 for 2-week trip',
+                changes: 'Online application only, biometrics required, longer validity for frequent travelers'
+            },
+            { 
+                id: 16, country: 'ireland', type: 'dependent', title: 'Ireland Dependent Visa', 
+                processingTime: '3-4 months', fee: '€300', successRate: '96.2%',
+                desc: 'For spouses and children of Irish residents/work permit holders.',
+                requirements: ['Sponsor immigration status', 'Relationship proof', 'Financial support', 'Accommodation proof', 'Medical insurance'],
+                documents: ['Marriage/birth certificates', 'Sponsor documents', 'Financial proof', 'Accommodation proof', 'Medical insurance', 'Passports'],
+                livingCost: 'Additional €700 - €1,200/month per dependent',
+                totalCost: '€2,000 - €4,000 per dependent',
+                changes: 'Stricter financial requirements, longer processing, work rights for spouses'
+            },
+
+            // France Visas (4 types)
+            { 
+                id: 17, country: 'france', type: 'student', title: 'France Student Visa', 
+                processingTime: '3-8 weeks', fee: '€99', successRate: '96.5%',
+                desc: 'For international students attending French institutions. Renewable annually.',
+                requirements: ['Admission to French institution', 'Proof of funds €615/month', 'Health insurance', 'French/English proficiency', 'Accommodation proof'],
+                documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Language certificates', 'Accommodation proof', 'Passport'],
+                livingCost: '€800 - €1,200/month depending on city',
+                totalCost: '€2,000 - €5,000 (including tuition and deposit)',
+                changes: 'Campus France procedure mandatory, digital platform, increased financial requirements'
+            },
+            { 
+                id: 18, country: 'france', type: 'work', title: 'France Talent Passport', 
+                processingTime: '1-2 months', fee: '€269', successRate: '95.8%',
+                desc: 'For highly skilled workers, investors, artists, and researchers. 4-year renewable permit.',
+                requirements: ['Qualification/experience in specific category', 'Employment contract/project', 'Salary ≥ €53,836.50', 'Health insurance', 'Clean record'],
+                documents: ['Employment contract/project plan', 'Qualifications proof', 'Financial documents', 'Health insurance', 'Passport', 'Resume'],
+                livingCost: '€1,200 - €2,500/month depending on city',
+                totalCost: '€2,500 - €6,000 (including application and relocation)',
+                changes: 'New categories added, digital nomad category introduced, faster processing'
+            },
+            { 
+                id: 19, country: 'france', type: 'tourist', title: 'France Schengen Tourist Visa', 
+                processingTime: '15-30 days', fee: '€80', successRate: '98.5%',
+                desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€120/day)', 'Travel insurance', 'Return ticket'],
+                documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                livingCost: '€100 - €200/day depending on travel style',
+                totalCost: '€1,500 - €4,000 for 2-week trip',
+                changes: 'ETIAS required from 2026, online application, longer multiple-entry visas'
+            },
+            { 
+                id: 20, country: 'france', type: 'dependent', title: 'France Family Reunion Visa', 
+                processingTime: '6-12 months', fee: '€269', successRate: '94.2%',
+                desc: 'For spouses and children joining family members legally residing in France.',
+                requirements: ['Sponsor residence permit (1+ year)', 'Stable resources', 'Adequate housing', 'Integration agreement', 'Relationship proof'],
+                documents: ['Marriage/birth certificates', 'Sponsor documents', 'Financial proof', 'Housing proof', 'Integration agreement', 'Passports'],
+                livingCost: 'Additional €800 - €1,500/month per dependent',
+                totalCost: '€3,000 - €6,000 per dependent',
+                changes: 'Stricter integration requirements, language test, longer processing times'
+            },
+
+            // Italy Visas (4 types)
+            { 
+                id: 21, country: 'italy', type: 'student', title: 'Italy Student Visa', 
+                processingTime: '4-12 weeks', fee: '€116', successRate: '97.2%',
+                desc: 'For international students attending Italian universities or courses.',
+                requirements: ['Admission to Italian institution', 'Proof of funds €6,079.50/year', 'Health insurance', 'Accommodation proof', 'Language proficiency'],
+                documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Accommodation proof', 'Language certificate', 'Passport'],
+                livingCost: '€700 - €1,200/month depending on city',
+                totalCost: '€2,000 - €5,000 (including tuition and deposit)',
+                changes: 'Digital pre-enrollment, increased financial requirements, online application'
+            },
+            { 
+                id: 22, country: 'italy', type: 'work', title: 'Italy Work Visa', 
+                processingTime: '2-6 months', fee: '€116', successRate: '95.5%',
+                desc: 'For employment in Italy. Requires Nulla Osta (work authorization) from employer.',
+                requirements: ['Job offer from Italian employer', 'Nulla Osta authorization', 'Qualifications', 'Accommodation proof', 'Health insurance'],
+                documents: ['Nulla Osta', 'Employment contract', 'Qualifications proof', 'Accommodation proof', 'Health insurance', 'Passport'],
+                livingCost: '€900 - €1,800/month depending on city',
+                totalCost: '€2,000 - €5,000 (including permit and relocation)',
+                changes: 'New digital nomad visa, quota system revised, faster processing for shortage occupations'
+            },
+            { 
+                id: 23, country: 'italy', type: 'tourist', title: 'Italy Schengen Tourist Visa', 
+                processingTime: '15-30 days', fee: '€80', successRate: '98.8%',
+                desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€50/day)', 'Travel insurance', 'Return ticket'],
+                documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                livingCost: '€70 - €150/day depending on travel style',
+                totalCost: '€1,200 - €3,500 for 2-week trip',
+                changes: 'ETIAS required from 2026, online appointment system, multiple-entry visas more common'
+            },
+            { 
+                id: 24, country: 'italy', type: 'dependent', title: 'Italy Family Reunion Visa', 
+                processingTime: '6-9 months', fee: '€116', successRate: '96.8%',
+                desc: 'For family members joining residents in Italy.',
+                requirements: ['Sponsor residence permit', 'Adequate income', 'Suitable housing', 'Relationship proof', 'Health insurance'],
+                documents: ['Marriage/birth certificates', 'Sponsor documents', 'Income proof', 'Housing proof', 'Health insurance', 'Passports'],
+                livingCost: 'Additional €600 - €1,200/month per dependent',
+                totalCost: '€2,500 - €5,000 per dependent',
+                changes: 'Increased income requirements, integration agreement required, digital application'
+            },
+
+            // Netherlands Visas (4 types)
+            { 
+                id: 25, country: 'netherlands', type: 'student', title: 'Netherlands Student Visa', 
+                processingTime: '4-8 weeks', fee: '€210', successRate: '98.2%',
+                desc: 'For non-EU students attending Dutch institutions. Allows 16 hours work/week.',
+                requirements: ['Admission to Dutch institution', 'Proof of funds €11,631 (2026)', 'Health insurance', 'TB test', 'Academic qualifications'],
+                documents: ['Admission letter', 'Financial proof', 'Health insurance', 'TB test certificate', 'Academic records', 'Passport'],
+                livingCost: '€900 - €1,400/month depending on city',
+                totalCost: '€3,000 - €6,000 (including tuition and deposit)',
+                changes: 'Increased financial requirements, stricter housing requirements, digital process'
+            },
+            { 
+                id: 26, country: 'netherlands', type: 'work', title: 'Netherlands Highly Skilled Migrant Visa', 
+                processingTime: '2-4 weeks', fee: '€1,411', successRate: '99.1%',
+                desc: 'For highly skilled workers with job offer from recognized sponsor. 30% tax ruling available.',
+                requirements: ['Job offer from recognized sponsor', 'Salary ≥ €5,331/month (2026)', 'Qualifications', 'Health insurance', 'Clean record'],
+                documents: ['Employment contract', 'Qualifications proof', 'Sponsor documents', 'Health insurance', 'Passport', 'Resume'],
+                livingCost: '€1,200 - €2,200/month depending on city',
+                totalCost: '€3,000 - €7,000 (including permit and relocation)',
+                changes: 'Salary thresholds increased annually, 30% ruling duration reduced to 5 years'
+            },
+            { 
+                id: 27, country: 'netherlands', type: 'tourist', title: 'Netherlands Schengen Tourist Visa', 
+                processingTime: '15-30 days', fee: '€80', successRate: '98.5%',
+                desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€55/day)', 'Travel insurance', 'Return ticket'],
+                documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                livingCost: '€80 - €160/day depending on travel style',
+                totalCost: '€1,300 - €3,500 for 2-week trip',
+                changes: 'ETIAS required from 2026, online application, biometrics mandatory'
+            },
+            { 
+                id: 28, country: 'netherlands', type: 'dependent', title: 'Netherlands Family Reunion Visa', 
+                processingTime: '3-6 months', fee: '€210', successRate: '97.5%',
+                desc: 'For spouses and children joining residents in Netherlands.',
+                requirements: ['Sponsor residence permit', 'Income ≥ 100% social minimum', 'Accommodation (independent)', 'Relationship proof', 'Integration exam (pre-arrival)'],
+                documents: ['Marriage/birth certificates', 'Sponsor documents', 'Income proof', 'Accommodation proof', 'Integration certificate', 'Passports'],
+                livingCost: 'Additional €800 - €1,500/month per dependent',
+                totalCost: '€3,000 - €6,000 per dependent',
+                changes: 'Stricter income requirements, pre-arrival integration exam, longer processing'
+            },
+
+            // Sweden Visas (4 types)
+            { 
+                id: 29, country: 'sweden', type: 'student', title: 'Sweden Student Visa', 
+                processingTime: '4-12 weeks', fee: 'SEK 1,500', successRate: '97.8%',
+                desc: 'For international students attending Swedish universities. Allows part-time work.',
+                requirements: ['Admission to Swedish university', 'Proof of funds SEK 9,450/month', 'Health insurance', 'Academic qualifications', 'English proficiency'],
+                documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Academic records', 'English test results', 'Passport'],
+                livingCost: 'SEK 8,500 - SEK 12,000/month depending on city',
+                totalCost: 'SEK 25,000 - SEK 60,000 (including tuition and deposit)',
+                changes: 'Increased financial requirements, digital application, faster processing for complete applications'
+            },
+            { 
+                id: 30, country: 'sweden', type: 'work', title: 'Sweden Work Visa', 
+                processingTime: '1-3 months', fee: 'SEK 2,000', successRate: '96.5%',
+                desc: 'For employment in Sweden. Fast-track for certain occupations and companies.',
+                requirements: ['Job offer from Swedish employer', 'Salary ≥ SEK 13,000/month', 'Qualifications', 'Health insurance', 'Clean record'],
+                documents: ['Employment contract', 'Qualifications proof', 'Employer details', 'Health insurance', 'Passport', 'Resume'],
+                livingCost: 'SEK 10,000 - SEK 18,000/month depending on city',
+                totalCost: 'SEK 30,000 - SEK 70,000 (including permit and relocation)',
+                changes: 'New fast-track system for certified employers, digital application, family can apply simultaneously'
+            },
+            { 
+                id: 31, country: 'sweden', type: 'tourist', title: 'Sweden Schengen Tourist Visa', 
+                processingTime: '15-30 days', fee: '€80', successRate: '98.9%',
+                desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (SEK 450/day)', 'Travel insurance', 'Return ticket'],
+                documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                livingCost: 'SEK 500 - SEK 1,200/day depending on travel style',
+                totalCost: 'SEK 15,000 - SEK 40,000 for 2-week trip',
+                changes: 'ETIAS required from 2026, online application, longer validity for frequent travelers'
+            },
+            { 
+                id: 32, country: 'sweden', type: 'dependent', title: 'Sweden Family Reunion Visa', 
+                processingTime: '6-15 months', fee: 'SEK 1,500', successRate: '95.2%',
+                desc: 'For family members joining residents in Sweden.',
+                requirements: ['Sponsor residence permit', 'Adequate housing', 'Financial support', 'Relationship proof', 'Health insurance'],
+                documents: ['Marriage/birth certificates', 'Sponsor documents', 'Financial proof', 'Housing proof', 'Health insurance', 'Passports'],
+                livingCost: 'Additional SEK 7,000 - SEK 12,000/month per dependent',
+                totalCost: 'SEK 30,000 - SEK 60,000 per dependent',
+                changes: 'Increased maintenance requirements, longer processing times, digital application'
+            },
+
+            // Spain Visas (4 types)
+            { 
+                id: 33, country: 'spain', type: 'student', title: 'Spain Student Visa', 
+                processingTime: '4-10 weeks', fee: '€160', successRate: '97.5%',
+                desc: 'For international students attending Spanish institutions. Allows part-time work.',
+                requirements: ['Admission to Spanish institution', 'Proof of funds €600/month', 'Health insurance', 'Medical certificate', 'Clean record'],
+                documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Medical certificate', 'Academic records', 'Passport'],
+                livingCost: '€700 - €1,200/month depending on city',
+                totalCost: '€2,000 - €5,000 (including tuition and deposit)',
+                changes: 'Digital application, increased financial requirements, faster processing for EU Blue Card students'
+            },
+            { 
+                id: 34, country: 'spain', type: 'work', title: 'Spain Work Visa', 
+                processingTime: '2-5 months', fee: '€206', successRate: '95.8%',
+                desc: 'For employment in Spain. Requires work authorization from employer.',
+                requirements: ['Job offer from Spanish employer', 'Work authorization', 'Qualifications', 'Clean record', 'Health insurance'],
+                documents: ['Work authorization', 'Employment contract', 'Qualifications proof', 'Clean record certificate', 'Health insurance', 'Passport'],
+                livingCost: '€800 - €1,500/month depending on city',
+                totalCost: '€2,500 - €6,000 (including permit and relocation)',
+                changes: 'New digital nomad visa, quota system for non-EU workers, faster processing for shortage occupations'
+            },
+            { 
+                id: 35, country: 'spain', type: 'tourist', title: 'Spain Schengen Tourist Visa', 
+                processingTime: '15-30 days', fee: '€80', successRate: '99.1%',
+                desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€100/day)', 'Travel insurance', 'Return ticket'],
+                documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                livingCost: '€70 - €150/day depending on travel style',
+                totalCost: '€1,200 - €3,500 for 2-week trip',
+                changes: 'ETIAS required from 2026, online application, multiple-entry visas more accessible'
+            },
+            { 
+                id: 36, country: 'spain', type: 'dependent', title: 'Spain Family Reunion Visa', 
+                processingTime: '5-8 months', fee: '€80', successRate: '96.5%',
+                desc: 'For family members joining residents in Spain.',
+                requirements: ['Sponsor residence permit (1+ year)', 'Adequate housing', 'Financial means', 'Relationship proof', 'Health insurance'],
+                documents: ['Marriage/birth certificates', 'Sponsor documents', 'Financial proof', 'Housing proof', 'Health insurance', 'Passports'],
+                livingCost: 'Additional €600 - €1,200/month per dependent',
+                totalCost: '€2,500 - €5,000 per dependent',
+                changes: 'Increased income requirements, integration course required, digital application'
+            },
+
+            // Finland Visas (4 types)
+            { 
+                id: 37, country: 'finland', type: 'student', title: 'Finland Student Visa', 
+                processingTime: '1-3 months', fee: '€350', successRate: '96.8%',
+                desc: 'For international students attending Finnish institutions. Allows 25 hours work/week during term.',
+                requirements: ['Admission to Finnish institution', 'Proof of funds €560/month', 'Health insurance', 'Academic qualifications', 'English/Finnish/Swedish proficiency'],
+                documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Academic records', 'Language certificate', 'Passport'],
+                livingCost: '€700 - €1,200/month depending on city',
+                totalCost: '€3,000 - €7,000 (including tuition and deposit)',
+                changes: 'Increased financial requirements, digital application, faster processing for complete applications'
+            },
+            { 
+                id: 38, country: 'finland', type: 'work', title: 'Finland Work Visa', 
+                processingTime: '1-4 months', fee: '€470', successRate: '95.5%',
+                desc: 'For employment in Finland. Fast-track for specialists and startup entrepreneurs.',
+                requirements: ['Job offer from Finnish employer', 'Qualifications', 'Salary meets collective agreement', 'Health insurance', 'Clean record'],
+                documents: ['Employment contract', 'Qualifications proof', 'Salary details', 'Health insurance', 'Clean record certificate', 'Passport'],
+                livingCost: '€900 - €1,800/month depending on city',
+                totalCost: '€3,000 - €7,000 (including permit and relocation)',
+                changes: 'New startup entrepreneur visa, fast-track for certified employers, digital application'
+            },
+            { 
+                id: 39, country: 'finland', type: 'tourist', title: 'Finland Schengen Tourist Visa', 
+                processingTime: '15-30 days', fee: '€80', successRate: '98.5%',
+                desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€50/day)', 'Travel insurance', 'Return ticket'],
+                documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                livingCost: '€80 - €150/day depending on travel style',
+                totalCost: '€1,500 - €4,000 for 2-week trip',
+                changes: 'ETIAS required from 2026, online application, biometrics required'
+            },
+            { 
+                id: 40, country: 'finland', type: 'dependent', title: 'Finland Family Reunion Visa', 
+                processingTime: '4-9 months', fee: '€470', successRate: '96.2%',
+                desc: 'For family members joining residents in Finland.',
+                requirements: ['Sponsor residence permit', 'Adequate income', 'Suitable housing', 'Relationship proof', 'Health insurance'],
+                documents: ['Marriage/birth certificates', 'Sponsor documents', 'Income proof', 'Housing proof', 'Health insurance', 'Passports'],
+                livingCost: 'Additional €700 - €1,300/month per dependent',
+                totalCost: '€3,000 - €6,000 per dependent',
+                changes: 'Increased income requirements, integration plan required, digital application'
+            },
+
+            // Canada Visas (4 types)
+            { 
+                id: 41, country: 'canada', type: 'student', title: 'Canada Study Permit', 
                 processingTime: '8-16 weeks', fee: '$235', successRate: '96.2%',
-                desc: 'For international students at Designated Learning Institutions (DLIs). Requires acceptance letter, proof of funds, and medical exam if staying over 6 months.',
-                requirements: [
-                    'Letter of Acceptance from Designated Learning Institution (DLI)',
-                    'Proof of funds: CAD $20,635 per year (outside Quebec) or CAD $15,078 (Quebec) plus tuition',
-                    'Genuine Student Test - must convince officer of study intent',
-                    'No criminal record (police certificate may be required)',
-                    'Medical exam if from designated country or staying over 6 months',
-                    'Proof of ties to home country'
-                ],
-                documents: [
-                    'Valid passport',
-                    'Letter of Acceptance from DLI',
-                    'Proof of financial support (bank statements, GIC, scholarship letters)',
-                    'Digital photo meeting specifications',
-                    'Immigration Medical Exam (IME) if required',
-                    'Police clearance certificate if required',
-                    'English/French test results (IELTS, TEF)',
-                    'Statement of purpose',
-                    'Education documents'
-                ],
-                changes: '2025: Temporary resident cap aiming for 5% reduction by end 2026, increased financial requirement by 30%, stricter Genuine Student assessment, priority processing for STEM programs',
-                costOfLiving: 'CAD $15,000 - $20,000 per year (outside major cities: $10,000-$15,000)',
-                totalCost: 'CAD $3,000 - $6,000 including study permit fee ($235), biometrics ($85), GIC investment ($10,000+), tuition deposit, flight tickets, and initial accommodation',
-                benefits: [
-                    'Work up to 20 hours/week during academic sessions',
-                    'Full-time work during scheduled breaks',
-                    'Post-Graduation Work Permit (PGWP) up to 3 years',
-                    'Spouse can apply for open work permit',
-                    'Children can study at primary/secondary schools',
-                    'Path to Permanent Residence through Express Entry',
-                    'Access to provincial healthcare after 3 months'
-                ],
-                eligibility: 'Acceptance from DLI, sufficient funds, no criminal/medical inadmissibility, genuine temporary resident intent, plans to leave Canada after studies'
+                desc: 'For international students at designated learning institutions.',
+                requirements: ['Letter of Acceptance from DLI', 'Proof of funds (tuition + $10,000/year)', 'Genuine Student test', 'No criminal record', 'Medical exam (if required)'],
+                documents: ['Acceptance letter', 'Financial documents', 'Statement of purpose', 'Medical exam (if required)', 'Police certificate', 'Passport'],
+                livingCost: '$1,000 - $2,000/month depending on city',
+                totalCost: '$3,000 - $10,000 (including tuition deposit and GIC)',
+                changes: 'Temporary resident cap aiming for 5% by end 2026, stricter genuine student assessment'
             },
             { 
-                id: 9, country: 'canada', type: 'work', title: 'Canada Express Entry (FSW)', 
-                processingTime: '6-8 months', fee: '$1,365 (principal + spouse)', successRate: '94.5%',
-                desc: 'Federal Skilled Worker program for skilled professionals with foreign work experience. Points-based system (Comprehensive Ranking System) selecting highest scorers.',
-                requirements: [
-                    'Minimum 1 year continuous skilled work experience (NOC 0, A, B)',
-                    'Language proficiency: CLB 7 in English/French (IELTS 6.0 each)',
-                    'Educational Credential Assessment (ECA) for foreign education',
-                    'Proof of funds: CAD $13,757 (single) to CAD $34,967 (family of 7)',
-                    'Minimum 67/100 points on FSW grid',
-                    'Medical exam and police clearance'
-                ],
-                documents: [
-                    'Valid passport',
-                    'Language test results (IELTS, CELPIP, TEF)',
-                    'Educational Credential Assessment (ECA) report',
-                    'Reference letters from all employers (detailed duties, hours, salary)',
-                    'Proof of funds (6 months bank statements)',
-                    'Police clearance certificates from all countries lived 6+ months',
-                    'Medical examination confirmation',
-                    'Digital photographs',
-                    'Birth certificate, marriage certificate if applicable'
-                ],
-                changes: '2025: New category-based draws for specific occupations (healthcare, STEM, trades), French language bonus increased, LMIA-exempt job offers now require validation, processing fees increased by 15%',
-                costOfLiving: 'CAD $18,000 - $25,000 per year depending on province',
-                totalCost: 'CAD $2,500 - $5,000 including application fees, language tests ($300-$500), ECA ($200-$400), medical exam ($250-$450), police certificates ($50-$150 each), and settlement funds',
-                benefits: [
-                    'Permanent residence for entire family',
-                    'Work anywhere in Canada (except Quebec)',
-                    'Access to universal healthcare',
-                    'Children entitled to free education',
-                    'Path to citizenship after 3 years',
-                    'Sponsorship rights for family members',
-                    'Social benefits (unemployment, retirement)'
-                ],
-                eligibility: 'Skilled work experience, language proficiency, education equivalent to Canadian standards, sufficient settlement funds, adaptability factors, medical/admissibility clearance'
+                id: 42, country: 'canada', type: 'work', title: 'Canada Work Permit', 
+                processingTime: '2-6 months', fee: '$155 - $340', successRate: '94.5%',
+                desc: 'For temporary foreign workers with job offer from Canadian employer.',
+                requirements: ['Job offer from Canadian employer', 'LMIA (if required)', 'Qualifications', 'Medical exam', 'Clean record'],
+                documents: ['Job offer letter', 'LMIA (if applicable)', 'Qualifications proof', 'Medical exam', 'Police certificate', 'Passport'],
+                livingCost: '$1,200 - $2,500/month depending on city',
+                totalCost: '$2,500 - $7,000 (including LMIA and processing)',
+                changes: 'Simplified LMIA process for certain occupations, higher wages required, digital application'
+            },
+            { 
+                id: 43, country: 'canada', type: 'tourist', title: 'Canada Tourist Visa', 
+                processingTime: '14-30 days', fee: '$100', successRate: '97.8%',
+                desc: 'Temporary resident visa for tourism, visiting family/friends up to 6 months.',
+                requirements: ['Proof of ties to home country', 'Financial means', 'Travel history', 'No criminal record', 'Medical exam (if required)'],
+                documents: ['Bank statements', 'Employment proof', 'Travel itinerary', 'Invitation letter (if visiting family)', 'Property documents', 'Passport'],
+                livingCost: '$100 - $200/day depending on travel style',
+                totalCost: '$1,500 - $4,000 for 2-week trip',
+                changes: 'Biometrics required, electronic travel authorization (eTA) for visa-exempt, online application'
+            },
+            { 
+                id: 44, country: 'canada', type: 'dependent', title: 'Canada Dependent Visa', 
+                processingTime: '12-18 months', fee: '$1,085', successRate: '92.5%',
+                desc: 'For spouses, partners and dependent children of Canadian residents.',
+                requirements: ['Sponsor eligibility (citizen/PR)', 'Relationship proof', 'Financial undertaking', 'Medical exam', 'Police certificate'],
+                documents: ['Relationship proof', 'Financial documents', 'Medical exams', 'Police certificates', 'Sponsor documents', 'Passports'],
+                livingCost: 'Additional $800 - $1,500/month per dependent',
+                totalCost: '$3,000 - $8,000 per dependent',
+                changes: 'Longer processing times, increased income requirements, digital application system'
             },
 
-            // Australia Visas - Complete Data
+            // Australia Visas (4 types)
             { 
-                id: 10, country: 'australia', type: 'student', title: 'Australia Student Visa (Subclass 500)', 
+                id: 45, country: 'australia', type: 'student', title: 'Australia Student Visa', 
                 processingTime: '4-12 weeks', fee: 'AUD $710', successRate: '95.8%',
-                desc: 'For genuine students enrolled in full-time courses at Australian institutions. 2026 target: 295,000 international students with focus on quality over quantity.',
-                requirements: [
-                    'Confirmation of Enrollment (CoE) from CRICOS-registered provider',
-                    'Genuine Temporary Entrant (GTE) requirement satisfied',
-                    'Financial capacity: AUD $24,505 per year living costs + tuition',
-                    'Overseas Student Health Cover (OSHC) for entire stay',
-                    'English proficiency: IELTS 5.5 or equivalent (higher for some courses)',
-                    'Health and character requirements met'
-                ],
-                documents: [
-                    'Valid passport',
-                    'Confirmation of Enrollment (CoE)',
-                    'Genuine Temporary Entrant (GTE) statement',
-                    'Financial evidence (bank statements, loan documents)',
-                    'Overseas Student Health Cover (OSHC) policy',
-                    'English language test results',
-                    'Academic transcripts and certificates',
-                    'Passport-sized photographs',
-                    'Health examination reports if required'
-                ],
-                changes: '2026: Stricter Genuine Student test with more detailed assessment, 2026 target reduced to 295,000 students, increased financial requirements by 17%, work hours capped at 24 hours/week (was 40), post-study work rights extended for regional areas',
-                costOfLiving: 'AUD $21,000 - $25,000 per year (Sydney/Melbourne: $25,000+, other cities: $20,000)',
-                totalCost: 'AUD $3,500 - $6,500 including visa fee ($710), OSHC ($600-$1,200/year), tuition deposit, flight tickets (AUD $1,000-$2,000), and initial accommodation',
-                benefits: [
-                    'Work up to 24 hours per week during term',
-                    'Unlimited work during semester breaks',
-                    'Post-Study Work visa (2-4 years depending on qualification)',
-                    'Can include family members (partner and children)',
-                    'Access to Medicare under reciprocal agreements',
-                    'Path to permanent residence through skilled migration',
-                    'Multiple entry for duration of visa'
-                ],
-                eligibility: 'Enrolled in CRICOS-registered course, genuine temporary entrant, sufficient funds, health insurance, English proficiency, health/character requirements met'
+                desc: 'For genuine students attending Australian institutions. Allows limited work.',
+                requirements: ['Confirmation of Enrollment from CRICOS institution', 'Genuine Temporary Entrant requirement', 'Financial capacity (AUD $24,505/year)', 'Health insurance (OSHC)', 'English proficiency'],
+                documents: ['CoE', 'Financial proof', 'English test results', 'Overseas Student Health Cover', 'Genuine Temporary Entrant statement', 'Passport'],
+                livingCost: 'AUD $1,500 - AUD $2,500/month depending on city',
+                totalCost: 'AUD $5,000 - AUD $15,000 (including tuition deposit and OSHC)',
+                changes: 'Stricter Genuine Student test, 2026 target: 295,000 students, increased financial requirements'
             },
             { 
-                id: 11, country: 'australia', type: 'work', title: 'Australia Skilled Independent Visa (Subclass 189)', 
-                processingTime: '8-18 months', fee: 'AUD $4,640', successRate: '93.5%',
-                desc: 'Points-tested visa for skilled workers not sponsored by employer, state/territory, or family member. Invitation-only based on Expression of Interest.',
-                requirements: [
-                    'Occupation on relevant skilled occupation list (MLTSSL)',
-                    'Positive skills assessment from assessing authority',
-                    'At least 65 points on points test (typically need 85+ for invitation)',
-                    'Competent English (IELTS 6.0 or equivalent)',
-                    'Age under 45 at time of invitation',
-                    'Meet health and character requirements'
-                ],
-                documents: [
-                    'Valid passport',
-                    'Skills assessment result',
-                    'English language test results',
-                    'Educational certificates and transcripts',
-                    'Employment references (detailed duties, dates, hours)',
-                    'Points test evidence (age, English, work experience, qualifications, etc.)',
-                    'Police clearance certificates',
-                    'Medical examination reports',
-                    'Birth certificate, marriage certificate if applicable'
-                ],
-                changes: '2025: Higher salary thresholds for all skilled visas, new Innovation Visa replacing Global Talent program, increased points for regional study/work, mandatory skills assessment for all occupations, processing priority for healthcare and education',
-                costOfLiving: 'AUD $25,000 - $35,000 per year depending on location',
-                totalCost: 'AUD $5,000 - $9,000 including visa fee, skills assessment ($500-$2,000), English test ($300-$500), police checks ($50-$100 each), medical exams ($400-$600), and migration agent fees ($3,000-$7,000 optional)',
-                benefits: [
-                    'Permanent residence in Australia',
-                    'Work and study anywhere in Australia',
-                    'Sponsor eligible relatives for permanent residence',
-                    'Access to Medicare and social security benefits',
-                    'Apply for Australian citizenship after 4 years',
-                    'Travel to and from Australia for 5 years',
-                    'Children born in Australia are Australian citizens'
-                ],
-                eligibility: 'Invited to apply, nominated occupation, positive skills assessment, competent English, under 45 years, at least 65 points, meet health/character requirements'
+                id: 46, country: 'australia', type: 'work', title: 'Australia Work Visa', 
+                processingTime: '3-9 months', fee: 'AUD $4,640', successRate: '93.5%',
+                desc: 'Various work visas including skilled, employer-sponsored, and temporary.',
+                requirements: ['Skills assessment', 'Points test (if applicable)', 'Employer nomination', 'English proficiency', 'Age under 45 (most categories)'],
+                documents: ['Skills assessment', 'IELTS/PTE results', 'Employment documents', 'Health checks', 'Police certificates', 'Passport'],
+                livingCost: 'AUD $1,800 - AUD $3,000/month depending on city',
+                totalCost: 'AUD $8,000 - AUD $20,000 (including skills assessment and medicals)',
+                changes: 'Higher salary thresholds, new Innovation Visa replacing Global Talent, points test revised'
+            },
+            { 
+                id: 47, country: 'australia', type: 'tourist', title: 'Australia Tourist Visa', 
+                processingTime: '20-30 days', fee: 'AUD $190', successRate: '98.5%',
+                desc: 'Visitor visa for tourism, visiting family, or business visits up to 12 months.',
+                requirements: ['Genuine visitor', 'Financial capacity', 'Health insurance', 'Return ticket', 'No work intention'],
+                documents: ['Financial proof', 'Travel itinerary', 'Health insurance', 'Invitation letter (if visiting family)', 'Employment proof', 'Passport'],
+                livingCost: 'AUD $150 - AUD $300/day depending on travel style',
+                totalCost: 'AUD $3,000 - AUD $8,000 for 2-week trip',
+                changes: 'Electronic travel authority for certain passport holders, online application, longer processing'
+            },
+            { 
+                id: 48, country: 'australia', type: 'dependent', title: 'Australia Partner Visa', 
+                processingTime: '18-24 months', fee: 'AUD $8,850', successRate: '90.5%',
+                desc: 'For spouses, de facto partners of Australian citizens/residents.',
+                requirements: ['Genuine relationship', 'Sponsor eligibility', 'Health and character requirements', 'Financial support', 'Relationship duration'],
+                documents: ['Relationship evidence', 'Sponsor documents', 'Health exams', 'Police checks', 'Financial documents', 'Passports'],
+                livingCost: 'Additional AUD $1,500 - AUD $2,500/month per dependent',
+                totalCost: 'AUD $10,000 - AUD $20,000 per application',
+                changes: 'Longer processing times, higher application fees, stricter relationship evidence'
             },
 
-            // New Zealand Visas - Complete Data
+            // New Zealand Visas (4 types)
             { 
-                id: 12, country: 'newzealand', type: 'student', title: 'New Zealand Student Visa', 
+                id: 49, country: 'newzealand', type: 'student', title: 'New Zealand Student Visa', 
                 processingTime: '4-8 weeks', fee: 'NZD $375', successRate: '97.2%',
-                desc: 'For international students enrolled in approved courses at New Zealand education providers. Work rights during study and post-study work visa options.',
-                requirements: [
-                    'Offer of Place from approved education provider',
-                    'Proof of funds: NZD $20,000 per year for living expenses + tuition',
-                    'Medical and X-ray certificates if staying over 6 months',
-                    'Genuine student intent',
-                    'Health insurance for duration of stay (if course less than 2 years)',
-                    'Return ticket or funds to purchase one'
-                ],
-                documents: [
-                    'Valid passport',
-                    'Student visa application form (INZ 1012)',
-                    'Offer of Place from education provider',
-                    'Evidence of funds (bank statements, scholarship, financial undertaking)',
-                    'Medical and chest X-ray certificates if required',
-                    'Police certificate if required',
-                    'Passport-sized photographs',
-                    'Health insurance policy details',
-                    'Evidence of onward travel arrangements'
-                ],
-                changes: '2025: Post-study work rights revised - 1 year for Level 7 qualifications, 2 years for Level 8-10, 3 years for PhD, new Straight to Residence pathway for top graduates, increased living cost requirement to NZD $22,000',
-                costOfLiving: 'NZD $20,000 - $25,000 per year (Auckland: $25,000+, other cities: $18,000-$22,000)',
-                totalCost: 'NZD $3,500 - $6,000 including visa fee ($375), medical exams ($400-$600), tuition deposit, flight tickets (NZD $800-$1,500), travel insurance, and initial accommodation',
-                benefits: [
-                    'Work up to 20 hours/week during term for degree students',
-                    'Full-time work during holidays',
-                    'Post-study work visa (1-3 years depending on qualification)',
-                    'Partners of students can apply for work visa',
-                    'Children can attend school as domestic students',
-                    'Path to residence through Skilled Migrant Category',
-                    'Access to healthcare services'
-                ],
-                eligibility: 'Acceptance from approved provider, sufficient funds, genuine temporary entrant, health insurance, onward travel arrangements, meet health/character requirements'
+                desc: 'For full-time study at approved New Zealand education providers.',
+                requirements: ['Offer of place from NZQA-approved institution', 'Proof of funds NZD $20,000/year', 'Health insurance', 'Genuine student', 'Return ticket'],
+                documents: ['Offer letter', 'Financial proof', 'Health insurance', 'Academic records', 'English test results', 'Passport'],
+                livingCost: 'NZD $1,500 - NZD $2,500/month depending on city',
+                totalCost: 'NZD $5,000 - NZD $12,000 (including tuition and insurance)',
+                changes: 'Post-study work rights revised, longer for higher qualifications, increased financial requirements'
             },
             { 
-                id: 13, country: 'newzealand', type: 'work', title: 'New Zealand Skilled Migrant Category (SMC)', 
-                processingTime: '6-24 months', fee: 'NZD $4,890', successRate: '95.8%',
-                desc: 'Points-based residence visa for skilled workers who can contribute to New Zealand\'s economic growth. Requires job offer or current skilled employment.',
-                requirements: [
-                    'Age 55 or under',
-                    'Skilled employment in New Zealand (job offer or current job)',
-                    'Recognized qualification (NZQF Level 3 or above)',
-                    'English language proficiency (IELTS 6.5 or equivalent)',
-                    'Health and character requirements',
-                    'Points score of 180 or above (currently 180 points threshold)'
-                ],
-                documents: [
-                    'Valid passport',
-                    'Evidence of skilled employment (contract, job description)',
-                    'Qualifications assessment (NZQA if required)',
-                    'English language test results',
-                    'Evidence of work experience (references, payslips)',
-                    'Medical and X-ray certificates',
-                    'Police certificates from all countries lived 12+ months',
-                    'Birth certificate, marriage certificate if applicable',
-                    'Evidence of partnership if including partner'
-                ],
-                changes: 'Jan 2026: Visa Application Charge (VAC) increases by 15%, new Green List occupations added, faster processing for Straight to Residence occupations, mandatory English testing for partners, new investor visa categories',
-                costOfLiving: 'NZD $22,000 - $28,000 per year depending on location',
-                totalCost: 'NZD $5,000 - $9,000 including application fee, skills assessment ($700-$1,200), English test ($300-$500), medical exams ($500-$800), police checks ($100-$150 each), and immigration adviser fees ($3,000-$6,000 optional)',
-                benefits: [
-                    'Permanent residence in New Zealand',
-                    'Work and live anywhere in NZ',
-                    'Access to publicly funded health care',
-                    'Free education for children at state schools',
-                    'Eligibility for New Zealand Superannuation',
-                    'Sponsor family members for residence',
-                    'Travel to and from NZ indefinitely',
-                    'Path to citizenship after 5 years'
-                ],
-                eligibility: 'Age under 56, skilled employment, qualifications recognized, English proficiency, good health and character, sufficient points (currently 180+)'
+                id: 50, country: 'newzealand', type: 'work', title: 'New Zealand Work Visa', 
+                processingTime: '6-12 weeks', fee: 'NZD $750 - $1,080', successRate: '95.8%',
+                desc: 'For skilled workers with job offers from accredited employers.',
+                requirements: ['Job offer from accredited employer', 'Meet salary threshold (NZD $29.66/hour)', 'English proficiency', 'Health requirements', 'Qualifications'],
+                documents: ['Job offer letter', 'Employer accreditation', 'English test results', 'Medical certificate', 'Qualifications proof', 'Passport'],
+                livingCost: 'NZD $1,800 - NZD $3,000/month depending on city',
+                totalCost: 'NZD $4,000 - NZD $10,000 (including medicals and police checks)',
+                changes: 'Jan 2026: VAC service fee increase, Stricter English requirements, new Green List occupations'
+            },
+            { 
+                id: 51, country: 'newzealand', type: 'tourist', title: 'New Zealand Tourist Visa', 
+                processingTime: '20-25 days', fee: 'NZD $211', successRate: '98.9%',
+                desc: 'Visitor visa for tourism, visiting family/friends, short business trips up to 9 months.',
+                requirements: ['Genuine visitor', 'Financial means (NZD $1,000/month)', 'Return ticket', 'Health insurance', 'Onward travel plans'],
+                documents: ['Financial proof', 'Travel plans', 'Accommodation details', 'Health insurance', 'Employment proof', 'Passport'],
+                livingCost: 'NZD $100 - NZD $250/day depending on travel style',
+                totalCost: 'NZD $3,000 - NZD $8,000 for 2-week trip',
+                changes: 'Electronic Travel Authority (NZeTA) required from certain countries, online application'
+            },
+            { 
+                id: 52, country: 'newzealand', type: 'dependent', title: 'New Zealand Partner Visa', 
+                processingTime: '12-18 months', fee: 'NZD $2,120', successRate: '92.8%',
+                desc: 'For partners of New Zealand citizens/residents.',
+                requirements: ['Genuine stable relationship', 'Living together 12+ months', 'Sponsor eligibility', 'Character requirements', 'Health requirements'],
+                documents: ['Relationship proof', 'Living together evidence', 'Sponsor documents', 'Police certificates', 'Medical certificates', 'Passports'],
+                livingCost: 'Additional NZD $1,500 - NZD $2,500/month per dependent',
+                totalCost: 'NZD $5,000 - NZD $12,000 per application',
+                changes: 'Stricter relationship evidence requirements, longer processing, higher fees'
             }
         ];
 
@@ -2488,14 +2784,14 @@
                 const slide = document.createElement('div');
                 slide.className = `banner-slide ${index === 0 ? 'active' : ''}`;
                 slide.id = `banner-${index}`;
+                slide.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${banner.bgImage}')`;
                 
                 // Mobile vs Desktop styling
-                const titleSize = isMobile ? 'text-2xl' : 'text-3xl md:text-4xl lg:text-5xl';
-                const subtitleSize = isMobile ? 'text-base' : 'text-lg md:text-xl';
+                const titleSize = isMobile ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl lg:text-5xl';
+                const subtitleSize = isMobile ? 'text-base md:text-lg' : 'text-lg md:text-xl';
                 const statsSize = isMobile ? 'text-sm' : 'text-base';
                 
                 slide.innerHTML = `
-                    <div class="banner-bg-image" style="background-image: url('${banner.bgImage}')"></div>
                     <div class="banner-content">
                         <div class="max-w-5xl mx-auto px-4">
                             <div class="flex justify-center mb-6">
@@ -2524,8 +2820,8 @@
                             </div>
                             
                             <div class="text-center">
-                                <a href="tel:+918866722633" 
-                                   class="btn-primary banner-cta bg-gradient-to-r ${banner.color} text-white font-bold hover:shadow-xl hover:scale-105 transition-all duration-300">
+                                <a href="tel:+919925081515" 
+                                        class="banner-cta bg-gradient-to-r ${banner.color} text-white font-bold hover:shadow-xl hover:scale-105 transition-all duration-300">
                                     ${banner.cta} <i class="fas fa-arrow-right ml-3"></i>
                                 </a>
                                 <p class="text-gray-400 text-xs md:text-sm mt-4">Free consultation within 24 hours</p>
@@ -2605,7 +2901,13 @@
                 if (country === 'uk' && btn.textContent.includes('UK')) btn.classList.add('active');
                 if (country === 'usa' && btn.textContent.includes('USA')) btn.classList.add('active');
                 if (country === 'germany' && btn.textContent.includes('Germany')) btn.classList.add('active');
-                if (country === 'europe' && btn.textContent.includes('Europe')) btn.classList.add('active');
+                if (country === 'ireland' && btn.textContent.includes('Ireland')) btn.classList.add('active');
+                if (country === 'france' && btn.textContent.includes('France')) btn.classList.add('active');
+                if (country === 'italy' && btn.textContent.includes('Italy')) btn.classList.add('active');
+                if (country === 'netherlands' && btn.textContent.includes('Netherlands')) btn.classList.add('active');
+                if (country === 'sweden' && btn.textContent.includes('Sweden')) btn.classList.add('active');
+                if (country === 'spain' && btn.textContent.includes('Spain')) btn.classList.add('active');
+                if (country === 'finland' && btn.textContent.includes('Finland')) btn.classList.add('active');
                 if (country === 'canada' && btn.textContent.includes('Canada')) btn.classList.add('active');
                 if (country === 'australia' && btn.textContent.includes('Australia')) btn.classList.add('active');
                 if (country === 'newzealand' && btn.textContent.includes('New Zealand')) btn.classList.add('active');
@@ -2625,20 +2927,10 @@
             }
             
             grid.innerHTML = filtered.map(v => {
-                // Fix flag URLs for all countries
-                let flagUrl = '';
-                switch(v.country) {
-                    case 'uk': flagUrl = 'https://flagcdn.com/w40/gb.png'; break;
-                    case 'usa': flagUrl = 'https://flagcdn.com/w40/us.png'; break;
-                    case 'germany': flagUrl = 'https://flagcdn.com/w40/de.png'; break;
-                    case 'europe': flagUrl = 'https://flagcdn.com/w40/eu.png'; break;
-                    case 'canada': flagUrl = 'https://flagcdn.com/w40/ca.png'; break;
-                    case 'australia': flagUrl = 'https://flagcdn.com/w40/au.png'; break;
-                    case 'newzealand': flagUrl = 'https://flagcdn.com/w40/nz.png'; break;
-                    default: flagUrl = 'https://flagcdn.com/w40/gb.png';
-                }
-                
-                const countryName = v.country.toUpperCase();
+                const countryFlag = `https://flagcdn.com/w40/${v.country === 'uk' ? 'gb' : v.country}.png`;
+                const countryName = v.country.charAt(0).toUpperCase() + v.country.slice(1);
+                if (v.country === 'newzealand') countryName = 'New Zealand';
+                if (v.country === 'netherlands') countryName = 'Netherlands';
                 const isMobile = window.innerWidth <= 768;
                 
                 return `
@@ -2646,7 +2938,7 @@
                     <div class="visa-content">
                         <div class="flex justify-between items-start mb-4">
                             <div class="flex items-center gap-3">
-                                <img src="${flagUrl}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img">
+                                <img src="${countryFlag}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img">
                                 <div>
                                     <span class="font-bold text-sm">${countryName}</span>
                                     <div class="text-xs text-gray-400 mt-1">${v.type.charAt(0).toUpperCase() + v.type.slice(1)} Visa</div>
@@ -2690,8 +2982,8 @@
                             </div>
                         </div>
                         
-                        <div class="visa-buttons">
-                            <button onclick="showVisaDetail(${v.id})" class="btn-primary view-requirements-btn text-sm w-full">
+                        <div class="visa-buttons mt-6">
+                            <button onclick="showVisaDetail(${v.id})" class="view-requirements-btn text-sm">
                                 <i class="fas fa-file-contract mr-2 text-sm"></i>View Requirements
                             </button>
                         </div>
@@ -2701,180 +2993,137 @@
             }).join('');
         }
 
-        // --- 7. VISA DETAIL PAGE FUNCTIONALITY ---
+        // --- 7. VISA DETAIL PAGE FUNCTION ---
         function showVisaDetail(visaId) {
             const visa = visas.find(v => v.id === visaId);
             if (!visa) return;
             
-            // Get country name properly
-            const countryNames = {
-                'uk': 'United Kingdom',
-                'usa': 'United States',
-                'germany': 'Germany',
-                'europe': 'European Union',
-                'canada': 'Canada',
-                'australia': 'Australia',
-                'newzealand': 'New Zealand'
-            };
+            const detailPage = document.getElementById('visa-detail-page');
+            const contentDiv = document.getElementById('visa-detail-content');
             
-            const countryName = countryNames[visa.country] || visa.country.toUpperCase();
-            const flagUrl = `https://flagcdn.com/w320/${visa.country === 'uk' ? 'gb' : visa.country === 'usa' ? 'us' : visa.country === 'europe' ? 'eu' : visa.country}.png`;
+            const countryFlag = `https://flagcdn.com/w80/${visa.country === 'uk' ? 'gb' : visa.country}.png`;
+            const countryName = visa.country.charAt(0).toUpperCase() + visa.country.slice(1);
+            if (visa.country === 'newzealand') countryName = 'New Zealand';
+            if (visa.country === 'netherlands') countryName = 'Netherlands';
             
-            const detailContent = document.getElementById('visa-detail-content');
-            detailContent.innerHTML = `
-                <div class="max-w-6xl mx-auto">
-                    <div class="glass-card p-8 mb-8">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-                            <div class="flex items-center gap-4 mb-4 md:mb-0">
-                                <img src="${flagUrl}" alt="${countryName} Flag" class="w-16 h-12 rounded-lg flag-img">
-                                <div>
-                                    <h1 class="text-2xl md:text-3xl font-bold">${visa.title}</h1>
-                                    <p class="text-gray-400">${countryName} • ${visa.type.charAt(0).toUpperCase() + visa.type.slice(1)} Visa</p>
+            contentDiv.innerHTML = `
+                <div class="detail-header">
+                    <img src="${countryFlag}" alt="${countryName} Flag" class="detail-flag">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">${visa.title}</h2>
+                    <div class="flex items-center justify-center gap-4">
+                        <span class="bg-green-500/20 text-green-400 text-sm font-bold px-3 py-1 rounded-full">${visa.successRate} Success Rate</span>
+                        <span class="bg-blue-500/20 text-blue-400 text-sm font-bold px-3 py-1 rounded-full">${visa.country.toUpperCase()}</span>
+                        <span class="bg-purple-500/20 text-purple-400 text-sm font-bold px-3 py-1 rounded-full">${visa.type.charAt(0).toUpperCase() + visa.type.slice(1)} Visa</span>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-4">Visa Description</h3>
+                    <p class="text-gray-300 mb-4">${visa.desc}</p>
+                    
+                    <div class="glass-card p-4 mb-6">
+                        <h4 class="font-bold text-brand-primary mb-3">2025-2026 Important Changes</h4>
+                        <p class="text-yellow-400">${visa.changes}</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Key Requirements</h3>
+                        <div class="space-y-3">
+                            ${visa.requirements.map((req, index) => `
+                                <div class="document-item">
+                                    <div class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                                        <span class="text-green-500 text-xs font-bold">${index + 1}</span>
+                                    </div>
+                                    <span class="text-sm">${req}</span>
                                 </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-green-500">${visa.successRate}</div>
-                                    <div class="text-xs text-gray-400">Success Rate</div>
-                                </div>
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-blue-500">${visa.processingTime}</div>
-                                    <div class="text-xs text-gray-400">Processing Time</div>
-                                </div>
-                            </div>
+                            `).join('')}
                         </div>
-                        
-                        <p class="text-gray-300 mb-6">${visa.desc}</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div>
-                                <h3 class="text-xl font-bold mb-4 text-brand-primary">Key Requirements</h3>
-                                <ul class="space-y-3 mb-6">
-                                    ${visa.requirements.map(req => `
-                                        <li class="flex items-start gap-3">
-                                            <i class="fas fa-check text-green-500 mt-1"></i>
-                                            <span>${req}</span>
-                                        </li>
-                                    `).join('')}
-                                </ul>
-                                
-                                <h3 class="text-xl font-bold mb-4 text-brand-primary">Required Documents</h3>
-                                <ul class="space-y-3">
-                                    ${visa.documents.map(doc => `
-                                        <li class="flex items-start gap-3">
-                                            <i class="fas fa-file text-blue-500 mt-1"></i>
-                                            <span>${doc}</span>
-                                        </li>
-                                    `).join('')}
-                                </ul>
-                                
-                                ${visa.benefits ? `
-                                <h3 class="text-xl font-bold mb-4 mt-8 text-brand-primary">Benefits</h3>
-                                <ul class="space-y-3">
-                                    ${visa.benefits.map(benefit => `
-                                        <li class="flex items-start gap-3">
-                                            <i class="fas fa-star text-yellow-500 mt-1"></i>
-                                            <span>${benefit}</span>
-                                        </li>
-                                    `).join('')}
-                                </ul>
-                                ` : ''}
-                            </div>
-                            
-                            <div>
-                                <h3 class="text-xl font-bold mb-4 text-brand-primary">Cost Breakdown</h3>
-                                <div class="space-y-4 mb-6">
-                                    <div class="bg-white/5 p-4 rounded-xl">
-                                        <div class="flex justify-between items-center mb-2">
-                                            <span class="font-medium">Government Visa Fee</span>
-                                            <span class="font-bold">${visa.fee}</span>
-                                        </div>
-                                        <p class="text-sm text-gray-400">Mandatory government charges</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Required Documents</h3>
+                        <div class="space-y-3">
+                            ${visa.documents.map((doc, index) => `
+                                <div class="document-item">
+                                    <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                        <i class="fas fa-file text-blue-500 text-xs"></i>
                                     </div>
-                                    
-                                    <div class="bg-white/5 p-4 rounded-xl">
-                                        <div class="flex justify-between items-center mb-2">
-                                            <span class="font-medium">Cost of Living (Annual)</span>
-                                            <span class="font-bold">${visa.costOfLiving}</span>
-                                        </div>
-                                        <p class="text-sm text-gray-400">Estimated living expenses per year</p>
-                                    </div>
-                                    
-                                    <div class="bg-white/5 p-4 rounded-xl">
-                                        <div class="flex justify-between items-center mb-2">
-                                            <span class="font-medium">Total Estimated Cost</span>
-                                            <span class="font-bold text-green-400">${visa.totalCost}</span>
-                                        </div>
-                                        <p class="text-sm text-gray-400">Including visa, initial setup, and first month expenses</p>
-                                    </div>
+                                    <span class="text-sm">${doc}</span>
                                 </div>
-                                
-                                <h3 class="text-xl font-bold mb-4 text-brand-primary">2025-26 Changes</h3>
-                                <div class="bg-yellow-500/10 border border-yellow-500/20 p-4 rounded-xl mb-6">
-                                    <p class="text-yellow-400">${visa.changes}</p>
-                                </div>
-                                
-                                ${visa.eligibility ? `
-                                <h3 class="text-xl font-bold mb-4 text-brand-primary">Eligibility Criteria</h3>
-                                <div class="bg-blue-500/10 border border-blue-500/20 p-4 rounded-xl mb-6">
-                                    <p class="text-blue-300">${visa.eligibility}</p>
-                                </div>
-                                ` : ''}
-                                
-                                <div class="mt-6">
-                                    <h3 class="text-xl font-bold mb-4 text-brand-primary">Processing Timeline</h3>
-                                    <div class="space-y-3">
-                                        <div class="flex justify-between items-center">
-                                            <span>Document Preparation</span>
-                                            <span class="font-bold">2-4 weeks</span>
-                                        </div>
-                                        <div class="flex justify-between items-center">
-                                            <span>Application Submission</span>
-                                            <span class="font-bold">1 week</span>
-                                        </div>
-                                        <div class="flex justify-between items-center">
-                                            <span>Visa Processing</span>
-                                            <span class="font-bold">${visa.processingTime}</span>
-                                        </div>
-                                        <div class="flex justify-between items-center">
-                                            <span>Total Estimated Time</span>
-                                            <span class="font-bold text-blue-400">${visa.processingTime.includes('month') ? visa.processingTime : `6-12 weeks`}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-8 pt-8 border-t border-white/10">
-                            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                                <div>
-                                    <h3 class="text-lg font-bold mb-2">Need Help with Your Application?</h3>
-                                    <p class="text-gray-400">Our experts can guide you through the entire process</p>
-                                </div>
-                                <div class="detail-action-buttons">
-                                    <a href="tel:+918866722633" class="btn-primary">
-                                        <i class="fas fa-phone mr-2"></i>Call Now
-                                    </a>
-                                    <button onclick="closeVisaDetail()" class="btn-primary">
-                                        <i class="fas fa-calendar-check mr-2"></i>Book Consultation
-                                    </button>
-                                    <a href="#contact" onclick="closeVisaDetail()" class="btn-primary">
-                                        <i class="fas fa-envelope mr-2"></i>Email Inquiry
-                                    </a>
-                                </div>
-                            </div>
+                            `).join('')}
                         </div>
                     </div>
                 </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-4">Cost Breakdown</h3>
+                    <div class="cost-grid">
+                        <div class="cost-item">
+                            <div class="cost-label">Government Application Fee</div>
+                            <div class="cost-value">${visa.fee}</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-label">Estimated Living Cost</div>
+                            <div class="cost-value">${visa.livingCost}</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-label">Total Estimated Cost</div>
+                            <div class="cost-value">${visa.totalCost}</div>
+                            <div class="text-xs text-gray-400 mt-1">(First year including fees, insurance, relocation)</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-label">Processing Time</div>
+                            <div class="cost-value">${visa.processingTime}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6 mb-8">
+                    <h3 class="text-xl font-bold mb-4">Our Service Package Includes</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <span>Complete document preparation and verification</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <span>Application submission and follow-up</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <span>Interview preparation and mock sessions</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <span>Post-approval settlement guidance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="tel:+919925081515" class="banner-cta bg-gradient-to-r from-brand-primary to-brand-secondary inline-block">
+                        <i class="fas fa-phone mr-2"></i> Get Free Consultation Now
+                    </a>
+                    <p class="text-gray-400 text-sm mt-3">Call us at +91 99250 81515 or email visa@tesca.co</p>
+                </div>
             `;
             
-            document.getElementById('visa-detail-page').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            detailPage.style.display = 'block';
+            setTimeout(() => {
+                detailPage.style.opacity = '1';
+                document.body.style.overflow = 'hidden';
+            }, 10);
         }
 
         function closeVisaDetail() {
-            document.getElementById('visa-detail-page').classList.remove('active');
-            document.body.style.overflow = 'auto';
+            const detailPage = document.getElementById('visa-detail-page');
+            detailPage.style.opacity = '0';
+            setTimeout(() => {
+                detailPage.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
         }
 
         // --- 8. UTILITY FUNCTIONS ---
@@ -2942,17 +3191,13 @@
                     if (!mobileMenu.classList.contains('hidden')) {
                         toggleMobileMenu();
                     }
-                    
-                    const visaDetail = document.getElementById('visa-detail-page');
-                    if (visaDetail.classList.contains('active')) {
-                        closeVisaDetail();
-                    }
+                    closeVisaDetail();
                 }
             });
             
             // Click outside to close visa detail
-            document.getElementById('visa-detail-page').addEventListener('click', (e) => {
-                if (e.target.id === 'visa-detail-page') {
+            document.getElementById('visa-detail-page').addEventListener('click', function(e) {
+                if (e.target === this) {
                     closeVisaDetail();
                 }
             });
@@ -2979,11 +3224,26 @@
                     if (filterText.includes('uk')) filterType = 'uk';
                     if (filterText.includes('usa') || filterText.includes('us')) filterType = 'usa';
                     if (filterText.includes('germany')) filterType = 'germany';
-                    if (filterText.includes('europe') || filterText.includes('eu')) filterType = 'europe';
+                    if (filterText.includes('ireland')) filterType = 'ireland';
+                    if (filterText.includes('france')) filterType = 'france';
+                    if (filterText.includes('italy')) filterType = 'italy';
+                    if (filterText.includes('netherlands')) filterType = 'netherlands';
+                    if (filterText.includes('sweden')) filterType = 'sweden';
+                    if (filterText.includes('spain')) filterType = 'spain';
+                    if (filterText.includes('finland')) filterType = 'finland';
                     if (filterText.includes('canada')) filterType = 'canada';
                     if (filterText.includes('australia')) filterType = 'australia';
                     if (filterText.includes('new zealand') || filterText.includes('nz')) filterType = 'newzealand';
                     filterVisas(filterType);
+                }
+            });
+            
+            // Banner buttons redirect to phone/email
+            document.querySelectorAll('.banner-cta, .consult-btn, .call-btn').forEach(btn => {
+                if (btn.href && btn.href.includes('tel:')) {
+                    btn.addEventListener('click', function(e) {
+                        // Allow default tel: link behavior
+                    });
                 }
             });
         }
