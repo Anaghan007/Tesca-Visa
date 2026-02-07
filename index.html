@@ -169,6 +169,7 @@
             z-index: 2;
         }
         
+        /* UPDATED: Banner content with optimized spacing */
         .banner-content {
             width: 100%;
             max-width: 1400px;
@@ -181,7 +182,7 @@
             justify-content: center;
             padding: 0 20px;
             min-height: 80vh;
-            margin-top: 80px; /* DEFAULT MARGIN FOR ALL SCREENS */
+            margin-top: 120px; /* INCREASED from 80px to 120px for better spacing */
         }
 
         /* Banner overlay with transparency */
@@ -970,11 +971,12 @@
                 min-height: 70vh;
             }
             
+            /* UPDATED: Increased margin-top and adjusted padding for better spacing on mobile */
             .mobile-view .banner-content {
-                padding: 60px 15px 30px !important;
+                padding: 40px 15px 30px !important; /* Reduced top padding from 60px to 40px */
                 justify-content: center !important;
-                margin-top: 100px !important; /* INCREASED from 80px to 100px for mobile */
-                min-height: calc(70vh - 100px); /* Adjust height considering margin */
+                margin-top: 120px !important; /* INCREASED from 100px to 120px for mobile */
+                min-height: calc(70vh - 120px); /* Adjust height considering margin */
                 width: 95%;
             }
             
@@ -1183,8 +1185,8 @@
             .mobile-view .banner-content {
                 padding-top: 40px !important;
                 padding-bottom: 20px !important;
-                margin-top: 100px !important; /* Kept at 100px for consistency */
-                min-height: calc(70vh - 100px);
+                margin-top: 120px !important; /* Kept at 120px for consistency */
+                min-height: calc(70vh - 120px);
             }
             
             .mobile-view .banner-title {
@@ -1229,11 +1231,11 @@
                 min-height: 100vh;
             }
             
-            /* Banner content centered with INCREASED margin-top for laptop */
+            /* UPDATED: Banner content centered with INCREASED margin-top for laptop/desktop */
             .banner-content {
                 padding: 40px 20px 60px;
                 justify-content: center;
-                margin-top: 100px; /* INCREASED from 40px to 100px for laptop/desktop */
+                margin-top: 120px; /* INCREASED from 100px to 120px for laptop/desktop */
             }
             
             /* DESKTOP FOOTER - 4 COLUMN GRID */
@@ -1261,7 +1263,7 @@
             
             /* Adjust banner content for medium screens */
             .banner-content {
-                margin-top: 100px; /* Consistent with desktop */
+                margin-top: 120px; /* Consistent with desktop */
                 padding: 50px 20px 70px;
             }
         }
