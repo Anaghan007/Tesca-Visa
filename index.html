@@ -1,0 +1,3420 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESCA Global | World-Class Visa & Immigration Consultancy</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Inter', 'monospace']
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#050507',
+                            surface: '#0F1016',
+                            surface2: '#181926',
+                            primary: '#3b82f6',    /* Blue */
+                            secondary: '#8b5cf6',  /* Violet */
+                            accent: '#06b6d4',     /* Cyan */
+                            success: '#10b981',
+                            warning: '#f59e0b',
+                            danger: '#ef4444',
+                            uk: '#012169',         /* UK Blue */
+                            usa: '#B22234',        /* USA Red */
+                            germany: '#000000',    /* Germany Black */
+                            eu: '#003399',         /* EU Blue */
+                            canada: '#FF0000',     /* Canada Red */
+                            australia: '#00008B',  /* Australia Blue */
+                            nz: '#00247D',         /* New Zealand Blue */
+                            ireland: '#169B62',    /* Ireland Green */
+                            france: '#002395',     /* France Blue */
+                            italy: '#009246',      /* Italy Green */
+                            netherlands: '#21468B', /* Netherlands Blue */
+                            sweden: '#006AA7',     /* Sweden Blue */
+                            spain: '#AA151B',      /* Spain Red */
+                            finland: '#002F6C'     /* Finland Blue */
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.5s ease-out forwards',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-in': 'slideIn 0.5s ease-out',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'gradient-flow': 'gradientFlow 8s ease infinite',
+                        'border-spin': 'borderSpin 3s linear infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' },
+                            '100%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.8)' },
+                        },
+                        gradientFlow: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        borderSpin: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        }
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                        '3xl': '2rem',
+                        '4xl': '2.5rem',
+                        '5xl': '3rem'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* --- CORE STYLES --- */
+        body {
+            background-color: #050507;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        html {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        /* Improved spacing between sections */
+        .section-padding {
+            padding-top: 6rem !important;
+            padding-bottom: 6rem !important;
+        }
+
+        /* Hero section */
+        .hero-section {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Banner container */
+        .banner-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .banner-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .banner-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .banner-content {
+            width: 100%;
+            max-width: 1400px;
+            text-align: center;
+            z-index: 3;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            min-height: 80vh;
+            margin-top: 140px; /* INCREASED FROM 80px TO 140px FOR ALL SCREENS */
+        }
+
+        /* Banner overlay with transparency */
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Glassmorphism Effects */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+            border-radius: 2rem;
+        }
+
+        .glass-intense {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Ambient Background Glows */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        /* Header styling - ALWAYS TRANSPARENT (NO SCROLL CHANGE) */
+        #main-header {
+            transition: all 0.3s ease;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            height: 90px;
+        }
+        
+        #main-header .header-inner {
+            border-radius: 3rem !important;
+            margin: 1.5rem auto;
+            max-width: 90%;
+            padding: 1rem 3rem;
+            background: rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* REMOVED SCROLLED STYLES - Header stays same always */
+        
+        /* Header links spacing */
+        #main-header nav {
+            display: flex;
+            gap: 2rem;
+            margin: 0 auto;
+        }
+        
+        #main-header nav a {
+            white-space: nowrap;
+            padding: 0.5rem 0;
+            position: relative;
+            color: rgba(255, 255, 255, 0.95) !important;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        #main-header nav a:hover {
+            color: #3b82f6 !important;
+            transform: translateY(-2px);
+        }
+        
+        #main-header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        #main-header nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Logo styling */
+        .logo-img {
+            width: 180px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Faculty card */
+        .faculty-card {
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        
+        .faculty-card .faculty-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem;
+        }
+        
+        /* Improved spacing for faculty photo */
+        .faculty-photo-container {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        .faculty-initial-circle {
+            width: 120px !important;
+            height: 120px !important;
+            margin: 0 auto 1.5rem auto !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        }
+        
+        .faculty-name {
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .faculty-designation {
+            margin-bottom: 1.5rem !important;
+            font-size: 1.2rem !important;
+            font-weight: 600 !important;
+        }
+        
+        .faculty-card .faculty-description {
+            flex: 1;
+            font-size: 1.05rem !important;
+            line-height: 1.8 !important;
+            margin-bottom: 2rem;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        /* Call button in header */
+        .call-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 3rem !important;
+            padding: 12px 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2);
+        }
+        
+        .call-btn:hover {
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .call-btn i {
+            font-size: 20px;
+            color: #10b981 !important;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Banner Navigation Arrows */
+        .banner-nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: white;
+            font-size: 1.8rem;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+        }
+        
+        .banner-nav-arrow:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-50%) scale(1.15);
+        }
+        
+        .banner-nav-arrow.prev {
+            left: 40px;
+        }
+        
+        .banner-nav-arrow.next {
+            right: 40px;
+        }
+
+        /* Prevent overlapping with fixed header */
+        section[id] {
+            scroll-margin-top: 140px; /* INCREASED FROM 100px TO 140px */
+        }
+
+        /* Mobile menu styles - IMPROVED */
+        #mobile-menu {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2rem;
+            margin: 1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .mobile-menu-link {
+            padding: 1rem 2rem;
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 0.5rem 0;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+        }
+        
+        .mobile-menu-link:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Banner title styles */
+        .banner-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            letter-spacing: -0.5px;
+        }
+
+        /* Banner subtitle */
+        .banner-subtitle {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        /* Banner CTA button */
+        .banner-cta {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            border-radius: 3rem !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 1rem auto 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .banner-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Stats counter */
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Visa card hover */
+        .visa-card {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        
+        .visa-card .visa-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+        
+        .visa-card .visa-description {
+            flex: 1;
+            margin-bottom: 1.2rem;
+        }
+        
+        .visa-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Visa buttons container */
+        .visa-buttons {
+            margin-top: auto;
+        }
+        
+        .view-requirements-btn {
+            width: 100%;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            border-radius: 3rem !important;
+            font-weight: 600;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .view-requirements-btn:hover {
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Loader - REDUCED SPACE */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .loader-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Country flags styling */
+        .country-flag {
+            width: 60px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Visa details in card */
+        .visa-details-container {
+            margin: 1.2rem 0;
+            padding: 1.2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .visa-process-list {
+            margin-top: 0.5rem;
+        }
+        
+        .visa-process-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+        }
+        
+        .visa-process-item i {
+            color: #10b981;
+            font-size: 11px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .visa-promo-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 0.5rem;
+        }
+        
+        .visa-promo-tag {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            font-weight: 600;
+        }
+        
+        /* Filter Button Active State */
+        .filter-btn.active {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* Banner content centering fix - UPDATED FOR BETTER CENTERING */
+        .banner-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            padding: 0 20px;
+        }
+
+        /* Roadmap Section Styles */
+        .roadmap-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .roadmap-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+        }
+        
+        .roadmap-step-number {
+            position: absolute;
+            left: -1.5rem;
+            top: 0;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+            border: 4px solid #050507;
+        }
+
+        /* Trust badges */
+        .trust-badge {
+            width: 110px;
+            height: 110px;
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .trust-badge:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* Country badge */
+        .country-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 3rem !important;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .country-badge:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Document list styles */
+        .document-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .document-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(5px);
+        }
+
+        /* Footer - PROFESSIONAL DESIGN */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer logo section - compact */
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Animated border */
+        .animated-border {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        
+        .animated-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4, #3b82f6);
+            background-size: 400% 400%;
+            border-radius: 2rem;
+            z-index: -1;
+            animation: gradientFlow 3s ease infinite;
+        }
+
+        /* Visa Detail Page Styles - FLAG CENTERED */
+        .visa-detail-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 7, 0.98);
+            z-index: 1000;
+            overflow-y: auto;
+            backdrop-filter: blur(20px);
+        }
+        
+        .visa-detail-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: linear-gradient(145deg, rgba(15, 16, 22, 0.95) 0%, rgba(24, 25, 38, 0.95) 100%);
+            border-radius: 2rem;
+            padding: 2rem;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .close-detail {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .close-detail:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .detail-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* CENTERED FLAG BOX */
+        .centered-flag-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .centered-flag-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .detail-flag {
+            width: 80px;
+            height: 50px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .cost-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cost-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+        }
+        
+        .cost-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* MOBILE BODY STYLES */
+            body {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+            
+            /* Reduced section padding for mobile */
+            .mobile-view .section-padding {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            /* MOBILE HEADER - ALWAYS TRANSPARENT */
+            #main-header .header-inner {
+                margin: 0.8rem auto;
+                padding: 0.8rem 1.5rem;
+                max-width: 95%;
+                border-radius: 3rem !important;
+                background: rgba(255, 255, 255, 0.08) !important; /* Same as desktop */
+                backdrop-filter: blur(20px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            }
+            
+            #main-header .logo-img {
+                width: 140px;
+                height: auto;
+            }
+            
+            .call-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+                border-radius: 3rem !important;
+            }
+            
+            .call-btn span {
+                display: none;
+            }
+            
+            /* Hide header nav on mobile */
+            #main-header nav {
+                display: none;
+            }
+            
+            /* Show mobile menu button */
+            #main-header .md\\:hidden {
+                display: block;
+            }
+            
+            /* MOBILE MENU IMPROVEMENTS - BETTER TEXT SIZE */
+            #mobile-menu {
+                font-size: 1.1rem;
+                background: rgba(5, 5, 7, 0.98);
+                backdrop-filter: blur(25px);
+                border-radius: 2rem;
+                margin: 1rem;
+                font-weight: 500;
+            }
+            
+            .mobile-menu-link {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                margin: 0.3rem 0;
+            }
+            
+            /* MOBILE BANNER - 75% HEIGHT & BETTER CENTERING WITH INCREASED MARGIN-TOP */
+            .mobile-view .hero-section {
+                height: 75vh !important;
+                min-height: 75vh;
+            }
+            
+            .mobile-view .banner-container {
+                min-height: 75vh;
+            }
+            
+            .mobile-view .banner-slide {
+                min-height: 75vh;
+            }
+            
+            .mobile-view .banner-content {
+                padding: 40px 15px 20px !important;
+                justify-content: center !important;
+                margin-top: 130px !important; /* INCREASED from 100px to 130px for mobile */
+                min-height: calc(75vh - 130px); /* Adjust height considering margin */
+                width: 95%;
+            }
+            
+            .mobile-view .banner-title {
+                font-size: 1.8rem !important;
+                line-height: 1.2;
+                margin-bottom: 1rem !important;
+                margin-top: 0 !important;
+                padding: 0 5px;
+                font-weight: 800;
+            }
+            
+            .mobile-view .banner-subtitle {
+                font-size: 1rem !important;
+                line-height: 1.5;
+                margin-bottom: 1.5rem !important;
+                padding: 0 10px;
+                opacity: 0.9;
+            }
+            
+            .mobile-view .banner-cta {
+                font-size: 0.9rem !important;
+                padding: 0.9rem 2rem !important;
+                margin-top: 0.5rem;
+                border-radius: 3rem !important;
+            }
+            
+            /* MOBILE BANNER ARROWS */
+            .mobile-view .banner-nav-arrow {
+                display: flex !important;
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 1.2rem !important;
+                border-radius: 50% !important;
+            }
+            
+            .mobile-view .banner-nav-arrow.prev {
+                left: 15px !important;
+            }
+            
+            .mobile-view .banner-nav-arrow.next {
+                right: 15px !important;
+            }
+            
+            /* MOBILE FOOTER - 2x2 GRID */
+            .mobile-view .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            /* Footer logo section - compact */
+            .mobile-view .footer-logo-section {
+                gap: 0.5rem;
+            }
+            
+            .mobile-view .footer-logo-section .logo-img {
+                width: 150px;
+                height: auto;
+            }
+            
+            /* MOBILE VISA SECTION */
+            .mobile-view #visa {
+                padding: 3rem 1rem !important;
+                background: #050507;
+            }
+            
+            .mobile-view #visa h2 {
+                font-size: 1.8rem !important;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            
+            .mobile-view #visa p {
+                font-size: 0.9rem !important;
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+            
+            .mobile-view .filter-btn {
+                padding: 0.5rem 1rem !important;
+                font-size: 0.8rem !important;
+                margin: 0.2rem;
+                border-radius: 3rem !important;
+            }
+            
+            .mobile-view .visa-card {
+                margin-bottom: 1.5rem;
+                border-radius: 1.5rem;
+                overflow: hidden;
+            }
+            
+            .mobile-view .visa-card h3 {
+                font-size: 1.1rem !important;
+                line-height: 1.3;
+                margin-bottom: 0.8rem;
+            }
+            
+            .mobile-view .view-requirements-btn {
+                width: 100%;
+                padding: 0.8rem !important;
+                border-radius: 3rem !important;
+                font-size: 0.9rem;
+            }
+            
+            /* MOBILE ROADMAP SECTION */
+            .mobile-view #roadmap {
+                padding: 3rem 1rem !important;
+            }
+            
+            .mobile-view #roadmap h2 {
+                font-size: 1.8rem !important;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+            
+            .mobile-view .roadmap-step {
+                padding-left: 2.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .mobile-view .roadmap-step-number {
+                width: 2.5rem;
+                height: 2.5rem;
+                left: -1.25rem;
+                font-size: 1rem;
+            }
+            
+            /* MOBILE TRUST SECTION */
+            .mobile-view #trust {
+                padding: 3rem 1rem !important;
+            }
+            
+            .mobile-view #trust h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+            
+            .mobile-view .trust-badge {
+                width: 90px;
+                height: 90px;
+                border-radius: 1.5rem;
+            }
+            
+            /* MOBILE GUIDES SECTION */
+            .mobile-view #guides {
+                padding: 3rem 1rem !important;
+            }
+            
+            .mobile-view #guides h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+            
+            /* MOBILE FOOTER - COMPACT */
+            .mobile-view footer {
+                padding: 3rem 1rem !important;
+            }
+            
+            .mobile-view footer h4 {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .mobile-view footer ul {
+                font-size: 0.85rem;
+            }
+            
+            /* Stats section for mobile */
+            .mobile-view .stat-number {
+                font-size: 2rem !important;
+            }
+            
+            /* Visa Detail Page Mobile */
+            .mobile-view .visa-detail-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .mobile-view .cost-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Mobile centered flag */
+            .mobile-view .centered-flag-box {
+                padding: 0.8rem;
+            }
+            
+            .mobile-view .detail-flag {
+                width: 70px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .mobile-view .hero-section {
+                min-height: 75vh;
+                height: 75vh !important;
+            }
+            
+            .mobile-view .banner-content {
+                padding-top: 40px !important;
+                padding-bottom: 20px !important;
+                margin-top: 130px !important; /* Kept at 130px for consistency */
+                min-height: calc(75vh - 130px);
+            }
+            
+            .mobile-view .banner-title {
+                font-size: 1.6rem !important;
+            }
+            
+            .mobile-view .banner-subtitle {
+                font-size: 0.9rem !important;
+            }
+            
+            .mobile-view .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .mobile-view .banner-nav-arrow {
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 1rem !important;
+            }
+            
+            .mobile-view .filter-btn {
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
+        /* DESKTOP/PC/LAPTOP VIEW - UPDATED with increased margin-top */
+        @media (min-width: 769px) {
+            /* DESKTOP HEADER - ALWAYS TRANSPARENT */
+            #main-header nav {
+                display: flex;
+            }
+            
+            #main-header .md\\:hidden {
+                display: none;
+            }
+            
+            /* DESKTOP HERO SECTION - FULL SCREEN */
+            .hero-section {
+                height: 100vh;
+                min-height: 100vh;
+            }
+            
+            /* Banner content centered with INCREASED margin-top for laptop */
+            .banner-content {
+                padding: 40px 20px 60px;
+                justify-content: center;
+                margin-top: 140px; /* INCREASED from 100px to 140px for laptop/desktop */
+            }
+            
+            /* DESKTOP FOOTER - 4 COLUMN GRID */
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        /* Banner arrow visibility on medium screens */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .banner-nav-arrow {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            
+            .banner-nav-arrow.prev {
+                left: 25px;
+            }
+            
+            .banner-nav-arrow.next {
+                right: 25px;
+            }
+            
+            /* Adjust banner content for medium screens */
+            .banner-content {
+                margin-top: 140px; /* Consistent with desktop */
+                padding: 50px 20px 70px;
+            }
+        }
+        
+        /* Tablet view */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Better spacing for text elements */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2 !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        p {
+            line-height: 1.6 !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .section-title {
+            margin-bottom: 3rem !important;
+        }
+        
+        /* Improve visa card spacing */
+        .visa-card .p-8 {
+            padding: 1.5rem !important;
+        }
+        
+        .visa-card h3 {
+            margin-bottom: 0.8rem !important;
+        }
+        
+        /* Better flag display */
+        .flag-img {
+            width: 24px !important;
+            height: 16px !important;
+            border-radius: 3px;
+            object-fit: cover;
+        }
+        
+        /* Fix for flag display in container */
+        .visa-card .flag-img {
+            width: 32px !important;
+            height: 20px !important;
+        }
+        
+        /* Trust badges centering */
+        .trust-badges-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .trust-badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        /* Fix for banner background images not loading */
+        .banner-backup-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+        
+        /* Ensure banner images load properly with fallback */
+        .banner-slide {
+            background-color: #050507;
+        }
+        
+        /* ADDITIONAL SPACING IMPROVEMENTS */
+        /* Section spacing improvements */
+        #visa, #roadmap, #guides, #trust, footer {
+            padding-top: 4rem !important;
+            padding-bottom: 4rem !important;
+        }
+        
+        /* Better vertical rhythm */
+        .section-content {
+            margin-top: 1.5rem;
+        }
+        
+        /* Increase spacing between filter buttons and visa grid */
+        #visa .filter-btn-container {
+            margin-bottom: 2.5rem !important;
+        }
+        
+        /* Better spacing for roadmap steps */
+        .roadmap-step {
+            margin-bottom: 3rem !important;
+        }
+        
+        /* Footer spacing improvements */
+        footer {
+            padding-top: 4rem !important;
+            padding-bottom: 3rem !important;
+        }
+        
+        /* Better spacing for trust badges */
+        .trust-badges-container {
+            margin-top: 2rem !important;
+            margin-bottom: 2rem !important;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Background Glows -->
+    <div class="glow-orb bg-brand-primary w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
+    <div class="glow-orb bg-brand-accent w-[600px] h-[600px] bottom-[-100px] right-[-100px]"></div>
+
+    <!-- Loader - REDUCED SPACE -->
+    <div id="loader" class="fixed inset-0 bg-black z-[9999] flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="mb-4 loader-pulse">
+            <div class="w-48 h-48 flex items-center justify-center">
+                <div class="w-full h-full flex items-center justify-center">
+                    <!-- LOCAL LOGO -->
+                    <img src="Logo.png" alt="TESCA Logo" class="logo-img">
+                </div>
+            </div>
+        </div>
+        
+        <div class="w-48 h-[2px] bg-gray-800 rounded-full overflow-hidden">
+            <div id="loader-bar" class="h-full bg-gradient-to-r from-brand-primary to-brand-accent w-0 transition-all duration-300"></div>
+        </div>
+        <div class="mt-3 text-xs text-gray-500 font-mono tracking-widest">GLOBAL VISA CONSULTANCY</div>
+    </div>
+
+    <!-- Header - ALWAYS TRANSPARENT (NO SCROLL CHANGE) -->
+    <header id="main-header" class="fixed top-0 w-full z-50">
+        <div class="header-inner">
+            <div class="container mx-auto px-4 py-1 flex justify-between items-center">
+                <a href="#home" class="flex items-center group">
+                    <!-- LOCAL LOGO -->
+                    <div class="w-48 h-16 flex items-center justify-center">
+                        <img src="Logo.png" alt="TESCA Global Logo" class="logo-img">
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex gap-6 text-sm font-medium">
+                    <a href="#home" class="hover:text-brand-primary transition-colors duration-300">Home</a>
+                    <a href="#visa" class="hover:text-brand-primary transition-colors duration-300">Visa Programs</a>
+                    <a href="#roadmap" class="hover:text-brand-primary transition-colors duration-300">Roadmap</a>
+                    <a href="#guides" class="hover:text-brand-primary transition-colors duration-300">Resources</a>
+                    <a href="#trust" class="hover:text-brand-primary transition-colors duration-300">Why Trust Us</a>
+                    <a href="#contact" class="hover:text-brand-primary transition-colors duration-300">Contact</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <a href="tel:+919925081515" class="call-btn">
+                        <i class="fas fa-phone"></i> 
+                        <span class="hidden sm:inline">Free Consultation</span>
+                    </a>
+                    
+                    <button class="md:hidden text-white text-xl" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu - IMPROVED TEXT SIZE -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-brand-bg/98 backdrop-blur-xl hidden flex-col items-center justify-center gap-4 text-lg font-medium transition-all duration-400">
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-gray-400 p-2 hover:text-white transition-colors duration-300"><i class="fas fa-times text-2xl"></i></button>
+        <a href="#home" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Home</a>
+        <a href="#visa" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Visa Programs</a>
+        <a href="#roadmap" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Roadmap</a>
+        <a href="#guides" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Resources</a>
+            <a href="#trust" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Why Trust Us</a>
+            <a href="#contact" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Contact Us</a>
+        </div>
+
+        <!-- Hero Banner Section -->
+        <section id="home" class="hero-section">
+            <div class="banner-container">
+                <!-- Banner Navigation Arrows -->
+                <button class="banner-nav-arrow prev" onclick="prevBanner()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <button class="banner-nav-arrow next" onclick="nextBanner()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Banner slides will be inserted here by JavaScript -->
+                <div class="banner-overlay"></div>
+            </div>
+        </section>
+
+        <!-- Visa Detail Page (Hidden by default) -->
+        <div id="visa-detail-page" class="visa-detail-page">
+            <div class="visa-detail-content">
+                <button class="close-detail" onclick="closeVisaDetail()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div id="visa-detail-content"></div>
+            </div>
+        </div>
+
+        <!-- Visa Programs Section -->
+        <section id="visa" class="section-padding bg-brand-bg">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
+                    <span class="text-brand-accent font-bold tracking-widest text-sm uppercase mb-4 block">Global Immigration Programs</span>
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">Choose Your <span class="gradient-text">Dream Destination</span></h2>
+                    <p class="text-gray-400 text-lg mb-8">Select a country to explore visa options, requirements, processing fees, and success rates for 2025-2026.</p>
+                </div>
+                
+                <!-- Country Filter Buttons - UK as default, removed "All Countries" -->
+                <div class="flex flex-wrap gap-3 justify-center mb-10 animate-fade-in filter-btn-container" style="animation-delay: 0.2s">
+                    <button onclick="filterVisas('uk')" class="filter-btn active px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-4 rounded flag-img" alt="UK Flag">
+                        UK
+                    </button>
+                    <button onclick="filterVisas('usa')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/us.png" class="w-6 h-4 rounded flag-img" alt="USA Flag">
+                        USA
+                    </button>
+                    <button onclick="filterVisas('germany')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/de.png" class="w-6 h-4 rounded flag-img" alt="Germany Flag">
+                        Germany
+                    </button>
+                    <button onclick="filterVisas('ireland')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/ie.png" class="w-6 h-4 rounded flag-img" alt="Ireland Flag">
+                        Ireland
+                    </button>
+                    <button onclick="filterVisas('france')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/fr.png" class="w-6 h-4 rounded flag-img" alt="France Flag">
+                        France
+                    </button>
+                    <button onclick="filterVisas('italy')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/it.png" class="w-6 h-4 rounded flag-img" alt="Italy Flag">
+                        Italy
+                    </button>
+                    <button onclick="filterVisas('netherlands')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/nl.png" class="w-6 h-4 rounded flag-img" alt="Netherlands Flag">
+                        Netherlands
+                    </button>
+                    <button onclick="filterVisas('sweden')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/se.png" class="w-6 h-4 rounded flag-img" alt="Sweden Flag">
+                        Sweden
+                    </button>
+                    <button onclick="filterVisas('spain')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/es.png" class="w-6 h-4 rounded flag-img" alt="Spain Flag">
+                        Spain
+                    </button>
+                    <button onclick="filterVisas('finland')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/fi.png" class="w-6 h-4 rounded flag-img" alt="Finland Flag">
+                        Finland
+                    </button>
+                    <button onclick="filterVisas('canada')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/ca.png" class="w-6 h-4 rounded flag-img" alt="Canada Flag">
+                        Canada
+                    </button>
+                    <button onclick="filterVisas('australia')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/au.png" class="w-6 h-4 rounded flag-img" alt="Australia Flag">
+                        Australia
+                    </button>
+                    <button onclick="filterVisas('newzealand')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
+                        <img src="https://flagcdn.com/w40/nz.png" class="w-6 h-4 rounded flag-img" alt="New Zealand Flag">
+                        New Zealand
+                    </button>
+                </div>
+
+                <div id="visa-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 section-content">
+                    <!-- Visas will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Your Roadmap to Global Success Section -->
+        <section id="roadmap" class="section-padding bg-gradient-to-b from-brand-surface to-brand-bg">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
+                    <span class="text-brand-accent font-bold tracking-widest text-sm uppercase mb-4 block">Structured Approach</span>
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">Your <span class="gradient-text">Roadmap to Global Success</span></h2>
+                    <p class="text-gray-400 text-lg mb-8">Follow our proven 7-step process that has helped thousands achieve their immigration dreams.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto section-content">
+                    <!-- Step 1 -->
+                    <div class="roadmap-step animate-fade-in" style="animation-delay: 0.1s">
+                        <div class="roadmap-step-number">1</div>
+                        <div class="glass-card p-6">
+                            <h3 class="text-xl font-bold mb-4">Initial Assessment & Profile Evaluation</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">What We Do:</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Comprehensive profile analysis</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Eligibility assessment</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Country & program matching</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Outcome:</h4>
+                                    <p class="text-gray-300 text-sm">Personalized immigration strategy with success probability assessment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="roadmap-step animate-fade-in" style="animation-delay: 0.2s">
+                        <div class="roadmap-step-number">2</div>
+                        <div class="glass-card p-6">
+                            <h3 class="text-xl font-bold mb-4">Documentation & Application Preparation</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Services Included:</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Document checklist preparation</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> SOP/LOR drafting</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Financial documentation guidance</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Timeline:</h4>
+                                    <p class="text-gray-300 text-sm">2-4 weeks depending on document complexity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="roadmap-step animate-fade-in" style="animation-delay: 0.3s">
+                        <div class="roadmap-step-number">3</div>
+                        <div class="glass-card p-6">
+                            <h3 class="text-xl font-bold mb-4">Visa Application Submission</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Our Support:</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Complete application filing</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Fee payment assistance</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Biometric appointment booking</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Success Rate:</h4>
+                                    <div class="flex items-center gap-2">
+                                        <div class="text-2xl font-bold text-green-500">98.7%</div>
+                                        <div class="text-sm text-gray-400">first-time submission accuracy</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="roadmap-step animate-fade-in" style="animation-delay: 0.4s">
+                        <div class="roadmap-step-number">4</div>
+                        <div class="glass-card p-6">
+                            <h3 class="text-xl font-bold mb-4">Interview Preparation & Mock Sessions</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Training Includes:</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Country-specific interview questions</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Body language coaching</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Document presentation training</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Success Metric:</h4>
+                                    <div class="flex items-center gap-2">
+                                        <div class="text-2xl font-bold text-green-500">96%</div>
+                                        <div class="text-sm text-gray-400">interview success rate</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="roadmap-step animate-fade-in" style="animation-delay: 0.5s">
+                        <div class="roadmap-step-number">5</div>
+                        <div class="glass-card p-6">
+                            <h3 class="text-xl font-bold mb-4">Visa Approval & Pre-Departure Briefing</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Post-Approval Support:</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Visa stamping guidance</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Flight & accommodation assistance</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Cultural orientation sessions</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Additional Services:</h4>
+                                    <p class="text-gray-300 text-sm">Bank account setup, SIM card procurement, local transportation guidance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="roadmap-step animate-fade-in" style="animation-delay: 0.6s">
+                        <div class="roadmap-step-number">6</div>
+                        <div class="glass-card p-6">
+                            <h3 class="text-xl font-bold mb-4">Post-Arrival Settlement Support</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Settlement Assistance:</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Airport pickup service</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Temporary accommodation</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Local registration procedures</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Network Access:</h4>
+                                    <p class="text-gray-300 text-sm">Connect with our alumni network for job referrals and community support</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="roadmap-step animate-fade-in" style="animation-delay: 0.7s">
+                        <div class="roadmap-step-number">7</div>
+                        <div class="glass-card p-6">
+                            <h3 class="text-xl font-bold mb-4">PR & Citizenship Pathway Guidance</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Long-term Planning:</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Permanent residency timeline</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Citizenship requirements</li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1 text-xs"></i> Family sponsorship options</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-primary mb-2">Our Promise:</h4>
+                                    <p class="text-gray-300 text-sm">Continuous support until you achieve your long-term immigration goals</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Study Abroad Guides & Resources Section -->
+        <section id="guides" class="section-padding bg-brand-bg">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
+                    <span class="text-brand-accent font-bold tracking-widest text-sm uppercase mb-4 block">Knowledge Hub</span>
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">Study Abroad <span class="gradient-text">Guides & Resources</span></h2>
+                    <p class="text-gray-400 text-lg mb-8">Access our comprehensive library of guides, checklists, and resources for 2025-2026 immigration.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 section-content">
+                    <!-- Guide 1 -->
+                    <div class="glass-card p-6 animate-fade-in" style="animation-delay: 0.1s">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-blue-500/20 flex items-center justify-center">
+                                <i class="fas fa-file-contract text-xl text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Document Checklist 2026</h3>
+                                <p class="text-sm text-gray-400">Country-specific requirements</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-5 text-sm">Complete checklist of all documents required for visa applications in 2026, including recent changes in documentation requirements.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Updated: Jan 2026</span>
+                            <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download PDF →</a>
+                        </div>
+                    </div>
+
+                    <!-- Guide 2 -->
+                    <div class="glass-card p-6 animate-fade-in" style="animation-delay: 0.2s">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-green-500/20 flex items-center justify-center">
+                                <i class="fas fa-chart-line text-xl text-green-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Visa Success Rates 2025</h3>
+                                <p class="text-sm text-gray-400">Statistical analysis</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-5 text-sm">Detailed analysis of visa approval rates by country, program type, and applicant profile based on 2025 data.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Updated: Dec 2025</span>
+                            <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">View Report →</a>
+                        </div>
+                    </div>
+
+                    <!-- Guide 3 -->
+                    <div class="glass-card p-6 animate-fade-in" style="animation-delay: 0.3s">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-500/20 flex items-center justify-center">
+                                <i class="fas fa-money-bill-wave text-xl text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Financial Planning Guide</h3>
+                                <p class="text-sm text-gray-400">Cost breakdown & planning</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-5 text-sm">Complete financial planning guide including tuition fees, living costs, proof of funds requirements for 2026.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Updated: Jan 2026</span>
+                            <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download Guide →</a>
+                        </div>
+                    </div>
+
+                    <!-- Guide 4 -->
+                    <div class="glass-card p-6 animate-fade-in" style="animation-delay: 0.4s">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-red-500/20 flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-xl text-red-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">University Selection 2026</h3>
+                                <p class="text-sm text-gray-400">Top institutions guide</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-5 text-sm">Comprehensive guide to selecting universities based on your profile, including scholarship opportunities.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Updated: Feb 2026</span>
+                            <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Access Tool →</a>
+                        </div>
+                    </div>
+
+                    <!-- Guide 5 -->
+                    <div class="glass-card p-6 animate-fade-in" style="animation-delay: 0.5s">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-yellow-500/20 flex items-center justify-center">
+                                <i class="fas fa-comments text-xl text-yellow-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Interview Preparation Kit</h3>
+                                <p class="text-sm text-gray-400">Visa interview success</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-5 text-sm">Complete preparation kit with sample questions, mock interview sessions, and success strategies.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Updated: Jan 2026</span>
+                            <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Get Access →</a>
+                        </div>
+                    </div>
+
+                    <!-- Guide 6 -->
+                    <div class="glass-card p-6 animate-fade-in" style="animation-delay: 0.6s">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 flex items-center justify-center">
+                                <i class="fas fa-home text-xl text-cyan-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">Post-Arrival Settlement</h3>
+                                <p class="text-sm text-gray-400">Settlement checklist</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-5 text-sm">Everything you need to know about settling in your new country - accommodation, banking, healthcare, etc.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Updated: Dec 2025</span>
+                            <a href="#" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="glass-card p-6 rounded-3xl">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                        <div>
+                            <div class="stat-number mb-2">15K+</div>
+                            <div class="text-sm text-gray-400">Successful Visas</div>
+                        </div>
+                        <div>
+                            <div class="stat-number mb-2">98.7%</div>
+                            <div class="text-sm text-gray-400">Success Rate</div>
+                        </div>
+                        <div>
+                            <div class="stat-number mb-2">27</div>
+                            <div class="text-sm text-gray-400">Countries Covered</div>
+                        </div>
+                        <div>
+                            <div class="stat-number mb-2">24/7</div>
+                            <div class="text-sm text-gray-400">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Top Universities & Embassies Trust TESCA Global -->
+        <section id="trust" class="section-padding bg-gradient-to-b from-brand-surface to-brand-bg">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
+                    <span class="text-brand-accent font-bold tracking-widest text-sm uppercase mb-4 block">Trust & Excellence</span>
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">Why Top Universities & Embassies <span class="gradient-text">Trust TESCA Global</span></h2>
+                    <p class="text-gray-400 text-lg mb-8">Our partnerships and accreditations ensure your application receives the attention it deserves.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 section-content">
+                    <div class="animate-fade-in" style="animation-delay: 0.1s">
+                        <h3 class="text-xl font-bold mb-6">Our Accreditations & Memberships</h3>
+                        <div class="space-y-5">
+                            <div class="glass-card p-5 rounded-2xl">
+                                <div class="flex items-center gap-4">
+                                    <div class="trust-badge">
+                                        <i class="fas fa-award text-2xl text-yellow-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">British Council Accredited</h4>
+                                        <p class="text-gray-400 text-sm">Official accreditation for UK visa consultancy since 2018</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-2xl">
+                                <div class="flex items-center gap-4">
+                                    <div class="trust-badge">
+                                        <i class="fas fa-handshake text-2xl text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">PIER Member</h4>
+                                        <p class="text-gray-400 text-sm">Professional International Education Resources certified agency</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-2xl">
+                                <div class="flex items-center gap-4">
+                                    <div class="trust-badge">
+                                        <i class="fas fa-globe-europe text-2xl text-green-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">EU Immigration Partner</h4>
+                                        <p class="text-gray-400 text-sm">Recognized partner for European Union immigration programs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-fade-in" style="animation-delay: 0.2s">
+                        <h3 class="text-xl font-bold mb-6">University & Embassy Partnerships</h3>
+                        <div class="space-y-5">
+                            <div class="glass-card p-5 rounded-2xl">
+                                <div class="flex items-center gap-4">
+                                    <div class="trust-badge">
+                                        <i class="fas fa-university text-2xl text-red-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">200+ University Partners</h4>
+                                        <p class="text-gray-400 text-sm">Direct admission partnerships with top global universities</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-2xl">
+                                <div class="flex items-center gap-4">
+                                    <div class="trust-badge">
+                                        <i class="fas fa-passport text-2xl text-purple-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Embassy Preferred Partner</h4>
+                                        <p class="text-gray-400 text-sm">Recognized by embassies of UK, USA, Canada, Australia, and EU nations</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-2xl">
+                                <div class="flex items-center gap-4">
+                                    <div class="trust-badge">
+                                        <i class="fas fa-shield-alt text-2xl text-cyan-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg mb-1">Data Security Certified</h4>
+                                        <p class="text-gray-400 text-sm">ISO 27001 certified for secure document handling and data protection</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust Badges - CENTERED -->
+                <div class="trust-badges-container">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 justify-center">
+                        <div class="trust-badge trust-badge-item">
+                            <div class="text-center">
+                                <div class="text-xl font-bold text-blue-500">UKVI</div>
+                                <div class="text-xs text-gray-400 mt-1">Approved</div>
+                            </div>
+                        </div>
+                        <div class="trust-badge trust-badge-item">
+                            <div class="text-center">
+                                <div class="text-xl font-bold text-red-500">USCIS</div>
+                                <div class="text-xs text-gray-400 mt-1">Recognized</div>
+                            </div>
+                        </div>
+                        <div class="trust-badge trust-badge-item">
+                            <div class="text-center">
+                                <div class="text-xl font-bold text-yellow-500">IRCC</div>
+                                <div class="text-xs text-gray-400 mt-1">Authorized</div>
+                            </div>
+                        </div>
+                        <div class="trust-badge trust-badge-item">
+                            <div class="text-center">
+                                <div class="text-xl font-bold text-green-500">AUS</div>
+                                <div class="text-xs text-gray-400 mt-1">Partner</div>
+                            </div>
+                        </div>
+                        <div class="trust-badge trust-badge-item">
+                            <div class="text-center">
+                                <div class="text-xl font-bold text-purple-500">EU</div>
+                                <div class="text-xs text-gray-400 mt-1">Certified</div>
+                            </div>
+                        </div>
+                        <div class="trust-badge trust-badge-item">
+                            <div class="text-center">
+                                <div class="text-xl font-bold text-cyan-500">NZ</div>
+                                <div class="text-xs text-gray-400 mt-1">Licensed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Footer -->
+        <footer id="contact" class="bg-brand-surface border-t border-white/5">
+            <div class="container mx-auto px-4">
+                <div class="footer-grid mb-10">
+                    <!-- Column 1: Logo and Description -->
+                    <div class="footer-logo-section">
+                        <a href="#home" class="flex items-center mb-3">
+                            <div class="w-48 h-16 flex items-center justify-center">
+                                <!-- LOCAL LOGO -->
+                                <img src="Logo.png" alt="TESCA Global Logo" class="logo-img">
+                            </div>
+                        </a>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-3">
+                            World-class visa and immigration consultancy with 98.7% success rate. Accredited by British Council and recognized by global embassies.
+                        </p>
+                        <div class="flex gap-3 mt-3">
+                            <a href="https://linkedin.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-500 hover:text-white transition duration-300">
+                                <i class="fab fa-linkedin-in text-sm"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-pink-600 hover:text-white transition duration-300">
+                                <i class="fab fa-instagram text-sm"></i>
+                            </a>
+                            <a href="https://facebook.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-600 hover:text-white transition duration-300">
+                                <i class="fab fa-facebook-f text-sm"></i>
+                            </a>
+                            <a href="https://youtube.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-red-600 hover:text-white transition duration-300">
+                                <i class="fab fa-youtube text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Quick Links -->
+                    <div>
+                        <h4 class="font-bold text-white mb-5">Quick Links</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="#home" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Home</a></li>
+                            <li><a href="#visa" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Visa Programs</a></li>
+                            <li><a href="#roadmap" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Success Roadmap</a></li>
+                            <li><a href="#guides" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Resources</a></li>
+                            <li><a href="#trust" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> Why Trust Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Top Destinations -->
+                    <div>
+                        <h4 class="font-bold text-white mb-5">Top Destinations</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="#visa" onclick="filterVisas('uk')" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 cursor-pointer"><i class="fas fa-flag text-xs"></i> United Kingdom</a></li>
+                            <li><a href="#visa" onclick="filterVisas('usa')" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 cursor-pointer"><i class="fas fa-flag text-xs"></i> United States</a></li>
+                            <li><a href="#visa" onclick="filterVisas('canada')" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 cursor-pointer"><i class="fas fa-flag text-xs"></i> Canada</a></li>
+                            <li><a href="#visa" onclick="filterVisas('australia')" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 cursor-pointer"><i class="fas fa-flag text-xs"></i> Australia</a></li>
+                            <li><a href="#visa" onclick="filterVisas('germany')" class="direct-link hover:text-brand-primary transition-colors duration-300 flex items-center gap-2 cursor-pointer"><i class="fas fa-flag text-xs"></i> Germany</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 4: Contact Information -->
+                    <div>
+                        <h4 class="font-bold text-white mb-5">Contact Us</h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-map-marker-alt mt-1 text-brand-primary text-xs"></i>
+                                <span>107, Ambika Pinnacle, Lajamni Chowk, Dwarkesh Nagari, Mota Varachha, Surat, Gujarat 394101, India</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-phone text-brand-primary text-xs"></i>
+                                <a href="tel:+919925081515" class="direct-link hover:text-brand-primary transition-colors duration-300">+91 99250 81515</a>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-envelope text-brand-primary text-xs"></i>
+                                <a href="mailto:visa@tesca.co" class="direct-link hover:text-brand-primary transition-colors duration-300">visa@tesca.co</a>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-clock text-brand-primary text-xs"></i>
+                                <span>Mon-Sat: 9:00 AM - 8:00 PM</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-5">
+                            <a href="tel:+919925081515" class="view-requirements-btn py-2.5 px-5 inline-block text-center text-sm">
+                                <i class="fas fa-calendar-check mr-2"></i>Book Free Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+                    <div class="flex items-center gap-4 mb-4 md:mb-0">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-green-500 text-xs"></i>
+                            <span class="text-xs">100% Secure & Confidential</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-lock text-blue-500 text-xs"></i>
+                            <span class="text-xs">GDPR Compliant</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-5 flex-wrap">
+                        <a href="#" class="direct-link hover:text-white transition-colors duration-300 text-xs">Privacy Policy</a>
+                        <a href="#" class="direct-link hover:text-white transition-colors duration-300 text-xs">Terms of Service</a>
+                        <a href="#" class="direct-link hover:text-white transition-colors duration-300 text-xs">Refund Policy</a>
+                        <a href="#" class="direct-link hover:text-white transition-colors duration-300 text-xs">Disclaimer</a>
+                    </div>
+                </div>
+                
+                <div class="mt-5 text-center text-xs text-gray-500">
+                    <p>&copy; 2026 TESCA Global Visa & Immigration Consultancy. All rights reserved. | Registered with Ministry of Corporate Affairs | GSTIN: 24ABCDE1234F1Z5</p>
+                    <p class="mt-2 text-xs">Information updated as of February 2026. Immigration policies are subject to change.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // --- 1. BANNERS ARRAY WITH UPDATED BACKGROUND IMAGES ---
+            const banners = [
+                {
+                    country: 'uk',
+                    title: 'UK VISA CONSULTANCY: LAST CHANCE BEFORE MAJOR CHANGES!',
+                    subtitle: 'Apply before January 2026 to avoid new requirements and secure your UK future',
+                    offer: 'EXCLUSIVE: Get FREE consultation + Priority Processing at Standard Fee',
+                    stats: '99.2% Success Rate | 15K+ UK Visas Processed',
+                    cta: 'Secure Your UK Visa Now',
+                    color: 'from-brand-uk to-blue-700',
+                    flag: 'https://flagcdn.com/w320/gb.png',
+                    deadline: 'Apply Before Jan 2026',
+                    bgImage: 'https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'usa',
+                    title: 'USA VISA SERVICES: BEAT THE FEE INCREASE!',
+                    subtitle: 'File your petition before September 2025 to save costs in the new fee structure',
+                    offer: 'SPECIAL: Complete Visa Package with Premium Processing',
+                    stats: '96.5% Approval Rate | 8K+ US Visas',
+                    cta: 'Avoid Fee Hike',
+                    color: 'from-brand-usa to-red-600',
+                    flag: 'https://flagcdn.com/w320/us.png',
+                    deadline: 'File Before Sep 2025',
+                    bgImage: 'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'germany',
+                    title: 'GERMANY VISA: WORK WHILE YOU SEARCH!',
+                    subtitle: 'New 2026 points-based system allows work during job search period',
+                    offer: 'LIMITED: Free German Language Course + Job Search Support',
+                    stats: '98% Success | Fastest EU Processing',
+                    cta: 'Get Your EU Visa',
+                    color: 'from-brand-germany to-yellow-600',
+                    flag: 'https://flagcdn.com/w320/de.png',
+                    deadline: 'Applications Open Now',
+                    bgImage: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'ireland',
+                    title: 'IRELAND VISA: CRITICAL SKILLS OPPORTUNITY!',
+                    subtitle: 'Fast-track visa for IT, healthcare, and engineering professionals',
+                    offer: 'PRIORITY: 2-week processing for Critical Skills Employment Permit',
+                    stats: '97.8% Success | €60,000+ Salary Packages',
+                    cta: 'Apply for Critical Skills Visa',
+                    color: 'from-brand-ireland to-green-500',
+                    flag: 'https://flagcdn.com/w320/ie.png',
+                    deadline: 'Limited 2025 Slots',
+                    bgImage: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'france',
+                    title: 'FRANCE VISA: NEW TALENT PASSPORT PROGRAM!',
+                    subtitle: 'Simplified process for highly skilled workers and investors',
+                    offer: 'INCLUDES: Family reunification + 4-year renewable permit',
+                    stats: '96.5% Success | 3-Week Processing',
+                    cta: 'Explore Talent Passport',
+                    color: 'from-brand-france to-blue-800',
+                    flag: 'https://flagcdn.com/w320/fr.png',
+                    deadline: '2026 Intake Open',
+                    bgImage: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'italy',
+                    title: 'ITALY VISA: ELECTRONIC PERMIT SYSTEM LAUNCHED!',
+                    subtitle: 'New digital nomad visa and simplified work permit process',
+                    offer: 'DIGITAL NOMAD: Remote work visa with tax benefits',
+                    stats: '95.8% Success | Family Included',
+                    cta: 'Get Italy Work Permit',
+                    color: 'from-brand-italy to-green-600',
+                    flag: 'https://flagcdn.com/w320/it.png',
+                    deadline: 'Apply Before Dec 2025',
+                    bgImage: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'netherlands',
+                    title: 'NETHERLANDS VISA: 30% RULING BENEFITS!',
+                    subtitle: 'Tax advantage for skilled migrants - 30% of salary tax-free',
+                    offer: 'HIGH SALARY: €4,840+ monthly for Highly Skilled Migrants',
+                    stats: '98.2% Success | Fast-track Available',
+                    cta: 'Claim 30% Ruling',
+                    color: 'from-brand-netherlands to-red-700',
+                    flag: 'https://flagcdn.com/w320/nl.png',
+                    deadline: 'Limited 2025 Positions',
+                    bgImage: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'sweden',
+                    title: 'SWEDEN VISA: WORK-LIFE BALANCE EXCELLENCE!',
+                    subtitle: 'Fast-track for tech professionals with family benefits',
+                    offer: 'FAMILY FOCUSED: Spouse work rights + child benefits',
+                    stats: '97.5% Success | 4-Week Processing',
+                    cta: 'Move to Sweden',
+                    color: 'from-brand-sweden to-yellow-500',
+                    flag: 'https://flagcdn.com/w320/se.png',
+                    deadline: 'Tech Jobs Available',
+                    bgImage: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'spain',
+                    title: 'SPAIN VISA: NON-LUCRATIVE RESIDENCY!',
+                    subtitle: 'Live in Spain without working - Passive income visa',
+                    offer: 'INCLUDES: Healthcare access + Schengen travel rights',
+                    stats: '96.8% Success | 3-Month Processing',
+                    cta: 'Apply for Non-Lucrative Visa',
+                    color: 'from-brand-spain to-red-800',
+                    flag: 'https://flagcdn.com/w320/es.png',
+                    deadline: '2026 Quotas Filling Fast',
+                    bgImage: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'finland',
+                    title: 'FINLAND VISA: STARTUP ENTREPRENEUR PROGRAM!',
+                    subtitle: 'Residence permit for startup founders and innovative businesses',
+                    offer: 'STARTUP PACKAGE: Business mentoring + funding guidance',
+                    stats: '94.5% Success | Nordic Quality Life',
+                    cta: 'Launch Your Startup in Finland',
+                    color: 'from-brand-finland to-blue-900',
+                    flag: 'https://flagcdn.com/w320/fi.png',
+                    deadline: '2026 Cohort Applications',
+                    bgImage: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'canada',
+                    title: 'CANADA IMMIGRATION: GRAB REDUCED QUOTA SPOTS!',
+                    subtitle: 'Only 395,000 spots in 2025 - down from previous years. Act now!',
+                    offer: 'FRANCOPHONE BONUS: Extra points for French speakers',
+                    stats: '98.5% Success | Express Entry Specialists',
+                    cta: 'Secure Your PR Spot',
+                    color: 'from-brand-canada to-red-500',
+                    flag: 'https://flagcdn.com/w320/ca.png',
+                    deadline: 'Limited 2025 Quotas',
+                    bgImage: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'australia',
+                    title: 'AUSTRALIA VISA: NEW INNOVATION VISA FOR 2026!',
+                    subtitle: 'New high-end entrepreneur visa with 185,000 total spots available',
+                    offer: 'GOLD PACKAGE: End-to-end support including business plan',
+                    stats: '97.3% Success | Australian Experts',
+                    cta: 'Apply for Innovation Visa',
+                    color: 'from-brand-australia to-red-400',
+                    flag: 'https://flagcdn.com/w320/au.png',
+                    deadline: '2026 Intake Open',
+                    bgImage: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                },
+                {
+                    country: 'newzealand',
+                    title: 'NEW ZEALAND VISA: BEAT THE SERVICE FEE HIKE!',
+                    subtitle: 'Apply before January 2026 to avoid increased service fees',
+                    offer: 'SUSTAINABLE EMPLOYMENT PACKAGE: Meet 2026 requirements',
+                    stats: '98.1% Success | NZ Licensed',
+                    cta: 'Lock Current Fees',
+                    color: 'from-brand-nz to-red-300',
+                    flag: 'https://flagcdn.com/w320/nz.png',
+                    deadline: 'Apply Before Jan 2026',
+                    bgImage: 'https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+                }
+            ];
+
+            // --- 2. VISA PROGRAMS DATA - FIXED WITH CONSISTENT COUNTRY NAMES ---
+            const visas = [
+                // UK Visas (4 types) - country: 'uk'
+                { 
+                    id: 1, country: 'uk', type: 'student', title: 'UK Student Visa (Tier 4)', 
+                    processingTime: '3-6 weeks', fee: '£348 - £475', successRate: '98.5%',
+                    desc: 'For international students pursuing education in UK institutions. Valid for course duration + extra time.',
+                    requirements: ['CAS from licensed institution', 'English proficiency (IELTS 6.0+)', 'Financial evidence (£1,334/month in London)', 'TB certificate', 'Academic qualifications'],
+                    documents: ['CAS letter', 'Academic transcripts', 'Bank statements (28 days)', 'Passport', 'TB test certificate', 'English test results'],
+                    livingCost: '£1,334/month (London), £1,023/month (outside London)',
+                    totalCost: '£2,000 - £5,000 (including tuition deposit)',
+                    changes: 'Jan 2026: Higher financial requirements, stricter English tests, no dependents for most courses'
+                },
+                { 
+                    id: 2, country: 'uk', type: 'work', title: 'UK Skilled Worker Visa', 
+                    processingTime: '3-8 weeks', fee: '£1,423 - £1,872', successRate: '99.2%',
+                    desc: 'For professionals with job offer from UK licensed sponsor. Skill threshold increases in 2026.',
+                    requirements: ['Job offer from licensed sponsor', 'RQF Level 3+ (until Dec 2025)', 'English B1 level', 'Salary ≥ £26,200', 'Sponsorship certificate'],
+                    documents: ['Certificate of Sponsorship', 'Proof of English proficiency', 'TB test certificate', 'Financial evidence', 'Job offer letter', 'Qualifications proof'],
+                    livingCost: '£1,500 - £2,500/month depending on location',
+                    totalCost: '£3,000 - £8,000 (including IHS surcharge)',
+                    changes: 'Jan 2026: RQF Level 6 required, English B2 required, salary threshold increases'
+                },
+                { 
+                    id: 3, country: 'uk', type: 'tourist', title: 'UK Tourist Visa', 
+                    processingTime: '3-4 weeks', fee: '£95 - £822', successRate: '96.5%',
+                    desc: 'Short-term visit visa for tourism, family visits, or business trips up to 6 months.',
+                    requirements: ['Proof of return/onward travel', 'Financial means (£100/day)', 'Accommodation details', 'Travel itinerary', 'Home country ties'],
+                    documents: ['Bank statements (6 months)', 'Hotel bookings', 'Flight tickets', 'Employment proof', 'Invitation letter (if visiting family)'],
+                    livingCost: '£100 - £200/day depending on travel style',
+                    totalCost: '£500 - £2,000 for 2-week trip',
+                    changes: 'Electronic Travel Authorization (ETA) required from 2025, digital application only'
+                },
+                { 
+                    id: 4, country: 'uk', type: 'dependent', title: 'UK Dependent Visa', 
+                    processingTime: '8-12 weeks', fee: '£1,048', successRate: '97.8%',
+                    desc: 'For spouses, partners and children joining main visa holder in UK.',
+                    requirements: ['Relationship proof (marriage/civil partnership)', 'Financial requirements met', 'Accommodation proof', 'Main visa valid', 'English A1 (for partners)'],
+                    documents: ['Marriage/birth certificates', 'Financial proof', 'Accommodation proof', 'Passports', 'TB certificates', 'English test (if applicable)'],
+                    livingCost: 'Additional £680/month per dependent',
+                    totalCost: '£2,500 - £4,000 per dependent',
+                    changes: '2026: Increased financial requirement for dependents, stricter relationship evidence'
+                },
+
+                // USA Visas (4 types) - country: 'usa'
+                { 
+                    id: 5, country: 'usa', type: 'student', title: 'USA F-1 Student Visa', 
+                    processingTime: '2-4 months', fee: '$185 - $510', successRate: '95.8%',
+                    desc: 'For full-time students at SEVIS-approved US institutions. Allows limited on-campus work.',
+                    requirements: ['I-20 form from SEVIS school', 'Proof of funds (cover 1st year)', 'Non-immigrant intent', 'English proficiency', 'Academic qualifications'],
+                    documents: ['I-20 form', 'Financial documents', 'Academic records', 'DS-160 confirmation', 'SEVIS fee receipt', 'Passport'],
+                    livingCost: '$1,500 - $3,000/month depending on city',
+                    totalCost: '$3,000 - $10,000 (including SEVIS and tuition deposit)',
+                    changes: 'Stricter STEM OPT extensions, reduced duration for some programs, digital interviews'
+                },
+                { 
+                    id: 6, country: 'usa', type: 'work', title: 'USA H-1B Visa', 
+                    processingTime: '3-6 months', fee: '$4,500 - $105,500', successRate: '96.5%',
+                    desc: 'For specialty occupations requiring theoretical/practical application. New fee structure from Sep 2025.',
+                    requirements: ['Bachelor\'s degree or equivalent', 'Specialty occupation', 'Employer petition', 'Prevailing wage', 'Labor Condition Application'],
+                    documents: ['Labor Condition Application', 'Form I-129', 'Degree evaluation', 'Job offer letter', 'Resume', 'Employer documents'],
+                    livingCost: '$2,000 - $5,000/month depending on location',
+                    totalCost: '$8,000 - $120,000 (including premium processing)',
+                    changes: 'Sep 2025: $100,000 fee increase, Social media vetting required, lottery system revised'
+                },
+                { 
+                    id: 7, country: 'usa', type: 'tourist', title: 'USA B-1/B-2 Tourist Visa', 
+                    processingTime: '3-8 weeks', fee: '$185', successRate: '94.5%',
+                    desc: 'For temporary visitors for business (B-1) or tourism/medical treatment (B-2).',
+                    requirements: ['Non-immigrant intent', 'Financial capability', 'Return ties to home country', 'Valid travel purpose'],
+                    documents: ['DS-160 confirmation', 'Bank statements (6 months)', 'Employment proof', 'Travel itinerary', 'Invitation letter (if applicable)'],
+                    livingCost: '$150 - $300/day depending on travel style',
+                    totalCost: '$1,000 - $5,000 for 2-week trip',
+                    changes: 'Increased scrutiny on social media, longer processing times, digital-only applications'
+                },
+                { 
+                    id: 8, country: 'usa', type: 'dependent', title: 'USA H-4 Dependent Visa', 
+                    processingTime: '2-4 months', fee: '$370 - $1,440', successRate: '98.2%',
+                    desc: 'For spouses and children of H-1B, L-1, and other work visa holders.',
+                    requirements: ['Primary visa holder status', 'Relationship proof', 'Financial support', 'Valid marriage/child relationship'],
+                    documents: ['Primary visa copies', 'Marriage/birth certificates', 'Financial documents', 'Form I-539', 'Passports', 'Photos'],
+                    livingCost: 'Additional $1,500 - $2,500/month per dependent',
+                    totalCost: '$2,000 - $5,000 per dependent',
+                    changes: 'Work authorization for H-4 spouses under review, may be restricted, longer processing'
+                },
+
+                // Germany Visas (4 types)
+                { 
+                    id: 9, country: 'germany', type: 'student', title: 'Germany Student Visa', 
+                    processingTime: '4-12 weeks', fee: '€75', successRate: '97.5%',
+                    desc: 'For international students admitted to German universities. Allows 120 full/240 half days work annually.',
+                    requirements: ['University admission letter', 'Proof of funds €11,208/year', 'Health insurance', 'German/English proficiency', 'Academic qualifications'],
+                    documents: ['Admission letter', 'Blocked account proof', 'Health insurance', 'Language certificates', 'Academic records', 'Passport'],
+                    livingCost: '€850 - €1,200/month depending on city',
+                    totalCost: '€2,000 - €5,000 (including blocked account)',
+                    changes: 'Increased blocked account amount (€11,208), stricter language requirements, digital application'
+                },
+                { 
+                    id: 10, country: 'germany', type: 'work', title: 'Germany Work Visa', 
+                    processingTime: '1-3 months', fee: '€75 - €140', successRate: '96.8%',
+                    desc: 'For employment in Germany. Blue Card for graduates with job offer ≥ €45,300 (2026: €50,000).',
+                    requirements: ['Job offer/contract', 'Qualifications recognition', 'Salary threshold met', 'Health insurance', 'Academic degree'],
+                    documents: ['Employment contract', 'Qualifications certificates', 'Passport', 'Health insurance', 'Resume', 'Degree certificates'],
+                    livingCost: '€1,200 - €2,500/month depending on city',
+                    totalCost: '€1,500 - €4,000 (including recognition fees)',
+                    changes: 'New Opportunity Card 2024, IT specialists can apply without degree if 3+ years experience'
+                },
+                { 
+                    id: 11, country: 'germany', type: 'tourist', title: 'Germany Schengen Tourist Visa', 
+                    processingTime: '15-30 days', fee: '€80', successRate: '98.2%',
+                    desc: 'Short-stay visa for tourism, visiting family/friends, business up to 90 days in 180 days.',
+                    requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€45/day)', 'Travel insurance (€30,000 coverage)', 'Return ticket'],
+                    documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Invitation letter'],
+                    livingCost: '€80 - €150/day depending on travel style',
+                    totalCost: '€1,000 - €3,000 for 2-week trip',
+                    changes: 'ETIAS authorization required from late 2026, digital application system'
+                },
+                { 
+                    id: 12, country: 'germany', type: 'dependent', title: 'Germany Family Reunion Visa', 
+                    processingTime: '3-6 months', fee: '€75', successRate: '95.5%',
+                    desc: 'For spouses and minor children joining family members in Germany.',
+                    requirements: ['Family member residence permit', 'Adequate housing (12m²/person)', 'Financial support', 'German A1 for spouse', 'Marriage/child proof'],
+                    documents: ['Marriage/birth certificates', 'Housing proof', 'Financial proof', 'German language certificate', 'Passports', 'Photos'],
+                    livingCost: 'Additional €800 - €1,200/month per dependent',
+                    totalCost: '€2,000 - €4,000 per dependent',
+                    changes: 'Stricter integration requirements, longer processing, higher language requirement (A1 to A2)'
+                },
+
+                // Ireland Visas (4 types)
+                { 
+                    id: 13, country: 'ireland', type: 'student', title: 'Ireland Student Visa', 
+                    processingTime: '4-8 weeks', fee: '€60', successRate: '96.8%',
+                    desc: 'For non-EEA students attending Irish institutions. Allows 20 hours work during term.',
+                    requirements: ['Letter of Acceptance', 'Proof of funds €7,000', 'Medical insurance', 'English proficiency', 'Academic qualifications'],
+                    documents: ['Acceptance letter', 'Financial proof', 'Medical insurance', 'English test results', 'Academic records', 'Passport'],
+                    livingCost: '€800 - €1,500/month depending on location',
+                    totalCost: '€2,500 - €6,000 (including tuition deposit)',
+                    changes: 'Increased financial requirement, stricter attendance monitoring, digital system'
+                },
+                { 
+                    id: 14, country: 'ireland', type: 'work', title: 'Ireland Critical Skills Employment Permit', 
+                    processingTime: '2-4 weeks', fee: '€1,000', successRate: '98.5%',
+                    desc: 'For highly skilled professionals in occupations with shortages. Fast-track to permanent residence.',
+                    requirements: ['Job offer €32,000+ (€64,000 for non-shortage)', 'Qualifications', 'Occupation on critical skills list', 'Labor market needs test'],
+                    documents: ['Job offer letter', 'Qualifications proof', 'Employer details', 'Business plan', 'Passport', 'Resume'],
+                    livingCost: '€1,200 - €2,000/month depending on location',
+                    totalCost: '€2,500 - €5,000 (including permit and relocation)',
+                    changes: 'New occupations added to critical skills list, faster processing for tech roles'
+                },
+                { 
+                    id: 15, country: 'ireland', type: 'tourist', title: 'Ireland Tourist Visa', 
+                    processingTime: '4-8 weeks', fee: '€60', successRate: '97.2%',
+                    desc: 'Short-stay visa for tourism, visiting family/friends up to 90 days.',
+                    requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€100/day)', 'Travel insurance', 'Return ticket'],
+                    documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Invitation letter'],
+                    livingCost: '€80 - €150/day depending on travel style',
+                    totalCost: '€1,200 - €3,000 for 2-week trip',
+                    changes: 'Online application only, biometrics required, longer validity for frequent travelers'
+                },
+                { 
+                    id: 16, country: 'ireland', type: 'dependent', title: 'Ireland Dependent Visa', 
+                    processingTime: '3-4 months', fee: '€300', successRate: '96.2%',
+                    desc: 'For spouses and children of Irish residents/work permit holders.',
+                    requirements: ['Sponsor immigration status', 'Relationship proof', 'Financial support', 'Accommodation proof', 'Medical insurance'],
+                    documents: ['Marriage/birth certificates', 'Sponsor documents', 'Financial proof', 'Accommodation proof', 'Medical insurance', 'Passports'],
+                    livingCost: 'Additional €700 - €1,200/month per dependent',
+                    totalCost: '€2,000 - €4,000 per dependent',
+                    changes: 'Stricter financial requirements, longer processing, work rights for spouses'
+                },
+
+                // France Visas (4 types) - UPDATED with consistent naming
+                { 
+                    id: 17, country: 'france', type: 'student', title: 'France Student Visa', 
+                    processingTime: '3-8 weeks', fee: '€99', successRate: '96.5%',
+                    desc: 'For international students attending French institutions. Renewable annually.',
+                    requirements: ['Admission to French institution', 'Proof of funds €615/month', 'Health insurance', 'French/English proficiency', 'Accommodation proof'],
+                    documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Language certificates', 'Accommodation proof', 'Passport'],
+                    livingCost: '€800 - €1,200/month depending on city',
+                    totalCost: '€2,000 - €5,000 (including tuition and deposit)',
+                    changes: 'Campus France procedure mandatory, digital platform, increased financial requirements'
+                },
+                { 
+                    id: 18, country: 'france', type: 'work', title: 'France Talent Passport', 
+                    processingTime: '1-2 months', fee: '€269', successRate: '95.8%',
+                    desc: 'For highly skilled workers, investors, artists, and researchers. 4-year renewable permit.',
+                    requirements: ['Qualification/experience in specific category', 'Employment contract/project', 'Salary ≥ €53,836.50', 'Health insurance', 'Clean record'],
+                    documents: ['Employment contract/project plan', 'Qualifications proof', 'Financial documents', 'Health insurance', 'Passport', 'Resume'],
+                    livingCost: '€1,200 - €2,500/month depending on city',
+                    totalCost: '€2,500 - €6,000 (including application and relocation)',
+                    changes: 'New categories added, digital nomad category introduced, faster processing'
+                },
+                { 
+                    id: 19, country: 'france', type: 'tourist', title: 'France Schengen Tourist Visa', 
+                    processingTime: '15-30 days', fee: '€80', successRate: '98.5%',
+                    desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                    requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€120/day)', 'Travel insurance', 'Return ticket'],
+                    documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                    livingCost: '€100 - €200/day depending on travel style',
+                    totalCost: '€1,500 - €4,000 for 2-week trip',
+                    changes: 'ETIAS required from 2026, online application, longer multiple-entry visas'
+                },
+                { 
+                    id: 20, country: 'france', type: 'dependent', title: 'France Family Reunion Visa', 
+                    processingTime: '6-12 months', fee: '€269', successRate: '94.2%',
+                    desc: 'For spouses and children joining family members legally residing in France.',
+                    requirements: ['Sponsor residence permit (1+ year)', 'Stable resources', 'Adequate housing', 'Integration agreement', 'Relationship proof'],
+                    documents: ['Marriage/birth certificates', 'Sponsor documents', 'Financial proof', 'Housing proof', 'Integration agreement', 'Passports'],
+                    livingCost: 'Additional €800 - €1,500/month per dependent',
+                    totalCost: '€3,000 - €6,000 per dependent',
+                    changes: 'Stricter integration requirements, language test, longer processing times'
+                },
+
+                // Italy Visas (4 types)
+                { 
+                    id: 21, country: 'italy', type: 'student', title: 'Italy Student Visa', 
+                    processingTime: '4-12 weeks', fee: '€116', successRate: '97.2%',
+                    desc: 'For international students attending Italian universities or courses.',
+                    requirements: ['Admission to Italian institution', 'Proof of funds €6,079.50/year', 'Health insurance', 'Accommodation proof', 'Language proficiency'],
+                    documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Accommodation proof', 'Language certificate', 'Passport'],
+                    livingCost: '€700 - €1,200/month depending on city',
+                    totalCost: '€2,000 - €5,000 (including tuition and deposit)',
+                    changes: 'Digital pre-enrollment, increased financial requirements, online application'
+                },
+                { 
+                    id: 22, country: 'italy', type: 'work', title: 'Italy Work Visa', 
+                    processingTime: '2-6 months', fee: '€116', successRate: '95.5%',
+                    desc: 'For employment in Italy. Requires Nulla Osta (work authorization) from employer.',
+                    requirements: ['Job offer from Italian employer', 'Nulla Osta authorization', 'Qualifications', 'Accommodation proof', 'Health insurance'],
+                    documents: ['Nulla Osta', 'Employment contract', 'Qualifications proof', 'Accommodation proof', 'Health insurance', 'Passport'],
+                    livingCost: '€900 - €1,800/month depending on city',
+                    totalCost: '€2,000 - €5,000 (including permit and relocation)',
+                    changes: 'New digital nomad visa, quota system revised, faster processing for shortage occupations'
+                },
+                { 
+                    id: 23, country: 'italy', type: 'tourist', title: 'Italy Schengen Tourist Visa', 
+                    processingTime: '15-30 days', fee: '€80', successRate: '98.8%',
+                    desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                    requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€50/day)', 'Travel insurance', 'Return ticket'],
+                    documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                    livingCost: '€70 - €150/day depending on travel style',
+                    totalCost: '€1,200 - €3,500 for 2-week trip',
+                    changes: 'ETIAS required from 2026, online appointment system, multiple-entry visas more common'
+                },
+                { 
+                    id: 24, country: 'italy', type: 'dependent', title: 'Italy Family Reunion Visa', 
+                    processingTime: '6-9 months', fee: '€116', successRate: '96.8%',
+                    desc: 'For family members joining residents in Italy.',
+                    requirements: ['Sponsor residence permit', 'Adequate income', 'Suitable housing', 'Relationship proof', 'Health insurance'],
+                    documents: ['Marriage/birth certificates', 'Sponsor documents', 'Income proof', 'Housing proof', 'Health insurance', 'Passports'],
+                    livingCost: 'Additional €600 - €1,200/month per dependent',
+                    totalCost: '€2,500 - €5,000 per dependent',
+                    changes: 'Increased income requirements, integration agreement required, digital application'
+                },
+
+                // Netherlands Visas (4 types) - FIXED: country: 'netherlands'
+                { 
+                    id: 25, country: 'netherlands', type: 'student', title: 'Netherlands Student Visa', 
+                    processingTime: '4-8 weeks', fee: '€210', successRate: '98.2%',
+                    desc: 'For non-EU students attending Dutch institutions. Allows 16 hours work/week.',
+                    requirements: ['Admission to Dutch institution', 'Proof of funds €11,631 (2026)', 'Health insurance', 'TB test', 'Academic qualifications'],
+                    documents: ['Admission letter', 'Financial proof', 'Health insurance', 'TB test certificate', 'Academic records', 'Passport'],
+                    livingCost: '€900 - €1,400/month depending on city',
+                    totalCost: '€3,000 - €6,000 (including tuition and deposit)',
+                    changes: 'Increased financial requirements, stricter housing requirements, digital process'
+                },
+                { 
+                    id: 26, country: 'netherlands', type: 'work', title: 'Netherlands Highly Skilled Migrant Visa', 
+                    processingTime: '2-4 weeks', fee: '€1,411', successRate: '99.1%',
+                    desc: 'For highly skilled workers with job offer from recognized sponsor. 30% tax ruling available.',
+                    requirements: ['Job offer from recognized sponsor', 'Salary ≥ €5,331/month (2026)', 'Qualifications', 'Health insurance', 'Clean record'],
+                    documents: ['Employment contract', 'Qualifications proof', 'Sponsor documents', 'Health insurance', 'Passport', 'Resume'],
+                    livingCost: '€1,200 - €2,200/month depending on city',
+                    totalCost: '€3,000 - €7,000 (including permit and relocation)',
+                    changes: 'Salary thresholds increased annually, 30% ruling duration reduced to 5 years'
+                },
+                { 
+                    id: 27, country: 'netherlands', type: 'tourist', title: 'Netherlands Schengen Tourist Visa', 
+                    processingTime: '15-30 days', fee: '€80', successRate: '98.5%',
+                    desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                    requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€55/day)', 'Travel insurance', 'Return ticket'],
+                    documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                    livingCost: '€80 - €160/day depending on travel style',
+                    totalCost: '€1,300 - €3,500 for 2-week trip',
+                    changes: 'ETIAS required from 2026, online application, biometrics mandatory'
+                },
+                { 
+                    id: 28, country: 'netherlands', type: 'dependent', title: 'Netherlands Family Reunion Visa', 
+                    processingTime: '3-6 months', fee: '€210', successRate: '97.5%',
+                    desc: 'For spouses and children joining residents in Netherlands.',
+                    requirements: ['Sponsor residence permit', 'Income ≥ 100% social minimum', 'Accommodation (independent)', 'Relationship proof', 'Integration exam (pre-arrival)'],
+                    documents: ['Marriage/birth certificates', 'Sponsor documents', 'Income proof', 'Accommodation proof', 'Integration certificate', 'Passports'],
+                    livingCost: 'Additional €800 - €1,500/month per dependent',
+                    totalCost: '€3,000 - €6,000 per dependent',
+                    changes: 'Stricter income requirements, pre-arrival integration exam, longer processing'
+                },
+
+                // Sweden Visas (4 types)
+                { 
+                    id: 29, country: 'sweden', type: 'student', title: 'Sweden Student Visa', 
+                    processingTime: '4-12 weeks', fee: 'SEK 1,500', successRate: '97.8%',
+                    desc: 'For international students attending Swedish universities. Allows part-time work.',
+                    requirements: ['Admission to Swedish university', 'Proof of funds SEK 9,450/month', 'Health insurance', 'Academic qualifications', 'English proficiency'],
+                    documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Academic records', 'English test results', 'Passport'],
+                    livingCost: 'SEK 8,500 - SEK 12,000/month depending on city',
+                    totalCost: 'SEK 25,000 - SEK 60,000 (including tuition and deposit)',
+                    changes: 'Increased financial requirements, digital application, faster processing for complete applications'
+                },
+                { 
+                    id: 30, country: 'sweden', type: 'work', title: 'Sweden Work Visa', 
+                    processingTime: '1-3 months', fee: 'SEK 2,000', successRate: '96.5%',
+                    desc: 'For employment in Sweden. Fast-track for certain occupations and companies.',
+                    requirements: ['Job offer from Swedish employer', 'Salary ≥ SEK 13,000/month', 'Qualifications', 'Health insurance', 'Clean record'],
+                    documents: ['Employment contract', 'Qualifications proof', 'Employer details', 'Health insurance', 'Passport', 'Resume'],
+                    livingCost: 'SEK 10,000 - SEK 18,000/month depending on city',
+                    totalCost: 'SEK 30,000 - SEK 70,000 (including permit and relocation)',
+                    changes: 'New fast-track system for certified employers, digital application, family can apply simultaneously'
+                },
+                { 
+                    id: 31, country: 'sweden', type: 'tourist', title: 'Sweden Schengen Tourist Visa', 
+                    processingTime: '15-30 days', fee: '€80', successRate: '98.9%',
+                    desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                    requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (SEK 450/day)', 'Travel insurance', 'Return ticket'],
+                    documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                    livingCost: 'SEK 500 - SEK 1,200/day depending on travel style',
+                    totalCost: 'SEK 15,000 - SEK 40,000 for 2-week trip',
+                    changes: 'ETIAS required from 2026, online application, longer validity for frequent travelers'
+                },
+                { 
+                    id: 32, country: 'sweden', type: 'dependent', title: 'Sweden Family Reunion Visa', 
+                    processingTime: '6-15 months', fee: 'SEK 1,500', successRate: '95.2%',
+                    desc: 'For family members joining residents in Sweden.',
+                    requirements: ['Sponsor residence permit', 'Adequate housing', 'Financial support', 'Relationship proof', 'Health insurance'],
+                    documents: ['Marriage/birth certificates', 'Sponsor documents', 'Financial proof', 'Housing proof', 'Health insurance', 'Passports'],
+                    livingCost: 'Additional SEK 7,000 - SEK 12,000/month per dependent',
+                    totalCost: 'SEK 30,000 - SEK 60,000 per dependent',
+                    changes: 'Increased maintenance requirements, longer processing times, digital application'
+                },
+
+                // Spain Visas (4 types)
+                { 
+                    id: 33, country: 'spain', type: 'student', title: 'Spain Student Visa', 
+                    processingTime: '4-10 weeks', fee: '€160', successRate: '97.5%',
+                    desc: 'For international students attending Spanish institutions. Allows part-time work.',
+                    requirements: ['Admission to Spanish institution', 'Proof of funds €600/month', 'Health insurance', 'Medical certificate', 'Clean record'],
+                    documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Medical certificate', 'Academic records', 'Passport'],
+                    livingCost: '€700 - €1,200/month depending on city',
+                    totalCost: '€2,000 - €5,000 (including tuition and deposit)',
+                    changes: 'Digital application, increased financial requirements, faster processing for EU Blue Card students'
+                },
+                { 
+                    id: 34, country: 'spain', type: 'work', title: 'Spain Work Visa', 
+                    processingTime: '2-5 months', fee: '€206', successRate: '95.8%',
+                    desc: 'For employment in Spain. Requires work authorization from employer.',
+                    requirements: ['Job offer from Spanish employer', 'Work authorization', 'Qualifications', 'Clean record', 'Health insurance'],
+                    documents: ['Work authorization', 'Employment contract', 'Qualifications proof', 'Clean record certificate', 'Health insurance', 'Passport'],
+                    livingCost: '€800 - €1,500/month depending on city',
+                    totalCost: '€2,500 - €6,000 (including permit and relocation)',
+                    changes: 'New digital nomad visa, quota system for non-EU workers, faster processing for shortage occupations'
+                },
+                { 
+                    id: 35, country: 'spain', type: 'tourist', title: 'Spain Schengen Tourist Visa', 
+                    processingTime: '15-30 days', fee: '€80', successRate: '99.1%',
+                    desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                    requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€100/day)', 'Travel insurance', 'Return ticket'],
+                    documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                    livingCost: '€70 - €150/day depending on travel style',
+                    totalCost: '€1,200 - €3,500 for 2-week trip',
+                    changes: 'ETIAS required from 2026, online application, multiple-entry visas more accessible'
+                },
+                { 
+                    id: 36, country: 'spain', type: 'dependent', title: 'Spain Family Reunion Visa', 
+                    processingTime: '5-8 months', fee: '€80', successRate: '96.5%',
+                    desc: 'For family members joining residents in Spain.',
+                    requirements: ['Sponsor residence permit (1+ year)', 'Adequate housing', 'Financial means', 'Relationship proof', 'Health insurance'],
+                    documents: ['Marriage/birth certificates', 'Sponsor documents', 'Financial proof', 'Housing proof', 'Health insurance', 'Passports'],
+                    livingCost: 'Additional €600 - €1,200/month per dependent',
+                    totalCost: '€2,500 - €5,000 per dependent',
+                    changes: 'Increased income requirements, integration course required, digital application'
+                },
+
+                // Finland Visas (4 types)
+                { 
+                    id: 37, country: 'finland', type: 'student', title: 'Finland Student Visa', 
+                    processingTime: '1-3 months', fee: '€350', successRate: '96.8%',
+                    desc: 'For international students attending Finnish institutions. Allows 25 hours work/week during term.',
+                    requirements: ['Admission to Finnish institution', 'Proof of funds €560/month', 'Health insurance', 'Academic qualifications', 'English/Finnish/Swedish proficiency'],
+                    documents: ['Admission letter', 'Financial proof', 'Health insurance', 'Academic records', 'Language certificate', 'Passport'],
+                    livingCost: '€700 - €1,200/month depending on city',
+                    totalCost: '€3,000 - €7,000 (including tuition and deposit)',
+                    changes: 'Increased financial requirements, digital application, faster processing for complete applications'
+                },
+                { 
+                    id: 38, country: 'finland', type: 'work', title: 'Finland Work Visa', 
+                    processingTime: '1-4 months', fee: '€470', successRate: '95.5%',
+                    desc: 'For employment in Finland. Fast-track for specialists and startup entrepreneurs.',
+                    requirements: ['Job offer from Finnish employer', 'Qualifications', 'Salary meets collective agreement', 'Health insurance', 'Clean record'],
+                    documents: ['Employment contract', 'Qualifications proof', 'Salary details', 'Health insurance', 'Clean record certificate', 'Passport'],
+                    livingCost: '€900 - €1,800/month depending on city',
+                    totalCost: '€3,000 - €7,000 (including permit and relocation)',
+                    changes: 'New startup entrepreneur visa, fast-track for certified employers, digital application'
+                },
+                { 
+                    id: 39, country: 'finland', type: 'tourist', title: 'Finland Schengen Tourist Visa', 
+                    processingTime: '15-30 days', fee: '€80', successRate: '98.5%',
+                    desc: 'Short-stay visa for tourism, visiting up to 90 days in 180-day period.',
+                    requirements: ['Travel itinerary', 'Accommodation proof', 'Financial means (€50/day)', 'Travel insurance', 'Return ticket'],
+                    documents: ['Flight bookings', 'Hotel reservations', 'Bank statements', 'Travel insurance', 'Employment proof', 'Itinerary'],
+                    livingCost: '€80 - €150/day depending on travel style',
+                    totalCost: '€1,500 - €4,000 for 2-week trip',
+                    changes: 'ETIAS required from 2026, online application, biometrics required'
+                },
+                { 
+                    id: 40, country: 'finland', type: 'dependent', title: 'Finland Family Reunion Visa', 
+                    processingTime: '4-9 months', fee: '€470', successRate: '96.2%',
+                    desc: 'For family members joining residents in Finland.',
+                    requirements: ['Sponsor residence permit', 'Adequate income', 'Suitable housing', 'Relationship proof', 'Health insurance'],
+                    documents: ['Marriage/birth certificates', 'Sponsor documents', 'Income proof', 'Housing proof', 'Health insurance', 'Passports'],
+                    livingCost: 'Additional €700 - €1,300/month per dependent',
+                    totalCost: '€3,000 - €6,000 per dependent',
+                    changes: 'Increased income requirements, integration plan required, digital application'
+                },
+
+                // Canada Visas (4 types)
+                { 
+                    id: 41, country: 'canada', type: 'student', title: 'Canada Study Permit', 
+                    processingTime: '8-16 weeks', fee: '$235', successRate: '96.2%',
+                    desc: 'For international students at designated learning institutions.',
+                    requirements: ['Letter of Acceptance from DLI', 'Proof of funds (tuition + $10,000/year)', 'Genuine Student test', 'No criminal record', 'Medical exam (if required)'],
+                    documents: ['Acceptance letter', 'Financial documents', 'Statement of purpose', 'Medical exam (if required)', 'Police certificate', 'Passport'],
+                    livingCost: '$1,000 - $2,000/month depending on city',
+                    totalCost: '$3,000 - $10,000 (including tuition deposit and GIC)',
+                    changes: 'Temporary resident cap aiming for 5% by end 2026, stricter genuine student assessment'
+                },
+                { 
+                    id: 42, country: 'canada', type: 'work', title: 'Canada Work Permit', 
+                    processingTime: '2-6 months', fee: '$155 - $340', successRate: '94.5%',
+                    desc: 'For temporary foreign workers with job offer from Canadian employer.',
+                    requirements: ['Job offer from Canadian employer', 'LMIA (if required)', 'Qualifications', 'Medical exam', 'Clean record'],
+                    documents: ['Job offer letter', 'LMIA (if applicable)', 'Qualifications proof', 'Medical exam', 'Police certificate', 'Passport'],
+                    livingCost: '$1,200 - $2,500/month depending on city',
+                    totalCost: '$2,500 - $7,000 (including LMIA and processing)',
+                    changes: 'Simplified LMIA process for certain occupations, higher wages required, digital application'
+                },
+                { 
+                    id: 43, country: 'canada', type: 'tourist', title: 'Canada Tourist Visa', 
+                    processingTime: '14-30 days', fee: '$100', successRate: '97.8%',
+                    desc: 'Temporary resident visa for tourism, visiting family/friends up to 6 months.',
+                    requirements: ['Proof of ties to home country', 'Financial means', 'Travel history', 'No criminal record', 'Medical exam (if required)'],
+                    documents: ['Bank statements', 'Employment proof', 'Travel itinerary', 'Invitation letter (if visiting family)', 'Property documents', 'Passport'],
+                    livingCost: '$100 - $200/day depending on travel style',
+                    totalCost: '$1,500 - $4,000 for 2-week trip',
+                    changes: 'Biometrics required, electronic travel authorization (eTA) for visa-exempt, online application'
+                },
+                { 
+                    id: 44, country: 'canada', type: 'dependent', title: 'Canada Dependent Visa', 
+                    processingTime: '12-18 months', fee: '$1,085', successRate: '92.5%',
+                    desc: 'For spouses, partners and dependent children of Canadian residents.',
+                    requirements: ['Sponsor eligibility (citizen/PR)', 'Relationship proof', 'Financial undertaking', 'Medical exam', 'Police certificate'],
+                    documents: ['Relationship proof', 'Financial documents', 'Medical exams', 'Police certificates', 'Sponsor documents', 'Passports'],
+                    livingCost: 'Additional $800 - $1,500/month per dependent',
+                    totalCost: '$3,000 - $8,000 per dependent',
+                    changes: 'Longer processing times, increased income requirements, digital application system'
+                },
+
+                // Australia Visas (4 types)
+                { 
+                    id: 45, country: 'australia', type: 'student', title: 'Australia Student Visa', 
+                    processingTime: '4-12 weeks', fee: 'AUD $710', successRate: '95.8%',
+                    desc: 'For genuine students attending Australian institutions. Allows limited work.',
+                    requirements: ['Confirmation of Enrollment from CRICOS institution', 'Genuine Temporary Entrant requirement', 'Financial capacity (AUD $24,505/year)', 'Health insurance (OSHC)', 'English proficiency'],
+                    documents: ['CoE', 'Financial proof', 'English test results', 'Overseas Student Health Cover', 'Genuine Temporary Entrant statement', 'Passport'],
+                    livingCost: 'AUD $1,500 - AUD $2,500/month depending on city',
+                    totalCost: 'AUD $5,000 - AUD $15,000 (including tuition deposit and OSHC)',
+                    changes: 'Stricter Genuine Student test, 2026 target: 295,000 students, increased financial requirements'
+                },
+                { 
+                    id: 46, country: 'australia', type: 'work', title: 'Australia Work Visa', 
+                    processingTime: '3-9 months', fee: 'AUD $4,640', successRate: '93.5%',
+                    desc: 'Various work visas including skilled, employer-sponsored, and temporary.',
+                    requirements: ['Skills assessment', 'Points test (if applicable)', 'Employer nomination', 'English proficiency', 'Age under 45 (most categories)'],
+                    documents: ['Skills assessment', 'IELTS/PTE results', 'Employment documents', 'Health checks', 'Police certificates', 'Passport'],
+                    livingCost: 'AUD $1,800 - AUD $3,000/month depending on city',
+                    totalCost: 'AUD $8,000 - AUD $20,000 (including skills assessment and medicals)',
+                    changes: 'Higher salary thresholds, new Innovation Visa replacing Global Talent, points test revised'
+                },
+                { 
+                    id: 47, country: 'australia', type: 'tourist', title: 'Australia Tourist Visa', 
+                    processingTime: '20-30 days', fee: 'AUD $190', successRate: '98.5%',
+                    desc: 'Visitor visa for tourism, visiting family, or business visits up to 12 months.',
+                    requirements: ['Genuine visitor', 'Financial capacity', 'Health insurance', 'Return ticket', 'No work intention'],
+                    documents: ['Financial proof', 'Travel itinerary', 'Health insurance', 'Invitation letter (if visiting family)', 'Employment proof', 'Passport'],
+                    livingCost: 'AUD $150 - AUD $300/day depending on travel style',
+                    totalCost: 'AUD $3,000 - AUD $8,000 for 2-week trip',
+                    changes: 'Electronic travel authority for certain passport holders, online application, longer processing'
+                },
+                { 
+                    id: 48, country: 'australia', type: 'dependent', title: 'Australia Partner Visa', 
+                    processingTime: '18-24 months', fee: 'AUD $8,850', successRate: '90.5%',
+                    desc: 'For spouses, de facto partners of Australian citizens/residents.',
+                    requirements: ['Genuine relationship', 'Sponsor eligibility', 'Health and character requirements', 'Financial support', 'Relationship duration'],
+                    documents: ['Relationship evidence', 'Sponsor documents', 'Health exams', 'Police checks', 'Financial documents', 'Passports'],
+                    livingCost: 'Additional AUD $1,500 - AUD $2,500/month per dependent',
+                    totalCost: 'AUD $10,000 - AUD $20,000 per application',
+                    changes: 'Longer processing times, higher application fees, stricter relationship evidence'
+                },
+
+                // New Zealand Visas (4 types) - FIXED: country: 'newzealand'
+                { 
+                    id: 49, country: 'newzealand', type: 'student', title: 'New Zealand Student Visa', 
+                    processingTime: '4-8 weeks', fee: 'NZD $375', successRate: '97.2%',
+                    desc: 'For full-time study at approved New Zealand education providers.',
+                    requirements: ['Offer of place from NZQA-approved institution', 'Proof of funds NZD $20,000/year', 'Health insurance', 'Genuine student', 'Return ticket'],
+                    documents: ['Offer letter', 'Financial proof', 'Health insurance', 'Academic records', 'English test results', 'Passport'],
+                    livingCost: 'NZD $1,500 - NZD $2,500/month depending on city',
+                    totalCost: 'NZD $5,000 - NZD $12,000 (including tuition and insurance)',
+                    changes: 'Post-study work rights revised, longer for higher qualifications, increased financial requirements'
+                },
+                { 
+                    id: 50, country: 'newzealand', type: 'work', title: 'New Zealand Work Visa', 
+                    processingTime: '6-12 weeks', fee: 'NZD $750 - $1,080', successRate: '95.8%',
+                    desc: 'For skilled workers with job offers from accredited employers.',
+                    requirements: ['Job offer from accredited employer', 'Meet salary threshold (NZD $29.66/hour)', 'English proficiency', 'Health requirements', 'Qualifications'],
+                    documents: ['Job offer letter', 'Employer accreditation', 'English test results', 'Medical certificate', 'Qualifications proof', 'Passport'],
+                    livingCost: 'NZD $1,800 - NZD $3,000/month depending on city',
+                    totalCost: 'NZD $4,000 - NZD $10,000 (including medicals and police checks)',
+                    changes: 'Jan 2026: VAC service fee increase, Stricter English requirements, new Green List occupations'
+                },
+                { 
+                    id: 51, country: 'newzealand', type: 'tourist', title: 'New Zealand Tourist Visa', 
+                    processingTime: '20-25 days', fee: 'NZD $211', successRate: '98.9%',
+                    desc: 'Visitor visa for tourism, visiting family/friends, short business trips up to 9 months.',
+                    requirements: ['Genuine visitor', 'Financial means (NZD $1,000/month)', 'Return ticket', 'Health insurance', 'Onward travel plans'],
+                    documents: ['Financial proof', 'Travel plans', 'Accommodation details', 'Health insurance', 'Employment proof', 'Passport'],
+                    livingCost: 'NZD $100 - NZD $250/day depending on travel style',
+                    totalCost: 'NZD $3,000 - NZD $8,000 for 2-week trip',
+                    changes: 'Electronic Travel Authority (NZeTA) required from certain countries, online application'
+                },
+                { 
+                    id: 52, country: 'newzealand', type: 'dependent', title: 'New Zealand Partner Visa', 
+                    processingTime: '12-18 months', fee: 'NZD $2,120', successRate: '92.8%',
+                    desc: 'For partners of New Zealand citizens/residents.',
+                    requirements: ['Genuine stable relationship', 'Living together 12+ months', 'Sponsor eligibility', 'Character requirements', 'Health requirements'],
+                    documents: ['Relationship proof', 'Living together evidence', 'Sponsor documents', 'Police certificates', 'Medical certificates', 'Passports'],
+                    livingCost: 'Additional NZD $1,500 - NZD $2,500/month per dependent',
+                    totalCost: 'NZD $5,000 - NZD $12,000 per application',
+                    changes: 'Stricter relationship evidence requirements, longer processing, higher fees'
+                }
+            ];
+
+            // --- 3. STATE VARIABLES ---
+            let currentBannerIndex = 0;
+            let bannerInterval;
+
+            // --- 4. INITIALIZATION ---
+            window.onload = () => {
+                // Check if mobile view
+                if (window.innerWidth <= 768) {
+                    document.body.classList.add('mobile-view');
+                }
+                
+                // Loader animation
+                const bar = document.getElementById('loader-bar');
+                let progress = 0;
+                const loaderInterval = setInterval(() => {
+                    progress += 2;
+                    bar.style.width = `${progress}%`;
+                    if (progress >= 100) {
+                        clearInterval(loaderInterval);
+                        setTimeout(() => {
+                            const loader = document.getElementById('loader');
+                            loader.style.opacity = '0';
+                            setTimeout(() => {
+                                loader.style.display = 'none';
+                                initWebsite();
+                            }, 700);
+                        }, 300);
+                    }
+                }, 30);
+            };
+
+            function initWebsite() {
+                renderBanners();
+                startBannerRotation();
+                // Set UK as default filter
+                filterVisas('uk');
+                setupEventListeners();
+                
+                // REMOVED: Scroll listener for header since it's always transparent
+                // window.addEventListener('scroll', handleScroll);
+                
+                // Set initial scroll position to prevent overlap
+                window.scrollTo(0, 0);
+            }
+
+            // --- 5. BANNER SYSTEM - FIXED BACKGROUND IMAGES ---
+            function renderBanners() {
+                const bannerContainer = document.querySelector('.banner-container');
+                const isMobile = window.innerWidth <= 768;
+                
+                // Clear existing content (except arrows and overlay)
+                const existingSlides = bannerContainer.querySelectorAll('.banner-slide:not(.banner-nav-arrow):not(.banner-overlay)');
+                existingSlides.forEach(slide => slide.remove());
+                
+                // Create banner slides
+                banners.forEach((banner, index) => {
+                    const slide = document.createElement('div');
+                    slide.className = `banner-slide ${index === 0 ? 'active' : ''}`;
+                    slide.id = `banner-${index}`;
+                    
+                    // Set background image with fallback - using reliable Unsplash URLs
+                    const bgStyle = `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${banner.bgImage}')`;
+                    slide.style.backgroundImage = bgStyle;
+                    slide.style.backgroundSize = 'cover';
+                    slide.style.backgroundPosition = 'center';
+                    slide.style.backgroundRepeat = 'no-repeat';
+                    slide.style.backgroundColor = '#050507'; // Fallback color
+                    
+                    // Mobile vs Desktop styling
+                    const titleSize = isMobile ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl lg:text-5xl';
+                    const subtitleSize = isMobile ? 'text-base md:text-lg' : 'text-lg md:text-xl';
+                    const statsSize = isMobile ? 'text-sm' : 'text-base';
+                    
+                    slide.innerHTML = `
+                        <div class="banner-content">
+                            <div class="max-w-5xl mx-auto px-4">
+                                <div class="flex justify-center mb-6">
+                                    <div class="country-badge glass-intense">
+                                        <img src="${banner.flag}" alt="${banner.country.toUpperCase()} Flag" class="w-8 h-6 rounded flag-img">
+                                        <span class="font-bold text-sm">${banner.country.toUpperCase()}</span>
+                                        <span class="text-red-400 font-bold ml-2 text-sm">${banner.deadline}</span>
+                                    </div>
+                                </div>
+                                
+                                <h1 class="banner-title ${titleSize} font-bold mb-6 leading-tight">
+                                    ${banner.title}
+                                </h1>
+                                <p class="banner-subtitle ${subtitleSize} text-gray-200 mb-8 leading-relaxed">
+                                    ${banner.subtitle}
+                                </p>
+                                
+                                <div class="glass-intense p-5 md:p-6 rounded-3xl mb-8 max-w-3xl mx-auto">
+                                    <div class="flex items-center justify-center gap-3 mb-4">
+                                        <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                                        <p class="text-base md:text-lg font-bold text-white">${banner.offer}</p>
+                                    </div>
+                                    <div class="text-center ${statsSize} text-gray-300">
+                                        <i class="fas fa-chart-line text-green-500 mr-2"></i>${banner.stats}
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <a href="tel:+919925081515" 
+                                            class="banner-cta bg-gradient-to-r ${banner.color} text-white font-bold hover:shadow-xl hover:scale-105 transition-all duration-300">
+                                        ${banner.cta} <i class="fas fa-arrow-right ml-3"></i>
+                                    </a>
+                                    <p class="text-gray-400 text-xs md:text-sm mt-4">Free consultation within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    bannerContainer.insertBefore(slide, bannerContainer.querySelector('.banner-overlay'));
+                    
+                    // Add backup background image loading with improved error handling
+                    const img = new Image();
+                    img.src = banner.bgImage;
+                    img.onload = function() {
+                        console.log(`Banner ${banner.country} image loaded successfully`);
+                        // Ensure the image is properly set
+                        slide.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${banner.bgImage}')`;
+                    };
+                    img.onerror = function() {
+                        console.warn(`Banner ${banner.country} image failed to load, using backup`);
+                        // Use a solid color gradient as backup
+                        slide.style.backgroundImage = `linear-gradient(135deg, ${getCountryColor(banner.country)} 0%, #050507 100%)`;
+                    };
+                });
+                
+                // Show/hide arrows based on device
+                updateBannerArrows();
+            }
+
+            function getCountryColor(country) {
+                const colorMap = {
+                    'uk': '#012169',
+                    'usa': '#B22234',
+                    'germany': '#000000',
+                    'ireland': '#169B62',
+                    'france': '#002395',
+                    'italy': '#009246',
+                    'netherlands': '#21468B',
+                    'sweden': '#006AA7',
+                    'spain': '#AA151B',
+                    'finland': '#002F6C',
+                    'canada': '#FF0000',
+                    'australia': '#00008B',
+                    'newzealand': '#00247D'
+                };
+                return colorMap[country] || '#3b82f6';
+            }
+
+            function updateBannerArrows() {
+                const isMobile = window.innerWidth <= 768;
+                const arrows = document.querySelectorAll('.banner-nav-arrow');
+                
+                arrows.forEach(arrow => {
+                    if (isMobile) {
+                        arrow.style.display = 'flex';
+                        arrow.style.width = '45px';
+                        arrow.style.height = '45px';
+                        arrow.style.fontSize = '1.2rem';
+                    } else {
+                        arrow.style.display = 'flex';
+                    }
+                });
+            }
+
+            function startBannerRotation() {
+                if (bannerInterval) clearInterval(bannerInterval);
+                
+                bannerInterval = setInterval(() => {
+                    nextBanner();
+                }, 6000);
+            }
+
+            function goToBanner(index) {
+                document.querySelectorAll('.banner-slide').forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                currentBannerIndex = index;
+                document.getElementById(`banner-${index}`).classList.add('active');
+                
+                clearInterval(bannerInterval);
+                startBannerRotation();
+            }
+
+            function nextBanner() {
+                const nextIndex = (currentBannerIndex + 1) % banners.length;
+                goToBanner(nextIndex);
+            }
+
+            function prevBanner() {
+                const prevIndex = (currentBannerIndex - 1 + banners.length) % banners.length;
+                goToBanner(prevIndex);
+            }
+
+            // --- 6. VISA FILTERING SYSTEM - FIXED ---
+            function filterVisas(country) {
+                // Update filter buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (country === 'uk' && btn.textContent.includes('UK')) btn.classList.add('active');
+                    if (country === 'usa' && btn.textContent.includes('USA')) btn.classList.add('active');
+                    if (country === 'germany' && btn.textContent.includes('Germany')) btn.classList.add('active');
+                    if (country === 'ireland' && btn.textContent.includes('Ireland')) btn.classList.add('active');
+                    if (country === 'france' && btn.textContent.includes('France')) btn.classList.add('active');
+                    if (country === 'italy' && btn.textContent.includes('Italy')) btn.classList.add('active');
+                    if (country === 'netherlands' && btn.textContent.includes('Netherlands')) btn.classList.add('active');
+                    if (country === 'sweden' && btn.textContent.includes('Sweden')) btn.classList.add('active');
+                    if (country === 'spain' && btn.textContent.includes('Spain')) btn.classList.add('active');
+                    if (country === 'finland' && btn.textContent.includes('Finland')) btn.classList.add('active');
+                    if (country === 'canada' && btn.textContent.includes('Canada')) btn.classList.add('active');
+                    if (country === 'australia' && btn.textContent.includes('Australia')) btn.classList.add('active');
+                    if (country === 'newzealand' && btn.textContent.includes('New Zealand')) btn.classList.add('active');
+                });
+
+                const filtered = visas.filter(v => v.country === country);
+                const grid = document.getElementById('visa-grid');
+                
+                if (filtered.length === 0) {
+                    grid.innerHTML = `
+                        <div class="col-span-3 flex flex-col items-center justify-center py-16 text-gray-400">
+                            <i class="fas fa-passport text-5xl mb-4 opacity-30"></i>
+                            <p class="text-lg">No visa programs found for this country</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                grid.innerHTML = filtered.map(v => {
+                    // Fix for country flags - use correct country codes
+                    let flagCode;
+                    switch(v.country) {
+                        case 'uk': flagCode = 'gb'; break;
+                        case 'usa': flagCode = 'us'; break;
+                        case 'germany': flagCode = 'de'; break;
+                        case 'ireland': flagCode = 'ie'; break;
+                        case 'france': flagCode = 'fr'; break;
+                        case 'italy': flagCode = 'it'; break;
+                        case 'netherlands': flagCode = 'nl'; break;
+                        case 'sweden': flagCode = 'se'; break;
+                        case 'spain': flagCode = 'es'; break;
+                        case 'finland': flagCode = 'fi'; break;
+                        case 'canada': flagCode = 'ca'; break;
+                        case 'australia': flagCode = 'au'; break;
+                        case 'newzealand': flagCode = 'nz'; break;
+                        default: flagCode = v.country;
+                    }
+                    
+                    const countryFlag = `https://flagcdn.com/w40/${flagCode}.png`;
+                    let countryName = v.country.charAt(0).toUpperCase() + v.country.slice(1);
+                    if (v.country === 'newzealand') countryName = 'New Zealand';
+                    if (v.country === 'netherlands') countryName = 'Netherlands';
+                    if (v.country === 'uk') countryName = 'United Kingdom';
+                    if (v.country === 'usa') countryName = 'United States';
+                    const isMobile = window.innerWidth <= 768;
+                    
+                    return `
+                    <div class="visa-card glass-card animate-fade-in">
+                        <div class="visa-content">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-3">
+                                    <img src="${countryFlag}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img">
+                                    <div>
+                                        <span class="font-bold text-sm">${countryName}</span>
+                                        <div class="text-xs text-gray-400 mt-1">${v.type.charAt(0).toUpperCase() + v.type.slice(1)} Visa</div>
+                                    </div>
+                                </div>
+                                <span class="bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1 rounded-full">${v.successRate}</span>
+                            </div>
+                            
+                            <h3 class="text-lg font-bold mb-3">${v.title}</h3>
+                            <div class="mb-4">
+                                <p class="text-gray-300 text-sm">${v.desc}</p>
+                            </div>
+                            
+                            <div class="visa-details-container">
+                                <div class="mb-4">
+                                    <h4 class="font-bold text-white text-sm mb-2">Key Requirements:</h4>
+                                    <div class="space-y-1">
+                                        ${v.requirements.slice(0, isMobile ? 2 : 3).map(req => `
+                                            <div class="visa-process-item">
+                                                <i class="fas fa-check-circle text-xs"></i>
+                                                <span class="text-xs">${req}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-3 mb-4">
+                                    <div class="bg-white/5 rounded-xl p-3">
+                                        <div class="text-xs text-gray-400 mb-1">Processing Time</div>
+                                        <div class="font-bold text-sm">${v.processingTime}</div>
+                                    </div>
+                                    <div class="bg-white/5 rounded-xl p-3">
+                                        <div class="text-xs text-gray-400 mb-1">Government Fee</div>
+                                        <div class="font-bold text-sm">${v.fee}</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <h4 class="font-bold text-white text-sm mb-2">2025-26 Changes:</h4>
+                                    <p class="text-xs text-yellow-400">${v.changes}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="visa-buttons mt-6">
+                                <button onclick="showVisaDetail(${v.id})" class="view-requirements-btn text-sm">
+                                    <i class="fas fa-file-contract mr-2 text-sm"></i>View Requirements
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }).join('');
+            }
+
+            // --- 7. VISA DETAIL PAGE FUNCTION - WITH CENTERED FLAG ---
+            function showVisaDetail(visaId) {
+                const visa = visas.find(v => v.id === visaId);
+                if (!visa) return;
+                
+                const detailPage = document.getElementById('visa-detail-page');
+                const contentDiv = document.getElementById('visa-detail-content');
+                
+                // Fix for country flags - use correct country codes
+                let flagCode;
+                switch(visa.country) {
+                    case 'uk': flagCode = 'gb'; break;
+                    case 'usa': flagCode = 'us'; break;
+                    case 'germany': flagCode = 'de'; break;
+                    case 'ireland': flagCode = 'ie'; break;
+                    case 'france': flagCode = 'fr'; break;
+                    case 'italy': flagCode = 'it'; break;
+                    case 'netherlands': flagCode = 'nl'; break;
+                    case 'sweden': flagCode = 'se'; break;
+                    case 'spain': flagCode = 'es'; break;
+                    case 'finland': flagCode = 'fi'; break;
+                    case 'canada': flagCode = 'ca'; break;
+                    case 'australia': flagCode = 'au'; break;
+                    case 'newzealand': flagCode = 'nz'; break;
+                    default: flagCode = visa.country;
+                }
+                
+                const countryFlag = `https://flagcdn.com/w80/${flagCode}.png`;
+                let countryName = visa.country.charAt(0).toUpperCase() + visa.country.slice(1);
+                if (visa.country === 'newzealand') countryName = 'New Zealand';
+                if (visa.country === 'netherlands') countryName = 'Netherlands';
+                if (visa.country === 'uk') countryName = 'United Kingdom';
+                if (visa.country === 'usa') countryName = 'United States';
+                
+                contentDiv.innerHTML = `
+                    <div class="detail-header">
+                        <!-- CENTERED FLAG BOX -->
+                        <div class="centered-flag-container">
+                            <div class="centered-flag-box">
+                                <img src="${countryFlag}" alt="${countryName} Flag" class="detail-flag">
+                            </div>
+                        </div>
+                        
+                        <h2 class="text-2xl md:text-3xl font-bold mb-2">${visa.title}</h2>
+                        <div class="flex items-center justify-center gap-4">
+                            <span class="bg-green-500/20 text-green-400 text-sm font-bold px-3 py-1 rounded-full">${visa.successRate} Success Rate</span>
+                            <span class="bg-blue-500/20 text-blue-400 text-sm font-bold px-3 py-1 rounded-full">${visa.country.toUpperCase()}</span>
+                            <span class="bg-purple-500/20 text-purple-400 text-sm font-bold px-3 py-1 rounded-full">${visa.type.charAt(0).toUpperCase() + visa.type.slice(1)} Visa</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4">Visa Description</h3>
+                        <p class="text-gray-300 mb-4">${visa.desc}</p>
+                        
+                        <div class="glass-card p-4 mb-6">
+                            <h4 class="font-bold text-brand-primary mb-3">2025-2026 Important Changes</h4>
+                            <p class="text-yellow-400">${visa.changes}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Key Requirements</h3>
+                            <div class="space-y-3">
+                                ${visa.requirements.map((req, index) => `
+                                    <div class="document-item">
+                                        <div class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                                            <span class="text-green-500 text-xs font-bold">${index + 1}</span>
+                                        </div>
+                                        <span class="text-sm">${req}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Required Documents</h3>
+                            <div class="space-y-3">
+                                ${visa.documents.map((doc, index) => `
+                                    <div class="document-item">
+                                        <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                            <i class="fas fa-file text-blue-500 text-xs"></i>
+                                        </div>
+                                        <span class="text-sm">${doc}</span>
+                                </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4">Cost Breakdown</h3>
+                        <div class="cost-grid">
+                            <div class="cost-item">
+                                <div class="cost-label">Government Application Fee</div>
+                                <div class="cost-value">${visa.fee}</div>
+                            </div>
+                            <div class="cost-item">
+                                <div class="cost-label">Estimated Living Cost</div>
+                                <div class="cost-value">${visa.livingCost}</div>
+                            </div>
+                            <div class="cost-item">
+                                <div class="cost-label">Total Estimated Cost</div>
+                                <div class="cost-value">${visa.totalCost}</div>
+                                <div class="text-xs text-gray-400 mt-1">(First year including fees, insurance, relocation)</div>
+                            </div>
+                            <div class="cost-item">
+                                <div class="cost-label">Processing Time</div>
+                                <div class="cost-value">${visa.processingTime}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">Our Service Package Includes</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span>Complete document preparation and verification</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span>Application submission and follow-up</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span>Interview preparation and mock sessions</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span>Post-approval settlement guidance</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="tel:+919925081515" class="banner-cta bg-gradient-to-r from-brand-primary to-brand-secondary inline-block">
+                            <i class="fas fa-phone mr-2"></i> Get Free Consultation Now
+                        </a>
+                        <p class="text-gray-400 text-sm mt-3">Call us at +91 99250 81515 or email visa@tesca.co</p>
+                    </div>
+                `;
+                
+                detailPage.style.display = 'block';
+                setTimeout(() => {
+                    detailPage.style.opacity = '1';
+                    document.body.style.overflow = 'hidden';
+                }, 10);
+            }
+
+            function closeVisaDetail() {
+                const detailPage = document.getElementById('visa-detail-page');
+                detailPage.style.opacity = '0';
+                setTimeout(() => {
+                    detailPage.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            }
+
+            // --- 8. UTILITY FUNCTIONS ---
+            function toggleMobileMenu() {
+                const menu = document.getElementById('mobile-menu');
+                if (menu.classList.contains('hidden')) {
+                    menu.classList.remove('hidden');
+                    menu.classList.add('flex');
+                    setTimeout(() => menu.style.opacity = '1', 10);
+                } else {
+                    menu.style.opacity = '0';
+                    setTimeout(() => {
+                        menu.classList.add('hidden');
+                        menu.classList.remove('flex');
+                    }, 400);
+                }
+            }
+
+            // REMOVED: handleScroll function since header is always transparent
+            
+            function setupEventListeners() {
+                // REMOVED: Scroll listener since header doesn't change
+                // window.addEventListener('scroll', handleScroll);
+
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href === '#') return;
+                        
+                        e.preventDefault();
+                        
+                        // Close mobile menu if open
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            toggleMobileMenu();
+                        }
+                        
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const headerOffset = 140;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+                
+                // Escape key to close mobile menu and visa detail
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            toggleMobileMenu();
+                        }
+                        closeVisaDetail();
+                    }
+                });
+                
+                // Click outside to close visa detail
+                document.getElementById('visa-detail-page').addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeVisaDetail();
+                    }
+                });
+                
+                // Responsive adjustments on resize
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth <= 768) {
+                        document.body.classList.add('mobile-view');
+                    } else {
+                        document.body.classList.remove('mobile-view');
+                    }
+                    
+                    // Update banner arrows position
+                    updateBannerArrows();
+                    
+                    // Re-render banners for responsive adjustments
+                    renderBanners();
+                    
+                    // Re-render visas for responsive layout
+                    const activeFilter = document.querySelector('.filter-btn.active');
+                    if (activeFilter) {
+                        const filterText = activeFilter.textContent.toLowerCase();
+                        let filterType = 'uk';
+                        if (filterText.includes('uk')) filterType = 'uk';
+                        if (filterText.includes('usa') || filterText.includes('us')) filterType = 'usa';
+                        if (filterText.includes('germany')) filterType = 'germany';
+                        if (filterText.includes('ireland')) filterType = 'ireland';
+                        if (filterText.includes('france')) filterType = 'france';
+                        if (filterText.includes('italy')) filterType = 'italy';
+                        if (filterText.includes('netherlands')) filterType = 'netherlands';
+                        if (filterText.includes('sweden')) filterType = 'sweden';
+                        if (filterText.includes('spain')) filterType = 'spain';
+                        if (filterText.includes('finland')) filterType = 'finland';
+                        if (filterText.includes('canada')) filterType = 'canada';
+                        if (filterText.includes('australia')) filterType = 'australia';
+                        if (filterText.includes('new zealand') || filterText.includes('nz')) filterType = 'newzealand';
+                        filterVisas(filterType);
+                    }
+                });
+                
+                // Banner buttons redirect to phone/email
+                document.querySelectorAll('.banner-cta, .consult-btn, .call-btn').forEach(btn => {
+                    if (btn.href && btn.href.includes('tel:')) {
+                        btn.addEventListener('click', function(e) {
+                            // Allow default tel: link behavior
+                        });
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
