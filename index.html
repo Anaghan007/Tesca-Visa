@@ -181,7 +181,7 @@
             justify-content: center;
             padding: 0 20px;
             min-height: 80vh;
-            margin-top: 0; /* Reset margin-top */
+            margin-top: 80px; /* DEFAULT MARGIN FOR ALL SCREENS */
         }
 
         /* Banner overlay with transparency */
@@ -660,14 +660,6 @@
             padding: 0 20px;
         }
 
-        /* Laptop view adjustments - DECREASED MARGIN-TOP */
-        @media (min-width: 1024px) {
-            .banner-content {
-                margin-top: 40px; /* Decreased from 60px to 40px */
-                padding-top: 0;
-            }
-        }
-
         /* Roadmap Section Styles */
         .roadmap-step {
             position: relative;
@@ -981,8 +973,8 @@
             .mobile-view .banner-content {
                 padding: 60px 15px 30px !important;
                 justify-content: center !important;
-                margin-top: 80px !important; /* INCREASED from 40px to 80px for better centering */
-                min-height: calc(70vh - 80px); /* Adjust height considering margin */
+                margin-top: 100px !important; /* INCREASED from 80px to 100px for mobile */
+                min-height: calc(70vh - 100px); /* Adjust height considering margin */
                 width: 95%;
             }
             
@@ -1191,8 +1183,8 @@
             .mobile-view .banner-content {
                 padding-top: 40px !important;
                 padding-bottom: 20px !important;
-                margin-top: 90px !important; /* INCREASED MARGIN for better centering on very small screens */
-                min-height: calc(70vh - 90px);
+                margin-top: 100px !important; /* Kept at 100px for consistency */
+                min-height: calc(70vh - 100px);
             }
             
             .mobile-view .banner-title {
@@ -1220,7 +1212,7 @@
             }
         }
 
-        /* DESKTOP/PC/LAPTOP VIEW - UPDATED with decreased margin-top */
+        /* DESKTOP/PC/LAPTOP VIEW - UPDATED with increased margin-top */
         @media (min-width: 769px) {
             /* DESKTOP HEADER - ALWAYS TRANSPARENT */
             #main-header nav {
@@ -1237,11 +1229,11 @@
                 min-height: 100vh;
             }
             
-            /* Banner content centered with DECREASED margin-top */
+            /* Banner content centered with INCREASED margin-top for laptop */
             .banner-content {
-                padding: 40px 20px 60px; /* Reduced padding */
+                padding: 40px 20px 60px;
                 justify-content: center;
-                margin-top: 40px; /* Decreased from 60px to 40px for better centering */
+                margin-top: 100px; /* INCREASED from 40px to 100px for laptop/desktop */
             }
             
             /* DESKTOP FOOTER - 4 COLUMN GRID */
@@ -1269,7 +1261,7 @@
             
             /* Adjust banner content for medium screens */
             .banner-content {
-                margin-top: 50px; /* Adjusted for medium screens */
+                margin-top: 100px; /* Consistent with desktop */
                 padding: 50px 20px 70px;
             }
         }
