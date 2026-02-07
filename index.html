@@ -648,7 +648,7 @@
             transform: scale(1.05);
         }
 
-        /* UPDATED: Banner content centering with more margin-top */
+        /* Banner content centering fix - UPDATED MARGIN FOR BETTER CENTERING */
         .banner-content {
             display: flex;
             flex-direction: column;
@@ -656,15 +656,15 @@
             justify-content: center;
             text-align: center;
             height: 100%;
-            padding-top: 160px !important; /* INCREASED from 120px to 160px */
-            margin-top: 0 !important;
+            padding-top: 0;
+            margin-top: 80px; /* Increased for better centering on all screens */
         }
 
-        /* Laptop view adjustments */
+        /* Laptop view adjustments - UPDATED MARGIN */
         @media (min-width: 1024px) {
             .banner-content {
-                margin-top: 80px !important; /* INCREASED from 60px to 80px */
-                padding-top: 200px !important; /* INCREASED from 180px to 200px */
+                margin-top: 40px; /* Reduced from 60px for better centering */
+                padding-top: 0;
             }
         }
 
@@ -964,7 +964,7 @@
                 margin: 0.3rem 0;
             }
             
-            /* MOBILE BANNER - 70% HEIGHT & BETTER CENTERING WITH INCREASED MARGIN-TOP */
+            /* MOBILE BANNER - 70% HEIGHT & BETTER CENTERING WITH MARGIN-TOP */
             .mobile-view .hero-section {
                 height: 70vh !important;
                 min-height: 70vh;
@@ -978,12 +978,11 @@
                 min-height: 70vh;
             }
             
-            /* UPDATED: Increased margin-top for mobile banner content */
             .mobile-view .banner-content {
-                padding: 80px 15px 30px !important; /* INCREASED from 60px to 80px */
+                padding: 0 15px !important;
                 justify-content: center !important;
-                margin-top: 60px !important; /* INCREASED from 40px to 60px */
-                min-height: 70vh;
+                margin-top: 70px !important; /* INCREASED MARGIN-TOP FOR BETTER CENTERING */
+                min-height: calc(70vh - 70px);
                 width: 95%;
             }
             
@@ -1189,11 +1188,11 @@
                 height: 70vh !important;
             }
             
-            /* UPDATED: Increased padding-top and margin-top for extra small screens */
             .mobile-view .banner-content {
-                padding-top: 70px !important; /* INCREASED from 50px to 70px */
+                padding: 0 10px !important;
                 padding-bottom: 30px !important;
-                margin-top: 70px !important; /* INCREASED from 50px to 70px */
+                margin-top: 80px !important; /* INCREASED MARGIN FOR SMALLER SCREENS */
+                min-height: calc(70vh - 80px);
             }
             
             .mobile-view .banner-title {
@@ -1238,12 +1237,11 @@
                 min-height: 100vh;
             }
             
-            /* UPDATED: Banner content with more space from header */
+            /* Banner content centered between header and bottom - UPDATED MARGIN */
             .banner-content {
-                padding-top: 200px !important; /* INCREASED from 180px to 200px */
-                padding-bottom: 80px;
+                padding: 0 20px;
                 justify-content: center;
-                margin-top: 80px !important; /* INCREASED from 60px to 80px */
+                margin-top: 40px; /* Reduced from 60px for better centering */
             }
             
             /* DESKTOP FOOTER - 4 COLUMN GRID */
@@ -2344,7 +2342,7 @@
                     processingTime: '1-3 months', fee: '€75 - €140', successRate: '96.8%',
                     desc: 'For employment in Germany. Blue Card for graduates with job offer ≥ €45,300 (2026: €50,000).',
                     requirements: ['Job offer/contract', 'Qualifications recognition', 'Salary threshold met', 'Health insurance', 'Academic degree'],
-                    documents: ['Employment contract', 'Qualifications proof', 'Passport', 'Health insurance', 'Resume', 'Degree certificates'],
+                    documents: ['Employment contract', 'Qualifications certificates', 'Passport', 'Health insurance', 'Resume', 'Degree certificates'],
                     livingCost: '€1,200 - €2,500/month depending on city',
                     totalCost: '€1,500 - €4,000 (including recognition fees)',
                     changes: 'New Opportunity Card 2024, IT specialists can apply without degree if 3+ years experience'
