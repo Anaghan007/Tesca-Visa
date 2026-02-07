@@ -648,7 +648,7 @@
             transform: scale(1.05);
         }
 
-        /* Banner content centering fix - ADDED MARGIN TOP FOR MOBILE */
+        /* Banner content centering fix - ADDED MARGIN-TOP FOR MOBILE */
         .banner-content {
             display: flex;
             flex-direction: column;
@@ -844,7 +844,24 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* CENTERED FLAG IN DETAIL PAGE */
+        /* CENTERED FLAG BOX */
+        .centered-flag-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .centered-flag-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
         .detail-flag {
             width: 80px;
             height: 50px;
@@ -852,8 +869,6 @@
             object-fit: cover;
             border: 2px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            margin: 0 auto 1.5rem auto !important;
-            display: block !important;
         }
         
         .cost-grid {
@@ -948,11 +963,10 @@
                 margin: 0.3rem 0;
             }
             
-            /* MOBILE BANNER - 70% HEIGHT & BETTER CENTERING WITH MARGIN TOP */
+            /* MOBILE BANNER - 70% HEIGHT & BETTER CENTERING WITH MARGIN-TOP */
             .mobile-view .hero-section {
                 height: 70vh !important;
                 min-height: 70vh;
-                margin-top: 20px !important; /* ADDED MARGIN TOP */
             }
             
             .mobile-view .banner-container {
@@ -964,9 +978,9 @@
             }
             
             .mobile-view .banner-content {
-                padding: 80px 15px 30px !important; /* INCREASED PADDING TOP */
+                padding: 60px 15px 30px !important;
                 justify-content: center !important;
-                margin-top: 20px !important; /* ADDED MARGIN TOP */
+                margin-top: 40px !important; /* ADDED MARGIN-TOP FOR MOBILE */
                 min-height: 70vh;
                 width: 95%;
             }
@@ -1155,9 +1169,14 @@
                 grid-template-columns: 1fr;
             }
             
-            /* Center flag in mobile detail view */
+            /* Mobile centered flag */
+            .mobile-view .centered-flag-box {
+                padding: 0.8rem;
+            }
+            
             .mobile-view .detail-flag {
-                margin: 0 auto 1rem auto !important;
+                width: 70px;
+                height: 45px;
             }
         }
         
@@ -1166,12 +1185,12 @@
             .mobile-view .hero-section {
                 min-height: 70vh;
                 height: 70vh !important;
-                margin-top: 30px !important; /* MORE MARGIN FOR SMALLER DEVICES */
             }
             
             .mobile-view .banner-content {
-                padding-top: 90px !important; /* MORE PADDING TOP */
+                padding-top: 50px !important;
                 padding-bottom: 30px !important;
+                margin-top: 50px !important; /* INCREASED MARGIN FOR SMALLER SCREENS */
             }
             
             .mobile-view .banner-title {
@@ -2667,7 +2686,7 @@
                     id: 43, country: 'canada', type: 'tourist', title: 'Canada Tourist Visa', 
                     processingTime: '14-30 days', fee: '$100', successRate: '97.8%',
                     desc: 'Temporary resident visa for tourism, visiting family/friends up to 6 months.',
-                    requirements: ['Proof of ties to home country', 'Financial capability', 'Travel history', 'No criminal record', 'Medical exam (if required)'],
+                    requirements: ['Proof of ties to home country', 'Financial means', 'Travel history', 'No criminal record', 'Medical exam (if required)'],
                     documents: ['Bank statements', 'Employment proof', 'Travel itinerary', 'Invitation letter (if visiting family)', 'Property documents', 'Passport'],
                     livingCost: '$100 - $200/day depending on travel style',
                     totalCost: '$1,500 - $4,000 for 2-week trip',
@@ -3124,10 +3143,15 @@
                 
                 contentDiv.innerHTML = `
                     <div class="detail-header">
-                        <!-- CENTERED FLAG -->
-                        <img src="${countryFlag}" alt="${countryName} Flag" class="detail-flag">
+                        <!-- CENTERED FLAG BOX -->
+                        <div class="centered-flag-container">
+                            <div class="centered-flag-box">
+                                <img src="${countryFlag}" alt="${countryName} Flag" class="detail-flag">
+                            </div>
+                        </div>
+                        
                         <h2 class="text-2xl md:text-3xl font-bold mb-2">${visa.title}</h2>
-                        <div class="flex items-center justify-center gap-4 flex-wrap">
+                        <div class="flex items-center justify-center gap-4">
                             <span class="bg-green-500/20 text-green-400 text-sm font-bold px-3 py-1 rounded-full">${visa.successRate} Success Rate</span>
                             <span class="bg-blue-500/20 text-blue-400 text-sm font-bold px-3 py-1 rounded-full">${visa.country.toUpperCase()}</span>
                             <span class="bg-purple-500/20 text-purple-400 text-sm font-bold px-3 py-1 rounded-full">${visa.type.charAt(0).toUpperCase() + visa.type.slice(1)} Visa</span>
