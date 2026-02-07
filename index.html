@@ -179,8 +179,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 120px 20px 100px;
+            padding: 0 20px;
             min-height: 80vh;
+            margin-top: 0; /* Reset margin-top */
         }
 
         /* Banner overlay with transparency */
@@ -648,7 +649,7 @@
             transform: scale(1.05);
         }
 
-        /* Banner content centering fix - UPDATED MARGIN FOR BETTER CENTERING */
+        /* Banner content centering fix - UPDATED FOR BETTER CENTERING */
         .banner-content {
             display: flex;
             flex-direction: column;
@@ -656,14 +657,13 @@
             justify-content: center;
             text-align: center;
             height: 100%;
-            padding-top: 0;
-            margin-top: 80px; /* Increased for better centering on all screens */
+            padding: 0 20px;
         }
 
-        /* Laptop view adjustments - UPDATED MARGIN */
+        /* Laptop view adjustments - DECREASED MARGIN-TOP */
         @media (min-width: 1024px) {
             .banner-content {
-                margin-top: 40px; /* Reduced from 60px for better centering */
+                margin-top: 40px; /* Decreased from 60px to 40px */
                 padding-top: 0;
             }
         }
@@ -964,7 +964,7 @@
                 margin: 0.3rem 0;
             }
             
-            /* MOBILE BANNER - 70% HEIGHT & BETTER CENTERING WITH MARGIN-TOP */
+            /* MOBILE BANNER - 70% HEIGHT & BETTER CENTERING WITH INCREASED MARGIN-TOP */
             .mobile-view .hero-section {
                 height: 70vh !important;
                 min-height: 70vh;
@@ -979,10 +979,10 @@
             }
             
             .mobile-view .banner-content {
-                padding: 0 15px !important;
+                padding: 60px 15px 30px !important;
                 justify-content: center !important;
-                margin-top: 70px !important; /* INCREASED MARGIN-TOP FOR BETTER CENTERING */
-                min-height: calc(70vh - 70px);
+                margin-top: 80px !important; /* INCREASED from 40px to 80px for better centering */
+                min-height: calc(70vh - 80px); /* Adjust height considering margin */
                 width: 95%;
             }
             
@@ -1189,10 +1189,10 @@
             }
             
             .mobile-view .banner-content {
-                padding: 0 10px !important;
-                padding-bottom: 30px !important;
-                margin-top: 80px !important; /* INCREASED MARGIN FOR SMALLER SCREENS */
-                min-height: calc(70vh - 80px);
+                padding-top: 40px !important;
+                padding-bottom: 20px !important;
+                margin-top: 90px !important; /* INCREASED MARGIN for better centering on very small screens */
+                min-height: calc(70vh - 90px);
             }
             
             .mobile-view .banner-title {
@@ -1220,7 +1220,7 @@
             }
         }
 
-        /* DESKTOP/PC/LAPTOP VIEW */
+        /* DESKTOP/PC/LAPTOP VIEW - UPDATED with decreased margin-top */
         @media (min-width: 769px) {
             /* DESKTOP HEADER - ALWAYS TRANSPARENT */
             #main-header nav {
@@ -1237,11 +1237,11 @@
                 min-height: 100vh;
             }
             
-            /* Banner content centered between header and bottom - UPDATED MARGIN */
+            /* Banner content centered with DECREASED margin-top */
             .banner-content {
-                padding: 0 20px;
+                padding: 40px 20px 60px; /* Reduced padding */
                 justify-content: center;
-                margin-top: 40px; /* Reduced from 60px for better centering */
+                margin-top: 40px; /* Decreased from 60px to 40px for better centering */
             }
             
             /* DESKTOP FOOTER - 4 COLUMN GRID */
@@ -1265,6 +1265,12 @@
             
             .banner-nav-arrow.next {
                 right: 25px;
+            }
+            
+            /* Adjust banner content for medium screens */
+            .banner-content {
+                margin-top: 50px; /* Adjusted for medium screens */
+                padding: 50px 20px 70px;
             }
         }
         
