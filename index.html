@@ -169,7 +169,6 @@
             z-index: 2;
         }
         
-        /* UPDATED: Banner content with optimized spacing */
         .banner-content {
             width: 100%;
             max-width: 1400px;
@@ -182,7 +181,7 @@
             justify-content: center;
             padding: 0 20px;
             min-height: 80vh;
-            margin-top: 120px; /* INCREASED from 80px to 120px for better spacing */
+            margin-top: 140px; /* INCREASED FROM 80px TO 140px FOR ALL SCREENS */
         }
 
         /* Banner overlay with transparency */
@@ -424,7 +423,7 @@
 
         /* Prevent overlapping with fixed header */
         section[id] {
-            scroll-margin-top: 100px;
+            scroll-margin-top: 140px; /* INCREASED FROM 100px TO 140px */
         }
 
         /* Mobile menu styles - IMPROVED */
@@ -957,26 +956,25 @@
                 margin: 0.3rem 0;
             }
             
-            /* MOBILE BANNER - 70% HEIGHT & BETTER CENTERING WITH INCREASED MARGIN-TOP */
+            /* MOBILE BANNER - 75% HEIGHT & BETTER CENTERING WITH INCREASED MARGIN-TOP */
             .mobile-view .hero-section {
-                height: 70vh !important;
-                min-height: 70vh;
+                height: 75vh !important;
+                min-height: 75vh;
             }
             
             .mobile-view .banner-container {
-                min-height: 70vh;
+                min-height: 75vh;
             }
             
             .mobile-view .banner-slide {
-                min-height: 70vh;
+                min-height: 75vh;
             }
             
-            /* UPDATED: Increased margin-top and adjusted padding for better spacing on mobile */
             .mobile-view .banner-content {
-                padding: 40px 15px 30px !important; /* Reduced top padding from 60px to 40px */
+                padding: 40px 15px 20px !important;
                 justify-content: center !important;
-                margin-top: 120px !important; /* INCREASED from 100px to 120px for mobile */
-                min-height: calc(70vh - 120px); /* Adjust height considering margin */
+                margin-top: 130px !important; /* INCREASED from 100px to 130px for mobile */
+                min-height: calc(75vh - 130px); /* Adjust height considering margin */
                 width: 95%;
             }
             
@@ -1178,15 +1176,15 @@
         @media (max-width: 480px) {
             /* Extra small devices */
             .mobile-view .hero-section {
-                min-height: 70vh;
-                height: 70vh !important;
+                min-height: 75vh;
+                height: 75vh !important;
             }
             
             .mobile-view .banner-content {
                 padding-top: 40px !important;
                 padding-bottom: 20px !important;
-                margin-top: 120px !important; /* Kept at 120px for consistency */
-                min-height: calc(70vh - 120px);
+                margin-top: 130px !important; /* Kept at 130px for consistency */
+                min-height: calc(75vh - 130px);
             }
             
             .mobile-view .banner-title {
@@ -1231,11 +1229,11 @@
                 min-height: 100vh;
             }
             
-            /* UPDATED: Banner content centered with INCREASED margin-top for laptop/desktop */
+            /* Banner content centered with INCREASED margin-top for laptop */
             .banner-content {
                 padding: 40px 20px 60px;
                 justify-content: center;
-                margin-top: 120px; /* INCREASED from 100px to 120px for laptop/desktop */
+                margin-top: 140px; /* INCREASED from 100px to 140px for laptop/desktop */
             }
             
             /* DESKTOP FOOTER - 4 COLUMN GRID */
@@ -1263,7 +1261,7 @@
             
             /* Adjust banner content for medium screens */
             .banner-content {
-                margin-top: 120px; /* Consistent with desktop */
+                margin-top: 140px; /* Consistent with desktop */
                 padding: 50px 20px 70px;
             }
         }
@@ -1345,6 +1343,40 @@
         /* Ensure banner images load properly with fallback */
         .banner-slide {
             background-color: #050507;
+        }
+        
+        /* ADDITIONAL SPACING IMPROVEMENTS */
+        /* Section spacing improvements */
+        #visa, #roadmap, #guides, #trust, footer {
+            padding-top: 4rem !important;
+            padding-bottom: 4rem !important;
+        }
+        
+        /* Better vertical rhythm */
+        .section-content {
+            margin-top: 1.5rem;
+        }
+        
+        /* Increase spacing between filter buttons and visa grid */
+        #visa .filter-btn-container {
+            margin-bottom: 2.5rem !important;
+        }
+        
+        /* Better spacing for roadmap steps */
+        .roadmap-step {
+            margin-bottom: 3rem !important;
+        }
+        
+        /* Footer spacing improvements */
+        footer {
+            padding-top: 4rem !important;
+            padding-bottom: 3rem !important;
+        }
+        
+        /* Better spacing for trust badges */
+        .trust-badges-container {
+            margin-top: 2rem !important;
+            margin-bottom: 2rem !important;
         }
     </style>
 </head>
@@ -1453,7 +1485,7 @@
                 </div>
                 
                 <!-- Country Filter Buttons - UK as default, removed "All Countries" -->
-                <div class="flex flex-wrap gap-3 justify-center mb-10 animate-fade-in" style="animation-delay: 0.2s">
+                <div class="flex flex-wrap gap-3 justify-center mb-10 animate-fade-in filter-btn-container" style="animation-delay: 0.2s">
                     <button onclick="filterVisas('uk')" class="filter-btn active px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
                         <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-4 rounded flag-img" alt="UK Flag">
                         UK
@@ -1508,7 +1540,7 @@
                     </button>
                 </div>
 
-                <div id="visa-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div id="visa-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 section-content">
                     <!-- Visas will be loaded here -->
                 </div>
             </div>
@@ -1523,7 +1555,7 @@
                     <p class="text-gray-400 text-lg mb-8">Follow our proven 7-step process that has helped thousands achieve their immigration dreams.</p>
                 </div>
 
-                <div class="max-w-4xl mx-auto">
+                <div class="max-w-4xl mx-auto section-content">
                     <!-- Step 1 -->
                     <div class="roadmap-step animate-fade-in" style="animation-delay: 0.1s">
                         <div class="roadmap-step-number">1</div>
@@ -1696,7 +1728,7 @@
                     <p class="text-gray-400 text-lg mb-8">Access our comprehensive library of guides, checklists, and resources for 2025-2026 immigration.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 section-content">
                     <!-- Guide 1 -->
                     <div class="glass-card p-6 animate-fade-in" style="animation-delay: 0.1s">
                         <div class="flex items-center gap-4 mb-5">
@@ -1839,7 +1871,7 @@
                     <p class="text-gray-400 text-lg mb-8">Our partnerships and accreditations ensure your application receives the attention it deserves.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 section-content">
                     <div class="animate-fade-in" style="animation-delay: 0.1s">
                         <h3 class="text-xl font-bold mb-6">Our Accreditations & Memberships</h3>
                         <div class="space-y-5">
@@ -1924,7 +1956,7 @@
                 </div>
 
                 <!-- Trust Badges - CENTERED -->
-                <div class="trust-badges-container mb-8">
+                <div class="trust-badges-container">
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 justify-center">
                         <div class="trust-badge trust-badge-item">
                             <div class="text-center">
@@ -1968,7 +2000,7 @@
         </section>
 
         <!-- Professional Footer -->
-        <footer id="contact" class="bg-brand-surface border-t border-white/5 py-10">
+        <footer id="contact" class="bg-brand-surface border-t border-white/5">
             <div class="container mx-auto px-4">
                 <div class="footer-grid mb-10">
                     <!-- Column 1: Logo and Description -->
@@ -3308,7 +3340,7 @@
                         const targetElement = document.getElementById(targetId);
                         
                         if (targetElement) {
-                            const headerOffset = 100;
+                            const headerOffset = 140;
                             const elementPosition = targetElement.getBoundingClientRect().top;
                             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                             
