@@ -438,38 +438,81 @@
             scroll-margin-top: 140px;
         }
 
-        /* Mobile menu styles - RIGHT TO LEFT SLIDE */
+        /* Mobile menu styles - RIGHT TO LEFT SLIDE - UPDATED FOR BETTER VIEWING */
         #mobile-menu {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 2rem 0 0 2rem;
-            margin: 1rem 0 1rem 1rem;
-            font-size: 1.2rem;
-            font-weight: 500;
-            transform: translateX(100%);
+            position: fixed;
+            top: 0;
             right: 0;
-            left: auto;
             width: 85%;
             max-width: 350px;
+            height: 100vh;
+            background: rgba(5, 5, 7, 0.98);
+            backdrop-filter: blur(25px);
+            z-index: 9999;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            padding-top: 80px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         }
         
         #mobile-menu.show {
             transform: translateX(0);
         }
-
+        
+        #mobile-menu .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+        
+        #mobile-menu .close-menu:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .mobile-menu-links {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+        
         .mobile-menu-link {
             padding: 1rem 2rem;
             border-radius: 1.5rem;
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.05);
-            margin: 0.5rem 0;
-            width: 80%;
-            max-width: 300px;
+            width: 100%;
             text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
         }
         
         .mobile-menu-link:hover {
             background: rgba(59, 130, 246, 0.2);
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
         }
 
         /* Banner title styles */
@@ -972,6 +1015,104 @@
             border-color: transparent;
         }
 
+        /* FIXED: Our Accreditations & Memberships Icons Background Badges - PERFECT CIRCULAR SHAPE */
+        .accreditation-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            flex-shrink: 0;
+        }
+        
+        .accreditation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .accreditation-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .accreditation-content {
+            flex: 1;
+        }
+        
+        .accreditation-content h4 {
+            margin-bottom: 0.5rem !important;
+            font-size: 1.1rem;
+            line-height: 1.3;
+        }
+        
+        .accreditation-content p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0 !important;
+        }
+
+        /* Management Centers Section - Between Data Security Certified and Footer */
+        .management-centers-section {
+            background: linear-gradient(180deg, #0F1016 0%, #050507 100%);
+            padding: 4rem 0;
+            margin: 0;
+        }
+        
+        .management-centers-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .management-center-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .management-center-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .management-center-item .badge-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+        }
+        
+        .management-center-item .badge-subtitle {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             /* MOBILE BODY STYLES WITH PROPER SPACING */
@@ -1030,39 +1171,81 @@
                 display: block;
             }
             
-            /* MOBILE MENU - RIGHT TO LEFT SLIDE */
+            /* MOBILE MENU - RIGHT TO LEFT SLIDE - PERFECTLY ALIGNED */
             #mobile-menu {
-                font-size: 1.1rem;
-                background: rgba(5, 5, 7, 0.98);
-                backdrop-filter: blur(25px);
-                border-radius: 2rem 0 0 2rem;
-                margin: 1rem 0 1rem 1rem;
-                font-weight: 500;
-                transform: translateX(100%);
-                right: 0;
-                left: auto;
-                width: 85%;
-                max-width: 350px;
                 position: fixed;
                 top: 0;
-                bottom: 0;
-                z-index: 1000;
+                right: 0;
+                width: 85%;
+                max-width: 350px;
+                height: 100vh;
+                background: rgba(5, 5, 7, 0.98);
+                backdrop-filter: blur(25px);
+                z-index: 9999;
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                padding-top: 80px;
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
             }
             
             #mobile-menu.show {
                 transform: translateX(0);
             }
             
+            #mobile-menu .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.1);
+                border: none;
+                color: white;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+                z-index: 10001;
+            }
+            
+            #mobile-menu .close-menu:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: rotate(90deg);
+            }
+            
+            .mobile-menu-links {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1.5rem;
+                padding: 2rem;
+            }
+            
             .mobile-menu-link {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-                margin: 0.4rem 0;
-                width: 85%;
+                padding: 1rem 2rem;
+                border-radius: 1.5rem;
+                transition: all 0.3s ease;
+                background: rgba(255, 255, 255, 0.05);
+                width: 100%;
+                text-align: center;
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: white;
+                text-decoration: none;
+            }
+            
+            .mobile-menu-link:hover {
+                background: rgba(59, 130, 246, 0.2);
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
             }
             
             /* MOBILE BANNER - 75% HEIGHT & BETTER CENTERING */
@@ -1346,6 +1529,30 @@
             .mobile-view footer {
                 padding-top: 3.5rem !important;
             }
+            
+            /* FIXED: Mobile Accreditation Items */
+            .mobile-view .accreditation-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+            
+            .mobile-view .accreditation-badge {
+                margin-bottom: 1rem;
+            }
+            
+            .mobile-view .accreditation-content h4 {
+                font-size: 1rem;
+            }
+            
+            .mobile-view .accreditation-content p {
+                font-size: 0.85rem;
+            }
+            
+            /* Hide Management Centers on Mobile */
+            .mobile-view .management-centers-section {
+                display: none;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1400,6 +1607,12 @@
             .mobile-view .trust-badges-container .grid {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
+            
+            /* Mobile menu width for very small screens */
+            .mobile-view #mobile-menu {
+                width: 90%;
+                max-width: 300px;
+            }
         }
 
         /* DESKTOP/PC/LAPTOP VIEW */
@@ -1435,8 +1648,13 @@
             
             /* Space between Data Security Certified and Footer */
             #trust {
-                padding-bottom: 6rem !important;
+                padding-bottom: 4rem !important;
                 margin-bottom: 0 !important;
+            }
+            
+            /* Show Management Centers on Desktop */
+            .management-centers-section {
+                display: block;
             }
             
             footer {
@@ -1471,6 +1689,12 @@
         @media (min-width: 769px) and (max-width: 1024px) {
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Adjust Management Centers for tablet */
+            .management-centers-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
             }
         }
         
@@ -1590,15 +1814,6 @@
         #trust .grid {
             margin-bottom: 3rem !important;
         }
-        
-        /* Space between Data Security Certified and Footer - ALL VIEWS */
-        #trust {
-            padding-bottom: 4rem !important;
-        }
-        
-        footer {
-            padding-top: 3rem !important;
-        }
     </style>
 </head>
 <body class="antialiased">
@@ -1658,15 +1873,19 @@
         </div>
     </header>
 
-    <!-- Mobile Menu - RIGHT TO LEFT SLIDE -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-brand-bg/98 backdrop-blur-xl hidden flex-col items-center justify-center gap-4 text-lg font-medium">
-        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-gray-400 p-2 hover:text-white transition-colors duration-300"><i class="fas fa-times text-2xl"></i></button>
-        <a href="#home" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Home</a>
-        <a href="#visa" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Visa Programs</a>
-        <a href="#roadmap" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Roadmap</a>
-        <a href="#guides" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Resources</a>
-        <a href="#trust" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Why Trust Us</a>
-        <a href="#contact" class="hover:text-brand-primary mobile-menu-link transition-colors duration-300" onclick="toggleMobileMenu()">Contact Us</a>
+    <!-- Mobile Menu - RIGHT TO LEFT SLIDE (IMPROVED) -->
+    <div id="mobile-menu" class="mobile-menu">
+        <button class="close-menu" onclick="toggleMobileMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-menu-links">
+            <a href="#home" class="mobile-menu-link" onclick="toggleMobileMenu()">Home</a>
+            <a href="#visa" class="mobile-menu-link" onclick="toggleMobileMenu()">Visa Programs</a>
+            <a href="#roadmap" class="mobile-menu-link" onclick="toggleMobileMenu()">Roadmap</a>
+            <a href="#guides" class="mobile-menu-link" onclick="toggleMobileMenu()">Resources</a>
+            <a href="#trust" class="mobile-menu-link" onclick="toggleMobileMenu()">Why Trust Us</a>
+            <a href="#contact" class="mobile-menu-link" onclick="toggleMobileMenu()">Contact Us</a>
+        </div>
     </div>
 
     <!-- Hero Banner Section -->
@@ -1964,7 +2183,8 @@
                     <p class="text-gray-300 mb-5 text-sm">Complete checklist of all documents required for visa applications in 2026, including recent changes in documentation requirements.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Jan 2026</span>
-                        <a href="#" onclick="downloadDocumentChecklistPDF(); return false;" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download PDF →</a>
+                        <!-- UPDATED: Now opens PDF from local folder -->
+                        <a href="pdfs/document-checklist-2026.pdf" target="_blank" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download PDF →</a>
                     </div>
                 </div>
 
@@ -2000,7 +2220,8 @@
                     <p class="text-gray-300 mb-5 text-sm">Complete financial planning guide including tuition fees, living costs, proof of funds requirements for 2026.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Jan 2026</span>
-                        <a href="#" onclick="downloadFinancialGuidePDF(); return false;" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download Guide →</a>
+                        <!-- UPDATED: Now opens PDF from local folder -->
+                        <a href="pdfs/financial-guide-2026.pdf" target="_blank" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download Guide →</a>
                     </div>
                 </div>
 
@@ -2055,7 +2276,8 @@
                     <p class="text-gray-300 mb-5 text-sm">Everything you need to know about settling in your new country - accommodation, banking, healthcare, etc.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Dec 2025</span>
-                        <a href="#" onclick="downloadPostArrivalPDF(); return false;" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download →</a>
+                        <!-- UPDATED: Now opens PDF from local folder -->
+                        <a href="pdfs/post-arrival-guide-2026.pdf" target="_blank" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download →</a>
                     </div>
                 </div>
             </div>
@@ -2097,39 +2319,36 @@
                 <div class="animate-fade-in" style="animation-delay: 0.1s">
                     <h3 class="text-xl font-bold mb-6">Our Accreditations & Memberships</h3>
                     <div class="space-y-5">
-                        <div class="glass-card p-5 rounded-2xl">
-                            <div class="flex items-center gap-4">
-                                <div class="trust-badge">
-                                    <i class="fas fa-award text-2xl text-yellow-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">British Council Accredited</h4>
-                                    <p class="text-gray-400 text-sm">Official accreditation for UK visa consultancy since 2018</p>
-                                </div>
+                        <!-- FIXED: British Council Accredited - PERFECT CIRCLE BADGE -->
+                        <div class="accreditation-item">
+                            <div class="accreditation-badge">
+                                <i class="fas fa-award text-2xl text-yellow-500"></i>
+                            </div>
+                            <div class="accreditation-content">
+                                <h4 class="font-bold text-lg mb-1">British Council Accredited</h4>
+                                <p class="text-gray-400 text-sm">Official accreditation for UK visa consultancy since 2018</p>
                             </div>
                         </div>
 
-                        <div class="glass-card p-5 rounded-2xl">
-                            <div class="flex items-center gap-4">
-                                <div class="trust-badge">
-                                    <i class="fas fa-handshake text-2xl text-blue-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">PIER Member</h4>
-                                    <p class="text-gray-400 text-sm">Professional International Education Resources certified agency</p>
-                                </div>
+                        <!-- FIXED: PIER Member - PERFECT CIRCLE BADGE -->
+                        <div class="accreditation-item">
+                            <div class="accreditation-badge">
+                                <i class="fas fa-handshake text-2xl text-blue-500"></i>
+                            </div>
+                            <div class="accreditation-content">
+                                <h4 class="font-bold text-lg mb-1">PIER Member</h4>
+                                <p class="text-gray-400 text-sm">Professional International Education Resources certified agency</p>
                             </div>
                         </div>
 
-                        <div class="glass-card p-5 rounded-2xl">
-                            <div class="flex items-center gap-4">
-                                <div class="trust-badge">
-                                    <i class="fas fa-globe-europe text-2xl text-green-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">EU Immigration Partner</h4>
-                                    <p class="text-gray-400 text-sm">Recognized partner for European Union immigration programs</p>
-                                </div>
+                        <!-- FIXED: EU Immigration Partner - PERFECT CIRCLE BADGE -->
+                        <div class="accreditation-item">
+                            <div class="accreditation-badge">
+                                <i class="fas fa-globe-europe text-2xl text-green-500"></i>
+                            </div>
+                            <div class="accreditation-content">
+                                <h4 class="font-bold text-lg mb-1">EU Immigration Partner</h4>
+                                <p class="text-gray-400 text-sm">Recognized partner for European Union immigration programs</p>
                             </div>
                         </div>
                     </div>
@@ -2138,39 +2357,36 @@
                 <div class="animate-fade-in" style="animation-delay: 0.2s">
                     <h3 class="text-xl font-bold mb-6">University & Embassy Partnerships</h3>
                     <div class="space-y-5">
-                        <div class="glass-card p-5 rounded-2xl">
-                            <div class="flex items-center gap-4">
-                                <div class="trust-badge">
-                                    <i class="fas fa-university text-2xl text-red-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">200+ University Partners</h4>
-                                    <p class="text-gray-400 text-sm">Direct admission partnerships with top global universities</p>
-                                </div>
+                        <!-- FIXED: 200+ University Partners - PERFECT CIRCLE BADGE -->
+                        <div class="accreditation-item">
+                            <div class="accreditation-badge">
+                                <i class="fas fa-university text-2xl text-red-500"></i>
+                            </div>
+                            <div class="accreditation-content">
+                                <h4 class="font-bold text-lg mb-1">200+ University Partners</h4>
+                                <p class="text-gray-400 text-sm">Direct admission partnerships with top global universities</p>
                             </div>
                         </div>
 
-                        <div class="glass-card p-5 rounded-2xl">
-                            <div class="flex items-center gap-4">
-                                <div class="trust-badge">
-                                    <i class="fas fa-passport text-2xl text-purple-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">Embassy Preferred Partner</h4>
-                                    <p class="text-gray-400 text-sm">Recognized by embassies of UK, USA, Canada, Australia, and EU nations</p>
-                                </div>
+                        <!-- FIXED: Embassy Preferred Partner - PERFECT CIRCLE BADGE -->
+                        <div class="accreditation-item">
+                            <div class="accreditation-badge">
+                                <i class="fas fa-passport text-2xl text-purple-500"></i>
+                            </div>
+                            <div class="accreditation-content">
+                                <h4 class="font-bold text-lg mb-1">Embassy Preferred Partner</h4>
+                                <p class="text-gray-400 text-sm">Recognized by embassies of UK, USA, Canada, Australia, and EU nations</p>
                             </div>
                         </div>
 
-                        <div class="glass-card p-5 rounded-2xl">
-                            <div class="flex items-center gap-4">
-                                <div class="trust-badge">
-                                    <i class="fas fa-shield-alt text-2xl text-cyan-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-1">Data Security Certified</h4>
-                                    <p class="text-gray-400 text-sm">ISO 27001 certified for secure document handling and data protection</p>
-                                </div>
+                        <!-- FIXED: Data Security Certified - PERFECT CIRCLE BADGE -->
+                        <div class="accreditation-item">
+                            <div class="accreditation-badge">
+                                <i class="fas fa-shield-alt text-2xl text-cyan-500"></i>
+                            </div>
+                            <div class="accreditation-content">
+                                <h4 class="font-bold text-lg mb-1">Data Security Certified</h4>
+                                <p class="text-gray-400 text-sm">ISO 27001 certified for secure document handling and data protection</p>
                             </div>
                         </div>
                     </div>
@@ -2217,6 +2433,36 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Management Centers Section - Between Data Security Certified and Footer -->
+    <section class="management-centers-section">
+        <div class="management-centers-grid">
+            <div class="management-center-item">
+                <div class="badge-title text-blue-500">UKVI</div>
+                <div class="badge-subtitle">Approved</div>
+            </div>
+            <div class="management-center-item">
+                <div class="badge-title text-red-500">USCIS</div>
+                <div class="badge-subtitle">Recognized</div>
+            </div>
+            <div class="management-center-item">
+                <div class="badge-title text-yellow-500">IRCC</div>
+                <div class="badge-subtitle">Authorized</div>
+            </div>
+            <div class="management-center-item">
+                <div class="badge-title text-green-500">AUS</div>
+                <div class="badge-subtitle">Partner</div>
+            </div>
+            <div class="management-center-item">
+                <div class="badge-title text-purple-500">EU</div>
+                <div class="badge-subtitle">Certified</div>
+            </div>
+            <div class="management-center-item">
+                <div class="badge-title text-cyan-500">NZ</div>
+                <div class="badge-subtitle">Licensed</div>
             </div>
         </div>
     </section>
@@ -4137,857 +4383,25 @@
             return countryNames[countryCode] || countryCode;
         }
 
-        // --- 11. PDF GENERATION FUNCTIONS - BROCHURE STYLE DESIGN ---
-        function downloadDocumentChecklistPDF() {
-            try {
-                const { jsPDF } = window.jspdf;
-                if (!jsPDF) {
-                    alert('PDF library not loaded. Please try again.');
-                    return;
-                }
-                
-                const doc = new jsPDF('p', 'mm', 'a4');
-                
-                // BROCHURE STYLE HEADER
-                doc.setFillColor(59, 130, 246);
-                doc.rect(0, 0, 210, 45, 'F');
-                
-                // Logo/Title area
-                doc.setFontSize(28);
-                doc.setTextColor(255, 255, 255);
-                doc.text('TESCA GLOBAL', 105, 20, { align: 'center' });
-                
-                doc.setFontSize(16);
-                doc.setTextColor(200, 200, 255);
-                doc.text('DOCUMENT CHECKLIST 2026', 105, 30, { align: 'center' });
-                
-                doc.setFontSize(12);
-                doc.setTextColor(180, 180, 255);
-                doc.text('Complete Guide for All Countries & Visa Types', 105, 38, { align: 'center' });
-                
-                // Decorative line
-                doc.setDrawColor(255, 255, 255);
-                doc.setLineWidth(0.5);
-                doc.line(20, 45, 190, 45);
-                
-                // Introduction
-                doc.setFontSize(11);
-                doc.setTextColor(0, 0, 0);
-                doc.text('This comprehensive checklist ensures you have all necessary documents for a successful visa application.', 20, 55, { maxWidth: 170 });
-                doc.text('Updated: February 2026 | Valid for 2026-2027 applications', 20, 62, { maxWidth: 170 });
-                
-                let yPosition = 75;
-                
-                // Country sections with brochure-style design
-                const countries = ['uk', 'usa', 'canada', 'australia', 'germany', 'ireland', 'france', 'italy', 'netherlands', 'sweden', 'spain', 'finland', 'newzealand'];
-                const visaTypes = ['student', 'work', 'tourist', 'dependent'];
-                
-                countries.forEach((country, countryIndex) => {
-                    const countryName = getCountryName(country);
-                    
-                    // Check for new page
-                    if (yPosition > 250) {
-                        doc.addPage();
-                        yPosition = 20;
-                        
-                        // Add header on new page
-                        doc.setFillColor(59, 130, 246);
-                        doc.rect(0, 0, 210, 15, 'F');
-                        doc.setFontSize(12);
-                        doc.setTextColor(255, 255, 255);
-                        doc.text('TESCA Global Document Checklist 2026 - Continued', 105, 10, { align: 'center' });
-                        yPosition = 25;
-                    }
-                    
-                    // Country header with colored background
-                    doc.setFillColor(59, 130, 246, 0.2);
-                    doc.rect(20, yPosition - 5, 170, 10, 'F');
-                    
-                    doc.setFontSize(14);
-                    doc.setTextColor(59, 130, 246);
-                    doc.text(`${countryName.toUpperCase()}`, 25, yPosition);
-                    yPosition += 12;
-                    
-                    // Visa types
-                    visaTypes.forEach(visaType => {
-                        const visa = visas.find(v => v.country === country && v.type === visaType);
-                        if (visa) {
-                            const visaTypeName = visaType.charAt(0).toUpperCase() + visaType.slice(1);
-                            
-                            if (yPosition > 270) {
-                                doc.addPage();
-                                yPosition = 20;
-                                
-                                // Add header on new page
-                                doc.setFillColor(59, 130, 246);
-                                doc.rect(0, 0, 210, 15, 'F');
-                                doc.setFontSize(12);
-                                doc.setTextColor(255, 255, 255);
-                                doc.text('TESCA Global Document Checklist 2026 - Continued', 105, 10, { align: 'center' });
-                                yPosition = 25;
-                            }
-                            
-                            // Visa type header
-                            doc.setFontSize(11);
-                            doc.setTextColor(0, 0, 0);
-                            doc.setFont(undefined, 'bold');
-                            doc.text(`${visaTypeName} Visa:`, 25, yPosition);
-                            yPosition += 7;
-                            
-                            // Documents list with checkboxes
-                            doc.setFont(undefined, 'normal');
-                            doc.setFontSize(10);
-                            
-                            visa.documents.forEach((docItem, index) => {
-                                if (yPosition > 270) {
-                                    doc.addPage();
-                                    yPosition = 20;
-                                    
-                                    // Add header on new page
-                                    doc.setFillColor(59, 130, 246);
-                                    doc.rect(0, 0, 210, 15, 'F');
-                                    doc.setFontSize(12);
-                                    doc.setTextColor(255, 255, 255);
-                                    doc.text('TESCA Global Document Checklist 2026 - Continued', 105, 10, { align: 'center' });
-                                    yPosition = 25;
-                                }
-                                
-                                // Checkbox
-                                doc.rect(30, yPosition - 3.5, 4, 4);
-                                doc.text(`□ ${docItem}`, 38, yPosition);
-                                yPosition += 6;
-                            });
-                            
-                            yPosition += 3;
-                            
-                            // Separator line
-                            doc.setDrawColor(200, 200, 200);
-                            doc.setLineWidth(0.2);
-                            doc.line(25, yPosition - 2, 185, yPosition - 2);
-                            yPosition += 5;
-                        }
-                    });
-                    
-                    yPosition += 5;
-                });
-                
-                // Tips section
-                doc.addPage();
-                yPosition = 20;
-                
-                // Tips header
-                doc.setFillColor(16, 185, 129);
-                doc.rect(0, 0, 210, 30, 'F');
-                
-                doc.setFontSize(20);
-                doc.setTextColor(255, 255, 255);
-                doc.text('DOCUMENT PREPARATION TIPS', 105, 18, { align: 'center' });
-                
-                doc.setFontSize(12);
-                doc.setTextColor(200, 255, 200);
-                doc.text('Ensure your application is complete and accurate', 105, 25, { align: 'center' });
-                
-                yPosition = 40;
-                
-                const tips = [
-                    '✅ Always get original documents attested/notarized',
-                    '✅ Keep digital copies of all documents',
-                    '✅ Translations must be done by certified translators',
-                    '✅ Bank statements should show consistent balance',
-                    '✅ All documents must be recent (within 3-6 months)',
-                    '✅ Check country-specific requirements carefully',
-                    '✅ Organize documents in the required order',
-                    '✅ Double-check all dates and spellings',
-                    '✅ Keep passport valid for at least 6 months beyond travel',
-                    '✅ Prepare extra copies for your records'
-                ];
-                
-                doc.setFontSize(11);
-                doc.setTextColor(0, 0, 0);
-                
-                tips.forEach(tip => {
-                    if (yPosition > 270) {
-                        doc.addPage();
-                        yPosition = 20;
-                    }
-                    doc.text(tip, 25, yPosition);
-                    yPosition += 8;
-                });
-                
-                // Contact section
-                yPosition += 10;
-                
-                doc.setFillColor(59, 130, 246, 0.1);
-                doc.rect(20, yPosition - 5, 170, 50, 'F');
-                
-                doc.setFontSize(14);
-                doc.setTextColor(59, 130, 246);
-                doc.text('NEED HELP WITH DOCUMENTS?', 105, yPosition + 5, { align: 'center' });
-                
-                doc.setFontSize(10);
-                doc.setTextColor(0, 0, 0);
-                doc.text('Our document verification specialists can review your documents before submission', 105, yPosition + 15, { align: 'center' });
-                
-                doc.setFont(undefined, 'bold');
-                doc.text('Contact TESCA Global:', 105, yPosition + 25, { align: 'center' });
-                
-                doc.setFont(undefined, 'normal');
-                doc.text('📞 +91 99250 81515 | ✉️ visa@tesca.co', 105, yPosition + 32, { align: 'center' });
-                doc.text('📍 107, Ambika Pinnacle, Surat, Gujarat 394101', 105, yPosition + 39, { align: 'center' });
-                
-                // Footer
-                doc.setFontSize(8);
-                doc.setTextColor(100, 100, 100);
-                doc.text('© 2026 TESCA Global Visa & Immigration Consultancy. All rights reserved.', 105, 290, { align: 'center' });
-                doc.text('This document is for informational purposes only. Requirements may change.', 105, 295, { align: 'center' });
-                
-                // Save PDF
-                doc.save('TESCA-Document-Checklist-2026-Brochure.pdf');
-                
-                // Show success message
-                showDownloadSuccess('Document Checklist Brochure');
-            } catch (error) {
-                console.error('PDF generation error:', error);
-                alert('Error generating PDF. Please try again or contact support.');
-            }
-        }
-
-        function downloadFinancialGuidePDF() {
-            try {
-                const { jsPDF } = window.jspdf;
-                if (!jsPDF) {
-                    alert('PDF library not loaded. Please try again.');
-                    return;
-                }
-                
-                const doc = new jsPDF('p', 'mm', 'a4');
-                
-                // BROCHURE COVER PAGE
-                // Background gradient effect
-                const gradient = doc.context2d.createLinearGradient(0, 0, 210, 297);
-                gradient.addColorStop(0, '#3b82f6');
-                gradient.addColorStop(1, '#1e40af');
-                doc.setFillColor(59, 130, 246);
-                doc.rect(0, 0, 210, 297, 'F');
-                
-                // Title
-                doc.setFontSize(32);
-                doc.setTextColor(255, 255, 255);
-                doc.text('FINANCIAL', 105, 100, { align: 'center' });
-                doc.text('PLANNING GUIDE', 105, 115, { align: 'center' });
-                
-                doc.setFontSize(20);
-                doc.setTextColor(200, 200, 255);
-                doc.text('2026 EDITION', 105, 130, { align: 'center' });
-                
-                // Subtitle
-                doc.setFontSize(14);
-                doc.text('Complete Financial Breakdown for Global Immigration', 105, 150, { align: 'center' });
-                
-                // Decorative elements
-                doc.setDrawColor(255, 255, 255);
-                doc.setLineWidth(1);
-                doc.line(60, 160, 150, 160);
-                
-                // TESCA Logo
-                doc.setFontSize(28);
-                doc.setTextColor(255, 255, 255);
-                doc.text('TESCA', 105, 180, { align: 'center' });
-                
-                doc.setFontSize(16);
-                doc.text('GLOBAL', 105, 190, { align: 'center' });
-                
-                // Footer on cover
-                doc.setFontSize(10);
-                doc.setTextColor(200, 200, 255);
-                doc.text('Confidential Financial Planning Document', 105, 280, { align: 'center' });
-                
-                // PAGE 2: Table of Contents
-                doc.addPage();
-                let yPosition = 20;
-                
-                doc.setFillColor(16, 185, 129);
-                doc.rect(0, 0, 210, 30, 'F');
-                
-                doc.setFontSize(20);
-                doc.setTextColor(255, 255, 255);
-                doc.text('TABLE OF CONTENTS', 105, 20, { align: 'center' });
-                
-                yPosition = 40;
-                
-                const contents = [
-                    { title: 'Introduction to Financial Planning', page: '3' },
-                    { title: 'Country-Specific Cost Breakdown', page: '4' },
-                    { title: 'United Kingdom Financial Requirements', page: '5' },
-                    { title: 'United States Financial Requirements', page: '6' },
-                    { title: 'Canada Financial Requirements', page: '7' },
-                    { title: 'Australia Financial Requirements', page: '8' },
-                    { title: 'European Countries Overview', page: '9' },
-                    { title: 'Education Loan Guide', page: '10' },
-                    { title: 'Proof of Funds Preparation', page: '11' },
-                    { title: 'Tax Implications & Planning', page: '12' },
-                    { title: 'Financial Timeline Checklist', page: '13' },
-                    { title: 'TESCA Financial Services', page: '14' }
-                ];
-                
-                doc.setFontSize(12);
-                doc.setTextColor(0, 0, 0);
-                
-                contents.forEach(item => {
-                    doc.text(item.title, 25, yPosition);
-                    doc.text(`........................... ${item.page}`, 180, yPosition);
-                    yPosition += 10;
-                    
-                    // Dotted line
-                    doc.setDrawColor(200, 200, 200);
-                    doc.setLineWidth(0.1);
-                    doc.line(25, yPosition - 2, 185, yPosition - 2);
-                    yPosition += 5;
-                });
-                
-                // PAGE 3: Introduction
-                doc.addPage();
-                yPosition = 20;
-                
-                doc.setFillColor(59, 130, 246, 0.1);
-                doc.rect(0, 0, 210, 40, 'F');
-                
-                doc.setFontSize(18);
-                doc.setTextColor(59, 130, 246);
-                doc.text('INTRODUCTION TO FINANCIAL PLANNING', 105, 30, { align: 'center' });
-                
-                yPosition = 50;
-                
-                const introduction = `Proper financial planning is crucial for successful visa applications. This guide provides comprehensive financial information for 13 countries across 4 visa types. All amounts are in local currencies as of February 2026.
-
-KEY PRINCIPLES:
-• Start planning 6-12 months before application
-• Maintain consistent bank balances
-• Keep all financial documents organized
-• Consider currency exchange fluctuations
-• Include 15-20% buffer for unexpected costs
-
-IMPORTANT NOTES:
-1. Requirements change frequently - verify before application
-2. Exchange rates affect actual costs in your home currency
-3. Some countries require funds in specific accounts
-4. Family members increase financial requirements
-5. Post-arrival costs may differ from estimates`;
-                
-                doc.setFontSize(10);
-                doc.setTextColor(0, 0, 0);
-                doc.text(introduction, 20, yPosition, { maxWidth: 170 });
-                yPosition += 80;
-                
-                // Quick reference table
-                doc.setFillColor(16, 185, 129, 0.1);
-                doc.rect(20, yPosition - 5, 170, 60, 'F');
-                
-                doc.setFontSize(12);
-                doc.setTextColor(16, 185, 129);
-                doc.text('QUICK REFERENCE: MINIMUM FUNDS REQUIRED', 105, yPosition + 5, { align: 'center' });
-                
-                doc.setFontSize(9);
-                doc.setTextColor(0, 0, 0);
-                
-                const quickRef = [
-                    ['Country', 'Student Visa', 'Work Visa'],
-                    ['United Kingdom', '£1,334/month', '£26,200/year'],
-                    ['United States', '$25,000/year', '$60,000/year'],
-                    ['Canada', '$10,000 + tuition', 'LMIA dependent'],
-                    ['Australia', 'AUD $24,505/year', 'Skills assessment'],
-                    ['Germany', '€11,208/year', '€45,300/year']
-                ];
-                
-                let tableY = yPosition + 15;
-                quickRef.forEach((row, rowIndex) => {
-                    doc.text(row[0], 25, tableY);
-                    doc.text(row[1], 90, tableY);
-                    doc.text(row[2], 150, tableY);
-                    tableY += 8;
-                    
-                    if (rowIndex === 0) {
-                        doc.setDrawColor(16, 185, 129);
-                        doc.setLineWidth(0.5);
-                        doc.line(20, tableY - 3, 190, tableY - 3);
-                    }
-                });
-                
-                // Continue with more pages for each country...
-                // Due to length constraints, I'll show the structure for UK only
-                
-                // PAGE 4: UK Financial Details
-                doc.addPage();
-                yPosition = 20;
-                
-                // UK Flag color header
-                doc.setFillColor(1, 33, 105); // UK Blue
-                doc.rect(0, 0, 210, 30, 'F');
-                
-                doc.setFontSize(18);
-                doc.setTextColor(255, 255, 255);
-                doc.text('UNITED KINGDOM FINANCIAL REQUIREMENTS', 105, 20, { align: 'center' });
-                
-                yPosition = 40;
-                
-                const ukInfo = `The UK has specific financial requirements that vary by visa type and location. All amounts are for 2026 applications.
-
-STUDENT VISA (TIER 4):
-• Tuition Fees: £10,000 - £35,000/year
-• Living Costs: £1,334/month (London), £1,023/month (outside London)
-• Total First Year: £25,000 - £50,000
-• Proof Required: 28 consecutive days of funds
-
-SKILLED WORKER VISA:
-• Minimum Salary: £26,200/year (increases Jan 2026)
-• Application Fee: £1,423 - £1,872
-• IHS Surcharge: £1,035/year
-• Total First Year Cost: £5,000 - £10,000
-
-TOURIST VISA:
-• Funds Required: £100/day
-• Typical 2-week Trip: £1,500 - £3,000
-• Must show return ticket and accommodation
-
-DEPENDENT VISA:
-• Additional Funds: £680/month per dependent
-• Total Additional Cost: £3,000 - £5,000/year
-
-BANK ACCOUNT TIPS:
-• Use major UK banks: HSBC, Barclays, Lloyd's
-• Open account within 1-2 weeks of arrival
-• Maintain minimum balance requirements
-• Get international banking app`;
-                
-                doc.setFontSize(10);
-                doc.setTextColor(0, 0, 0);
-                doc.text(ukInfo, 20, yPosition, { maxWidth: 170 });
-                yPosition += 120;
-                
-                // UK Cost Breakdown Table
-                doc.setFillColor(1, 33, 105, 0.1);
-                doc.rect(20, yPosition - 5, 170, 50, 'F');
-                
-                doc.setFontSize(11);
-                doc.setTextColor(1, 33, 105);
-                doc.text('UK COST BREAKDOWN 2026', 105, yPosition + 5, { align: 'center' });
-                
-                const ukCosts = [
-                    ['Expense Category', 'London', 'Outside London'],
-                    ['Accommodation', '£800-£1,500', '£600-£1,000'],
-                    ['Food & Groceries', '£300-£500', '£200-£400'],
-                    ['Transportation', '£150-£300', '£80-£150'],
-                    ['Utilities', '£150-£250', '£100-£200'],
-                    ['Health Insurance', '£470/year', '£470/year']
-                ];
-                
-                tableY = yPosition + 15;
-                ukCosts.forEach((row, index) => {
-                    doc.setTextColor(0, 0, 0);
-                    doc.setFontSize(9);
-                    if (index === 0) doc.setFont(undefined, 'bold');
-                    doc.text(row[0], 25, tableY);
-                    doc.text(row[1], 100, tableY);
-                    doc.text(row[2], 160, tableY);
-                    tableY += 7;
-                    doc.setFont(undefined, 'normal');
-                });
-                
-                // Continue with other countries similarly...
-                // Add more pages for USA, Canada, Australia, etc.
-                
-                // Final page: TESCA Services
-                doc.addPage();
-                yPosition = 20;
-                
-                // Final page design
-                doc.setFillColor(59, 130, 246);
-                doc.rect(0, 0, 210, 40, 'F');
-                
-                doc.setFontSize(24);
-                doc.setTextColor(255, 255, 255);
-                doc.text('TESCA FINANCIAL SERVICES', 105, 30, { align: 'center' });
-                
-                yPosition = 50;
-                
-                const services = `Our financial planning experts provide end-to-end support for all your immigration financial needs:
-
-✅ FINANCIAL DOCUMENTATION
-• Bank statement preparation & verification
-• Proof of funds arrangement
-• Loan documentation assistance
-• Sponsorship letter preparation
-
-✅ EDUCATION LOAN ASSISTANCE
-• Bank selection & application
-• Documentation support
-• Negotiation for better terms
-• Disbursement guidance
-
-✅ TAX PLANNING SERVICES
-• International tax implications
-• Dual taxation avoidance
-• Tax residency planning
-• Investment guidance
-
-✅ SETTLEMENT FINANCE
-• Bank account opening assistance
-• Currency exchange services
-• Budget planning for first year
-• Emergency fund planning
-
-✅ SCHOLARSHIP ASSISTANCE
-• Scholarship identification
-• Application support
-• Documentation preparation
-• Interview preparation
-
-CONTACT OUR FINANCIAL ADVISORS:
-📞 +91 99250 81515 (Financial Planning Department)
-✉️ finance@tesca.co
-📍 107, Ambika Pinnacle, Surat, Gujarat 394101
-
-OFFICE HOURS:
-Monday - Saturday: 9:00 AM - 8:00 PM
-Sunday: 10:00 AM - 6:00 PM`;
-                
-                doc.setFontSize(10);
-                doc.setTextColor(0, 0, 0);
-                doc.text(services, 20, yPosition, { maxWidth: 170 });
-                
-                // Footer
-                doc.setFontSize(8);
-                doc.setTextColor(100, 100, 100);
-                doc.text('© 2026 TESCA Global Financial Planning Department. All figures are estimates.', 105, 280, { align: 'center' });
-                doc.text('For personalized financial planning, book a consultation with our experts.', 105, 285, { align: 'center' });
-                doc.text('Information updated: February 2026 | Subject to change without notice', 105, 290, { align: 'center' });
-                
-                // Save PDF
-                doc.save('TESCA-Financial-Planning-Guide-2026-Brochure.pdf');
-                
-                // Show success message
-                showDownloadSuccess('Financial Planning Guide Brochure');
-            } catch (error) {
-                console.error('PDF generation error:', error);
-                alert('Error generating PDF. Please try again or contact support.');
-            }
-        }
-
-        function downloadPostArrivalPDF() {
-            try {
-                const { jsPDF } = window.jspdf;
-                if (!jsPDF) {
-                    alert('PDF library not loaded. Please try again.');
-                    return;
-                }
-                
-                const doc = new jsPDF('p', 'mm', 'a4');
-                
-                // COVER PAGE with travel theme
-                // Background
-                doc.setFillColor(10, 102, 194);
-                doc.rect(0, 0, 210, 297, 'F');
-                
-                // Title
-                doc.setFontSize(36);
-                doc.setTextColor(255, 255, 255);
-                doc.text('POST-ARRIVAL', 105, 100, { align: 'center' });
-                doc.text('SETTLEMENT GUIDE', 105, 120, { align: 'center' });
-                
-                doc.setFontSize(24);
-                doc.setTextColor(200, 230, 255);
-                doc.text('2026 EDITION', 105, 140, { align: 'center' });
-                
-                // Subtitle
-                doc.setFontSize(16);
-                doc.text('Your Complete Guide to Settling Abroad', 105, 160, { align: 'center' });
-                
-                // Decorative airplane
-                doc.setFontSize(40);
-                doc.text('✈️', 105, 190, { align: 'center' });
-                
-                // TESCA Branding
-                doc.setFontSize(28);
-                doc.setTextColor(255, 255, 255);
-                doc.text('TESCA', 105, 220, { align: 'center' });
-                
-                doc.setFontSize(18);
-                doc.text('GLOBAL SETTLEMENT SUPPORT', 105, 235, { align: 'center' });
-                
-                // Footer on cover
-                doc.setFontSize(10);
-                doc.setTextColor(200, 200, 255);
-                doc.text('Essential Information for Your New Life Abroad', 105, 280, { align: 'center' });
-                
-                // PAGE 2: Welcome Message
-                doc.addPage();
-                let yPosition = 20;
-                
-                doc.setFillColor(10, 102, 194, 0.1);
-                doc.rect(0, 0, 210, 30, 'F');
-                
-                doc.setFontSize(20);
-                doc.setTextColor(10, 102, 194);
-                doc.text('WELCOME TO YOUR NEW LIFE!', 105, 25, { align: 'center' });
-                
-                yPosition = 40;
-                
-                const welcome = `Congratulations on your visa approval! This comprehensive guide will help you navigate the first crucial months in your new country.
-
-WHAT TO EXPECT:
-Week 1-2: Initial settlement and paperwork
-Month 1: Basic establishment and orientation
-Month 2-3: Social integration and routine setup
-Month 4-6: Full adaptation and future planning
-
-KEY SUCCESS FACTORS:
-1. Patience - Adaptation takes time
-2. Organization - Keep all documents safe
-3. Openness - Embrace new experiences
-4. Proactivity - Seek help when needed
-5. Resilience - Overcome challenges positively
-
-THIS GUIDE INCLUDES:
-• Country-specific settlement information
-• Step-by-step checklists
-• Important contacts and resources
-• Cultural adaptation tips
-• TESCA support services`;
-                
-                doc.setFontSize(10);
-                doc.setTextColor(0, 0, 0);
-                doc.text(welcome, 20, yPosition, { maxWidth: 170 });
-                yPosition += 80;
-                
-                // First Week Checklist
-                doc.setFillColor(10, 102, 194, 0.05);
-                doc.rect(20, yPosition - 5, 170, 60, 'F');
-                
-                doc.setFontSize(14);
-                doc.setTextColor(10, 102, 194);
-                doc.text('FIRST WEEK CHECKLIST', 105, yPosition + 5, { align: 'center' });
-                
-                doc.setFontSize(9);
-                doc.setTextColor(0, 0, 0);
-                
-                const firstWeek = [
-                    '□ Register with local authorities (if required)',
-                    '□ Open a local bank account',
-                    '□ Get a local SIM card/mobile plan',
-                    '□ Register with a doctor/health center',
-                    '□ Apply for tax identification number',
-                    '□ Explore public transportation options',
-                    '□ Find nearest supermarket and essential shops',
-                    '□ Set up utilities (electricity, water, internet)',
-                    '□ Attend orientation session (if available)',
-                    '□ Connect with local expat community'
-                ];
-                
-                let checklistY = yPosition + 15;
-                firstWeek.forEach(item => {
-                    doc.text(item, 30, checklistY);
-                    checklistY += 6;
-                });
-                
-                // Continue with country-specific sections...
-                // PAGE 3: UK Settlement
-                doc.addPage();
-                yPosition = 20;
-                
-                // UK Section
-                doc.setFillColor(1, 33, 105); // UK Blue
-                doc.rect(0, 0, 210, 30, 'F');
-                
-                doc.setFontSize(18);
-                doc.setTextColor(255, 255, 255);
-                doc.text('UNITED KINGDOM SETTLEMENT GUIDE', 105, 20, { align: 'center' });
-                
-                yPosition = 40;
-                
-                const ukSettlement = `The UK offers excellent infrastructure for newcomers. Follow this guide for smooth settlement.
-
-IMMEDIATE UPON ARRIVAL:
-1. Border Control: Have all documents ready
-2. Transportation: Use Heathrow Express, tube, or pre-booked taxi
-3. First Night: Go to pre-booked accommodation
-
-WEEK 1 ESSENTIALS:
-• National Insurance Number: Apply online or at Jobcentre Plus
-• GP Registration: Find local General Practitioner
-• Bank Account: Major banks require proof of address
-• Oyster Card: For London transport discounts
-• Council Tax: Register with local council
-
-HEALTHCARE:
-• NHS Registration: Essential for healthcare access
-• Prescription Charges: £9.65 per item (England)
-• Dental: NHS or private options available
-• Emergency: Dial 999 or visit A&E
-
-TRANSPORTATION:
-• Driving: Convert license within 1 year
-• Public Transport: Oyster card, contactless payment
-• Railcards: Save 1/3 on train travel
-• Cycling: Popular in major cities
-
-ACCOMMODATION TIPS:
-• Short-term: Airbnb, hotels, hostels
-• Long-term: Rightmove, Zoopla, SpareRoom
-• Deposits: Usually 5 weeks rent
-• Contracts: Assured Shorthold Tenancy (AST)`;
-                
-                doc.setFontSize(9);
-                doc.setTextColor(0, 0, 0);
-                doc.text(ukSettlement, 20, yPosition, { maxWidth: 170 });
-                
-                // Continue with other countries...
-                // Add USA, Canada, Australia, etc.
-                
-                // Final page: TESCA Support Services
-                doc.addPage();
-                yPosition = 20;
-                
-                // Services header
-                doc.setFillColor(10, 102, 194);
-                doc.rect(0, 0, 210, 40, 'F');
-                
-                doc.setFontSize(24);
-                doc.setTextColor(255, 255, 255);
-                doc.text('TESCA SETTLEMENT SUPPORT', 105, 30, { align: 'center' });
-                
-                yPosition = 50;
-                
-                const tescaServices = `We provide comprehensive settlement support to ensure your smooth transition:
-
-PRE-ARRIVAL SERVICES:
-✅ Airport pickup arrangement
-✅ Temporary accommodation booking
-✅ SIM card pre-ordering
-✅ Local bank account pre-approval
-✅ School search assistance (for families)
-
-POST-ARRIVAL SERVICES:
-✅ Accompanied registration procedures
-✅ Bank account opening assistance
-✅ Healthcare registration support
-✅ Accommodation search support
-✅ Local orientation tours
-
-ONGOING SUPPORT:
-✅ 24/7 emergency assistance
-✅ Cultural adaptation counseling
-✅ Job search support for dependents
-✅ Legal and financial consultation
-✅ Community networking events
-
-EMERGENCY CONTACTS:
-📞 TESCA UK Support: +44 20 1234 5678
-📞 TESCA US Support: +1 800 123 4567
-📞 TESCA Global Hotline: +91 99250 81515
-✉️ settlement@tesca.co
-
-OFFICE LOCATIONS:
-• UK: London, Manchester, Edinburgh
-• USA: New York, San Francisco, Chicago
-• Canada: Toronto, Vancouver, Montreal
-• Australia: Sydney, Melbourne, Brisbane
-• India: Surat, Mumbai, Delhi, Bangalore`;
-                
-                doc.setFontSize(9);
-                doc.setTextColor(0, 0, 0);
-                doc.text(tescaServices, 20, yPosition, { maxWidth: 170 });
-                
-                yPosition += 120;
-                
-                // Final checklist
-                doc.setFillColor(10, 102, 194, 0.05);
-                doc.rect(20, yPosition - 5, 170, 50, 'F');
-                
-                doc.setFontSize(12);
-                doc.setTextColor(10, 102, 194);
-                doc.text('SETTLEMENT SUCCESS CHECKLIST', 105, yPosition + 5, { align: 'center' });
-                
-                const successChecklist = [
-                    '☐ All legal registrations completed',
-                    '☐ Bank account operational',
-                    '☐ Healthcare access established',
-                    '☐ Accommodation secured long-term',
-                    '☐ Local transportation understood',
-                    '☐ Emergency contacts saved',
-                    '☐ Social connections started',
-                    '☐ Cultural adaptation progressing'
-                ];
-                
-                checklistY = yPosition + 15;
-                successChecklist.forEach(item => {
-                    doc.setFontSize(9);
-                    doc.setTextColor(0, 0, 0);
-                    doc.text(item, 30, checklistY);
-                    checklistY += 6;
-                });
-                
-                // Footer
-                doc.setFontSize(8);
-                doc.setTextColor(100, 100, 100);
-                doc.text('© 2026 TESCA Global Settlement Support Division. All rights reserved.', 105, 285, { align: 'center' });
-                doc.text('For settlement assistance, contact our dedicated support team.', 105, 290, { align: 'center' });
-                doc.text('Updated: February 2026 | www.tescaglobal.com/settlement', 105, 295, { align: 'center' });
-                
-                // Save PDF
-                doc.save('TESCA-Post-Arrival-Settlement-Guide-2026-Brochure.pdf');
-                
-                // Show success message
-                showDownloadSuccess('Post-Arrival Settlement Guide Brochure');
-            } catch (error) {
-                console.error('PDF generation error:', error);
-                alert('Error generating PDF. Please try again or contact support.');
-            }
-        }
-
-        function showDownloadSuccess(documentName) {
-            // Create a temporary success message
-            const successMsg = document.createElement('div');
-            successMsg.className = 'fixed top-24 right-6 bg-green-500 text-white px-6 py-3 rounded-xl shadow-xl z-50 animate-fade-in';
-            successMsg.innerHTML = `
-                <div class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-xl"></i>
-                    <div>
-                        <div class="font-bold">${documentName} Downloaded!</div>
-                        <div class="text-sm opacity-90">Check your downloads folder</div>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(successMsg);
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                successMsg.style.opacity = '0';
+        // --- 11. MOBILE MENU FUNCTION - IMPROVED RIGHT TO LEFT SLIDE ---
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('show')) {
+                mobileMenu.classList.remove('show');
                 setTimeout(() => {
-                    document.body.removeChild(successMsg);
-                }, 300);
-            }, 3000);
+                    mobileMenu.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 400);
+            } else {
+                mobileMenu.style.display = 'flex';
+                setTimeout(() => {
+                    mobileMenu.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }, 10);
+            }
         }
 
         // --- 12. UTILITY FUNCTIONS ---
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                menu.classList.add('flex');
-                setTimeout(() => {
-                    menu.classList.add('show');
-                    document.body.style.overflow = 'hidden';
-                }, 10);
-            } else {
-                menu.classList.remove('show');
-                setTimeout(() => {
-                    menu.classList.add('hidden');
-                    menu.classList.remove('flex');
-                    document.body.style.overflow = 'auto';
-                }, 400);
-            }
-        }
-
         function setupEventListeners() {
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
