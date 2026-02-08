@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head> 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>TESCA Global | World-Class Visa & Immigration Consultancy</title>
     
     <!-- Favicon --> 
@@ -115,6 +115,9 @@
             -webkit-font-smoothing: antialiased;
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
         }
 
         /* Hide scrollbar but keep functionality */
@@ -124,6 +127,8 @@
         html {
             scrollbar-width: none;
             -ms-overflow-style: none;
+            width: 100%;
+            height: 100%;
         }
 
         /* Improved spacing between sections */
@@ -132,17 +137,19 @@
             padding-bottom: 6rem !important;
         }
 
-        /* Hero section */
+        /* Hero section - FIXED FOR ALL DEVICES */
         .hero-section {
             height: 100vh;
-            width: 100%;
+            min-height: 100vh;
+            max-height: 100vh;
+            width: 100vw;
             position: relative;
             overflow: hidden;
             margin: 0;
             padding: 0;
         }
 
-        /* Banner container */
+        /* Banner container - FIXED FOR ALL DEVICES */
         .banner-container {
             width: 100%;
             height: 100%;
@@ -187,8 +194,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 0 20px;
-            min-height: 80vh;
+            padding: 2rem 1.5rem;
+            height: 100%;
+            box-sizing: border-box;
         }
 
         /* Banner overlay with transparency */
@@ -199,7 +207,7 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
         }
 
         /* Glassmorphism Effects */
@@ -239,6 +247,11 @@
             background: transparent !important;
             backdrop-filter: none !important;
             height: 90px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
         }
         
         #main-header .header-inner {
@@ -431,19 +444,22 @@
             scroll-margin-top: 140px;
         }
 
-        /* UPDATED MOBILE MENU - RIGHT TO LEFT SLIDE WITH OVERLAY */
+        /* UPDATED MOBILE MENU - FIXED FOR ALL DEVICES */
         #mobile-menu {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            z-index: 1000;
+            z-index: 2000;
             display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         #mobile-menu.show {
             display: block;
+            opacity: 1;
         }
         
         .mobile-menu-overlay {
@@ -452,9 +468,9 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            z-index: 1001;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2001;
         }
         
         .mobile-menu-panel {
@@ -462,14 +478,14 @@
             top: 0;
             right: 0;
             width: 85%;
-            max-width: 350px;
+            max-width: 320px;
             height: 100vh;
             background: rgba(5, 5, 7, 0.98);
             backdrop-filter: blur(25px);
-            border-radius: 2rem 0 0 2rem;
+            border-radius: 1.5rem 0 0 1.5rem;
             margin: 0;
             padding: 0;
-            z-index: 1002;
+            z-index: 2002;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -488,34 +504,38 @@
 
         .mobile-menu-header {
             width: 100%;
-            padding: 1.5rem 2rem;
+            padding: 1.5rem 1.5rem 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         
         .mobile-menu-links {
             width: 100%;
-            padding: 0 1.5rem;
+            padding: 0 1rem;
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.5rem;
             flex: 1;
+            margin-bottom: 1rem;
         }
         
         .mobile-menu-link {
-            padding: 1rem 1.5rem;
-            border-radius: 1.2rem;
+            padding: 1rem 1.2rem;
+            border-radius: 1rem;
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.05);
             width: 100%;
             text-align: left;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 500;
             text-decoration: none;
             color: white;
             display: flex;
             align-items: center;
             gap: 12px;
+            margin: 0;
+            border: none;
+            outline: none;
         }
         
         .mobile-menu-link i {
@@ -523,6 +543,7 @@
             text-align: center;
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.7);
+            flex-shrink: 0;
         }
         
         .mobile-menu-link:hover {
@@ -535,27 +556,28 @@
             color: #3b82f6;
         }
 
-        /* UPDATED MOBILE CALL BUTTON - MOVED BELOW CONTACT US WITH PROPER SPACING */
+        /* UPDATED MOBILE CALL BUTTON - PROPERLY SPACED */
         .mobile-menu-call-container {
             width: 100%;
-            padding: 2rem 1.5rem 3rem;
+            padding: 1.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: auto;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
         }
         
         .mobile-menu-call-btn {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             text-decoration: none;
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
             transition: all 0.3s ease;
@@ -571,8 +593,8 @@
         /* Mobile menu close button */
         .mobile-menu-close {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
+            top: 1.2rem;
+            right: 1.2rem;
             background: rgba(255, 255, 255, 0.1);
             border: none;
             color: white;
@@ -585,7 +607,7 @@
             justify-content: center;
             font-size: 1.2rem;
             transition: all 0.3s ease;
-            z-index: 1003;
+            z-index: 2003;
         }
         
         .mobile-menu-close:hover {
@@ -593,31 +615,39 @@
             transform: rotate(90deg);
         }
 
-        /* Banner title styles */
+        /* Banner title styles - FIXED FOR ALL DEVICES */
         .banner-title {
-            font-size: 3.5rem;
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-weight: 800;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
             letter-spacing: -0.5px;
+            width: 100%;
+            padding: 0 0.5rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
-        /* Banner subtitle */
+        /* Banner subtitle - FIXED FOR ALL DEVICES */
         .banner-subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.3rem);
             line-height: 1.6;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             opacity: 0.95;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 400;
+            width: 100%;
+            padding: 0 0.5rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         /* Banner CTA button */
         .banner-cta {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             padding: 1rem 2.5rem;
             border-radius: 3rem !important;
             font-weight: 700;
@@ -630,6 +660,8 @@
             color: white;
             border: none;
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            cursor: pointer;
+            text-decoration: none;
         }
 
         .banner-cta:hover {
@@ -791,7 +823,7 @@
             transform: scale(1.05);
         }
 
-        /* Banner content centering fix - UPDATED FOR BETTER CENTERING */
+        /* Banner content centering fix - UPDATED FOR ALL DEVICES */
         .banner-content {
             display: flex;
             flex-direction: column;
@@ -799,7 +831,9 @@
             justify-content: center;
             text-align: center;
             height: 100%;
-            padding: 0 20px;
+            padding: 2rem 1.5rem;
+            box-sizing: border-box;
+            margin: 0 auto;
         }
 
         /* Roadmap Section Styles */
@@ -867,6 +901,8 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .country-badge:hover {
@@ -1164,550 +1200,6 @@
             line-height: 1.5 !important;
         }
 
-        /* Responsive Design - UPDATED FOR ALL DEVICES */
-        @media (max-width: 768px) {
-            /* MOBILE BODY STYLES WITH PROPER SPACING */
-            body {
-                font-size: 15px;
-                line-height: 1.6;
-            }
-            
-            /* Improved section padding for mobile */
-            .mobile-view .section-padding {
-                padding-top: 3.5rem !important;
-                padding-bottom: 3.5rem !important;
-            }
-            
-            /* FIXED: MOBILE HEADER - ADAPTIVE HEIGHT */
-            #main-header {
-                height: auto !important;
-                min-height: 70px;
-                top: 10px !important;
-            }
-            
-            #main-header .header-inner {
-                margin: 0 auto !important;
-                padding: 0.7rem 1.5rem !important;
-                max-width: 95%;
-                border-radius: 2.5rem !important;
-                background: rgba(255, 255, 255, 0.08) !important;
-                backdrop-filter: blur(20px) !important;
-                border: 1px solid rgba(255, 255, 255, 0.2) !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-            }
-            
-            #main-header .logo-img {
-                width: 120px !important;
-                height: auto;
-                max-height: 40px;
-                object-fit: contain;
-            }
-            
-            .call-btn {
-                padding: 8px 15px;
-                font-size: 12px;
-                border-radius: 3rem !important;
-                min-width: auto;
-            }
-            
-            .call-btn span {
-                display: none;
-            }
-            
-            /* Hide header nav on mobile */
-            #main-header nav {
-                display: none;
-            }
-            
-            /* Show mobile menu button */
-            #main-header .md\\:hidden {
-                display: block;
-            }
-            
-            /* FIXED: MOBILE BANNER - ADAPTIVE HEIGHT */
-            .mobile-view .hero-section {
-                height: 100vh !important;
-                min-height: 100vh;
-                max-height: 100vh;
-                width: 100vw !important;
-                overflow: hidden;
-                margin: 0 !important;
-                padding: 0 !important;
-                position: relative;
-                left: 0;
-                right: 0;
-            }
-            
-            .mobile-view .banner-container {
-                min-height: 100vh;
-                max-height: 100vh;
-                width: 100vw !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                position: absolute;
-                left: 0;
-                right: 0;
-            }
-            
-            .mobile-view .banner-slide {
-                min-height: 100vh;
-                max-height: 100vh;
-                width: 100vw !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                left: 0 !important;
-                right: 0 !important;
-                position: absolute;
-            }
-            
-            /* FIXED: Banner content - DYNAMIC ADJUSTMENT */
-            .mobile-view .banner-content {
-                padding: 15px !important;
-                justify-content: center !important;
-                margin-top: 0 !important;
-                min-height: calc(100vh - 90px);
-                width: 100vw !important;
-                max-width: 100vw !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                box-sizing: border-box;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                overflow-y: auto;
-            }
-            
-            .mobile-view .banner-title {
-                font-size: 1.8rem !important;
-                line-height: 1.3 !important;
-                margin-bottom: 1rem !important;
-                margin-top: 0 !important;
-                padding: 0 5px;
-                font-weight: 800;
-                width: 100%;
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-            }
-            
-            .mobile-view .banner-subtitle {
-                font-size: 1rem !important;
-                line-height: 1.5 !important;
-                margin-bottom: 1.5rem !important;
-                padding: 0 10px;
-                opacity: 0.9;
-                width: 100%;
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-            }
-            
-            .mobile-view .banner-cta {
-                font-size: 0.9rem !important;
-                padding: 0.9rem 2rem !important;
-                margin-top: 0.5rem;
-                border-radius: 3rem !important;
-            }
-            
-            /* MOBILE BANNER ARROWS - ADJUSTED FOR SMALL SCREENS */
-            .mobile-view .banner-nav-arrow {
-                display: flex !important;
-                width: 40px !important;
-                height: 40px !important;
-                font-size: 1rem !important;
-                border-radius: 50% !important;
-                position: absolute !important;
-                z-index: 20 !important;
-            }
-            
-            .mobile-view .banner-nav-arrow.prev {
-                left: 10px !important;
-            }
-            
-            .mobile-view .banner-nav-arrow.next {
-                right: 10px !important;
-            }
-            
-            /* Update scroll margin for sections */
-            .mobile-view section[id] {
-                scroll-margin-top: 80px !important;
-            }
-            
-            /* MOBILE FOOTER - 2x2 GRID WITH PROPER SPACING */
-            .mobile-view .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-                margin-bottom: 2.5rem;
-                padding-top: 1rem;
-            }
-            
-            /* Footer logo section - compact */
-            .mobile-view .footer-logo-section {
-                gap: 0.8rem;
-                grid-column: span 2;
-                text-align: center;
-                align-items: center;
-            }
-            
-            .mobile-view .footer-logo-section .logo-img {
-                width: 160px;
-                height: auto;
-            }
-            
-            /* MOBILE VISA SECTION - IMPROVED SPACING */
-            .mobile-view #visa {
-                padding: 3.5rem 1rem !important;
-                background: #050507;
-            }
-            
-            .mobile-view #visa h2 {
-                font-size: 1.8rem !important;
-                line-height: 1.2;
-                margin-bottom: 1.2rem;
-                text-align: center;
-            }
-            
-            .mobile-view #visa p {
-                font-size: 0.9rem !important;
-                text-align: center;
-                margin-bottom: 1.8rem;
-                padding: 0 0.5rem;
-            }
-            
-            .mobile-view .filter-btn {
-                padding: 0.5rem 1rem !important;
-                font-size: 0.8rem !important;
-                margin: 0.3rem;
-                border-radius: 3rem !important;
-            }
-            
-            .mobile-view .visa-card {
-                margin-bottom: 1.8rem;
-                border-radius: 1.5rem;
-                overflow: hidden;
-            }
-            
-            .mobile-view .visa-card h3 {
-                font-size: 1.1rem !important;
-                line-height: 1.3;
-                margin-bottom: 0.8rem;
-            }
-            
-            .mobile-view .view-requirements-btn {
-                width: 100%;
-                padding: 0.8rem !important;
-                border-radius: 3rem !important;
-                font-size: 0.9rem;
-            }
-            
-            /* MOBILE ROADMAP SECTION - IMPROVED SPACING */
-            .mobile-view #roadmap {
-                padding: 3.5rem 1rem !important;
-            }
-            
-            .mobile-view #roadmap h2 {
-                font-size: 1.8rem !important;
-                line-height: 1.2;
-                margin-bottom: 1.8rem;
-                text-align: center;
-            }
-            
-            .mobile-view .roadmap-step {
-                padding-left: 2.5rem;
-                margin-bottom: 2.2rem;
-            }
-            
-            .mobile-view .roadmap-step-number {
-                width: 2.5rem;
-                height: 2.5rem;
-                left: -1.25rem;
-                font-size: 1rem;
-            }
-            
-            /* MOBILE TRUST SECTION - IMPROVED SPACING */
-            .mobile-view #trust {
-                padding: 3.5rem 1rem !important;
-            }
-            
-            .mobile-view #trust h2 {
-                font-size: 1.8rem !important;
-                margin-bottom: 1.8rem;
-                text-align: center;
-            }
-            
-            /* Accreditations mobile view */
-            .mobile-view .accreditation-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-                margin-bottom: 2rem;
-            }
-            
-            .mobile-view .accreditation-item .trust-badge {
-                margin: 0 auto;
-            }
-            
-            /* Management badges mobile */
-            .mobile-view .management-badges-container {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1rem !important;
-                padding: 1.5rem !important;
-                margin-top: 2rem !important;
-                margin-bottom: 2rem !important;
-            }
-            
-            /* MOBILE GUIDES SECTION - IMPROVED SPACING */
-            .mobile-view #guides {
-                padding: 3.5rem 1rem !important;
-            }
-            
-            .mobile-view #guides h2 {
-                font-size: 1.8rem !important;
-                margin-bottom: 1.8rem;
-                text-align: center;
-            }
-            
-            /* MOBILE FOOTER - IMPROVED SPACING */
-            .mobile-view footer {
-                padding: 3.5rem 1rem 2.5rem !important;
-            }
-            
-            .mobile-view footer h4 {
-                font-size: 1rem;
-                margin-bottom: 1.2rem;
-            }
-            
-            .mobile-view footer ul {
-                font-size: 0.85rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            /* Footer spacing between sections */
-            .mobile-view footer > div > div {
-                margin-bottom: 2rem;
-            }
-            
-            /* Stats section for mobile */
-            .mobile-view .stat-number {
-                font-size: 2rem !important;
-            }
-            
-            /* Visa Detail Page Mobile */
-            .mobile-view .visa-detail-content {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-            
-            .mobile-view .cost-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Mobile centered flag */
-            .mobile-view .centered-flag-box {
-                padding: 0.8rem;
-            }
-            
-            .mobile-view .detail-flag {
-                width: 70px;
-                height: 45px;
-            }
-            
-            /* New pages mobile styles */
-            .mobile-view .page-content {
-                padding: 1.5rem 1rem;
-            }
-            
-            .mobile-view .country-filter {
-                gap: 0.5rem;
-                margin-bottom: 2.5rem;
-            }
-            
-            .mobile-view .country-filter-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-            }
-            
-            /* IMPROVED SPACING FOR ALL SECTIONS */
-            .mobile-view section {
-                padding-left: 0.5rem !important;
-                padding-right: 0.5rem !important;
-            }
-            
-            .mobile-view .container {
-                padding-left: 0.5rem !important;
-                padding-right: 0.5rem !important;
-            }
-            
-            /* Trust section spacing fix */
-            .mobile-view #trust .grid {
-                gap: 1.5rem !important;
-                margin-bottom: 2rem !important;
-            }
-            
-            /* Space between Data Security Certified and Footer */
-            .mobile-view #trust {
-                padding-bottom: 3.5rem !important;
-                margin-bottom: 0 !important;
-            }
-            
-            .mobile-view footer {
-                padding-top: 3.5rem !important;
-            }
-            
-            /* UPDATED MOBILE MENU STYLES - FIXED FOR ALL DEVICES */
-            .mobile-menu-panel {
-                width: 85%;
-                max-width: 320px;
-                padding-top: 20px;
-                height: 100vh;
-                overflow-y: auto;
-            }
-            
-            .mobile-menu-header {
-                padding: 1rem 1.5rem;
-            }
-            
-            .mobile-menu-links {
-                padding: 0 1rem;
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .mobile-menu-link {
-                padding: 0.9rem 1.2rem;
-                font-size: 0.95rem;
-                margin-bottom: 0.3rem;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-            }
-            
-            /* MOBILE CALL BUTTON CONTAINER - FIXED POSITION */
-            .mobile-menu-call-container {
-                padding: 1.5rem 1rem 2rem;
-                margin-top: auto;
-            }
-            
-            .mobile-menu-call-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-            
-            /* ADDITIONAL FIX FOR BANNER OVERFLOW */
-            .mobile-view .banner-overlay {
-                width: 100vw !important;
-                left: 0;
-                right: 0;
-            }
-            
-            /* Fix for very small devices */
-            @media (max-width: 360px) {
-                .mobile-view .banner-title {
-                    font-size: 1.5rem !important;
-                }
-                
-                .mobile-view .banner-subtitle {
-                    font-size: 0.9rem !important;
-                }
-                
-                .mobile-menu-panel {
-                    width: 90%;
-                    max-width: 280px;
-                }
-                
-                .mobile-menu-link {
-                    padding: 0.8rem 1rem;
-                    font-size: 0.9rem;
-                }
-            }
-        }
-        
-        /* DESKTOP/PC/LAPTOP VIEW */
-        @media (min-width: 769px) {
-            /* DESKTOP HEADER - ALWAYS TRANSPARENT */
-            #main-header nav {
-                display: flex;
-            }
-            
-            #main-header .md\\:hidden {
-                display: none;
-            }
-            
-            /* DESKTOP HERO SECTION - FULL SCREEN */
-            .hero-section {
-                height: 100vh;
-                min-height: 100vh;
-            }
-            
-            /* Banner content centered */
-            .banner-content {
-                padding: 40px 20px 60px;
-                justify-content: center;
-            }
-            
-            /* DESKTOP FOOTER - 4 COLUMN GRID WITH PROPER SPACING */
-            .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 2.5rem;
-                padding-top: 2rem;
-            }
-            
-            /* Management Badges - DESKTOP VIEW */
-            .management-badges-container {
-                display: grid !important;
-                grid-template-columns: repeat(6, 1fr) !important;
-                gap: 1.5rem !important;
-                margin-top: 4rem !important;
-                margin-bottom: 4rem !important;
-                padding: 2.5rem !important;
-            }
-            
-            /* Space between Data Security Certified and Footer */
-            #trust {
-                padding-bottom: 2rem !important;
-                margin-bottom: 0 !important;
-            }
-            
-            footer {
-                padding-top: 2rem !important;
-            }
-        }
-
-        /* Banner arrow visibility on medium screens */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .banner-nav-arrow {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
-            
-            .banner-nav-arrow.prev {
-                left: 25px;
-            }
-            
-            .banner-nav-arrow.next {
-                right: 25px;
-            }
-            
-            /* Adjust banner content for medium screens */
-            .banner-content {
-                padding: 50px 20px 70px;
-            }
-        }
-        
-        /* Tablet view */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .management-badges-container {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
-        }
-        
         /* Better spacing for text elements */
         h1, h2, h3, h4, h5, h6 {
             line-height: 1.2 !important;
@@ -1841,47 +1333,701 @@
             flex-shrink: 0;
             margin-right: 1.5rem;
         }
-        
-        /* NEW: Dynamic banner adjustments for different screen heights */
-        @media (max-height: 700px) and (max-width: 768px) {
-            .mobile-view .hero-section {
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        /* Desktop/PC/Laptop View */
+        @media (min-width: 1025px) {
+            #main-header nav {
+                display: flex;
+            }
+            
+            #main-header .md\\:hidden {
+                display: none;
+            }
+            
+            .hero-section {
+                height: 100vh;
                 min-height: 100vh;
-                height: 100vh !important;
             }
             
-            .mobile-view .banner-content {
-                padding-top: 10px !important;
-                padding-bottom: 10px !important;
+            .banner-content {
+                padding: 40px 20px 60px;
             }
             
-            .mobile-view .banner-title {
-                font-size: 1.6rem !important;
-                margin-bottom: 0.8rem !important;
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2.5rem;
+                padding-top: 2rem;
             }
             
-            .mobile-view .banner-subtitle {
-                font-size: 0.9rem !important;
-                margin-bottom: 1rem !important;
-            }
-            
-            .mobile-view .glass-intense {
-                padding: 0.8rem !important;
-                margin-bottom: 1rem !important;
+            .management-badges-container {
+                display: grid !important;
+                grid-template-columns: repeat(6, 1fr) !important;
+                gap: 1.5rem !important;
             }
         }
         
-        @media (max-height: 600px) and (max-width: 768px) {
-            .mobile-view .banner-title {
+        /* Tablet Landscape */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .hero-section {
+                height: 100vh;
+                min-height: 100vh;
+            }
+            
+            .banner-nav-arrow {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            
+            .banner-nav-arrow.prev {
+                left: 25px;
+            }
+            
+            .banner-nav-arrow.next {
+                right: 25px;
+            }
+            
+            .banner-content {
+                padding: 40px 20px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .management-badges-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+        
+        /* Tablet Portrait */
+        @media (max-width: 768px) and (min-width: 481px) {
+            /* MOBILE BODY STYLES */
+            body {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+            
+            /* Improved section padding for mobile */
+            .section-padding {
+                padding-top: 3.5rem !important;
+                padding-bottom: 3.5rem !important;
+            }
+            
+            /* FIXED: MOBILE HEADER */
+            #main-header {
+                height: 70px !important;
+            }
+            
+            #main-header .header-inner {
+                margin: 10px auto !important;
+                padding: 0.8rem 1.5rem !important;
+                max-width: 95%;
+                border-radius: 2.5rem !important;
+                background: rgba(255, 255, 255, 0.08) !important;
+                backdrop-filter: blur(20px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            
+            #main-header .logo-img {
+                width: 140px !important;
+                height: auto;
+            }
+            
+            .call-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+                border-radius: 3rem !important;
+            }
+            
+            .call-btn span {
+                display: inline;
+            }
+            
+            /* Hide header nav on mobile */
+            #main-header nav {
+                display: none;
+            }
+            
+            /* Show mobile menu button */
+            #main-header .md\\:hidden {
+                display: block;
+            }
+            
+            /* FIXED: MOBILE BANNER - PROPER CENTERING */
+            .hero-section {
+                height: 85vh !important;
+                min-height: 85vh;
+                max-height: 85vh;
+            }
+            
+            .banner-container {
+                min-height: 85vh;
+            }
+            
+            .banner-slide {
+                min-height: 85vh;
+            }
+            
+            /* FIXED: Banner content centering */
+            .banner-content {
+                padding: 1.5rem !important;
+                justify-content: center !important;
+                margin-top: 0 !important;
+                height: 100%;
+                width: 100%;
+            }
+            
+            .banner-title {
+                font-size: 2rem !important;
+                line-height: 1.2;
+                margin-bottom: 1rem !important;
+                padding: 0 10px;
+            }
+            
+            .banner-subtitle {
+                font-size: 1rem !important;
+                line-height: 1.5;
+                margin-bottom: 1.5rem !important;
+                padding: 0 10px;
+            }
+            
+            .banner-cta {
+                font-size: 0.95rem !important;
+                padding: 0.9rem 2rem !important;
+                margin-top: 1rem;
+            }
+            
+            /* MOBILE BANNER ARROWS */
+            .banner-nav-arrow {
+                display: flex !important;
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 1.2rem !important;
+            }
+            
+            .banner-nav-arrow.prev {
+                left: 15px !important;
+            }
+            
+            .banner-nav-arrow.next {
+                right: 15px !important;
+            }
+            
+            /* Update scroll margin for sections */
+            section[id] {
+                scroll-margin-top: 100px !important;
+            }
+            
+            /* MOBILE FOOTER */
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .footer-logo-section {
+                grid-column: span 2;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .footer-logo-section .logo-img {
+                width: 160px;
+                height: auto;
+            }
+            
+            /* MOBILE VISA SECTION */
+            #visa {
+                padding: 3.5rem 1rem !important;
+            }
+            
+            #visa h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.2rem;
+            }
+            
+            #visa p {
+                font-size: 0.9rem !important;
+                margin-bottom: 1.8rem;
+                padding: 0 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem !important;
+                font-size: 0.8rem !important;
+                margin: 0.3rem;
+            }
+            
+            .visa-card {
+                margin-bottom: 1.8rem;
+                border-radius: 1.5rem;
+            }
+            
+            .visa-card h3 {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.8rem;
+            }
+            
+            .view-requirements-btn {
+                padding: 0.8rem !important;
+                font-size: 0.9rem;
+            }
+            
+            /* MOBILE ROADMAP SECTION */
+            #roadmap {
+                padding: 3.5rem 1rem !important;
+            }
+            
+            #roadmap h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.8rem;
+            }
+            
+            .roadmap-step {
+                padding-left: 2.5rem;
+                margin-bottom: 2.2rem;
+            }
+            
+            .roadmap-step-number {
+                width: 2.5rem;
+                height: 2.5rem;
+                left: -1.25rem;
+                font-size: 1rem;
+            }
+            
+            /* MOBILE TRUST SECTION */
+            #trust {
+                padding: 3.5rem 1rem !important;
+            }
+            
+            #trust h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.8rem;
+            }
+            
+            /* Accreditations mobile view */
+            .accreditation-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .accreditation-item .trust-badge {
+                margin: 0 auto;
+            }
+            
+            /* Management badges mobile */
+            .management-badges-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 1rem !important;
+                padding: 1.5rem !important;
+                margin-top: 2rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            /* MOBILE GUIDES SECTION */
+            #guides {
+                padding: 3.5rem 1rem !important;
+            }
+            
+            #guides h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.8rem;
+            }
+            
+            /* MOBILE FOOTER */
+            footer {
+                padding: 3.5rem 1rem 2.5rem !important;
+            }
+            
+            footer h4 {
+                font-size: 1rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            footer ul {
+                font-size: 0.85rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            /* Stats section for mobile */
+            .stat-number {
+                font-size: 2rem !important;
+            }
+            
+            /* Visa Detail Page Mobile */
+            .visa-detail-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .cost-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Mobile centered flag */
+            .centered-flag-box {
+                padding: 0.8rem;
+            }
+            
+            .detail-flag {
+                width: 70px;
+                height: 45px;
+            }
+            
+            /* New pages mobile styles */
+            .page-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            .country-filter {
+                gap: 0.5rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .country-filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            /* UPDATED MOBILE MENU STYLES FOR TABLET */
+            .mobile-menu-panel {
+                width: 85%;
+                max-width: 350px;
+                padding-top: 80px;
+            }
+            
+            .mobile-menu-header {
+                padding: 1.5rem 1.5rem 1rem;
+            }
+            
+            .mobile-menu-links {
+                padding: 0 1rem;
+                gap: 0.5rem;
+            }
+            
+            .mobile-menu-link {
+                padding: 1rem 1.2rem;
+                font-size: 1.05rem;
+            }
+            
+            .mobile-menu-call-container {
+                padding: 1.5rem;
+            }
+            
+            .mobile-menu-call-btn {
+                width: 65px;
+                height: 65px;
+                font-size: 1.6rem;
+            }
+        }
+        
+        /* Mobile Phones (Most Common Sizes) */
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            body {
+                font-size: 14px;
+            }
+            
+            /* FIXED: MOBILE HEADER FOR SMALL PHONES */
+            #main-header {
+                height: 65px !important;
+            }
+            
+            #main-header .header-inner {
+                margin: 8px auto !important;
+                padding: 0.6rem 1.2rem !important;
+                max-width: 96%;
+                border-radius: 2rem !important;
+            }
+            
+            #main-header .logo-img {
+                width: 120px !important;
+            }
+            
+            .call-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+            
+            .call-btn span {
+                display: none;
+            }
+            
+            /* FIXED: MOBILE BANNER FOR SMALL PHONES */
+            .hero-section {
+                height: 80vh !important;
+                min-height: 80vh;
+                max-height: 80vh;
+            }
+            
+            .banner-container {
+                min-height: 80vh;
+            }
+            
+            .banner-slide {
+                min-height: 80vh;
+            }
+            
+            .banner-content {
+                padding: 1rem !important;
+            }
+            
+            .banner-title {
+                font-size: 1.6rem !important;
+                margin-bottom: 0.8rem !important;
+                padding: 0 5px;
+            }
+            
+            .banner-subtitle {
+                font-size: 0.9rem !important;
+                margin-bottom: 1.2rem !important;
+                padding: 0 5px;
+            }
+            
+            .banner-cta {
+                font-size: 0.85rem !important;
+                padding: 0.8rem 1.8rem !important;
+                margin-top: 0.8rem;
+            }
+            
+            .banner-nav-arrow {
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 1rem !important;
+            }
+            
+            .banner-nav-arrow.prev {
+                left: 10px !important;
+            }
+            
+            .banner-nav-arrow.next {
+                right: 10px !important;
+            }
+            
+            /* Update scroll margin for small phones */
+            section[id] {
+                scroll-margin-top: 90px !important;
+            }
+            
+            /* MOBILE FOOTER FOR SMALL PHONES */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-logo-section {
+                grid-column: span 1;
+            }
+            
+            .footer-logo-section .logo-img {
+                width: 140px;
+            }
+            
+            /* FILTER BUTTONS FOR SMALL PHONES */
+            .filter-btn {
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.75rem !important;
+                margin: 0.2rem;
+            }
+            
+            /* Management badges for small screens */
+            .management-badges-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                padding: 1rem !important;
+                gap: 0.8rem !important;
+            }
+            
+            /* Mobile menu for small screens */
+            .mobile-menu-panel {
+                width: 90%;
+                max-width: 300px;
+                padding-top: 70px;
+                border-radius: 1.2rem 0 0 1.2rem;
+            }
+            
+            .mobile-menu-header {
+                padding: 1rem 1.2rem 0.8rem;
+            }
+            
+            .mobile-menu-links {
+                padding: 0 0.8rem;
+                gap: 0.4rem;
+            }
+            
+            .mobile-menu-link {
+                padding: 0.9rem 1rem;
+                font-size: 0.95rem;
+                border-radius: 0.8rem;
+            }
+            
+            .mobile-menu-call-container {
+                padding: 1.2rem;
+            }
+            
+            .mobile-menu-call-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.4rem;
+            }
+            
+            .mobile-menu-close {
+                top: 1rem;
+                right: 1rem;
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            /* Section padding adjustments for small phones */
+            .section-padding {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            #visa, #roadmap, #guides, #trust, footer {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            #visa h2, #roadmap h2, #guides h2, #trust h2 {
+                font-size: 1.6rem !important;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem !important;
+            }
+        }
+        
+        /* Very Small Phones (iPhone SE, Small Android) */
+        @media (max-width: 320px) {
+            .hero-section {
+                height: 75vh !important;
+                min-height: 75vh;
+                max-height: 75vh;
+            }
+            
+            .banner-title {
                 font-size: 1.4rem !important;
             }
             
-            .mobile-view .banner-subtitle {
-                font-size: 0.85rem !important;
+            .banner-subtitle {
+                font-size: 0.8rem !important;
             }
             
-            .mobile-view .banner-cta {
-                padding: 0.7rem 1.5rem !important;
+            .banner-cta {
                 font-size: 0.8rem !important;
+                padding: 0.7rem 1.5rem !important;
+            }
+            
+            #main-header .logo-img {
+                width: 100px !important;
+            }
+            
+            .call-btn {
+                padding: 5px 10px;
+                font-size: 10px;
+            }
+            
+            .mobile-menu-panel {
+                width: 95%;
+                max-width: 280px;
+            }
+            
+            .mobile-menu-link {
+                padding: 0.8rem 0.9rem;
+                font-size: 0.9rem;
+            }
+            
+            .footer-grid {
+                gap: 1.5rem;
+            }
+            
+            .management-badges-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                padding: 0.8rem !important;
+                gap: 0.5rem !important;
+            }
+        }
+        
+        /* Landscape Mode Fixes */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero-section {
+                height: 100vh !important;
+                min-height: 100vh;
+            }
+            
+            .banner-content {
+                padding: 1rem !important;
+            }
+            
+            .banner-title {
+                font-size: 1.4rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .banner-subtitle {
+                font-size: 0.85rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+            
+            .banner-cta {
+                padding: 0.6rem 1.5rem !important;
+                font-size: 0.8rem !important;
+                margin-top: 0.5rem;
+            }
+            
+            .mobile-menu-panel {
+                padding-top: 60px;
+            }
+            
+            .mobile-menu-links {
+                max-height: 60vh;
+                overflow-y: auto;
+            }
+        }
+        
+        /* Fix for iOS Safari 100vh issue */
+        @supports (-webkit-touch-callout: none) {
+            .hero-section {
+                height: -webkit-fill-available !important;
+            }
+            
+            .banner-container {
+                min-height: -webkit-fill-available;
+            }
+            
+            .banner-slide {
+                min-height: -webkit-fill-available;
+            }
+        }
+        
+        /* Prevent text size adjustment on orientation change */
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+        
+        /* Ensure tap targets are at least 44px for accessibility */
+        @media (max-width: 768px) {
+            button, 
+            .view-requirements-btn,
+            .filter-btn,
+            .banner-cta,
+            .call-btn,
+            .mobile-menu-link {
+                min-height: 44px;
+            }
+            
+            .banner-nav-arrow {
+                min-width: 44px;
+                min-height: 44px;
             }
         }
     </style>
@@ -1935,7 +2081,7 @@
                         <span class="hidden sm:inline">Free Consultation</span>
                     </a>
                     
-                    <button class="md:hidden text-white text-xl" onclick="toggleMobileMenu()">
+                    <button class="md:hidden text-white text-xl" onclick="toggleMobileMenu()" aria-label="Open menu">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -1947,13 +2093,13 @@
     <div id="mobile-menu" class="hidden">
         <div class="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
         <div class="mobile-menu-panel">
-            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
                 <i class="fas fa-times"></i>
             </button>
             
             <div class="mobile-menu-header">
                 <div class="flex items-center gap-3">
-                    <img src="Logo.png" alt="TESCA Logo" class="w-36 h-auto">
+                    <img src="Logo.png" alt="TESCA Logo" class="w-32 h-auto">
                 </div>
             </div>
             
@@ -1985,7 +2131,7 @@
                 
                 <!-- CALL BUTTON CONTAINER - POSITIONED BELOW CONTACT US -->
                 <div class="mobile-menu-call-container">
-                    <a href="tel:+919925081515" class="mobile-menu-call-btn">
+                    <a href="tel:+919925081515" class="mobile-menu-call-btn" aria-label="Call +91 99250 81515">
                         <i class="fas fa-phone"></i>
                     </a>
                 </div>
@@ -1997,11 +2143,11 @@
     <section id="home" class="hero-section">
         <div class="banner-container">
             <!-- Banner Navigation Arrows -->
-            <button class="banner-nav-arrow prev" onclick="prevBanner()">
+            <button class="banner-nav-arrow prev" onclick="prevBanner()" aria-label="Previous banner">
                 <i class="fas fa-chevron-left"></i>
             </button>
             
-            <button class="banner-nav-arrow next" onclick="nextBanner()">
+            <button class="banner-nav-arrow next" onclick="nextBanner()" aria-label="Next banner">
                 <i class="fas fa-chevron-right"></i>
             </button>
             
@@ -2013,7 +2159,7 @@
     <!-- Visa Detail Page (Hidden by default) -->
     <div id="visa-detail-page" class="visa-detail-page">
         <div class="visa-detail-content">
-            <button class="close-detail" onclick="closeVisaDetail()">
+            <button class="close-detail" onclick="closeVisaDetail()" aria-label="Close visa details">
                 <i class="fas fa-times"></i>
             </button>
             <div id="visa-detail-content"></div>
@@ -3756,11 +3902,6 @@
 
         // --- 6. INITIALIZATION ---
         window.onload = () => {
-            // Check if mobile view
-            if (window.innerWidth <= 768) {
-                document.body.classList.add('mobile-view');
-            }
-            
             // Loader animation
             const bar = document.getElementById('loader-bar');
             let progress = 0;
@@ -3792,10 +3933,9 @@
             window.scrollTo(0, 0);
         }
 
-        // --- 7. BANNER SYSTEM ---
+        // --- 7. BANNER SYSTEM - FIXED FOR ALL DEVICES ---
         function renderBanners() {
             const bannerContainer = document.querySelector('.banner-container');
-            const isMobile = window.innerWidth <= 768;
             
             // Clear existing content (except arrows and overlay)
             const existingSlides = bannerContainer.querySelectorAll('.banner-slide:not(.banner-nav-arrow):not(.banner-overlay)');
@@ -3813,38 +3953,17 @@
                 slide.style.backgroundSize = 'cover';
                 slide.style.backgroundPosition = 'center';
                 slide.style.backgroundRepeat = 'no-repeat';
-                slide.style.backgroundColor = '#050507'; // Fallback color
+                slide.style.backgroundColor = '#050507';
                 
-                // Adaptive font sizes based on screen size
-                let titleSize, subtitleSize, statsSize;
-                const screenWidth = window.innerWidth;
-                const screenHeight = window.innerHeight;
-                
-                if (isMobile) {
-                    // Adaptive font sizes for mobile
-                    if (screenHeight <= 600) {
-                        titleSize = 'text-lg';
-                        subtitleSize = 'text-sm';
-                        statsSize = 'text-xs';
-                    } else if (screenHeight <= 700) {
-                        titleSize = 'text-xl';
-                        subtitleSize = 'text-base';
-                        statsSize = 'text-xs';
-                    } else {
-                        titleSize = 'text-2xl';
-                        subtitleSize = 'text-base';
-                        statsSize = 'text-sm';
-                    }
-                } else {
-                    titleSize = 'text-3xl md:text-4xl lg:text-5xl';
-                    subtitleSize = 'text-lg md:text-xl';
-                    statsSize = 'text-base';
-                }
+                // Responsive font sizes using clamp()
+                const titleSize = 'clamp(1.8rem, 5vw, 3.5rem)';
+                const subtitleSize = 'clamp(0.9rem, 2.5vw, 1.3rem)';
+                const statsSize = 'clamp(0.8rem, 2vw, 1rem)';
                 
                 slide.innerHTML = `
                     <div class="banner-content">
                         <div class="max-w-5xl mx-auto px-4">
-                            <div class="flex justify-center mb-4">
+                            <div class="flex justify-center mb-4 md:mb-6">
                                 <div class="country-badge glass-intense">
                                     <img src="${banner.flag}" alt="${banner.country.toUpperCase()} Flag" class="w-8 h-6 rounded flag-img">
                                     <span class="font-bold text-sm">${banner.country.toUpperCase()}</span>
@@ -3852,19 +3971,19 @@
                                 </div>
                             </div>
                             
-                            <h1 class="banner-title ${titleSize} font-bold mb-4 leading-tight">
+                            <h1 class="banner-title" style="font-size: ${titleSize}">
                                 ${banner.title}
                             </h1>
-                            <p class="banner-subtitle ${subtitleSize} text-gray-200 mb-6 leading-relaxed">
+                            <p class="banner-subtitle" style="font-size: ${subtitleSize}">
                                 ${banner.subtitle}
                             </p>
                             
-                            <div class="glass-intense p-4 md:p-6 rounded-3xl mb-6 max-w-3xl mx-auto">
-                                <div class="flex items-center justify-center gap-3 mb-3">
+                            <div class="glass-intense p-4 md:p-6 rounded-3xl mb-6 md:mb-8 max-w-3xl mx-auto">
+                                <div class="flex items-center justify-center gap-3 mb-3 md:mb-4">
                                     <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                                    <p class="${subtitleSize} font-bold text-white">${banner.offer}</p>
+                                    <p class="text-base md:text-lg font-bold text-white">${banner.offer}</p>
                                 </div>
-                                <div class="text-center ${statsSize} text-gray-300">
+                                <div class="text-center" style="font-size: ${statsSize}">
                                     <i class="fas fa-chart-line text-green-500 mr-2"></i>${banner.stats}
                                 </div>
                             </div>
@@ -3874,7 +3993,7 @@
                                         class="banner-cta bg-gradient-to-r ${banner.color} text-white font-bold hover:shadow-xl hover:scale-105 transition-all duration-300">
                                     ${banner.cta} <i class="fas fa-arrow-right ml-3"></i>
                                 </a>
-                                <p class="text-gray-400 text-xs md:text-sm mt-4">Free consultation within 24 hours</p>
+                                <p class="text-gray-400 text-xs md:text-sm mt-3 md:mt-4">Free consultation within 24 hours</p>
                             </div>
                         </div>
                     </div>
@@ -3924,10 +4043,10 @@
             
             arrows.forEach(arrow => {
                 if (isMobile) {
-                    arrow.style.display = 'flex';
-                    arrow.style.width = '40px';
-                    arrow.style.height = '40px';
-                    arrow.style.fontSize = '1rem';
+                    arrow.style.display = window.innerWidth <= 480 ? 'none' : 'flex';
+                    arrow.style.width = window.innerWidth <= 480 ? '40px' : '45px';
+                    arrow.style.height = window.innerWidth <= 480 ? '40px' : '45px';
+                    arrow.style.fontSize = window.innerWidth <= 480 ? '1rem' : '1.2rem';
                 } else {
                     arrow.style.display = 'flex';
                 }
@@ -4023,7 +4142,6 @@
                 if (v.country === 'netherlands') countryName = 'Netherlands';
                 if (v.country === 'uk') countryName = 'United Kingdom';
                 if (v.country === 'usa') countryName = 'United States';
-                const isMobile = window.innerWidth <= 768;
                 
                 return `
                 <div class="visa-card glass-card animate-fade-in">
@@ -4048,7 +4166,7 @@
                             <div class="mb-4">
                                 <h4 class="font-bold text-white text-sm mb-2">Key Requirements:</h4>
                                 <div class="space-y-1">
-                                    ${v.requirements.slice(0, isMobile ? 2 : 3).map(req => `
+                                    ${v.requirements.slice(0, 3).map(req => `
                                         <div class="visa-process-item">
                                             <i class="fas fa-check-circle text-xs"></i>
                                             <span class="text-xs">${req}</span>
@@ -4129,7 +4247,7 @@
                     </div>
                     
                     <h2 class="text-2xl md:text-3xl font-bold mb-2">${visa.title}</h2>
-                    <div class="flex items-center justify-center gap-4">
+                    <div class="flex items-center justify-center gap-4 flex-wrap">
                         <span class="bg-green-500/20 text-green-400 text-sm font-bold px-3 py-1 rounded-full">${visa.successRate} Success Rate</span>
                         <span class="bg-blue-500/20 text-blue-400 text-sm font-bold px-3 py-1 rounded-full">${visa.country.toUpperCase()}</span>
                         <span class="bg-purple-500/20 text-purple-400 text-sm font-bold px-3 py-1 rounded-full">${visa.type.charAt(0).toUpperCase() + visa.type.slice(1)} Visa</span>
@@ -4547,7 +4665,7 @@
                     const targetElement = document.getElementById(targetId);
                     
                     if (targetElement) {
-                        const headerOffset = window.innerWidth <= 768 ? 80 : 140;
+                        const headerOffset = window.innerWidth <= 768 ? 90 : 140;
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                         
@@ -4579,12 +4697,6 @@
             
             // Responsive adjustments on resize
             window.addEventListener('resize', () => {
-                if (window.innerWidth <= 768) {
-                    document.body.classList.add('mobile-view');
-                } else {
-                    document.body.classList.remove('mobile-view');
-                }
-                
                 // Update banner arrows position
                 updateBannerArrows();
                 
