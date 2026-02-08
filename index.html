@@ -14,10 +14,6 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- PDF Generation Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -438,8 +434,33 @@
             scroll-margin-top: 140px;
         }
 
-        /* Mobile menu styles - RIGHT TO LEFT SLIDE - FIXED */
+        /* UPDATED MOBILE MENU - RIGHT TO LEFT SLIDE WITH OVERLAY */
         #mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 1000;
+            display: none;
+        }
+        
+        #mobile-menu.show {
+            display: block;
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1001;
+        }
+        
+        .mobile-menu-panel {
             position: fixed;
             top: 0;
             right: 0;
@@ -451,10 +472,10 @@
             border-radius: 2rem 0 0 2rem;
             margin: 0;
             padding: 0;
-            z-index: 1000;
+            z-index: 1002;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: flex-start;
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -464,28 +485,109 @@
             box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
         }
         
-        #mobile-menu.show {
+        #mobile-menu.show .mobile-menu-panel {
             transform: translateX(0);
         }
 
+        .mobile-menu-header {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .mobile-menu-links {
+            width: 100%;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
         .mobile-menu-link {
-            padding: 1rem 2rem;
-            border-radius: 1.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 1.2rem;
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.05);
-            margin: 0.5rem 0;
-            width: 80%;
-            max-width: 300px;
-            text-align: center;
-            font-size: 1.1rem;
+            width: 100%;
+            text-align: left;
+            font-size: 1.05rem;
             font-weight: 500;
             text-decoration: none;
             color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .mobile-menu-link i {
+            width: 24px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
         }
         
         .mobile-menu-link:hover {
             background: rgba(59, 130, 246, 0.2);
-            transform: translateY(-3px);
+            transform: translateX(5px);
+            color: #3b82f6;
+        }
+        
+        .mobile-menu-link:hover i {
+            color: #3b82f6;
+        }
+
+        /* UPDATED MOBILE CALL BUTTON - CIRCLE STYLE */
+        .mobile-menu-call-btn {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1003;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-menu-call-btn:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+
+        /* Mobile menu close button */
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1003;
+        }
+        
+        .mobile-menu-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
         }
 
         /* Banner title styles */
@@ -1117,31 +1219,6 @@
                 display: block;
             }
             
-            /* MOBILE MENU - RIGHT TO LEFT SLIDE - FIXED */
-            #mobile-menu {
-                width: 85%;
-                max-width: 350px;
-                height: 100vh;
-                margin: 0;
-                padding-top: 80px;
-                border-radius: 2rem 0 0 2rem;
-                font-size: 1.1rem;
-                font-weight: 500;
-                right: 0;
-                transform: translateX(100%);
-            }
-            
-            #mobile-menu.show {
-                transform: translateX(0);
-            }
-            
-            .mobile-menu-link {
-                padding: 0.9rem 1.5rem;
-                font-size: 1rem;
-                margin: 0.4rem 0;
-                width: 85%;
-            }
-            
             /* MOBILE BANNER - 75% HEIGHT & BETTER CENTERING */
             .mobile-view .hero-section {
                 height: 75vh !important;
@@ -1425,6 +1502,32 @@
             .mobile-view footer {
                 padding-top: 3.5rem !important;
             }
+            
+            /* UPDATED MOBILE MENU STYLES */
+            .mobile-menu-panel {
+                padding-top: 70px;
+            }
+            
+            .mobile-menu-header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .mobile-menu-links {
+                padding: 0 1rem;
+            }
+            
+            .mobile-menu-link {
+                padding: 0.9rem 1.2rem;
+                font-size: 1rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .mobile-menu-call-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 90px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1474,6 +1577,23 @@
             .mobile-view .management-badges-container {
                 grid-template-columns: repeat(2, 1fr) !important;
                 padding: 1rem !important;
+            }
+            
+            /* Mobile menu for very small screens */
+            .mobile-menu-panel {
+                width: 90%;
+            }
+            
+            .mobile-menu-link {
+                padding: 0.8rem 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .mobile-menu-call-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.4rem;
+                bottom: 80px;
             }
         }
 
@@ -1755,24 +1875,51 @@
         </div>
     </header>
 
-    <!-- Mobile Menu - RIGHT TO LEFT SLIDE - FIXED -->
+    <!-- UPDATED MOBILE MENU - WITH OVERLAY AND CIRCLE CALL BUTTON -->
     <div id="mobile-menu" class="hidden">
-        <button onclick="toggleMobileMenu()" class="absolute top-4 right-4 text-gray-400 p-2 hover:text-white transition-colors duration-300">
-            <i class="fas fa-times text-2xl"></i>
-        </button>
-        <div class="flex flex-col items-center justify-center w-full h-full">
-            <a href="#home" class="mobile-menu-link" onclick="toggleMobileMenu()">Home</a>
-            <a href="#visa" class="mobile-menu-link" onclick="toggleMobileMenu()">Visa Programs</a>
-            <a href="#roadmap" class="mobile-menu-link" onclick="toggleMobileMenu()">Roadmap</a>
-            <a href="#guides" class="mobile-menu-link" onclick="toggleMobileMenu()">Resources</a>
-            <a href="#trust" class="mobile-menu-link" onclick="toggleMobileMenu()">Why Trust Us</a>
-            <a href="#contact" class="mobile-menu-link" onclick="toggleMobileMenu()">Contact Us</a>
-            <div class="mt-8 pt-8 border-t border-white/10 w-4/5">
-                <a href="tel:+919925081515" class="call-btn">
-                    <i class="fas fa-phone"></i> 
-                    <span>Free Consultation</span>
+        <div class="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="mobile-menu-panel">
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="mobile-menu-header">
+                <div class="flex items-center gap-3">
+                    <img src="Logo.png" alt="TESCA Logo" class="w-36 h-auto">
+                </div>
+            </div>
+            
+            <div class="mobile-menu-links">
+                <a href="#home" class="mobile-menu-link" onclick="toggleMobileMenu()">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#visa" class="mobile-menu-link" onclick="toggleMobileMenu()">
+                    <i class="fas fa-passport"></i>
+                    <span>Visa Programs</span>
+                </a>
+                <a href="#roadmap" class="mobile-menu-link" onclick="toggleMobileMenu()">
+                    <i class="fas fa-map-signs"></i>
+                    <span>Success Roadmap</span>
+                </a>
+                <a href="#guides" class="mobile-menu-link" onclick="toggleMobileMenu()">
+                    <i class="fas fa-book"></i>
+                    <span>Resources</span>
+                </a>
+                <a href="#trust" class="mobile-menu-link" onclick="toggleMobileMenu()">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Why Trust Us</span>
+                </a>
+                <a href="#contact" class="mobile-menu-link" onclick="toggleMobileMenu()">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact Us</span>
                 </a>
             </div>
+            
+            <!-- Circle Call Button -->
+            <a href="tel:+919925081515" class="mobile-menu-call-btn">
+                <i class="fas fa-phone"></i>
+            </a>
         </div>
     </div>
 
@@ -2071,8 +2218,8 @@
                     <p class="text-gray-300 mb-5 text-sm">Complete checklist of all documents required for visa applications in 2026, including recent changes in documentation requirements.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Jan 2026</span>
-                        <!-- UPDATED: PDF upload location explained in comments -->
-                        <a href="#" onclick="downloadDocumentChecklistPDF(); return false;" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download PDF →</a>
+                        <!-- SIMPLE PDF LINK - Just replace with your uploaded PDF -->
+                        <a href="./pdfs/document-checklist-2026.pdf" target="_blank" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download PDF →</a>
                     </div>
                 </div>
 
@@ -2108,8 +2255,8 @@
                     <p class="text-gray-300 mb-5 text-sm">Complete financial planning guide including tuition fees, living costs, proof of funds requirements for 2026.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Jan 2026</span>
-                        <!-- UPDATED: PDF upload location explained in comments -->
-                        <a href="#" onclick="downloadFinancialGuidePDF(); return false;" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download Guide →</a>
+                        <!-- SIMPLE PDF LINK - Just replace with your uploaded PDF -->
+                        <a href="./pdfs/financial-guide-2026.pdf" target="_blank" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download Guide →</a>
                     </div>
                 </div>
 
@@ -2164,8 +2311,8 @@
                     <p class="text-gray-300 mb-5 text-sm">Everything you need to know about settling in your new country - accommodation, banking, healthcare, etc.</p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Updated: Dec 2025</span>
-                        <!-- UPDATED: PDF upload location explained in comments -->
-                        <a href="#" onclick="downloadPostArrivalPDF(); return false;" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download →</a>
+                        <!-- SIMPLE PDF LINK - Just replace with your uploaded PDF -->
+                        <a href="./pdfs/post-arrival-guide-2026.pdf" target="_blank" class="text-brand-primary hover:text-blue-400 font-medium text-sm">Download →</a>
                     </div>
                 </div>
             </div>
@@ -4251,142 +4398,25 @@
             return countryNames[countryCode] || countryCode;
         }
 
-        // --- 11. PDF GENERATION FUNCTIONS - BROCHURE STYLE DESIGN ---
+        // --- 11. SIMPLE PDF DOWNLOAD FUNCTIONS ---
+        // These functions have been simplified - just direct links to PDFs in the /pdfs/ folder
         
-        /*
-        ===========================================
-        PDF UPLOAD INSTRUCTIONS:
-        ===========================================
-        
-        TO UPLOAD YOUR OWN PDFs:
-        
-        1. UPLOAD YOUR PDFs to one of these locations:
-           - Your website server (public_html or www folder)
-           - Cloud storage (Google Drive, Dropbox, OneDrive)
-           - GitHub Pages
-           - Netlify or Vercel
-        
-        2. UPDATE THESE FUNCTIONS to use YOUR PDF links:
-           - downloadDocumentChecklistPDF()
-           - downloadFinancialGuidePDF() 
-           - downloadPostArrivalPDF()
-        
-        3. REPLACE the JavaScript PDF generation code with direct links:
-        
-        EXAMPLE:
-        Instead of:
-            doc.save('TESCA-Document-Checklist-2026-Brochure.pdf');
-        
-        Use:
-            window.open('https://yourwebsite.com/pdfs/document-checklist.pdf', '_blank');
-        
-        4. REMOVE the jsPDF library if not needed:
-           - Remove the script tag for jspdf
-           - Remove the PDF generation code
-        
-        ===========================================
-        */
-
         function downloadDocumentChecklistPDF() {
-            // FOR UPLOADING YOUR OWN PDF:
-            // 1. Upload your PDF to your server or cloud storage
-            // 2. Replace the window.open URL with your PDF link
-            // 3. Remove the jsPDF generation code if not needed
-            
-            // Example of using your uploaded PDF:
-            // window.open('https://yourwebsite.com/pdfs/document-checklist-2026.pdf', '_blank');
-            
-            // For now, using the existing jsPDF generation
-            try {
-                const { jsPDF } = window.jspdf;
-                if (!jsPDF) {
-                    alert('PDF library not loaded. Please try again.');
-                    return;
-                }
-                
-                // ... existing PDF generation code ...
-                // (Keep the existing PDF generation code for now)
-                
-                // Show success message
-                showDownloadSuccess('Document Checklist Brochure');
-            } catch (error) {
-                console.error('PDF generation error:', error);
-                alert('Error generating PDF. Please try again or contact support.');
-            }
+            // This is just a backup function in case direct link doesn't work
+            // The actual link is now a simple href in the HTML
+            window.open('./pdfs/document-checklist-2026.pdf', '_blank');
         }
 
         function downloadFinancialGuidePDF() {
-            // FOR UPLOADING YOUR OWN PDF:
-            // 1. Upload your PDF to your server or cloud storage
-            // 2. Replace the window.open URL with your PDF link
-            
-            // Example:
-            // window.open('https://yourwebsite.com/pdfs/financial-guide-2026.pdf', '_blank');
-            
-            try {
-                const { jsPDF } = window.jspdf;
-                if (!jsPDF) {
-                    alert('PDF library not loaded. Please try again.');
-                    return;
-                }
-                
-                // ... existing PDF generation code ...
-                
-                // Show success message
-                showDownloadSuccess('Financial Planning Guide Brochure');
-            } catch (error) {
-                console.error('PDF generation error:', error);
-                alert('Error generating PDF. Please try again or contact support.');
-            }
+            // This is just a backup function in case direct link doesn't work
+            // The actual link is now a simple href in the HTML
+            window.open('./pdfs/financial-guide-2026.pdf', '_blank');
         }
 
         function downloadPostArrivalPDF() {
-            // FOR UPLOADING YOUR OWN PDF:
-            // 1. Upload your PDF to your server or cloud storage
-            // 2. Replace the window.open URL with your PDF link
-            
-            // Example:
-            // window.open('https://yourwebsite.com/pdfs/post-arrival-guide-2026.pdf', '_blank');
-            
-            try {
-                const { jsPDF } = window.jspdf;
-                if (!jsPDF) {
-                    alert('PDF library not loaded. Please try again.');
-                    return;
-                }
-                
-                // ... existing PDF generation code ...
-                
-                // Show success message
-                showDownloadSuccess('Post-Arrival Settlement Guide Brochure');
-            } catch (error) {
-                console.error('PDF generation error:', error);
-                alert('Error generating PDF. Please try again or contact support.');
-            }
-        }
-
-        function showDownloadSuccess(documentName) {
-            // Create a temporary success message
-            const successMsg = document.createElement('div');
-            successMsg.className = 'fixed top-24 right-6 bg-green-500 text-white px-6 py-3 rounded-xl shadow-xl z-50 animate-fade-in';
-            successMsg.innerHTML = `
-                <div class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-xl"></i>
-                    <div>
-                        <div class="font-bold">${documentName} Downloaded!</div>
-                        <div class="text-sm opacity-90">Check your downloads folder</div>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(successMsg);
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                successMsg.style.opacity = '0';
-                setTimeout(() => {
-                    document.body.removeChild(successMsg);
-                }, 300);
-            }, 3000);
+            // This is just a backup function in case direct link doesn't work
+            // The actual link is now a simple href in the HTML
+            window.open('./pdfs/post-arrival-guide-2026.pdf', '_blank');
         }
 
         // --- 12. UTILITY FUNCTIONS ---
@@ -4506,13 +4536,6 @@
                     btn.addEventListener('click', function(e) {
                         // Allow default tel: link behavior
                     });
-                }
-            });
-            
-            // Close mobile menu when clicking on overlay
-            document.getElementById('mobile-menu').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    toggleMobileMenu();
                 }
             });
         }
