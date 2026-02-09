@@ -2,7 +2,9 @@
 <html lang="en" class="scroll-smooth">
 <head> 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- IMPROVED VIEWPORT FOR BETTER DEVICE COMPATIBILITY -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.1">
+    <meta name="HandheldFriendly" content="true">
     <title>TESCA Global | World-Class Visa & Immigration Consultancy</title>
     
     <!-- Favicon --> 
@@ -27,26 +29,26 @@
                             bg: '#050507',
                             surface: '#0F1016',
                             surface2: '#181926',
-                            primary: '#3b82f6',
-                            secondary: '#8b5cf6',
-                            accent: '#06b6d4',
+                            primary: '#3b82f6',    /* Blue */
+                            secondary: '#8b5cf6',  /* Violet */
+                            accent: '#06b6d4',     /* Cyan */
                             success: '#10b981',
                             warning: '#f59e0b',
                             danger: '#ef4444',
-                            uk: '#012169',
-                            usa: '#B22234',
-                            germany: '#000000',
-                            eu: '#003399',
-                            canada: '#FF0000',
-                            australia: '#00008B',
-                            nz: '#00247D',
-                            ireland: '#169B62',
-                            france: '#002395',
-                            italy: '#009246',
-                            netherlands: '#21468B',
-                            sweden: '#006AA7',
-                            spain: '#AA151B',
-                            finland: '#002F6C'
+                            uk: '#012169',         /* UK Blue */
+                            usa: '#B22234',        /* USA Red */
+                            germany: '#000000',    /* Germany Black */
+                            eu: '#003399',         /* EU Blue */
+                            canada: '#FF0000',     /* Canada Red */
+                            australia: '#00008B',  /* Australia Blue */
+                            nz: '#00247D',         /* New Zealand Blue */
+                            ireland: '#169B62',    /* Ireland Green */
+                            france: '#002395',     /* France Blue */
+                            italy: '#009246',      /* Italy Green */
+                            netherlands: '#21468B', /* Netherlands Blue */
+                            sweden: '#006AA7',     /* Sweden Blue */
+                            spain: '#AA151B',      /* Spain Red */
+                            finland: '#002F6C'     /* Finland Blue */
                         }
                     },
                     animation: {
@@ -107,27 +109,32 @@
     </script>
 
     <style>
-        /* --- DEVICE DETECTION VARIABLES --- */
-        :root {
-            --device-type: 'desktop'; /* Default */
-            --device-width: 100vw;
-            --device-height: 100vh;
-            --is-iphone: false;
-            --is-android: false;
-            --is-tablet: false;
-            --is-laptop: false;
-            --is-desktop: false;
-        }
-
         /* --- CORE STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
         body {
             background-color: #050507;
             color: #ffffff;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
             margin: 0;
             padding: 0;
-            font-size: 16px;
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
         }
 
         /* Hide scrollbar but keep functionality */
@@ -137,7 +144,6 @@
         html {
             scrollbar-width: none;
             -ms-overflow-style: none;
-            scroll-behavior: smooth;
         }
 
         /* Improved spacing between sections */
@@ -146,49 +152,47 @@
             padding-bottom: 6rem !important;
         }
 
-        /* UNIVERSAL BANNER SECTION - PERFECTLY CENTERED ACROSS ALL DEVICES */
+        /* Hero section */
         .hero-section {
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             position: relative;
             overflow: hidden;
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box;
+            min-height: 600px;
+            max-height: 1200px;
         }
 
         /* Banner container */
         .banner-container {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            min-height: 100vh;
         }
         
         .banner-slide {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 2rem;
-            background-size: cover !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
         
         .banner-slide.active {
@@ -196,7 +200,6 @@
             z-index: 2;
         }
         
-        /* PERFECTLY CENTERED BANNER CONTENT FOR ALL DEVICES */
         .banner-content {
             width: 100%;
             max-width: 1400px;
@@ -208,9 +211,8 @@
             align-items: center;
             justify-content: center;
             padding: 0 20px;
-            min-height: calc(100vh - 90px); /* Adjust for header height */
-            box-sizing: border-box;
-            margin: 0 auto;
+            min-height: 80vh;
+            margin-top: 150px; /* INCREASED FROM 140px TO 150px FOR LAPTOP/DESKTOP */
         }
 
         /* Banner overlay with transparency */
@@ -255,22 +257,20 @@
             opacity: 0.15;
         }
 
-        /* DEVICE-SPECIFIC HEADER STYLES */
+        /* Header styling - ALWAYS TRANSPARENT (NO SCROLL CHANGE) */
         #main-header {
             transition: all 0.3s ease;
             background: transparent !important;
             backdrop-filter: none !important;
-            height: auto;
+            height: 90px;
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            z-index: 100;
             width: 100%;
-            z-index: 50;
-            padding: 0;
-            margin: 0;
         }
         
-        /* Default Desktop Header */
         #main-header .header-inner {
             border-radius: 3rem !important;
             margin: 1.5rem auto;
@@ -282,6 +282,8 @@
             border: 1px solid rgba(255, 255, 255, 0.2) !important;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
+        
+        /* REMOVED SCROLLED STYLES - Header stays same always */
         
         /* Header links spacing */
         #main-header nav {
@@ -329,6 +331,65 @@
             object-fit: contain;
         }
 
+        /* Faculty card */
+        .faculty-card {
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        
+        .faculty-card .faculty-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem;
+        }
+        
+        /* Improved spacing for faculty photo */
+        .faculty-photo-container {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        .faculty-initial-circle {
+            width: 120px !important;
+            height: 120px !important;
+            margin: 0 auto 1.5rem auto !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        }
+        
+        .faculty-name {
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .faculty-designation {
+            margin-bottom: 1.5rem !important;
+            font-size: 1.2rem !important;
+            font-weight: 600 !important;
+        }
+        
+        .faculty-card .faculty-description {
+            flex: 1;
+            font-size: 1.05rem !important;
+            line-height: 1.8 !important;
+            margin-bottom: 2rem;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
         /* Call button in header */
         .call-btn {
             display: flex;
@@ -344,6 +405,7 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(59, 130, 246, 0.3);
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2);
+            white-space: nowrap;
         }
         
         .call-btn:hover {
@@ -356,6 +418,11 @@
         .call-btn i {
             font-size: 20px;
             color: #10b981 !important;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Banner Navigation Arrows */
@@ -377,6 +444,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(15px);
+            touch-action: manipulation;
         }
         
         .banner-nav-arrow:hover {
@@ -446,6 +514,7 @@
             padding-top: 80px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
+            -webkit-overflow-scrolling: touch;
         }
         
         #mobile-menu.show .mobile-menu-panel {
@@ -501,7 +570,7 @@
             color: #3b82f6;
         }
 
-        /* MOBILE CALL BUTTON */
+        /* UPDATED MOBILE CALL BUTTON - MOVED BELOW CONTACT US WITH PROPER SPACING */
         .mobile-menu-call-container {
             width: 100%;
             padding: 2rem 1.5rem 3rem;
@@ -552,6 +621,7 @@
             font-size: 1.2rem;
             transition: all 0.3s ease;
             z-index: 1003;
+            touch-action: manipulation;
         }
         
         .mobile-menu-close:hover {
@@ -596,6 +666,7 @@
             color: white;
             border: none;
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            touch-action: manipulation;
         }
 
         .banner-cta:hover {
@@ -674,6 +745,7 @@
             padding: 0.8rem 1.5rem;
             text-decoration: none;
             text-align: center;
+            touch-action: manipulation;
         }
         
         .view-requirements-btn:hover {
@@ -757,6 +829,17 @@
             transform: scale(1.05);
         }
 
+        /* Banner content centering fix - UPDATED FOR BETTER CENTERING */
+        .banner-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            padding: 0 20px;
+        }
+
         /* Roadmap Section Styles */
         .roadmap-step {
             position: relative;
@@ -791,7 +874,7 @@
             border: 4px solid #050507;
         }
 
-        /* Trust badges */
+        /* Trust badges - FIXED FOR MOBILE */
         .trust-badge {
             width: 80px;
             height: 80px;
@@ -846,12 +929,19 @@
             transform: translateX(5px);
         }
 
-        /* Footer */
+        /* Footer - IMPROVED SPACING */
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2.5rem;
             margin-bottom: 2.5rem;
+        }
+
+        /* Footer logo section - compact */
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         /* Animated border */
@@ -887,6 +977,8 @@
             z-index: 1000;
             overflow-y: auto;
             backdrop-filter: blur(20px);
+            padding: 20px;
+            -webkit-overflow-scrolling: touch;
         }
         
         .visa-detail-content {
@@ -915,6 +1007,7 @@
             justify-content: center;
             font-size: 1.2rem;
             transition: all 0.3s ease;
+            touch-action: manipulation;
         }
         
         .close-detail:hover {
@@ -1034,6 +1127,7 @@
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
+            touch-action: manipulation;
         }
         
         .country-filter-btn:hover,
@@ -1042,7 +1136,7 @@
             border-color: transparent;
         }
 
-        /* Management Badges Container */
+        /* Management Badges Container - FIXED */
         .management-badges-container {
             display: flex;
             justify-content: center;
@@ -1077,7 +1171,7 @@
             border-color: rgba(59, 130, 246, 0.3);
         }
 
-        /* Accreditations & Partnerships */
+        /* Accreditations & Partnerships - FIXED ALIGNMENT */
         .accreditation-item {
             display: flex;
             align-items: center;
@@ -1112,479 +1206,380 @@
             line-height: 1.5 !important;
         }
 
-        /* ============================================== */
-        /* DEVICE-SPECIFIC RESPONSIVE STYLES */
-        /* ============================================== */
-
-        /* 1. iPHONE SPECIFIC STYLES */
-        @media only screen and (max-width: 768px) and (orientation: portrait) {
-            body.iphone {
-                font-size: 15px;
-                letter-spacing: 0.3px;
-            }
-            
-            body.iphone .hero-section {
-                height: 100vh;
-                min-height: -webkit-fill-available;
-            }
-            
-            body.iphone #main-header .header-inner {
-                margin: 0.8rem auto;
-                padding: 0.8rem 1.5rem;
-                border-radius: 2rem;
-                background: rgba(255, 255, 255, 0.1) !important;
-            }
-            
-            body.iphone .logo-img {
-                width: 140px;
-            }
-            
-            body.iphone .banner-content {
-                padding: 0 15px;
-                min-height: calc(100vh - 100px);
-            }
-            
-            body.iphone .banner-title {
-                font-size: 2rem;
-                line-height: 1.15;
-                margin-bottom: 1.2rem;
-            }
-            
-            body.iphone .banner-subtitle {
-                font-size: 1.05rem;
-                line-height: 1.5;
-                margin-bottom: 1.8rem;
-            }
-            
-            body.iphone .banner-cta {
-                font-size: 1rem;
-                padding: 0.9rem 2.2rem;
-            }
-            
-            body.iphone .section-padding {
-                padding-top: 4rem !important;
-                padding-bottom: 4rem !important;
-            }
-            
-            body.iphone .mobile-menu-panel {
-                width: 85%;
-                max-width: 320px;
-                padding-top: 90px;
-            }
-            
-            body.iphone .visa-card {
-                border-radius: 1.8rem;
-            }
-            
-            body.iphone .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-            
-            body.iphone .management-badges-container {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 1.2rem;
-                padding: 1.8rem;
-            }
-        }
-
-        /* 2. SAMSUNG SPECIFIC STYLES */
-        @media only screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
-            body.samsung {
-                font-size: 15.5px;
-            }
-            
-            body.samsung .hero-section {
-                height: 100vh;
-            }
-            
-            body.samsung #main-header .header-inner {
-                margin: 0.7rem auto;
-                padding: 0.7rem 1.4rem;
-                border-radius: 2.2rem;
-            }
-            
-            body.samsung .banner-content {
-                padding: 0 18px;
-            }
-            
-            body.samsung .banner-title {
-                font-size: 2.1rem;
-            }
-            
-            body.samsung .visa-card {
-                border-radius: 1.9rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            body.samsung .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-        }
-
-        /* 3. ANDROID GENERAL STYLES */
-        @media only screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5) {
-            body.android {
-                font-size: 15.2px;
-            }
-            
-            body.android .hero-section {
-                height: 100vh;
-            }
-            
-            body.android .banner-content {
-                padding: 0 16px;
-            }
-            
-            body.android .banner-title {
-                font-size: 2rem;
-            }
-            
-            body.android .mobile-menu-panel {
-                width: 88%;
-                max-width: 340px;
-            }
-        }
-
-        /* 4. TABLET STYLES (DIFFERENT FROM MOBILE) */
-        @media only screen and (min-width: 769px) and (max-width: 1024px) {
-            body.tablet {
-                font-size: 17px;
-            }
-            
-            body.tablet #main-header .header-inner {
-                margin: 1rem auto;
-                padding: 0.8rem 2rem;
-                max-width: 95%;
-            }
-            
-            body.tablet .hero-section {
-                height: 90vh;
-            }
-            
-            body.tablet .banner-content {
-                min-height: calc(90vh - 110px);
-                max-width: 95%;
-            }
-            
-            body.tablet .banner-title {
-                font-size: 3rem;
-            }
-            
-            body.tablet .banner-subtitle {
-                font-size: 1.4rem;
-                max-width: 700px;
-            }
-            
-            body.tablet .visa-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 2rem;
-            }
-            
-            body.tablet .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 3rem;
-            }
-            
-            body.tablet .management-badges-container {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 2rem;
-                padding: 2rem;
-            }
-            
-            body.tablet .roadmap-step {
-                padding-left: 2.8rem;
-            }
-        }
-
-        /* 5. LAPTOP STYLES (DIFFERENT FROM DESKTOP) */
-        @media only screen and (min-width: 1025px) and (max-width: 1440px) {
-            body.laptop {
-                font-size: 17.5px;
-            }
-            
-            body.laptop #main-header .header-inner {
-                max-width: 92%;
-                padding: 1rem 2.5rem;
-            }
-            
-            body.laptop .hero-section {
-                height: 95vh;
-            }
-            
-            body.laptop .banner-content {
-                min-height: calc(95vh - 120px);
-                max-width: 1300px;
-            }
-            
-            body.laptop .banner-title {
-                font-size: 3.8rem;
-            }
-            
-            body.laptop .visa-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 2.5rem;
-            }
-            
-            body.laptop .container {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-            
-            body.laptop .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 3rem;
-            }
-            
-            body.laptop .management-badges-container {
-                grid-template-columns: repeat(6, 1fr) !important;
-                gap: 2rem;
-            }
-        }
-
-        /* 6. DESKTOP STYLES (HIGH RESOLUTION) */
-        @media only screen and (min-width: 1441px) {
-            body.desktop {
-                font-size: 18px;
-            }
-            
-            body.desktop #main-header .header-inner {
-                max-width: 1400px;
-                padding: 1.2rem 3.5rem;
-            }
-            
-            body.desktop .hero-section {
-                height: 100vh;
-            }
-            
-            body.desktop .banner-content {
-                min-height: calc(100vh - 130px);
-                max-width: 1600px;
-            }
-            
-            body.desktop .banner-title {
-                font-size: 4.5rem;
-            }
-            
-            body.desktop .banner-subtitle {
-                font-size: 1.6rem;
-                max-width: 900px;
-            }
-            
-            body.desktop .container {
-                max-width: 1400px;
-                margin: 0 auto;
-            }
-            
-            body.desktop .visa-grid {
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 3rem;
-            }
-            
-            body.desktop .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 4rem;
-            }
-            
-            body.desktop .management-badges-container {
-                grid-template-columns: repeat(6, 1fr) !important;
-                gap: 2.5rem;
-                padding: 3rem;
-            }
-            
-            body.desktop .banner-nav-arrow {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
-            }
-            
-            body.desktop .banner-nav-arrow.prev {
-                left: 60px;
-            }
-            
-            body.desktop .banner-nav-arrow.next {
-                right: 60px;
-            }
-        }
-
-        /* 7. PC STYLES (WIDER SCREENS) */
-        @media only screen and (min-width: 1921px) {
-            body.pc {
-                font-size: 19px;
-            }
-            
-            body.pc .container {
-                max-width: 1800px;
-            }
-            
-            body.pc #main-header .header-inner {
-                max-width: 1800px;
-            }
-            
-            body.pc .banner-content {
-                max-width: 1800px;
-            }
-            
-            body.pc .banner-title {
-                font-size: 5rem;
-            }
-            
-            body.pc .banner-subtitle {
-                font-size: 1.8rem;
-                max-width: 1000px;
-            }
-            
-            body.pc .section-padding {
-                padding-top: 8rem !important;
-                padding-bottom: 8rem !important;
-            }
-        }
-
-        /* ============================================== */
-        /* UNIVERSAL RESPONSIVE FALLBACKS */
-        /* ============================================== */
+        /* --- ENHANCED RESPONSIVE DESIGN FOR ALL DEVICES --- */
         
-        /* MOBILE DEVICES (ALL) */
-        @media (max-width: 768px) {
+        /* Default mobile view */
+        @media screen and (max-width: 768px) {
+            /* MOBILE BODY STYLES WITH PROPER SPACING */
             body {
                 font-size: 15px;
+                line-height: 1.6;
+                -webkit-text-size-adjust: 100%;
             }
             
+            /* Improved section padding for mobile */
+            .section-padding {
+                padding-top: 3.5rem !important;
+                padding-bottom: 3.5rem !important;
+            }
+            
+            /* FIXED: MOBILE HEADER - WITH 15px MARGIN TOP AND 60px HEIGHT */
             #main-header {
-                height: 70px;
+                height: 60px !important;
+                top: 15px !important;
             }
             
             #main-header .header-inner {
-                margin: 0.5rem auto !important;
+                margin: 0 auto !important;
                 padding: 0.5rem 1.2rem !important;
                 max-width: 95%;
                 border-radius: 2.5rem !important;
+                background: rgba(255, 255, 255, 0.08) !important;
+                backdrop-filter: blur(20px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: space-between !important;
             }
             
             #main-header .logo-img {
-                width: 140px !important;
+                width: 120px !important;
+                height: auto;
             }
             
             .call-btn {
-                padding: 8px 16px;
-                font-size: 13px;
+                padding: 6px 12px;
+                font-size: 12px;
+                border-radius: 3rem !important;
+                min-width: auto;
             }
             
             .call-btn span {
                 display: none;
             }
             
+            /* Hide header nav on mobile */
             #main-header nav {
                 display: none;
             }
             
+            /* Show mobile menu button */
             #main-header .md\\:hidden {
-                display: block !important;
+                display: block;
             }
             
+            /* FIXED: MOBILE BANNER - FULL WIDTH WITHOUT ANY SIDE SPACE */
             .hero-section {
-                height: 100vh;
-                min-height: 100vh;
+                height: 75vh !important;
+                min-height: 75vh;
+                max-height: 800px;
+                width: 100% !important;
+                overflow: hidden;
+                margin: 0 !important;
+                padding: 0 !important;
             }
             
             .banner-container {
-                min-height: 100vh;
+                min-height: 75vh;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
             
             .banner-slide {
-                min-height: 100vh;
-                padding: 1rem !important;
+                min-height: 75vh;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background-attachment: scroll !important;
             }
             
+            /* FIXED: Banner content centering with header margin adjustment */
             .banner-content {
-                padding: 0 15px !important;
+                padding: 20px 15px !important;
                 justify-content: center !important;
-                min-height: calc(100vh - 80px) !important;
-                width: 100vw !important;
-                max-width: 100vw !important;
-                margin: 0 auto !important;
+                margin-top: 75px !important;
+                min-height: calc(75vh - 75px);
+                width: 100% !important;
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
             }
             
             .banner-title {
-                font-size: 2rem !important;
+                font-size: 1.8rem !important;
                 line-height: 1.2;
                 margin-bottom: 1rem !important;
+                margin-top: 0 !important;
                 padding: 0 5px;
+                font-weight: 800;
                 width: 100%;
             }
             
             .banner-subtitle {
-                font-size: 1.1rem !important;
+                font-size: 1rem !important;
                 line-height: 1.5;
-                margin-bottom: 1.8rem !important;
+                margin-bottom: 1.5rem !important;
                 padding: 0 10px;
                 opacity: 0.9;
                 width: 100%;
             }
             
             .banner-cta {
-                font-size: 1rem !important;
-                padding: 0.9rem 2.2rem !important;
+                font-size: 0.9rem !important;
+                padding: 0.9rem 2rem !important;
                 margin-top: 0.5rem;
+                border-radius: 3rem !important;
             }
             
+            /* MOBILE BANNER ARROWS */
             .banner-nav-arrow {
                 display: flex !important;
-                width: 50px !important;
-                height: 50px !important;
-                font-size: 1.3rem !important;
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 1.2rem !important;
+                border-radius: 50% !important;
+                position: absolute !important;
+                z-index: 20 !important;
             }
             
             .banner-nav-arrow.prev {
-                left: 15px !important;
+                left: 10px !important;
             }
             
             .banner-nav-arrow.next {
-                right: 15px !important;
+                right: 10px !important;
             }
             
+            /* Update scroll margin for sections to account for header margin */
             section[id] {
-                scroll-margin-top: 100px !important;
+                scroll-margin-top: 90px !important;
             }
             
-            .section-padding {
-                padding-top: 4rem !important;
-                padding-bottom: 4rem !important;
-            }
-            
-            .visa-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem;
-            }
-            
+            /* MOBILE FOOTER - 2x2 GRID WITH PROPER SPACING */
             .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                margin-bottom: 2.5rem;
+                padding-top: 1rem;
             }
             
+            /* Footer logo section - compact */
             .footer-logo-section {
+                gap: 0.8rem;
+                grid-column: span 2;
                 text-align: center;
                 align-items: center;
-                margin-bottom: 2rem;
             }
             
-            .management-badges-container {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1.5rem;
-                padding: 1.5rem !important;
+            .footer-logo-section .logo-img {
+                width: 160px;
+                height: auto;
+            }
+            
+            /* MOBILE VISA SECTION - IMPROVED SPACING */
+            #visa {
+                padding: 3.5rem 1rem !important;
+                background: #050507;
+            }
+            
+            #visa h2 {
+                font-size: 1.8rem !important;
+                line-height: 1.2;
+                margin-bottom: 1.2rem;
+                text-align: center;
+            }
+            
+            #visa p {
+                font-size: 0.9rem !important;
+                text-align: center;
+                margin-bottom: 1.8rem;
+                padding: 0 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem !important;
+                font-size: 0.8rem !important;
+                margin: 0.3rem;
+                border-radius: 3rem !important;
+            }
+            
+            .visa-card {
+                margin-bottom: 1.8rem;
+                border-radius: 1.5rem;
+                overflow: hidden;
+            }
+            
+            .visa-card h3 {
+                font-size: 1.1rem !important;
+                line-height: 1.3;
+                margin-bottom: 0.8rem;
+            }
+            
+            .view-requirements-btn {
+                width: 100%;
+                padding: 0.8rem !important;
+                border-radius: 3rem !important;
+                font-size: 0.9rem;
+            }
+            
+            /* MOBILE ROADMAP SECTION - IMPROVED SPACING */
+            #roadmap {
+                padding: 3.5rem 1rem !important;
+            }
+            
+            #roadmap h2 {
+                font-size: 1.8rem !important;
+                line-height: 1.2;
+                margin-bottom: 1.8rem;
+                text-align: center;
             }
             
             .roadmap-step {
                 padding-left: 2.5rem;
+                margin-bottom: 2.2rem;
+            }
+            
+            .roadmap-step-number {
+                width: 2.5rem;
+                height: 2.5rem;
+                left: -1.25rem;
+                font-size: 1rem;
+            }
+            
+            /* MOBILE TRUST SECTION - IMPROVED SPACING */
+            #trust {
+                padding: 3.5rem 1rem !important;
+            }
+            
+            #trust h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.8rem;
+                text-align: center;
+            }
+            
+            /* Accreditations mobile view */
+            .accreditation-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
                 margin-bottom: 2rem;
             }
             
+            .accreditation-item .trust-badge {
+                margin: 0 auto;
+            }
+            
+            /* Management badges mobile */
+            .management-badges-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1rem !important;
+                padding: 1.5rem !important;
+                margin-top: 2rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            /* MOBILE GUIDES SECTION - IMPROVED SPACING */
+            #guides {
+                padding: 3.5rem 1rem !important;
+            }
+            
+            #guides h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.8rem;
+                text-align: center;
+            }
+            
+            /* MOBILE FOOTER - IMPROVED SPACING */
+            footer {
+                padding: 3.5rem 1rem 2.5rem !important;
+            }
+            
+            footer h4 {
+                font-size: 1rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            footer ul {
+                font-size: 0.85rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            /* Footer spacing between sections */
+            footer > div > div {
+                margin-bottom: 2rem;
+            }
+            
+            /* Stats section for mobile */
+            .stat-number {
+                font-size: 2rem !important;
+            }
+            
+            /* Visa Detail Page Mobile */
+            .visa-detail-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .cost-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Mobile centered flag */
+            .centered-flag-box {
+                padding: 0.8rem;
+            }
+            
+            .detail-flag {
+                width: 70px;
+                height: 45px;
+            }
+            
+            /* New pages mobile styles */
+            .page-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            .country-filter {
+                gap: 0.5rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .country-filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            /* IMPROVED SPACING FOR ALL SECTIONS */
+            section {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+            
+            .container {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+            
+            /* Trust section spacing fix */
+            #trust .grid {
+                gap: 1.5rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            /* Space between Data Security Certified and Footer */
+            #trust {
+                padding-bottom: 3.5rem !important;
+                margin-bottom: 0 !important;
+            }
+            
+            footer {
+                padding-top: 3.5rem !important;
+            }
+            
+            /* UPDATED MOBILE MENU STYLES */
             .mobile-menu-panel {
-                padding-top: 80px;
+                padding-top: 70px;
             }
             
             .mobile-menu-header {
@@ -1596,133 +1591,381 @@
             }
             
             .mobile-menu-link {
-                padding: 1rem 1.2rem;
-                font-size: 1.1rem;
+                padding: 0.9rem 1.2rem;
+                font-size: 1rem;
+                margin-bottom: 0.3rem;
             }
             
+            /* MOBILE CALL BUTTON CONTAINER - FIXED POSITION */
             .mobile-menu-call-container {
                 padding: 2rem 1rem 2rem;
+                margin-top: 1rem;
             }
             
             .mobile-menu-call-btn {
-                width: 65px;
-                height: 65px;
-                font-size: 1.6rem;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            /* ADDITIONAL FIX FOR BANNER OVERFLOW */
+            .banner-overlay {
+                width: 100% !important;
+                left: 0;
+                right: 0;
             }
         }
-
-        /* SMALL MOBILE DEVICES */
-        @media (max-width: 480px) {
-            .hero-section {
-                min-height: 100vh;
-                height: 100vh !important;
+        
+        /* SMALL MOBILE DEVICES (iPhone SE, Small Android) */
+        @media screen and (max-width: 375px) {
+            .banner-title {
+                font-size: 1.5rem !important;
             }
             
-            .banner-content {
-                padding: 0 12px !important;
-                min-height: calc(100vh - 80px) !important;
+            .banner-subtitle {
+                font-size: 0.85rem !important;
             }
             
+            .banner-cta {
+                font-size: 0.8rem !important;
+                padding: 0.8rem 1.5rem !important;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-logo-section {
+                grid-column: span 1;
+            }
+            
+            .management-badges-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                padding: 1rem !important;
+                gap: 0.8rem !important;
+            }
+            
+            .mobile-menu-panel {
+                width: 90%;
+            }
+        }
+        
+        /* MEDIUM MOBILE DEVICES (Most smartphones) */
+        @media screen and (min-width: 376px) and (max-width: 480px) {
+            .banner-title {
+                font-size: 1.6rem !important;
+            }
+            
+            .banner-subtitle {
+                font-size: 0.9rem !important;
+            }
+            
+            .management-badges-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+        
+        /* LARGE MOBILE DEVICES (iPhone Plus, Large Android) */
+        @media screen and (min-width: 481px) and (max-width: 768px) {
             .banner-title {
                 font-size: 1.8rem !important;
             }
             
             .banner-subtitle {
                 font-size: 1rem !important;
-                padding: 0 8px;
             }
             
-            .banner-nav-arrow {
-                width: 45px !important;
-                height: 45px !important;
+            .management-badges-container {
+                grid-template-columns: repeat(4, 1fr) !important;
+            }
+        }
+        
+        /* TABLET DEVICES (iPad, Android Tablets) */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            /* TABLET HEADER */
+            #main-header .header-inner {
+                max-width: 95%;
+                padding: 0.8rem 2rem;
+            }
+            
+            /* TABLET BANNER */
+            .hero-section {
+                height: 85vh;
+                min-height: 700px;
+            }
+            
+            .banner-content {
+                margin-top: 130px;
+                padding: 40px 30px;
+            }
+            
+            .banner-title {
+                font-size: 2.5rem !important;
+            }
+            
+            .banner-subtitle {
                 font-size: 1.1rem !important;
             }
             
+            .banner-nav-arrow {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            
             .banner-nav-arrow.prev {
-                left: 10px !important;
+                left: 25px;
             }
             
             .banner-nav-arrow.next {
-                right: 10px !important;
+                right: 25px;
             }
             
-            #main-header .header-inner {
-                padding: 0.5rem 1rem !important;
+            /* TABLET VISA SECTION */
+            .filter-btn {
+                padding: 0.6rem 1.2rem !important;
+                font-size: 0.85rem !important;
             }
             
-            .logo-img {
-                width: 130px !important;
-            }
-            
+            /* TABLET FOOTER */
             .footer-grid {
-                gap: 2rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
             }
             
-            .mobile-menu-panel {
-                width: 90%;
+            /* TABLET MANAGEMENT BADGES */
+            .management-badges-container {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 1.5rem !important;
+                padding: 2rem !important;
             }
             
-            .mobile-menu-link {
-                padding: 0.9rem 1rem;
-                font-size: 1rem;
+            /* TABLET ROADMAP */
+            .roadmap-step {
+                padding-left: 2.8rem;
             }
-        }
-
-        /* TABLET PORTRAIT */
-        @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-            body.tablet-portrait .hero-section {
-                height: 90vh;
-            }
-            
-            body.tablet-portrait .banner-content {
-                min-height: calc(90vh - 120px);
-            }
-            
-            body.tablet-portrait .banner-title {
-                font-size: 3.2rem;
-            }
-            
-            body.tablet-portrait .visa-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-        }
-
-        /* TABLET LANDSCAPE */
-        @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-            body.tablet-landscape .hero-section {
-                height: 100vh;
-            }
-            
-            body.tablet-landscape .banner-content {
-                min-height: calc(100vh - 120px);
-            }
-            
-            body.tablet-landscape .banner-title {
-                font-size: 2.8rem;
-            }
-            
-            body.tablet-landscape .banner-subtitle {
-                font-size: 1.3rem;
-                max-width: 800px;
-            }
-        }
-
-        /* LAPTOP LANDSCAPE */
-        @media (min-width: 1025px) and (max-width: 1440px) and (orientation: landscape) {
-            body.laptop-landscape .hero-section {
-                height: 100vh;
-            }
-            
-            body.laptop-landscape .banner-content {
-                min-height: calc(100vh - 130px);
-            }
-        }
-
-        /* ENSURE BANNER IMAGES LOAD PROPERLY */
-        .banner-slide {
-            background-color: #050507;
         }
         
+        /* SMALL DESKTOP / LAPTOPS */
+        @media screen and (min-width: 1025px) and (max-width: 1366px) {
+            /* DESKTOP HEADER - ALWAYS TRANSPARENT */
+            #main-header nav {
+                display: flex;
+            }
+            
+            #main-header .md\\:hidden {
+                display: none;
+            }
+            
+            /* DESKTOP HERO SECTION - FULL SCREEN */
+            .hero-section {
+                height: 100vh;
+                min-height: 100vh;
+            }
+            
+            /* Banner content centered */
+            .banner-content {
+                padding: 40px 20px 60px;
+                justify-content: center;
+                margin-top: 150px;
+            }
+            
+            /* DESKTOP FOOTER - 4 COLUMN GRID WITH PROPER SPACING */
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2.5rem;
+                padding-top: 2rem;
+            }
+            
+            /* Management Badges - DESKTOP VIEW */
+            .management-badges-container {
+                display: grid !important;
+                grid-template-columns: repeat(6, 1fr) !important;
+                gap: 1.5rem !important;
+                margin-top: 4rem !important;
+                margin-bottom: 4rem !important;
+                padding: 2.5rem !important;
+            }
+            
+            /* Space between Data Security Certified and Footer */
+            #trust {
+                padding-bottom: 2rem !important;
+                margin-bottom: 0 !important;
+            }
+            
+            footer {
+                padding-top: 2rem !important;
+            }
+        }
+        
+        /* LARGE DESKTOP / 4K SCREENS */
+        @media screen and (min-width: 1367px) {
+            .container {
+                max-width: 1400px !important;
+            }
+            
+            .banner-title {
+                font-size: 4rem !important;
+            }
+            
+            .banner-subtitle {
+                font-size: 1.5rem !important;
+            }
+            
+            .banner-nav-arrow {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .banner-nav-arrow.prev {
+                left: 60px;
+            }
+            
+            .banner-nav-arrow.next {
+                right: 60px;
+            }
+        }
+        
+        /* --- DEVICE-SPECIFIC FIXES --- */
+        
+        /* iPhone X/XS/11 Pro/12 Mini/13 Mini */
+        @media only screen 
+            and (device-width: 375px) 
+            and (device-height: 812px) 
+            and (-webkit-device-pixel-ratio: 3) {
+            .hero-section {
+                height: 85vh !important;
+            }
+            
+            .banner-content {
+                margin-top: 100px !important;
+            }
+        }
+        
+        /* iPhone 12/13/14 */
+        @media only screen 
+            and (device-width: 390px) 
+            and (device-height: 844px) 
+            and (-webkit-device-pixel-ratio: 3) {
+            .hero-section {
+                height: 82vh !important;
+            }
+        }
+        
+        /* Samsung Galaxy S8+/S9+ */
+        @media only screen 
+            and (device-width: 360px) 
+            and (device-height: 740px) {
+            .hero-section {
+                height: 80vh !important;
+            }
+            
+            .banner-title {
+                font-size: 1.5rem !important;
+            }
+        }
+        
+        /* iPad Pro */
+        @media only screen 
+            and (min-width: 1024px) 
+            and (max-height: 1366px) 
+            and (orientation: portrait) 
+            and (-webkit-min-device-pixel-ratio: 2) {
+            .hero-section {
+                height: 75vh !important;
+            }
+            
+            .banner-content {
+                margin-top: 120px !important;
+            }
+        }
+        
+        /* Android Devices with Notch */
+        @supports (padding: max(0px)) {
+            .safe-area-padding {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+                padding-top: max(1rem, env(safe-area-inset-top));
+                padding-bottom: max(1rem, env(safe-area-inset-bottom));
+            }
+            
+            #main-header {
+                padding-left: max(0px, env(safe-area-inset-left));
+                padding-right: max(0px, env(safe-area-inset-right));
+            }
+        }
+        
+        /* High DPI Screens */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .glass, .glass-card, .glass-intense {
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(30px);
+            }
+        }
+        
+        /* Better spacing for text elements */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2 !important;
+            margin-bottom: 1rem !important;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        
+        p {
+            line-height: 1.6 !important;
+            margin-bottom: 1rem !important;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        
+        .section-title {
+            margin-bottom: 3rem !important;
+        }
+        
+        /* Improve visa card spacing */
+        .visa-card .p-8 {
+            padding: 1.5rem !important;
+        }
+        
+        .visa-card h3 {
+            margin-bottom: 0.8rem !important;
+        }
+        
+        /* Better flag display */
+        .flag-img {
+            width: 24px !important;
+            height: 16px !important;
+            border-radius: 3px;
+            object-fit: cover;
+        }
+        
+        /* Fix for flag display in container */
+        .visa-card .flag-img {
+            width: 32px !important;
+            height: 20px !important;
+        }
+        
+        /* Management badges centering - FIXED FOR ALL VIEWS */
+        .management-badges-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 3rem !important;
+            margin-bottom: 3rem !important;
+        }
+        
+        .management-badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        /* Fix for banner background images not loading */
         .banner-backup-bg {
             position: absolute;
             top: 0;
@@ -1733,142 +1976,97 @@
             background-position: center;
             z-index: 0;
         }
-
-        /* IMPROVE TOUCH TARGETS FOR MOBILE */
-        @media (max-width: 768px) {
-            button, 
-            a, 
-            .clickable {
-                min-height: 44px;
-                min-width: 44px;
-            }
-            
-            .filter-btn {
-                padding: 10px 18px !important;
-                margin: 5px;
-            }
-            
-            .view-requirements-btn {
-                padding: 14px 20px !important;
-            }
+        
+        /* Ensure banner images load properly with fallback */
+        .banner-slide {
+            background-color: #050507;
         }
-
-        /* FIX FOR IOS SAFARI 100vh ISSUE */
+        
+        /* ADDITIONAL SPACING IMPROVEMENTS */
+        /* Section spacing improvements */
+        #visa, #roadmap, #guides, #trust, footer {
+            padding-top: 4rem !important;
+            padding-bottom: 4rem !important;
+        }
+        
+        /* Better vertical rhythm */
+        .section-content {
+            margin-top: 1.5rem;
+        }
+        
+        /* Increase spacing between filter buttons and visa grid */
+        #visa .filter-btn-container {
+            margin-bottom: 2.5rem !important;
+        }
+        
+        /* Better spacing for roadmap steps */
+        .roadmap-step {
+            margin-bottom: 3rem !important;
+        }
+        
+        /* Footer spacing improvements */
+        footer {
+            padding-top: 4rem !important;
+            padding-bottom: 3rem !important;
+        }
+        
+        /* Better spacing for management badges */
+        .management-badges-container {
+            margin-top: 2.5rem !important;
+            margin-bottom: 2.5rem !important;
+        }
+        
+        /* Trust section grid spacing */
+        #trust .grid {
+            margin-bottom: 3rem !important;
+        }
+        
+        /* Space between Data Security Certified and Footer - ALL VIEWS */
+        #trust {
+            padding-bottom: 2rem !important;
+        }
+        
+        footer {
+            padding-top: 2rem !important;
+        }
+        
+        /* Accreditations alignment fix */
+        .accreditation-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .accreditation-item .trust-badge {
+            flex-shrink: 0;
+            margin-right: 1.5rem;
+        }
+        
+        /* Touch-friendly button sizing */
+        button, 
+        .button-like,
+        a[role="button"] {
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        /* Prevent text size adjustment on orientation change */
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        /* Improve scrolling performance */
+        .scroll-improve {
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        
+        /* Fix for iOS Safari 100vh issue */
         @supports (-webkit-touch-callout: none) {
             .hero-section {
                 height: -webkit-fill-available;
-            }
-        }
-
-        /* SMOOTH ANIMATIONS FOR ALL DEVICES */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* ENSURE PROPER ALIGNMENT FOR ALL ELEMENTS */
-        .container {
-            width: 100%;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            margin: 0 auto;
-            box-sizing: border-box;
-        }
-
-        @media (min-width: 640px) {
-            .container {
-                max-width: 640px;
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                max-width: 768px;
-                padding-left: 2rem;
-                padding-right: 2rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                max-width: 1024px;
-                padding-left: 2.5rem;
-                padding-right: 2.5rem;
-            }
-        }
-
-        @media (min-width: 1280px) {
-            .container {
-                max-width: 1280px;
-                padding-left: 3rem;
-                padding-right: 3rem;
-            }
-        }
-
-        @media (min-width: 1536px) {
-            .container {
-                max-width: 1536px;
-            }
-        }
-
-        /* OPTIMIZE IMAGES FOR ALL DEVICES */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* ENSURE PROPER SPACING BETWEEN SECTIONS */
-        section {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* FIX FOR FLEXBOX ON MOBILE */
-        @media (max-width: 768px) {
-            .flex {
-                flex-wrap: wrap;
-            }
-            
-            .grid {
-                gap: 1.5rem;
-            }
-        }
-
-        /* IMPROVE READABILITY ON ALL DEVICES */
-        h1, h2, h3, h4, h5, h6, p {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        /* ENSURE BUTTONS ARE VISIBLE ON ALL DEVICES */
-        button, .btn, .call-btn, .banner-cta {
-            cursor: pointer;
-            outline: none;
-            border: none;
-            font-family: inherit;
-        }
-
-        /* SAFARI SPECIFIC FIXES */
-        @media not all and (min-resolution:.001dpcm) { 
-            @supports (-webkit-appearance:none) {
-                /* Safari specific styles */
-                .hero-section {
-                    height: 100vh;
-                    height: -webkit-fill-available;
-                }
-                
-                .banner-slide {
-                    -webkit-backface-visibility: hidden;
-                    -webkit-transform: translateZ(0);
-                }
             }
         }
     </style>
@@ -1879,7 +2077,7 @@
     <div class="glow-orb bg-brand-primary w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
     <div class="glow-orb bg-brand-accent w-[600px] h-[600px] bottom-[-100px] right-[-100px]"></div>
 
-    <!-- Loader -->
+    <!-- Loader - REDUCED SPACE -->
     <div id="loader" class="fixed inset-0 bg-black z-[9999] flex flex-col items-center justify-center transition-opacity duration-700">
         <div class="mb-4 loader-pulse">
             <div class="w-48 h-48 flex items-center justify-center">
@@ -1896,8 +2094,8 @@
         <div class="mt-3 text-xs text-gray-500 font-mono tracking-widest">GLOBAL VISA CONSULTANCY</div>
     </div>
 
-    <!-- Header -->
-    <header id="main-header" class="fixed top-0 w-full z-50">
+    <!-- Header - ALWAYS TRANSPARENT (NO SCROLL CHANGE) -->
+    <header id="main-header" class="fixed top-0 w-full z-50 safe-area-padding">
         <div class="header-inner">
             <div class="container mx-auto px-4 py-1 flex justify-between items-center">
                 <a href="#home" class="flex items-center group">
@@ -1922,7 +2120,7 @@
                         <span class="hidden sm:inline">Free Consultation</span>
                     </a>
                     
-                    <button class="md:hidden text-white text-xl" onclick="toggleMobileMenu()">
+                    <button class="md:hidden text-white text-xl" onclick="toggleMobileMenu()" aria-label="Open menu">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -1930,11 +2128,11 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
+    <!-- UPDATED MOBILE MENU - WITH OVERLAY AND CIRCLE CALL BUTTON -->
     <div id="mobile-menu" class="hidden">
         <div class="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
-        <div class="mobile-menu-panel">
-            <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+        <div class="mobile-menu-panel safe-area-padding">
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
                 <i class="fas fa-times"></i>
             </button>
             
@@ -1970,9 +2168,9 @@
                     <span>Contact Us</span>
                 </a>
                 
-                <!-- CALL BUTTON CONTAINER -->
+                <!-- CALL BUTTON CONTAINER - POSITIONED BELOW CONTACT US -->
                 <div class="mobile-menu-call-container">
-                    <a href="tel:+919925081515" class="mobile-menu-call-btn">
+                    <a href="tel:+919925081515" class="mobile-menu-call-btn" aria-label="Call us">
                         <i class="fas fa-phone"></i>
                     </a>
                 </div>
@@ -1981,14 +2179,14 @@
     </div>
 
     <!-- Hero Banner Section -->
-    <section id="home" class="hero-section">
+    <section id="home" class="hero-section scroll-improve">
         <div class="banner-container">
             <!-- Banner Navigation Arrows -->
-            <button class="banner-nav-arrow prev" onclick="prevBanner()">
+            <button class="banner-nav-arrow prev" onclick="prevBanner()" aria-label="Previous banner">
                 <i class="fas fa-chevron-left"></i>
             </button>
             
-            <button class="banner-nav-arrow next" onclick="nextBanner()">
+            <button class="banner-nav-arrow next" onclick="nextBanner()" aria-label="Next banner">
                 <i class="fas fa-chevron-right"></i>
             </button>
             
@@ -2000,7 +2198,7 @@
     <!-- Visa Detail Page (Hidden by default) -->
     <div id="visa-detail-page" class="visa-detail-page">
         <div class="visa-detail-content">
-            <button class="close-detail" onclick="closeVisaDetail()">
+            <button class="close-detail" onclick="closeVisaDetail()" aria-label="Close details">
                 <i class="fas fa-times"></i>
             </button>
             <div id="visa-detail-content"></div>
@@ -2008,7 +2206,7 @@
     </div>
 
     <!-- Visa Programs Section -->
-    <section id="visa" class="section-padding bg-brand-bg">
+    <section id="visa" class="section-padding bg-brand-bg scroll-improve">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
                 <span class="text-brand-accent font-bold tracking-widest text-sm uppercase mb-4 block">Global Immigration Programs</span>
@@ -2018,68 +2216,68 @@
             
             <!-- Country Filter Buttons - UK as default -->
             <div class="flex flex-wrap gap-3 justify-center mb-10 animate-fade-in filter-btn-container" style="animation-delay: 0.2s">
-                <button onclick="filterVisas('uk')" class="filter-btn active px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-4 rounded flag-img" alt="UK Flag">
+                <button onclick="filterVisas('uk')" class="filter-btn active px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="UK visas">
+                    <img src="https://flagcdn.com/w40/gb.png" class="w-6 h-4 rounded flag-img" alt="UK Flag" loading="lazy">
                     UK
                 </button>
-                <button onclick="filterVisas('usa')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/us.png" class="w-6 h-4 rounded flag-img" alt="USA Flag">
+                <button onclick="filterVisas('usa')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="USA visas">
+                    <img src="https://flagcdn.com/w40/us.png" class="w-6 h-4 rounded flag-img" alt="USA Flag" loading="lazy">
                     USA
                 </button>
-                <button onclick="filterVisas('germany')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/de.png" class="w-6 h-4 rounded flag-img" alt="Germany Flag">
+                <button onclick="filterVisas('germany')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="Germany visas">
+                    <img src="https://flagcdn.com/w40/de.png" class="w-6 h-4 rounded flag-img" alt="Germany Flag" loading="lazy">
                     Germany
                 </button>
-                <button onclick="filterVisas('ireland')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/ie.png" class="w-6 h-4 rounded flag-img" alt="Ireland Flag">
+                <button onclick="filterVisas('ireland')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="Ireland visas">
+                    <img src="https://flagcdn.com/w40/ie.png" class="w-6 h-4 rounded flag-img" alt="Ireland Flag" loading="lazy">
                     Ireland
                 </button>
-                <button onclick="filterVisas('france')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/fr.png" class="w-6 h-4 rounded flag-img" alt="France Flag">
+                <button onclick="filterVisas('france')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="France visas">
+                    <img src="https://flagcdn.com/w40/fr.png" class="w-6 h-4 rounded flag-img" alt="France Flag" loading="lazy">
                     France
                 </button>
-                <button onclick="filterVisas('italy')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/it.png" class="w-6 h-4 rounded flag-img" alt="Italy Flag">
+                <button onclick="filterVisas('italy')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="Italy visas">
+                    <img src="https://flagcdn.com/w40/it.png" class="w-6 h-4 rounded flag-img" alt="Italy Flag" loading="lazy">
                     Italy
                 </button>
-                <button onclick="filterVisas('netherlands')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/nl.png" class="w-6 h-4 rounded flag-img" alt="Netherlands Flag">
+                <button onclick="filterVisas('netherlands')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="Netherlands visas">
+                    <img src="https://flagcdn.com/w40/nl.png" class="w-6 h-4 rounded flag-img" alt="Netherlands Flag" loading="lazy">
                     Netherlands
                 </button>
-                <button onclick="filterVisas('sweden')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/se.png" class="w-6 h-4 rounded flag-img" alt="Sweden Flag">
+                <button onclick="filterVisas('sweden')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="Sweden visas">
+                    <img src="https://flagcdn.com/w40/se.png" class="w-6 h-4 rounded flag-img" alt="Sweden Flag" loading="lazy">
                     Sweden
                 </button>
-                <button onclick="filterVisas('spain')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/es.png" class="w-6 h-4 rounded flag-img" alt="Spain Flag">
+                <button onclick="filterVisas('spain')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="Spain visas">
+                    <img src="https://flagcdn.com/w40/es.png" class="w-6 h-4 rounded flag-img" alt="Spain Flag" loading="lazy">
                     Spain
                 </button>
-                <button onclick="filterVisas('finland')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/fi.png" class="w-6 h-4 rounded flag-img" alt="Finland Flag">
+                <button onclick="filterVisas('finland')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="Finland visas">
+                    <img src="https://flagcdn.com/w40/fi.png" class="w-6 h-4 rounded flag-img" alt="Finland Flag" loading="lazy">
                     Finland
                 </button>
-                <button onclick="filterVisas('canada')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/ca.png" class="w-6 h-4 rounded flag-img" alt="Canada Flag">
+                <button onclick="filterVisas('canada')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="Canada visas">
+                    <img src="https://flagcdn.com/w40/ca.png" class="w-6 h-4 rounded flag-img" alt="Canada Flag" loading="lazy">
                     Canada
                 </button>
-                <button onclick="filterVisas('australia')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/au.png" class="w-6 h-4 rounded flag-img" alt="Australia Flag">
+                <button onclick="filterVisas('australia')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="Australia visas">
+                    <img src="https://flagcdn.com/w40/au.png" class="w-6 h-4 rounded flag-img" alt="Australia Flag" loading="lazy">
                     Australia
                 </button>
-                <button onclick="filterVisas('newzealand')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2">
-                    <img src="https://flagcdn.com/w40/nz.png" class="w-6 h-4 rounded flag-img" alt="New Zealand Flag">
+                <button onclick="filterVisas('newzealand')" class="filter-btn px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold transition flex items-center gap-2" aria-label="New Zealand visas">
+                    <img src="https://flagcdn.com/w40/nz.png" class="w-6 h-4 rounded flag-img" alt="New Zealand Flag" loading="lazy">
                     New Zealand
                 </button>
             </div>
 
-            <div id="visa-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 section-content visa-grid">
+            <div id="visa-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 section-content">
                 <!-- Visas will be loaded here -->
             </div>
         </div>
     </section>
 
     <!-- Your Roadmap to Global Success Section -->
-    <section id="roadmap" class="section-padding bg-gradient-to-b from-brand-surface to-brand-bg">
+    <section id="roadmap" class="section-padding bg-gradient-to-b from-brand-surface to-brand-bg scroll-improve">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
                 <span class="text-brand-accent font-bold tracking-widest text-sm uppercase mb-4 block">Structured Approach</span>
@@ -2252,7 +2450,7 @@
     </section>
 
     <!-- Study Abroad Guides & Resources Section -->
-    <section id="guides" class="section-padding bg-brand-bg">
+    <section id="guides" class="section-padding bg-brand-bg scroll-improve">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
                 <span class="text-brand-accent font-bold tracking-widest text-sm uppercase mb-4 block">Knowledge Hub</span>
@@ -2399,7 +2597,7 @@
     </section>
 
     <!-- Why Top Universities & Embassies Trust TESCA Global -->
-    <section id="trust" class="section-padding bg-gradient-to-b from-brand-surface to-brand-bg">
+    <section id="trust" class="section-padding bg-gradient-to-b from-brand-surface to-brand-bg scroll-improve">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-4xl mx-auto mb-12 animate-fade-in">
                 <span class="text-brand-accent font-bold tracking-widest text-sm uppercase mb-4 block">Trust & Excellence</span>
@@ -2540,7 +2738,7 @@
     </section>
 
     <!-- Professional Footer -->
-    <footer id="contact" class="bg-brand-surface border-t border-white/5">
+    <footer id="contact" class="bg-brand-surface border-t border-white/5 scroll-improve">
         <div class="container mx-auto px-4">
             <div class="footer-grid mb-10">
                 <!-- Column 1: Logo and Description -->
@@ -2555,16 +2753,16 @@
                         World-class visa and immigration consultancy with 98.7% success rate. Accredited by British Council and recognized by global embassies.
                     </p>
                     <div class="flex gap-3 mt-3">
-                        <a href="https://linkedin.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-500 hover:text-white transition duration-300">
+                        <a href="https://linkedin.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-500 hover:text-white transition duration-300" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in text-sm"></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-pink-600 hover:text-white transition duration-300">
+                        <a href="https://instagram.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-pink-600 hover:text-white transition duration-300" aria-label="Instagram">
                             <i class="fab fa-instagram text-sm"></i>
                         </a>
-                        <a href="https://facebook.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-600 hover:text-white transition duration-300">
+                        <a href="https://facebook.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-blue-600 hover:text-white transition duration-300" aria-label="Facebook">
                             <i class="fab fa-facebook-f text-sm"></i>
                         </a>
-                        <a href="https://youtube.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-red-600 hover:text-white transition duration-300">
+                        <a href="https://youtube.com" target="_blank" class="direct-link w-9 h-9 rounded-full glass flex items-center justify-center hover:bg-red-600 hover:text-white transition duration-300" aria-label="YouTube">
                             <i class="fab fa-youtube text-sm"></i>
                         </a>
                     </div>
@@ -2654,7 +2852,7 @@
     <!-- Testimonials Page (Hidden by default) -->
     <div id="testimonials-page" class="page-container">
         <div class="page-content">
-            <button onclick="hideTestimonialsPage()" class="mb-8 text-brand-primary hover:text-blue-400 font-medium flex items-center gap-2">
+            <button onclick="hideTestimonialsPage()" class="mb-8 text-brand-primary hover:text-blue-400 font-medium flex items-center gap-2" aria-label="Back to resources">
                 <i class="fas fa-arrow-left"></i> Back to Resources
             </button>
             
@@ -2689,7 +2887,7 @@
     <!-- Interview Preparation Page (Hidden by default) -->
     <div id="interview-prep-page" class="page-container">
         <div class="page-content">
-            <button onclick="hideInterviewPrepPage()" class="mb-8 text-brand-primary hover:text-blue-400 font-medium flex items-center gap-2">
+            <button onclick="hideInterviewPrepPage()" class="mb-8 text-brand-primary hover:text-blue-400 font-medium flex items-center gap-2" aria-label="Back to resources">
                 <i class="fas fa-arrow-left"></i> Back to Resources
             </button>
             
@@ -2736,81 +2934,82 @@
     </div>
 
     <script>
-        // --- DEVICE DETECTION AND CLASS ASSIGNMENT ---
-        function detectDeviceAndApplyClasses() {
-            const body = document.body;
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            const userAgent = navigator.userAgent.toLowerCase();
+        // --- 1. DEVICE DETECTION AND CLASSIFICATION ---
+        class DeviceDetector {
+            constructor() {
+                this.deviceType = this.detectDeviceType();
+                this.screenSize = this.getScreenSize();
+                this.browser = this.detectBrowser();
+                this.os = this.detectOS();
+                this.applyDeviceSpecificStyles();
+            }
             
-            // Remove all device classes first
-            body.classList.remove('iphone', 'samsung', 'android', 'tablet', 'laptop', 'desktop', 'pc', 
-                                'tablet-portrait', 'tablet-landscape', 'laptop-landscape');
+            detectDeviceType() {
+                const width = window.innerWidth;
+                if (width <= 480) return 'mobile';
+                if (width <= 768) return 'tablet';
+                if (width <= 1024) return 'small-desktop';
+                return 'desktop';
+            }
             
-            // Detect specific devices
-            const isiPhone = /iphone|ipod|ipad/.test(userAgent);
-            const isSamsung = /samsung/.test(userAgent);
-            const isAndroid = /android/.test(userAgent);
+            getScreenSize() {
+                return {
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                    ratio: window.devicePixelRatio || 1
+                };
+            }
             
-            // Screen size detection
-            if (width <= 768) {
-                if (isiPhone) {
-                    body.classList.add('iphone');
-                    console.log('iPhone device detected');
-                } else if (isSamsung) {
-                    body.classList.add('samsung');
-                    console.log('Samsung device detected');
-                } else if (isAndroid) {
-                    body.classList.add('android');
-                    console.log('Android device detected');
+            detectBrowser() {
+                const ua = navigator.userAgent;
+                if (ua.indexOf("Chrome") > -1) return 'chrome';
+                if (ua.indexOf("Safari") > -1) return 'safari';
+                if (ua.indexOf("Firefox") > -1) return 'firefox';
+                if (ua.indexOf("Edg") > -1) return 'edge';
+                return 'other';
+            }
+            
+            detectOS() {
+                const ua = navigator.userAgent;
+                if (/iPad|iPhone|iPod/.test(ua)) return 'ios';
+                if (/Android/.test(ua)) return 'android';
+                if (/Windows/.test(ua)) return 'windows';
+                if (/Mac OS/.test(ua)) return 'mac';
+                return 'other';
+            }
+            
+            applyDeviceSpecificStyles() {
+                const body = document.body;
+                
+                // Add device type class
+                body.classList.add(`device-${this.deviceType}`);
+                body.classList.add(`os-${this.os}`);
+                body.classList.add(`browser-${this.browser}`);
+                
+                // iOS specific fixes
+                if (this.os === 'ios') {
+                    document.documentElement.style.setProperty('--ios-safe-area', 'env(safe-area-inset-top)');
+                    
+                    // Fix for iOS 100vh issue
+                    const setVH = () => {
+                        const vh = window.innerHeight * 0.01;
+                        document.documentElement.style.setProperty('--vh', `${vh}px`);
+                    };
+                    setVH();
+                    window.addEventListener('resize', setVH);
                 }
                 
-                // Mobile orientation
-                if (width > height) {
-                    console.log('Mobile landscape orientation');
+                // Android specific fixes
+                if (this.os === 'android') {
+                    // Prevent zoom on focus
+                    document.addEventListener('touchstart', function() {}, {passive: true});
                 }
+                
+                console.log(`Device: ${this.deviceType}, OS: ${this.os}, Browser: ${this.browser}`);
             }
-            
-            // Tablet detection
-            if (width >= 769 && width <= 1024) {
-                body.classList.add('tablet');
-                if (height > width) {
-                    body.classList.add('tablet-portrait');
-                } else {
-                    body.classList.add('tablet-landscape');
-                }
-                console.log('Tablet device detected');
-            }
-            
-            // Laptop detection
-            if (width >= 1025 && width <= 1440) {
-                body.classList.add('laptop');
-                if (width > height) {
-                    body.classList.add('laptop-landscape');
-                }
-                console.log('Laptop device detected');
-            }
-            
-            // Desktop detection
-            if (width >= 1441 && width <= 1920) {
-                body.classList.add('desktop');
-                console.log('Desktop device detected');
-            }
-            
-            // PC (Large Screen) detection
-            if (width > 1920) {
-                body.classList.add('pc');
-                console.log('PC/Large Screen device detected');
-            }
-            
-            // Update CSS variables
-            document.documentElement.style.setProperty('--device-width', `${width}px`);
-            document.documentElement.style.setProperty('--device-height', `${height}px`);
-            
-            console.log(`Screen: ${width}x${height}, Device type: ${body.classList.toString()}`);
         }
-
-        // --- BANNERS ARRAY WITH UPDATED BACKGROUND IMAGES ---
+        
+        // --- 2. BANNERS ARRAY WITH UPDATED BACKGROUND IMAGES ---
         const banners = [
             {
                 country: 'uk',
@@ -2970,7 +3169,7 @@
             }
         ];
 
-        // --- VISA PROGRAMS DATA - COMPLETE 52 VISAS ---
+        // --- 3. VISA PROGRAMS DATA - COMPLETE 52 VISAS ---
         const visas = [
             // UK Visas (4 types) - country: 'uk'
             { 
@@ -3519,7 +3718,7 @@
             }
         ];
 
-        // --- TESTIMONIALS DATA - COMPLETE ---
+        // --- 4. TESTIMONIALS DATA - COMPLETE ---
         const testimonials = [
             // UK Testimonials (4)
             { country: 'uk', visaType: 'student', name: 'Rahul Sharma', date: 'Dec 2025', rating: 5, text: 'TESCA helped me get my UK student visa in just 3 weeks. Their document verification process was impeccable!', successRate: '98.5%' },
@@ -3600,7 +3799,7 @@
             { country: 'newzealand', visaType: 'dependent', name: 'Emily Davis', date: 'Jan 2026', rating: 5, text: 'Partner visa for New Zealand processed efficiently.', successRate: '92.8%' }
         ];
 
-        // --- INTERVIEW QUESTIONS DATA - COMPLETE 104 QUESTIONS (13 COUNTRIES × 4 VISAS × 2 QUESTIONS) ---
+        // --- 5. INTERVIEW QUESTIONS DATA - COMPLETE 104 QUESTIONS (13 COUNTRIES × 4 VISAS × 2 QUESTIONS) ---
         const interviewQuestions = [
             // UK Student Visa (2 questions)
             { country: 'uk', visaType: 'student', question: 'Why did you choose this university in the UK?', answer: 'I chose this university because it ranks among the top institutions for my field of study. The specific course curriculum aligns perfectly with my career goals, and the university has strong industry connections for placements.' },
@@ -3811,14 +4010,20 @@
             { country: 'newzealand', type: 'dependent', question: 'What are your plans in New Zealand?', answer: 'I plan to support my partner\'s career, potentially study/work within visa conditions, integrate into New Zealand society, and contribute to our community.' }
         ];
 
-        // --- STATE VARIABLES ---
+        // --- 6. STATE VARIABLES ---
         let currentBannerIndex = 0;
         let bannerInterval;
+        let deviceDetector = null;
 
-        // --- DEVICE DETECTION AND INITIALIZATION ---
+        // --- 7. INITIALIZATION ---
         window.onload = () => {
-            // Detect device and apply classes
-            detectDeviceAndApplyClasses();
+            // Initialize device detection
+            deviceDetector = new DeviceDetector();
+            
+            // Check if mobile view
+            if (window.innerWidth <= 768) {
+                document.body.classList.add('mobile-view');
+            }
             
             // Loader animation
             const bar = document.getElementById('loader-bar');
@@ -3849,11 +4054,21 @@
             
             // Set initial scroll position to prevent overlap
             window.scrollTo(0, 0);
+            
+            // Log device info for debugging
+            console.log('Website initialized for:', {
+                deviceType: deviceDetector.deviceType,
+                os: deviceDetector.os,
+                browser: deviceDetector.browser,
+                screenSize: deviceDetector.screenSize
+            });
         }
 
-        // --- BANNER SYSTEM WITH PERFECT CENTERING FOR ALL DEVICES ---
+        // --- 8. BANNER SYSTEM ---
         function renderBanners() {
             const bannerContainer = document.querySelector('.banner-container');
+            const isMobile = window.innerWidth <= 768;
+            const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
             
             // Clear existing content (except arrows and overlay)
             const existingSlides = bannerContainer.querySelectorAll('.banner-slide:not(.banner-nav-arrow):not(.banner-overlay)');
@@ -3871,25 +4086,23 @@
                 slide.style.backgroundSize = 'cover';
                 slide.style.backgroundPosition = 'center';
                 slide.style.backgroundRepeat = 'no-repeat';
-                slide.style.backgroundColor = '#050507';
+                slide.style.backgroundColor = '#050507'; // Fallback color
                 
-                // Dynamic sizing based on device
-                const body = document.body;
-                let titleSize = 'text-3xl md:text-4xl lg:text-5xl';
-                let subtitleSize = 'text-lg md:text-xl';
+                // Responsive text sizing
+                let titleSize, subtitleSize, statsSize;
                 
-                if (body.classList.contains('iphone')) {
-                    titleSize = 'text-2xl md:text-3xl';
-                    subtitleSize = 'text-base md:text-lg';
-                } else if (body.classList.contains('tablet')) {
-                    titleSize = 'text-3xl md:text-4xl';
-                    subtitleSize = 'text-xl md:text-2xl';
-                } else if (body.classList.contains('laptop')) {
-                    titleSize = 'text-4xl md:text-5xl';
-                    subtitleSize = 'text-xl md:text-2xl';
-                } else if (body.classList.contains('desktop') || body.classList.contains('pc')) {
-                    titleSize = 'text-5xl md:text-6xl';
-                    subtitleSize = 'text-2xl md:text-3xl';
+                if (isMobile) {
+                    titleSize = 'text-2xl';
+                    subtitleSize = 'text-base';
+                    statsSize = 'text-sm';
+                } else if (isTablet) {
+                    titleSize = 'text-3xl';
+                    subtitleSize = 'text-lg';
+                    statsSize = 'text-base';
+                } else {
+                    titleSize = 'text-4xl lg:text-5xl';
+                    subtitleSize = 'text-lg md:text-xl';
+                    statsSize = 'text-base';
                 }
                 
                 slide.innerHTML = `
@@ -3897,7 +4110,7 @@
                         <div class="max-w-5xl mx-auto px-4">
                             <div class="flex justify-center mb-6">
                                 <div class="country-badge glass-intense">
-                                    <img src="${banner.flag}" alt="${banner.country.toUpperCase()} Flag" class="w-8 h-6 rounded flag-img">
+                                    <img src="${banner.flag}" alt="${banner.country.toUpperCase()} Flag" class="w-8 h-6 rounded flag-img" loading="lazy">
                                     <span class="font-bold text-sm">${banner.country.toUpperCase()}</span>
                                     <span class="text-red-400 font-bold ml-2 text-sm">${banner.deadline}</span>
                                 </div>
@@ -3915,7 +4128,7 @@
                                     <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
                                     <p class="text-base md:text-lg font-bold text-white">${banner.offer}</p>
                                 </div>
-                                <div class="text-center text-sm md:text-base text-gray-300">
+                                <div class="text-center ${statsSize} text-gray-300">
                                     <i class="fas fa-chart-line text-green-500 mr-2"></i>${banner.stats}
                                 </div>
                             </div>
@@ -3946,7 +4159,7 @@
                 };
             });
             
-            // Adjust banner arrows based on device
+            // Show/hide arrows based on device
             updateBannerArrows();
         }
 
@@ -3970,30 +4183,23 @@
         }
 
         function updateBannerArrows() {
-            const body = document.body;
+            const isMobile = window.innerWidth <= 768;
+            const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
             const arrows = document.querySelectorAll('.banner-nav-arrow');
             
             arrows.forEach(arrow => {
-                if (body.classList.contains('iphone') || window.innerWidth <= 768) {
+                if (isMobile) {
                     arrow.style.display = 'flex';
                     arrow.style.width = '45px';
                     arrow.style.height = '45px';
                     arrow.style.fontSize = '1.2rem';
-                } else if (body.classList.contains('tablet')) {
+                } else if (isTablet) {
                     arrow.style.display = 'flex';
                     arrow.style.width = '55px';
                     arrow.style.height = '55px';
                     arrow.style.fontSize = '1.5rem';
-                } else if (body.classList.contains('laptop')) {
+                } else {
                     arrow.style.display = 'flex';
-                    arrow.style.width = '65px';
-                    arrow.style.height = '65px';
-                    arrow.style.fontSize = '1.8rem';
-                } else if (body.classList.contains('desktop') || body.classList.contains('pc')) {
-                    arrow.style.display = 'flex';
-                    arrow.style.width = '70px';
-                    arrow.style.height = '70px';
-                    arrow.style.fontSize = '2rem';
                 }
             });
         }
@@ -4028,7 +4234,7 @@
             goToBanner(prevIndex);
         }
 
-        // --- VISA FILTERING SYSTEM ---
+        // --- 9. VISA FILTERING SYSTEM ---
         function filterVisas(country) {
             // Update filter buttons
             document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -4087,20 +4293,15 @@
                 if (v.country === 'netherlands') countryName = 'Netherlands';
                 if (v.country === 'uk') countryName = 'United Kingdom';
                 if (v.country === 'usa') countryName = 'United States';
-                
-                // Adjust content based on device
-                const body = document.body;
-                let requirementsToShow = v.requirements.slice(0, 3);
-                if (body.classList.contains('iphone') || window.innerWidth <= 768) {
-                    requirementsToShow = v.requirements.slice(0, 2);
-                }
+                const isMobile = window.innerWidth <= 768;
+                const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
                 
                 return `
                 <div class="visa-card glass-card animate-fade-in">
                     <div class="visa-content">
                         <div class="flex justify-between items-start mb-4">
                             <div class="flex items-center gap-3">
-                                <img src="${countryFlag}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img">
+                                <img src="${countryFlag}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img" loading="lazy">
                                 <div>
                                     <span class="font-bold text-sm">${countryName}</span>
                                     <div class="text-xs text-gray-400 mt-1">${v.type.charAt(0).toUpperCase() + v.type.slice(1)} Visa</div>
@@ -4118,7 +4319,7 @@
                             <div class="mb-4">
                                 <h4 class="font-bold text-white text-sm mb-2">Key Requirements:</h4>
                                 <div class="space-y-1">
-                                    ${requirementsToShow.map(req => `
+                                    ${v.requirements.slice(0, isMobile ? 2 : (isTablet ? 3 : 3)).map(req => `
                                         <div class="visa-process-item">
                                             <i class="fas fa-check-circle text-xs"></i>
                                             <span class="text-xs">${req}</span>
@@ -4155,7 +4356,7 @@
             }).join('');
         }
 
-        // --- VISA DETAIL PAGE FUNCTION ---
+        // --- 10. VISA DETAIL PAGE FUNCTION ---
         function showVisaDetail(visaId) {
             const visa = visas.find(v => v.id === visaId);
             if (!visa) return;
@@ -4194,12 +4395,12 @@
                     <!-- CENTERED FLAG BOX -->
                     <div class="centered-flag-container">
                         <div class="centered-flag-box">
-                            <img src="${countryFlag}" alt="${countryName} Flag" class="detail-flag">
+                            <img src="${countryFlag}" alt="${countryName} Flag" class="detail-flag" loading="lazy">
                         </div>
                     </div>
                     
                     <h2 class="text-2xl md:text-3xl font-bold mb-2">${visa.title}</h2>
-                    <div class="flex items-center justify-center gap-4">
+                    <div class="flex flex-wrap items-center justify-center gap-4">
                         <span class="bg-green-500/20 text-green-400 text-sm font-bold px-3 py-1 rounded-full">${visa.successRate} Success Rate</span>
                         <span class="bg-blue-500/20 text-blue-400 text-sm font-bold px-3 py-1 rounded-full">${visa.country.toUpperCase()}</span>
                         <span class="bg-purple-500/20 text-purple-400 text-sm font-bold px-3 py-1 rounded-full">${visa.type.charAt(0).toUpperCase() + visa.type.slice(1)} Visa</span>
@@ -4304,6 +4505,9 @@
                 detailPage.style.opacity = '1';
                 document.body.style.overflow = 'hidden';
             }, 10);
+            
+            // Scroll to top of detail page
+            detailPage.scrollTop = 0;
         }
 
         function closeVisaDetail() {
@@ -4315,7 +4519,7 @@
             }, 300);
         }
 
-        // --- NEW PAGES FUNCTIONS ---
+        // --- 11. NEW PAGES FUNCTIONS ---
         function showTestimonialsPage() {
             // Hide main content
             document.querySelectorAll('section, footer').forEach(el => {
@@ -4433,7 +4637,7 @@
                 return `
                 <div class="testimonial-card">
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="${flagUrl}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img">
+                        <img src="${flagUrl}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img" loading="lazy">
                         <div>
                             <h3 class="font-bold">${testimonial.name}</h3>
                             <div class="flex items-center gap-2">
@@ -4509,7 +4713,7 @@
                 return `
                 <div class="interview-question-card" data-country="${q.country}" data-visa-type="${q.visaType}">
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="${flagUrl}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img">
+                        <img src="${flagUrl}" alt="${countryName} Flag" class="w-8 h-6 rounded flag-img" loading="lazy">
                         <div>
                             <span class="font-bold">${countryName}</span>
                             <div class="text-xs text-gray-400">${visaTypeName} Visa • Question ${index + 1}</div>
@@ -4559,20 +4763,7 @@
             return countryNames[countryCode] || countryCode;
         }
 
-        // --- SIMPLE PDF DOWNLOAD FUNCTIONS ---
-        function downloadDocumentChecklistPDF() {
-            window.open('./pdfs/document-checklist-2026.pdf', '_blank');
-        }
-
-        function downloadFinancialGuidePDF() {
-            window.open('./pdfs/financial-guide-2026.pdf', '_blank');
-        }
-
-        function downloadPostArrivalPDF() {
-            window.open('./pdfs/post-arrival-guide-2026.pdf', '_blank');
-        }
-
-        // --- UTILITY FUNCTIONS ---
+        // --- 12. UTILITY FUNCTIONS ---
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             if (menu.classList.contains('hidden')) {
@@ -4590,6 +4781,7 @@
             }
         }
 
+        // --- 13. ENHANCED EVENT LISTENERS AND RESPONSIVE HANDLING ---
         function setupEventListeners() {
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -4609,7 +4801,7 @@
                     const targetElement = document.getElementById(targetId);
                     
                     if (targetElement) {
-                        const headerOffset = window.innerWidth <= 768 ? 100 : 140;
+                        const headerOffset = window.innerWidth <= 768 ? 90 : 140;
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                         
@@ -4639,45 +4831,101 @@
                 }
             });
             
-            // Responsive adjustments on resize
+            // Enhanced responsive adjustments on resize
+            let resizeTimeout;
             window.addEventListener('resize', () => {
-                // Re-detect device on resize
-                detectDeviceAndApplyClasses();
-                
-                // Update banner arrows position
-                updateBannerArrows();
-                
-                // Re-render banners for responsive adjustments
-                renderBanners();
-                
-                // Re-render visas for responsive layout
-                const activeFilter = document.querySelector('.filter-btn.active');
-                if (activeFilter) {
-                    const filterText = activeFilter.textContent.toLowerCase();
-                    let filterType = 'uk';
-                    if (filterText.includes('uk')) filterType = 'uk';
-                    if (filterText.includes('usa') || filterText.includes('us')) filterType = 'usa';
-                    if (filterText.includes('germany')) filterType = 'germany';
-                    if (filterText.includes('ireland')) filterType = 'ireland';
-                    if (filterText.includes('france')) filterType = 'france';
-                    if (filterText.includes('italy')) filterType = 'italy';
-                    if (filterText.includes('netherlands')) filterType = 'netherlands';
-                    if (filterText.includes('sweden')) filterType = 'sweden';
-                    if (filterText.includes('spain')) filterType = 'spain';
-                    if (filterText.includes('finland')) filterType = 'finland';
-                    if (filterText.includes('canada')) filterType = 'canada';
-                    if (filterText.includes('australia')) filterType = 'australia';
-                    if (filterText.includes('new zealand') || filterText.includes('nz')) filterType = 'newzealand';
-                    filterVisas(filterType);
-                }
-                
-                // Close mobile menu on resize to desktop
-                if (window.innerWidth > 768) {
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (mobileMenu.classList.contains('show')) {
-                        toggleMobileMenu();
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    // Update device detection
+                    if (deviceDetector) {
+                        deviceDetector.deviceType = deviceDetector.detectDeviceType();
+                        deviceDetector.screenSize = deviceDetector.getScreenSize();
                     }
-                }
+                    
+                    // Update view classes
+                    if (window.innerWidth <= 768) {
+                        document.body.classList.add('mobile-view');
+                    } else {
+                        document.body.classList.remove('mobile-view');
+                    }
+                    
+                    // Update banner arrows position
+                    updateBannerArrows();
+                    
+                    // Re-render banners for responsive adjustments
+                    renderBanners();
+                    
+                    // Re-render visas for responsive layout
+                    const activeFilter = document.querySelector('.filter-btn.active');
+                    if (activeFilter) {
+                        const filterText = activeFilter.textContent.toLowerCase();
+                        let filterType = 'uk';
+                        if (filterText.includes('uk')) filterType = 'uk';
+                        if (filterText.includes('usa') || filterText.includes('us')) filterType = 'usa';
+                        if (filterText.includes('germany')) filterType = 'germany';
+                        if (filterText.includes('ireland')) filterType = 'ireland';
+                        if (filterText.includes('france')) filterType = 'france';
+                        if (filterText.includes('italy')) filterType = 'italy';
+                        if (filterText.includes('netherlands')) filterType = 'netherlands';
+                        if (filterText.includes('sweden')) filterType = 'sweden';
+                        if (filterText.includes('spain')) filterType = 'spain';
+                        if (filterText.includes('finland')) filterType = 'finland';
+                        if (filterText.includes('canada')) filterType = 'canada';
+                        if (filterText.includes('australia')) filterType = 'australia';
+                        if (filterText.includes('new zealand') || filterText.includes('nz')) filterType = 'newzealand';
+                        filterVisas(filterType);
+                    }
+                    
+                    // Close mobile menu on resize to desktop
+                    if (window.innerWidth > 768) {
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (mobileMenu.classList.contains('show')) {
+                            toggleMobileMenu();
+                        }
+                    }
+                    
+                    // Fix for iOS Safari 100vh issue
+                    if (deviceDetector && deviceDetector.os === 'ios') {
+                        const vh = window.innerHeight * 0.01;
+                        document.documentElement.style.setProperty('--vh', `${vh}px`);
+                    }
+                    
+                    console.log('Resize handled for:', {
+                        width: window.innerWidth,
+                        height: window.innerHeight,
+                        deviceType: deviceDetector ? deviceDetector.deviceType : 'unknown'
+                    });
+                }, 250); // Debounce resize events
+            });
+            
+            // Orientation change handling
+            window.addEventListener('orientationchange', () => {
+                setTimeout(() => {
+                    // Force re-render on orientation change
+                    renderBanners();
+                    updateBannerArrows();
+                    
+                    // Re-filter visas
+                    const activeFilter = document.querySelector('.filter-btn.active');
+                    if (activeFilter) {
+                        const filterText = activeFilter.textContent.toLowerCase();
+                        let filterType = 'uk';
+                        if (filterText.includes('uk')) filterType = 'uk';
+                        if (filterText.includes('usa') || filterText.includes('us')) filterType = 'usa';
+                        if (filterText.includes('germany')) filterType = 'germany';
+                        if (filterText.includes('ireland')) filterType = 'ireland';
+                        if (filterText.includes('france')) filterType = 'france';
+                        if (filterText.includes('italy')) filterType = 'italy';
+                        if (filterText.includes('netherlands')) filterType = 'netherlands';
+                        if (filterText.includes('sweden')) filterType = 'sweden';
+                        if (filterText.includes('spain')) filterType = 'spain';
+                        if (filterText.includes('finland')) filterType = 'finland';
+                        if (filterText.includes('canada')) filterType = 'canada';
+                        if (filterText.includes('australia')) filterType = 'australia';
+                        if (filterText.includes('new zealand') || filterText.includes('nz')) filterType = 'newzealand';
+                        filterVisas(filterType);
+                    }
+                }, 300);
             });
             
             // Banner buttons redirect to phone/email
@@ -4689,16 +4937,89 @@
                 }
             });
             
-            // Prevent default behavior for filter buttons that don't have links
-            document.querySelectorAll('.filter-btn, .view-requirements-btn, .country-filter-btn').forEach(btn => {
-                if (!btn.href) {
-                    btn.addEventListener('click', function(e) {
-                        if (!this.href) {
-                            e.preventDefault();
+            // Touch event improvements for mobile
+            document.addEventListener('touchstart', function() {}, {passive: true});
+            
+            // Prevent zoom on input focus for mobile
+            if (deviceDetector && deviceDetector.os === 'ios') {
+                document.addEventListener('touchstart', function(e) {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+                        // Allow zoom for form elements
+                    }
+                }, {passive: true});
+            }
+            
+            // Load images with intersection observer for better performance
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
                         }
-                    });
-                }
+                        observer.unobserve(img);
+                    }
+                });
             });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // --- 14. INITIALIZE ON DOM LOAD ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial device classes
+            if (window.innerWidth <= 768) {
+                document.body.classList.add('mobile-view');
+            }
+            
+            // Initialize tooltips if needed
+            initializeTooltips();
+        });
+
+        function initializeTooltips() {
+            // Add tooltip functionality if needed
+            const tooltipElements = document.querySelectorAll('[data-tooltip]');
+            tooltipElements.forEach(el => {
+                el.addEventListener('mouseenter', showTooltip);
+                el.addEventListener('mouseleave', hideTooltip);
+            });
+        }
+
+        function showTooltip(e) {
+            const tooltipText = e.target.dataset.tooltip;
+            if (!tooltipText) return;
+            
+            const tooltip = document.createElement('div');
+            tooltip.className = 'fixed z-[9999] bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg';
+            tooltip.textContent = tooltipText;
+            tooltip.style.left = `${e.pageX + 10}px`;
+            tooltip.style.top = `${e.pageY + 10}px`;
+            tooltip.id = 'custom-tooltip';
+            
+            document.body.appendChild(tooltip);
+        }
+
+        function hideTooltip() {
+            const tooltip = document.getElementById('custom-tooltip');
+            if (tooltip) {
+                tooltip.remove();
+            }
+        }
+
+        // --- 15. PDF DOWNLOAD FUNCTIONS ---
+        function downloadDocumentChecklistPDF() {
+            window.open('./pdfs/document-checklist-2026.pdf', '_blank');
+        }
+
+        function downloadFinancialGuidePDF() {
+            window.open('./pdfs/financial-guide-2026.pdf', '_blank');
+        }
+
+        function downloadPostArrivalPDF() {
+            window.open('./pdfs/post-arrival-guide-2026.pdf', '_blank');
         }
     </script>
 </body>
