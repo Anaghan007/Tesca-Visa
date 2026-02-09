@@ -1916,7 +1916,7 @@
             }
         }
         
-        /* 6. SMALL DESKTOP / LAPTOPS (1025px to 1366px) - FIXED BANNER SPACING */
+        /* 6. SMALL DESKTOP / LAPTOPS (1025px to 1366px) - SIGNIFICANTLY REDUCED SPACING */
         @media screen and (min-width: 1025px) and (max-width: 1366px) {
             /* DESKTOP HEADER - ALWAYS TRANSPARENT */
             #main-header nav {
@@ -1933,45 +1933,83 @@
                 padding: 1rem 2.5rem;
             }
             
-            /* DESKTOP HERO SECTION - FIXED BANNER SPACING */
+            /* DESKTOP HERO SECTION - SIGNIFICANTLY REDUCED BANNER SPACING */
             .hero-section {
-                height: 95vh !important;
-                min-height: 800px;
-                max-height: 1100px;
+                height: 92vh !important; /* Reduced from 95vh */
+                min-height: 750px; /* Reduced from 800px */
+                max-height: 1000px; /* Reduced from 1100px */
             }
             
-            /* FIXED: Banner content centered with reduced spacing */
+            /* FIXED: Banner content centered with significantly reduced spacing */
             .banner-content {
-                padding: 20px 30px 40px !important; /* REDUCED PADDING */
+                padding: 15px 25px 25px !important; /* SIGNIFICANTLY REDUCED PADDING */
                 justify-content: center;
-                margin-top: 120px !important; /* REDUCED from 140px to 120px */
-                min-height: calc(95vh - 120px);
+                margin-top: 100px !important; /* SIGNIFICANTLY REDUCED from 120px to 100px */
+                min-height: calc(92vh - 100px);
             }
             
             .banner-title {
-                font-size: 2.8rem !important;
-                line-height: 1.2;
-                margin-bottom: 1rem !important; /* REDUCED */
+                font-size: 2.6rem !important; /* Reduced from 2.8rem */
+                line-height: 1.15; /* Tighter line height */
+                margin-bottom: 0.8rem !important; /* SIGNIFICANTLY REDUCED */
+                max-width: 900px; /* Constrain width */
+                margin-left: auto;
+                margin-right: auto;
             }
             
             .banner-subtitle {
-                font-size: 1.1rem !important;
-                line-height: 1.6;
-                margin-bottom: 1.5rem !important; /* REDUCED */
+                font-size: 1.05rem !important; /* Reduced from 1.1rem */
+                line-height: 1.5; /* Tighter line height */
+                margin-bottom: 1.2rem !important; /* SIGNIFICANTLY REDUCED */
+                max-width: 750px; /* Constrain width */
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0 10px;
             }
             
             .banner-nav-arrow {
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
+                width: 50px; /* Reduced from 55px */
+                height: 50px; /* Reduced from 55px */
+                font-size: 1.3rem; /* Reduced from 1.5rem */
             }
             
             .banner-nav-arrow.prev {
-                left: 30px;
+                left: 25px; /* Reduced from 30px */
             }
             
             .banner-nav-arrow.next {
-                right: 30px;
+                right: 25px; /* Reduced from 30px */
+            }
+            
+            /* Country badge in banner - reduced */
+            .country-badge {
+                padding: 8px 18px !important; /* Reduced padding */
+                font-size: 0.9rem !important; /* Smaller font */
+                margin-bottom: 1rem !important; /* Reduced spacing */
+            }
+            
+            /* Banner offer box - reduced */
+            .glass-intense.p-5 {
+                padding: 1rem 1.5rem !important; /* Reduced padding */
+                margin-bottom: 1.2rem !important; /* Reduced spacing */
+            }
+            
+            /* Banner CTA button - reduced */
+            .banner-cta {
+                font-size: 1rem !important; /* Reduced from 1.1rem */
+                padding: 0.9rem 2rem !important; /* Reduced padding */
+                margin-top: 0.5rem !important; /* Reduced spacing */
+            }
+            
+            /* Banner stats text - smaller */
+            .banner-content .text-gray-300 {
+                font-size: 0.9rem !important;
+            }
+            
+            /* Banner free consultation text - smaller */
+            .banner-content .text-gray-400 {
+                font-size: 0.8rem !important;
+                margin-top: 0.8rem !important; /* Reduced spacing */
             }
             
             /* FIXED: Trust Section - Desktop vertical alignment */
@@ -2016,28 +2054,42 @@
                 padding-top: 2rem !important;
             }
             
-            /* Laptop 13-14 inch specific */
+            /* Laptop 13-14 inch specific - EXTRA REDUCED SPACING */
             @media (max-height: 800px) {
                 .hero-section {
-                    height: 92vh !important;
+                    height: 90vh !important; /* Even smaller */
                 }
                 
                 .banner-content {
-                    margin-top: 110px !important; /* Further reduced for smaller laptops */
-                    padding: 15px 25px 30px !important;
+                    margin-top: 90px !important; /* Further reduced for smaller laptops */
+                    padding: 10px 20px 20px !important; /* Even more reduced */
                 }
                 
                 .banner-title {
-                    margin-bottom: 0.8rem !important;
+                    font-size: 2.4rem !important; /* Even smaller */
+                    margin-bottom: 0.6rem !important; /* Minimal spacing */
+                    line-height: 1.1;
                 }
                 
                 .banner-subtitle {
-                    margin-bottom: 1.2rem !important;
+                    font-size: 1rem !important; /* Smaller */
+                    margin-bottom: 1rem !important; /* Minimal spacing */
+                    line-height: 1.4;
+                }
+                
+                .glass-intense.p-5 {
+                    padding: 0.8rem 1.2rem !important; /* Very compact */
+                    margin-bottom: 1rem !important;
+                }
+                
+                .banner-cta {
+                    padding: 0.8rem 1.8rem !important; /* Compact */
+                    font-size: 0.95rem !important;
                 }
             }
         }
         
-        /* 7. LARGE DESKTOP / 4K SCREENS (1367px and above) - FIXED BANNER SPACING */
+        /* 7. LARGE DESKTOP / 4K SCREENS (1367px and above) - REDUCED SPACING */
         @media screen and (min-width: 1367px) {
             .container {
                 max-width: 1400px !important;
@@ -2047,39 +2099,66 @@
                 max-width: 1400px;
             }
             
-            /* FIXED: Banner spacing for large screens */
+            /* FIXED: Banner spacing for large screens - REDUCED */
             .banner-content {
-                margin-top: 130px !important; /* Reduced for better centering */
-                padding: 25px 40px 50px !important;
+                margin-top: 120px !important; /* Reduced from 130px */
+                padding: 20px 35px 40px !important; /* Reduced padding */
             }
             
             .banner-title {
-                font-size: 3.5rem !important;
+                font-size: 3.2rem !important; /* Reduced from 3.5rem */
                 line-height: 1.1;
-                margin-bottom: 1.2rem !important; /* Reduced */
+                margin-bottom: 1rem !important; /* Reduced */
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
             }
             
             .banner-subtitle {
-                font-size: 1.3rem !important;
-                line-height: 1.6;
-                margin-bottom: 1.8rem !important; /* Reduced */
+                font-size: 1.2rem !important; /* Reduced from 1.3rem */
+                line-height: 1.5;
+                margin-bottom: 1.5rem !important; /* Reduced */
+                max-width: 850px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0 15px;
             }
             
             .banner-nav-arrow {
-                width: 65px;
-                height: 65px;
-                font-size: 1.8rem;
+                width: 60px; /* Reduced from 65px */
+                height: 60px; /* Reduced from 65px */
+                font-size: 1.6rem; /* Reduced from 1.8rem */
             }
             
             .banner-nav-arrow.prev {
-                left: 50px;
+                left: 40px; /* Reduced from 50px */
             }
             
             .banner-nav-arrow.next {
-                right: 50px;
+                right: 40px; /* Reduced from 50px */
             }
             
-            /* 4K specific */
+            /* Country badge in banner - reduced */
+            .country-badge {
+                padding: 10px 22px !important; /* Slightly reduced */
+                font-size: 1rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+            
+            /* Banner offer box - reduced */
+            .glass-intense.p-5 {
+                padding: 1.2rem 2rem !important; /* Reduced */
+                margin-bottom: 1.5rem !important; /* Reduced */
+            }
+            
+            /* Banner CTA button - reduced */
+            .banner-cta {
+                font-size: 1.1rem !important; /* Reduced from default */
+                padding: 1rem 2.2rem !important; /* Reduced */
+                margin-top: 0.8rem !important; /* Reduced */
+            }
+            
+            /* 4K specific - Keep proportional */
             @media (min-width: 1920px) {
                 .container {
                     max-width: 1600px !important;
@@ -2090,13 +2169,17 @@
                 }
                 
                 .banner-title {
-                    font-size: 4rem !important;
-                    margin-bottom: 1.5rem !important;
+                    font-size: 3.6rem !important; /* Reduced from 4rem */
+                    margin-bottom: 1.2rem !important;
                 }
                 
                 .banner-subtitle {
-                    font-size: 1.5rem !important;
-                    margin-bottom: 2rem !important;
+                    font-size: 1.4rem !important; /* Reduced from 1.5rem */
+                    margin-bottom: 1.8rem !important;
+                }
+                
+                .banner-content {
+                    margin-top: 130px !important; /* Proportional */
                 }
             }
         }
@@ -2458,11 +2541,11 @@
         }
         
         .device-small-desktop .banner-title {
-            font-size: 2.8rem !important;
+            font-size: 2.6rem !important; /* Updated for laptop view */
         }
         
         .device-desktop .banner-title {
-            font-size: 3.5rem !important;
+            font-size: 3.2rem !important; /* Updated for large desktop */
         }
         
         /* iOS specific adjustments */
@@ -2504,6 +2587,43 @@
                 color: black !important;
                 text-decoration: underline;
             }
+        }
+        
+        /* === BANNER SPACING OPTIMIZATION - ADDITIONAL FIXES === */
+        .banner-inner-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        /* Optimize banner element spacing */
+        .banner-content .max-w-5xl {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        
+        /* Compact banner layout */
+        .banner-compact .country-badge {
+            margin-bottom: 0.8rem !important;
+        }
+        
+        .banner-compact .banner-title {
+            margin-bottom: 0.8rem !important;
+        }
+        
+        .banner-compact .banner-subtitle {
+            margin-bottom: 1rem !important;
+        }
+        
+        .banner-compact .glass-intense {
+            margin-bottom: 1rem !important;
+            padding: 0.8rem 1.2rem !important;
+        }
+        
+        .banner-compact .banner-cta {
+            margin-top: 0.5rem !important;
         }
     </style>
 </head>
@@ -4635,7 +4755,7 @@
             // Create banner slides with device-specific sizing
             banners.forEach((banner, index) => {
                 const slide = document.createElement('div');
-                slide.className = `banner-slide ${index === 0 ? 'active' : ''}`;
+                slide.className = `banner-slide ${index === 0 ? 'active' : ''} banner-compact`;
                 slide.id = `banner-${index}`;
                 
                 // Set background image with fallback
@@ -4646,7 +4766,7 @@
                 slide.style.backgroundRepeat = 'no-repeat';
                 slide.style.backgroundColor = '#050507';
                 
-                // Device-specific text sizing
+                // Device-specific text sizing with reduced spacing
                 let titleSize, subtitleSize, statsSize, paddingClass;
                 
                 switch(deviceType) {
@@ -4656,48 +4776,48 @@
                         titleSize = 'text-2xl';
                         subtitleSize = 'text-sm';
                         statsSize = 'text-xs';
-                        paddingClass = 'px-3 py-4';
+                        paddingClass = 'px-3 py-3'; // Reduced padding
                         break;
                     case 'tablet':
                     case 'ipad':
                         titleSize = 'text-3xl';
                         subtitleSize = 'text-base';
                         statsSize = 'text-sm';
-                        paddingClass = 'px-4 py-5';
+                        paddingClass = 'px-4 py-4'; // Reduced padding
                         break;
                     case 'small-desktop':
-                        titleSize = 'text-4xl';
+                        titleSize = 'text-3xl'; // Reduced from 4xl for laptop
                         subtitleSize = 'text-lg';
                         statsSize = 'text-base';
-                        paddingClass = 'px-5 py-6';
+                        paddingClass = 'px-4 py-4'; // Reduced padding
                         break;
                     default:
-                        titleSize = 'text-5xl';
+                        titleSize = 'text-4xl'; // Reduced from 5xl
                         subtitleSize = 'text-xl';
                         statsSize = 'text-base';
-                        paddingClass = 'px-6 py-8';
+                        paddingClass = 'px-5 py-5'; // Reduced padding
                 }
                 
                 slide.innerHTML = `
-                    <div class="banner-content">
+                    <div class="banner-content banner-inner-content">
                         <div class="max-w-5xl mx-auto px-4">
-                            <div class="flex justify-center mb-4"> <!-- REDUCED mb-6 to mb-4 -->
+                            <div class="flex justify-center mb-3"> <!-- Further reduced mb-4 to mb-3 -->
                                 <div class="country-badge glass-intense ${paddingClass}">
-                                    <img src="${banner.flag}" alt="${banner.country.toUpperCase()} Flag" class="w-8 h-6 rounded flag-img" loading="lazy">
+                                    <img src="${banner.flag}" alt="${banner.country.toUpperCase()} Flag" class="w-7 h-5 rounded flag-img" loading="lazy"> <!-- Slightly smaller flag -->
                                     <span class="font-bold ${deviceType === 'mobile' ? 'text-sm' : 'text-base'}">${banner.country.toUpperCase()}</span>
                                     <span class="text-red-400 font-bold ml-2 ${deviceType === 'mobile' ? 'text-xs' : 'text-sm'}">${banner.deadline}</span>
                                 </div>
                             </div>
                             
-                            <h1 class="banner-title ${titleSize} font-bold mb-4 leading-tight"> <!-- REDUCED mb-6 to mb-4 -->
+                            <h1 class="banner-title ${titleSize} font-bold mb-3 leading-tight"> <!-- Further reduced mb-4 to mb-3 -->
                                 ${banner.title}
                             </h1>
-                            <p class="banner-subtitle ${subtitleSize} text-gray-200 mb-6 leading-relaxed"> <!-- REDUCED mb-8 to mb-6 -->
+                            <p class="banner-subtitle ${subtitleSize} text-gray-200 mb-4 leading-relaxed"> <!-- Further reduced mb-6 to mb-4 -->
                                 ${banner.subtitle}
                             </p>
                             
-                            <div class="glass-intense ${paddingClass} rounded-3xl mb-6 max-w-3xl mx-auto"> <!-- REDUCED mb-8 to mb-6 -->
-                                <div class="flex items-center justify-center gap-3 mb-3"> <!-- REDUCED mb-4 to mb-3 -->
+                            <div class="glass-intense ${paddingClass} rounded-3xl mb-4 max-w-3xl mx-auto"> <!-- Further reduced mb-6 to mb-4 -->
+                                <div class="flex items-center justify-center gap-3 mb-2"> <!-- Reduced mb-3 to mb-2 -->
                                     <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
                                     <p class="${deviceType === 'mobile' ? 'text-sm' : 'text-base md:text-lg'} font-bold text-white">${banner.offer}</p>
                                 </div>
@@ -4709,9 +4829,9 @@
                             <div class="text-center">
                                 <a href="tel:+919925081515" 
                                         class="banner-cta bg-gradient-to-r ${banner.color} text-white font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 ${deviceType === 'mobile' ? 'text-sm py-2 px-4' : ''}">
-                                    ${banner.cta} <i class="fas fa-arrow-right ml-3"></i>
+                                    ${banner.cta} <i class="fas fa-arrow-right ml-2"></i> <!-- Reduced ml-3 to ml-2 -->
                                 </a>
-                                <p class="text-gray-400 ${deviceType === 'mobile' ? 'text-xs' : 'text-sm'} mt-4">Free consultation within 24 hours</p>
+                                <p class="text-gray-400 ${deviceType === 'mobile' ? 'text-xs' : 'text-sm'} mt-3">Free consultation within 24 hours</p> <!-- Reduced mt-4 to mt-3 -->
                             </div>
                         </div>
                     </div>
