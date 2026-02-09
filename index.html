@@ -215,7 +215,7 @@
             justify-content: center;
             padding: 0 20px;
             min-height: 80vh;
-            margin-top: 140px; /* REDUCED FROM 150px TO 140px FOR BETTER VISIBILITY */
+            margin-top: 120px; /* FIXED: Reduced from 140px to 120px for better laptop centering */
         }
 
         /* Banner overlay with transparency */
@@ -1172,12 +1172,13 @@
             border-color: rgba(59, 130, 246, 0.3);
         }
 
-        /* Accreditations & Partnerships - FIXED ALIGNMENT */
+        /* FIXED: Accreditations & Partnerships - IMPROVED VERTICAL ALIGNMENT */
         .accreditation-item {
             display: flex;
-            align-items: center;
+            align-items: center !important; /* FORCE VERTICAL ALIGNMENT */
             gap: 1.5rem;
             margin-bottom: 1.5rem;
+            width: 100%;
         }
         
         .accreditation-item .trust-badge {
@@ -1190,15 +1191,20 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             flex-shrink: 0;
+            margin: 0 !important; /* REMOVE MARGINS FOR BETTER ALIGNMENT */
         }
         
         .accreditation-content {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* CENTER CONTENT VERTICALLY */
         }
         
         .accreditation-content h4 {
             margin-bottom: 0.5rem !important;
             font-size: 1.1rem !important;
+            line-height: 1.3 !important;
         }
         
         .accreditation-content p {
@@ -1226,7 +1232,7 @@
                 padding-bottom: 3.5rem !important;
             }
             
-            /* FIXED: MOBILE HEADER - REDUCED MARGIN TOP AND PROPER HEIGHT */
+            /* FIXED: MOBILE HEADER - PROPER ROUNDED CORNERS */
             #main-header {
                 height: 60px !important;
                 top: 0 !important; /* REMOVED MARGIN TOP */
@@ -1236,7 +1242,7 @@
                 margin: 0.8rem auto !important; /* REDUCED MARGIN */
                 padding: 0.6rem 1.2rem !important;
                 max-width: 94%;
-                border-radius: 2rem !important;
+                border-radius: 2rem !important; /* FIXED: Changed from 3rem to 2rem for mobile */
                 background: rgba(255, 255, 255, 0.08) !important;
                 backdrop-filter: blur(20px) !important;
                 border: 1px solid rgba(255, 255, 255, 0.2) !important;
@@ -1457,7 +1463,7 @@
                 font-size: 0.9rem;
             }
             
-            /* MOBILE TRUST SECTION - IMPROVED SPACING */
+            /* MOBILE TRUST SECTION - FIXED VERTICAL ALIGNMENT */
             #trust {
                 padding: 3rem 1rem !important;
             }
@@ -1468,18 +1474,34 @@
                 text-align: center;
             }
             
-            /* Accreditations mobile view */
+            /* FIXED: Accreditations mobile view - IMPROVED VERTICAL ALIGNMENT */
             .accreditation-item {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row !important; /* KEEP HORIZONTAL ON MOBILE */
+                text-align: left;
+                align-items: center !important;
                 gap: 1rem;
                 margin-bottom: 1.5rem;
             }
             
             .accreditation-item .trust-badge {
-                margin: 0 auto;
-                width: 70px;
-                height: 70px;
+                margin: 0 !important;
+                width: 60px !important;
+                height: 60px !important;
+            }
+            
+            .accreditation-content {
+                flex: 1;
+            }
+            
+            .accreditation-content h4 {
+                font-size: 1rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 0.3rem !important;
+            }
+            
+            .accreditation-content p {
+                font-size: 0.8rem !important;
+                line-height: 1.4 !important;
             }
             
             /* Management badges mobile */
@@ -1681,6 +1703,24 @@
                 width: 92%;
             }
             
+            /* FIXED: Accreditations for small mobile */
+            .accreditation-item {
+                gap: 0.8rem;
+            }
+            
+            .accreditation-item .trust-badge {
+                width: 50px !important;
+                height: 50px !important;
+            }
+            
+            .accreditation-content h4 {
+                font-size: 0.9rem !important;
+            }
+            
+            .accreditation-content p {
+                font-size: 0.75rem !important;
+            }
+            
             /* Specific for iPhone SE */
             @media (max-height: 667px) {
                 .hero-section {
@@ -1772,9 +1812,9 @@
             }
             
             .banner-content {
-                margin-top: 120px !important; /* Reduced from 130px */
-                padding: 30px 20px;
-                min-height: calc(90vh - 120px);
+                margin-top: 110px !important; /* FIXED: Reduced from 120px for better centering */
+                padding: 25px 20px; /* FIXED: Reduced padding */
+                min-height: calc(90vh - 110px);
             }
             
             .banner-title {
@@ -1803,6 +1843,21 @@
             
             .banner-nav-arrow.next {
                 right: 20px;
+            }
+            
+            /* FIXED: Trust Section - Tablet vertical alignment */
+            .accreditation-item {
+                align-items: center !important;
+            }
+            
+            .accreditation-item .trust-badge {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .accreditation-content h4 {
+                font-size: 1rem !important;
+                line-height: 1.3 !important;
             }
             
             /* TABLET VISA SECTION */
@@ -1837,7 +1892,7 @@
                 }
                 
                 .banner-content {
-                    margin-top: 110px !important;
+                    margin-top: 100px !important; /* Further reduced for iPad Pro */
                 }
                 
                 .banner-title {
@@ -1856,12 +1911,12 @@
                 }
                 
                 .banner-content {
-                    margin-top: 100px !important;
+                    margin-top: 90px !important; /* Reduced for iPad Air */
                 }
             }
         }
         
-        /* 6. SMALL DESKTOP / LAPTOPS (1025px to 1366px) */
+        /* 6. SMALL DESKTOP / LAPTOPS (1025px to 1366px) - FIXED BANNER SPACING */
         @media screen and (min-width: 1025px) and (max-width: 1366px) {
             /* DESKTOP HEADER - ALWAYS TRANSPARENT */
             #main-header nav {
@@ -1878,31 +1933,31 @@
                 padding: 1rem 2.5rem;
             }
             
-            /* DESKTOP HERO SECTION - FIXED CUTTING ISSUE */
+            /* DESKTOP HERO SECTION - FIXED BANNER SPACING */
             .hero-section {
                 height: 95vh !important;
                 min-height: 800px;
                 max-height: 1100px;
             }
             
-            /* Banner content centered with proper spacing */
+            /* FIXED: Banner content centered with reduced spacing */
             .banner-content {
-                padding: 30px 40px 50px;
+                padding: 20px 30px 40px !important; /* REDUCED PADDING */
                 justify-content: center;
-                margin-top: 140px !important; /* Reduced from 150px */
-                min-height: calc(95vh - 140px);
+                margin-top: 120px !important; /* REDUCED from 140px to 120px */
+                min-height: calc(95vh - 120px);
             }
             
             .banner-title {
                 font-size: 2.8rem !important;
                 line-height: 1.2;
-                margin-bottom: 1.2rem;
+                margin-bottom: 1rem !important; /* REDUCED */
             }
             
             .banner-subtitle {
                 font-size: 1.1rem !important;
                 line-height: 1.6;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem !important; /* REDUCED */
             }
             
             .banner-nav-arrow {
@@ -1917,6 +1972,21 @@
             
             .banner-nav-arrow.next {
                 right: 30px;
+            }
+            
+            /* FIXED: Trust Section - Desktop vertical alignment */
+            #trust .grid {
+                align-items: stretch !important;
+            }
+            
+            .accreditation-item {
+                align-items: center !important;
+                height: 100%;
+            }
+            
+            .accreditation-content {
+                justify-content: center;
+                height: 100%;
             }
             
             /* DESKTOP FOOTER - 4 COLUMN GRID WITH PROPER SPACING */
@@ -1953,12 +2023,21 @@
                 }
                 
                 .banner-content {
-                    margin-top: 130px !important;
+                    margin-top: 110px !important; /* Further reduced for smaller laptops */
+                    padding: 15px 25px 30px !important;
+                }
+                
+                .banner-title {
+                    margin-bottom: 0.8rem !important;
+                }
+                
+                .banner-subtitle {
+                    margin-bottom: 1.2rem !important;
                 }
             }
         }
         
-        /* 7. LARGE DESKTOP / 4K SCREENS (1367px and above) */
+        /* 7. LARGE DESKTOP / 4K SCREENS (1367px and above) - FIXED BANNER SPACING */
         @media screen and (min-width: 1367px) {
             .container {
                 max-width: 1400px !important;
@@ -1968,14 +2047,22 @@
                 max-width: 1400px;
             }
             
+            /* FIXED: Banner spacing for large screens */
+            .banner-content {
+                margin-top: 130px !important; /* Reduced for better centering */
+                padding: 25px 40px 50px !important;
+            }
+            
             .banner-title {
                 font-size: 3.5rem !important;
                 line-height: 1.1;
+                margin-bottom: 1.2rem !important; /* Reduced */
             }
             
             .banner-subtitle {
                 font-size: 1.3rem !important;
                 line-height: 1.6;
+                margin-bottom: 1.8rem !important; /* Reduced */
             }
             
             .banner-nav-arrow {
@@ -2004,10 +2091,12 @@
                 
                 .banner-title {
                     font-size: 4rem !important;
+                    margin-bottom: 1.5rem !important;
                 }
                 
                 .banner-subtitle {
                     font-size: 1.5rem !important;
+                    margin-bottom: 2rem !important;
                 }
             }
         }
@@ -2084,7 +2173,7 @@
             }
             
             .banner-content {
-                margin-top: 110px !important;
+                margin-top: 100px !important; /* Reduced for portrait */
             }
             
             .banner-title {
@@ -2099,7 +2188,7 @@
             }
             
             .banner-content {
-                margin-top: 120px !important;
+                margin-top: 110px !important; /* Reduced for portrait */
             }
         }
         
@@ -2111,7 +2200,7 @@
             }
             
             .banner-content {
-                margin-top: 100px !important;
+                margin-top: 90px !important; /* Reduced for landscape */
             }
         }
         
@@ -2256,16 +2345,27 @@
             padding-top: 2rem !important;
         }
         
-        /* Accreditations alignment fix */
+        /* FIXED: Accreditations vertical alignment for all views */
         .accreditation-item {
             display: flex;
-            align-items: center;
+            align-items: center !important; /* FORCE VERTICAL CENTERING */
             margin-bottom: 1.5rem;
+            height: auto;
         }
         
         .accreditation-item .trust-badge {
             flex-shrink: 0;
             margin-right: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .accreditation-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* VERTICAL CENTERING */
+            height: 100%;
         }
         
         /* Touch-friendly button sizing */
@@ -2945,7 +3045,7 @@
                 <div class="animate-fade-in" style="animation-delay: 0.1s">
                     <h3 class="text-xl font-bold mb-6">Our Accreditations & Memberships</h3>
                     <div class="space-y-5">
-                        <!-- Accreditation Item 1 - FIXED -->
+                        <!-- Accreditation Item 1 - FIXED VERTICAL ALIGNMENT -->
                         <div class="glass-card p-5 rounded-2xl">
                             <div class="accreditation-item">
                                 <div class="trust-badge">
@@ -2958,7 +3058,7 @@
                             </div>
                         </div>
 
-                        <!-- Accreditation Item 2 - FIXED -->
+                        <!-- Accreditation Item 2 - FIXED VERTICAL ALIGNMENT -->
                         <div class="glass-card p-5 rounded-2xl">
                             <div class="accreditation-item">
                                 <div class="trust-badge">
@@ -2971,7 +3071,7 @@
                             </div>
                         </div>
 
-                        <!-- Accreditation Item 3 - FIXED -->
+                        <!-- Accreditation Item 3 - FIXED VERTICAL ALIGNMENT -->
                         <div class="glass-card p-5 rounded-2xl">
                             <div class="accreditation-item">
                                 <div class="trust-badge">
@@ -2989,7 +3089,7 @@
                 <div class="animate-fade-in" style="animation-delay: 0.2s">
                     <h3 class="text-xl font-bold mb-6">University & Embassy Partnerships</h3>
                     <div class="space-y-5">
-                        <!-- Partnership Item 1 - FIXED -->
+                        <!-- Partnership Item 1 - FIXED VERTICAL ALIGNMENT -->
                         <div class="glass-card p-5 rounded-2xl">
                             <div class="accreditation-item">
                                 <div class="trust-badge">
@@ -3002,7 +3102,7 @@
                             </div>
                         </div>
 
-                        <!-- Partnership Item 2 - FIXED -->
+                        <!-- Partnership Item 2 - FIXED VERTICAL ALIGNMENT -->
                         <div class="glass-card p-5 rounded-2xl">
                             <div class="accreditation-item">
                                 <div class="trust-badge">
@@ -3015,7 +3115,7 @@
                             </div>
                         </div>
 
-                        <!-- Partnership Item 3 - FIXED -->
+                        <!-- Partnership Item 3 - FIXED VERTICAL ALIGNMENT -->
                         <div class="glass-card p-5 rounded-2xl">
                             <div class="accreditation-item">
                                 <div class="trust-badge">
@@ -4581,7 +4681,7 @@
                 slide.innerHTML = `
                     <div class="banner-content">
                         <div class="max-w-5xl mx-auto px-4">
-                            <div class="flex justify-center mb-6">
+                            <div class="flex justify-center mb-4"> <!-- REDUCED mb-6 to mb-4 -->
                                 <div class="country-badge glass-intense ${paddingClass}">
                                     <img src="${banner.flag}" alt="${banner.country.toUpperCase()} Flag" class="w-8 h-6 rounded flag-img" loading="lazy">
                                     <span class="font-bold ${deviceType === 'mobile' ? 'text-sm' : 'text-base'}">${banner.country.toUpperCase()}</span>
@@ -4589,15 +4689,15 @@
                                 </div>
                             </div>
                             
-                            <h1 class="banner-title ${titleSize} font-bold mb-6 leading-tight">
+                            <h1 class="banner-title ${titleSize} font-bold mb-4 leading-tight"> <!-- REDUCED mb-6 to mb-4 -->
                                 ${banner.title}
                             </h1>
-                            <p class="banner-subtitle ${subtitleSize} text-gray-200 mb-8 leading-relaxed">
+                            <p class="banner-subtitle ${subtitleSize} text-gray-200 mb-6 leading-relaxed"> <!-- REDUCED mb-8 to mb-6 -->
                                 ${banner.subtitle}
                             </p>
                             
-                            <div class="glass-intense ${paddingClass} rounded-3xl mb-8 max-w-3xl mx-auto">
-                                <div class="flex items-center justify-center gap-3 mb-4">
+                            <div class="glass-intense ${paddingClass} rounded-3xl mb-6 max-w-3xl mx-auto"> <!-- REDUCED mb-8 to mb-6 -->
+                                <div class="flex items-center justify-center gap-3 mb-3"> <!-- REDUCED mb-4 to mb-3 -->
                                     <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
                                     <p class="${deviceType === 'mobile' ? 'text-sm' : 'text-base md:text-lg'} font-bold text-white">${banner.offer}</p>
                                 </div>
